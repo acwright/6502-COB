@@ -1,7 +1,7 @@
-ac6502
-======
+6502-COB
+========
 
-## A 65C02 Based 8-Bit Retro Computer Project
+## 6502-COB 8-Bit Retro Computer Project
 
 ![The ac6502 Project](./Assets/Images/6502.png?raw=true)
 *Shown above is "The VCS" from the ac6502 project. (AI used to clean up photo background. Computer, keyboard, monitor, and OS screenshot are very real!)*
