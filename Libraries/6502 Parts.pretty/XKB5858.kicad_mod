@@ -149,7 +149,7 @@
 		(uuid "adc036ed-94f6-421f-9f2b-a25836bc6f48")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Libraries/Models/XKB5858.step"
+	(model "${KIPRJMOD}/../../../Models/XKB5858.step"
 		(offset
 			(xyz 0 0 0.4)
 		)

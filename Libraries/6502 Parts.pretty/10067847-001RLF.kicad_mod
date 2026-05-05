@@ -1008,7 +1008,7 @@
 		)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Libraries/Models/10067847-001RLF.step"
+	(model "${KIPRJMOD}/../../../Models/10067847-001RLF.step"
 		(offset
 			(xyz 0.5 23.5 0)
 		)

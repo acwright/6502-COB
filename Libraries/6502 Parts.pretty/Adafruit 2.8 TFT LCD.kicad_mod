@@ -599,7 +599,7 @@
 		(uuid "321e80aa-4dda-45c5-92c9-98340dd842aa")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Libraries/Models/Adafruit 2.8 TFT LCD.step"
+	(model "${KIPRJMOD}/../../../Models/Adafruit 2.8 TFT LCD.step"
 		(offset
 			(xyz 0 0 10)
 		)
