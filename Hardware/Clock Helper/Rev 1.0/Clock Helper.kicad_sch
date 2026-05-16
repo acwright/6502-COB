@@ -3337,7 +3337,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" ""
 			(at 105.41 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -3508,7 +3508,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-W"
+		(property "LCSC" "XKB5858-W"
 			(at 127 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -3689,7 +3689,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" ""
 			(at 100.33 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -3779,7 +3779,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-Z"
+		(property "LCSC" "XKB5858-Z"
 			(at 90.17 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -3881,7 +3881,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-Z"
+		(property "LCSC" "XKB5858-Z"
 			(at 172.72 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -3926,7 +3926,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4073,7 +4073,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-W"
+		(property "LCSC" "XKB5858-W"
 			(at 110.49 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -4175,7 +4175,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" ""
 			(at 96.52 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4257,17 +4257,6 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 91.44 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
 			(at 91.44 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -4517,7 +4506,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C49678"
+		(property "LCSC" ""
 			(at 236.22 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -4686,7 +4675,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-Z"
+		(property "LCSC" "XKB5858-Z"
 			(at 130.81 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -4780,17 +4769,6 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 186.69 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
 			(at 186.69 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -4961,7 +4939,7 @@
 				)
 			)
 		)
-		(property "MPN" "XKB5858-Z"
+		(property "LCSC" "XKB5858-Z"
 			(at 127 76.2 0)
 			(hide yes)
 			(show_name no)

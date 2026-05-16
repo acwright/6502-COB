@@ -1,0 +1,4 @@
+"Reference","Qty","Value","Description","Footprint","Digikey"
+"J1","1","PORT","Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 GPIO Connector",""
+"J2","1","DB9 MALE","9-pin D-SUB connector, pins (male), Mounting Hole","Connector_Dsub:DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm","609-1481-ND"
+"R1,R2,R3,R4,R5,R6,R7,R8","8","1K","Resistor","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal",""

@@ -1,0 +1,5 @@
+"Reference","Qty","Value","Description","Footprint","LCSC"
+"C1,C2,C3","3","100nF","","Capacitor_SMD:C_0805_2012Metric","C49678"
+"J2","1","Conn_02x20_Odd_Even","","Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical",""
+"J3","1","Conn_02x04_Odd_Even","","Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical",""
+"U1","1","74HC138","3-to-8 line decoder/multiplexer inverting, DIP-16/SOIC-16/SSOP-16","Package_SO:SOIC-16_3.9x9.9mm_P1.27mm","C5602"

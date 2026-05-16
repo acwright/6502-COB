@@ -1,0 +1,3 @@
+"Reference","Qty","Value","Description","Footprint","Mouser","Digikey"
+"J1,J2,J3,J4,J5","5","6502 Card Connector","Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:RHDR40W82P485X254_2X20_5740X93","571-5-5530843-4","A31723-ND"
+"J6,J7","2","6502 Bus","Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 Bus Connector","","732-5401-ND"

@@ -1,0 +1,3 @@
+"Reference","Qty","Value","Description","Footprint"
+"A1","1","Arduino Mega2560 R3 Shield","Shield for Arduino Mega 2560 R3","6502 Parts:Arduino Giga R1 WiFi Shield"
+"J1","1","6502 BUS","Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 Bus Connector"

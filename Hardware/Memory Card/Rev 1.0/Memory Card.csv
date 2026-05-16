@@ -1,0 +1,8 @@
+"Reference","Qty","Value","Description","Footprint","LCSC"
+"C1,C2,C3,C4,C5","5","100nF","","Capacitor_SMD:C_0805_2012Metric","C49678"
+"J2","1","Conn_02x02_Odd_Even","","Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical",""
+"J3","1","Conn_02x01","","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",""
+"R1,R2","2","1k","","Resistor_SMD:R_0805_2012Metric","C17513"
+"U1,U2,U5","3","74HC00","","Package_SO:SOIC-14_3.9x8.7mm_P1.27mm","C5586"
+"U3","1","AS6C62256","","Package_DIP:DIP-28_W15.24mm_Socket_LongPads",""
+"U4","1","AT28C256","","Package_DIP:DIP-28_W15.24mm_Socket_LongPads",""

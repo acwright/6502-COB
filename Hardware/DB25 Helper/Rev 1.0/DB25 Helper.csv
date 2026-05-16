@@ -1,0 +1,4 @@
+"Reference","Qty","Value","Description","Footprint","Digikey"
+"J1","1","PORT A","Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 GPIO Connector",""
+"J2","1","PORT B","Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 GPIO Connector",""
+"J3","1","KEYBOARD","25-pin D-SUB connector, pins (male), Mounting Hole","Connector_Dsub:DSUB-25_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm","609-1505-ND"
