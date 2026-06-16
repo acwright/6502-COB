@@ -1,7 +1,0 @@
-"Reference","Qty","Value","Description","Footprint","LCSC"
-"C1,C2","2","100nF","","Capacitor_SMD:C_0805_2012Metric","C49678"
-"D1","1","D_Schottky","Schottky diode","Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal",""
-"J2","1","INT Select","Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",""
-"J3","1","Conn_02x08_Odd_Even","","Connector_PinHeader_2.54mm:PinHeader_2x08_P2.54mm_Vertical",""
-"U1","1","Pico9918A","","Package_DIP:DIP-40_W15.24mm_LongPads",""
-"U2,U3","2","74HC138","3-to-8 line decoder/multiplexer inverting, DIP-16/SOIC-16/SSOP-16","Package_SO:SOIC-16_3.9x9.9mm_P1.27mm","C5602"

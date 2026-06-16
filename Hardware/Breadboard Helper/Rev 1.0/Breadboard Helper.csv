@@ -1,3 +1,0 @@
-"Reference","Qty","Value","Footprint","Description","Digikey"
-"J1","1","6502 Bus","Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical","Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","732-5401-ND"
-"J2,J3","2","Conn_01x20","Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical","Generic connector, single row, 01x20, script generated (kicad-library-utils/schlib/autogen/connector/)",""

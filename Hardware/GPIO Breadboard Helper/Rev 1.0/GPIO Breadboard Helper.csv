@@ -1,5 +1,0 @@
-"Reference","Qty","Value","Description","Footprint"
-"J1","1","PORT A","Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 GPIO Connector"
-"J2","1","PORT A","Generic connector, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)","Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical"
-"J3","1","PORT B","Generic connector, single row, 01x12, script generated (kicad-library-utils/schlib/autogen/connector/)","Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical"
-"J4","1","PORT B","Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)","6502 Parts:6502 GPIO Connector"

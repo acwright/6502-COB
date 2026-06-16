@@ -7,6 +7,62 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Systems](#systems)
+- [Software](#software)
+- [Hardware](#hardware)
+  - [Backplanes](#backplanes)
+  - [Cards](#cards)
+  - [Helpers](#helpers)
+- [Firmware](#firmware)
+  - [KEH Controller](#keh-controller)
+  - [PS2 Keyboard Controller](#ps2-keyboard-controller)
+  - [STP Controller](#stp-controller)
+- [CAD](#cad)
+- [Production](#production)
+- [Schematics](#schematics)
+- [Libraries](#libraries)
+- [Bill of Materials](#bill-of-materials)
+  - [Backplane](#backplane)
+  - [Backplane Helper](#backplane-helper)
+  - [Backplane Pro](#backplane-pro)
+  - [Blinkenlights Card](#blinkenlights-card)
+  - [Breadboard Helper](#breadboard-helper)
+  - [Clock Helper](#clock-helper)
+  - [CPU Card](#cpu-card)
+  - [CPU Card Pro](#cpu-card-pro)
+  - [DB25 Helper](#db25-helper)
+  - [GPIO Breadboard Helper](#gpio-breadboard-helper)
+  - [GPIO Card](#gpio-card)
+  - [GPIO Helper](#gpio-helper)
+  - [Joystick Helper](#joystick-helper)
+  - [Keyboard Encoder Helper](#keyboard-encoder-helper)
+  - [Keyboard Helper](#keyboard-helper)
+  - [LCD Board](#lcd-board)
+  - [LCD Card](#lcd-card)
+  - [Mega Helper](#mega-helper)
+  - [Memory Card](#memory-card)
+  - [Prototype Card](#prototype-card)
+  - [PS2 Helper](#ps2-helper)
+  - [RAM Card](#ram-card)
+  - [RTC Card](#rtc-card)
+  - [Serial Card](#serial-card)
+  - [Serial Card Pro](#serial-card-pro)
+  - [Sound Card](#sound-card)
+  - [Storage Card](#storage-card)
+  - [Storage Card Pro](#storage-card-pro)
+  - [VERA Helper](#vera-helper)
+  - [VGA Card](#vga-card)
+  - [VGA Card Pro](#vga-card-pro)
+  - [Video Card](#video-card)
+  - [Video Card Pro](#video-card-pro)
+- [License](#license)
+
+---
+
 ## Overview
 
 The AC6502 ecosystem is a family of open-source, 65C02-based computers sharing a common architecture, memory map, and [BIOS](https://github.com/acwright/6502-BIOS). Each computer in the family is purpose-built for a different use case but runs the same software and firmware.
@@ -178,6 +234,452 @@ PDF schematics for each board.
 `Libraries/`
 
 Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects.
+
+## Bill of Materials
+
+### Backplane
+
+| Reference | Qty | Value | Description | DigiKey | Mouser |
+|-----------|-----|-------|-------------|---------|--------|
+| J1–J5 | 5 | 6502 Card Connector | Card Edge 2×20 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
+| J6, J7 | 2 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | |
+
+### Backplane Helper
+
+| Reference | Qty | Value | Description | DigiKey | Mouser |
+|-----------|-----|-------|-------------|---------|--------|
+| J1, J2 | 2 | 6502 Card Connector | Card Edge 2×20 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
+| J3 | 1 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | |
+
+### Backplane Pro
+
+| Reference | Qty | Value | Description | LCSC | DigiKey | Mouser |
+|-----------|-----|-------|-------------|------|---------|--------|
+| C1, C3–C14 | 13 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
+| C2 | 1 | 10uF | Polarized capacitor | [C7171](https://www.lcsc.com/search?q=C7171) | | |
+| D1 | 1 | 1N5819 | Schottky Diode SOD-323F | [C191023](https://www.lcsc.com/search?q=C191023) | | |
+| D2 | 1 | LED | LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) | | |
+| J1 | 1 | PWR_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
+| J2 | 1 | USB-C | USB 2.0 Type-C Receptacle | [C2988369](https://www.lcsc.com/search?q=C2988369) | | |
+| J3 | 1 | RESET_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
+| J4 | 1 | CLOCK_ENBL_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
+| J5–J9 | 5 | 6502 Card Connector | Card Edge 2×20 | | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
+| J10 | 1 | 6502 Bus | Bus Connector 2×20 | | | |
+| Q1 | 1 | SS8050 | NPN Transistor SOT-23 | [C2150](https://www.lcsc.com/search?q=C2150) | | |
+| R1 | 1 | 1M | Resistor | [C17514](https://www.lcsc.com/search?q=C17514) | | |
+| R2 | 1 | 47k | Resistor | [C17713](https://www.lcsc.com/search?q=C17713) | | |
+| R3 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | | |
+| R4 | 1 | 10k | Resistor | [C17414](https://www.lcsc.com/search?q=C17414) | | |
+| R5, R6 | 2 | 5.1k | Resistor | [C27834](https://www.lcsc.com/search?q=C27834) | | |
+| R7 | 1 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) | | |
+| SW1 | 1 | Reset | Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | |
+| U1 | 1 | LM555xM | Timer SOIC-8 | [C7593](https://www.lcsc.com/search?q=C7593) | | |
+| X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | | | |
+
+### Blinkenlights Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C4 | 4 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1–D25 | 25 | LED | LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) |
+| D26, D27 | 2 | LED | LED 0805 | [C2295](https://www.lcsc.com/search?q=C2295) |
+| D28–D30 | 3 | LED | LED 0805 | [C2296](https://www.lcsc.com/search?q=C2296) |
+| D31, D32 | 2 | LED | LED 0805 | [C2293](https://www.lcsc.com/search?q=C2293) |
+| R1–R32 | 32 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) |
+| U1, U2, U4 | 3 | 74HC573 | 8-bit Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
+| U3 | 1 | 74HC04 | Hex Inverter SOIC-14 | [C5590](https://www.lcsc.com/search?q=C5590) |
+
+### Breadboard Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| J1 | 1 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) |
+| J2, J3 | 2 | Pin Header | Pin Header 1×20 | |
+
+### Clock Helper
+
+| Reference | Qty | Value | Description |
+|-----------|-----|-------|-------------|
+| C1 | 1 | 100nF | Capacitor |
+| D1, D2 | 2 | LED | LED 3mm |
+| J1 | 1 | IO | Pin Header 1×5 |
+| R1–R5 | 5 | 1k | Resistor |
+| R6–R8 | 3 | 330 | Resistor |
+| SW1, SW2 | 2 | XKB5858-Z | DPDT Toggle Switch |
+| SW3 | 1 | XKB5858-W | DPDT Toggle Switch |
+| U1 | 1 | 74HC74 | Dual D Flip-flop DIP-14 |
+
+### CPU Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1 | 1 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| J2 | 1 | Pin Header | Pin Header 1×2 | |
+| J3 | 1 | EXP | Pin Header 2×5 | |
+| R1–R6 | 6 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| U1 | 1 | 65C02 | CPU DIP-40 | |
+
+### CPU Card Pro
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C4 | 4 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| J2 | 1 | BANK ADDR | Pin Header 2×5 | |
+| J3 | 1 | EXP | Pin Header 2×4 | |
+| R1–R6 | 6 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| U1 | 1 | 65C816 | CPU DIP-40 | |
+| U2 | 1 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
+| U3 | 1 | 74HC245 | Octal Bus Transceiver TSSOP-20 | [C5626](https://www.lcsc.com/search?q=C5626) |
+| U4 | 1 | 74HC573 | 8-bit Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
+
+### DB25 Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| J1 | 1 | PORT A | GPIO Connector 2×6 | |
+| J2 | 1 | PORT B | GPIO Connector 2×6 | |
+| J3 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
+
+### GPIO Breadboard Helper
+
+| Reference | Qty | Value | Description |
+|-----------|-----|-------|-------------|
+| J1 | 1 | PORT A | GPIO Connector 2×6 |
+| J2 | 1 | PORT A | Pin Header 1×12 |
+| J3 | 1 | PORT B | Pin Header 1×12 |
+| J4 | 1 | PORT B | GPIO Connector 2×6 |
+
+### GPIO Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1, C2 | 2 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| J2 | 1 | IO SELECT | Pin Header 2×8 | |
+| J3 | 1 | PORT A | GPIO Connector 2×6 | |
+| J4 | 1 | PORT B | GPIO Connector 2×6 | |
+| U1 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+| U2 | 1 | 65C22 | VIA DIP-40 | |
+
+### GPIO Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| D1–D8 | 8 | LED | LED 3mm | |
+| J1 | 1 | PORT A | GPIO Connector 2×6 | |
+| J2 | 1 | PORT B | GPIO Connector 2×6 | |
+| R1–R8 | 8 | 1k | Resistor | |
+| R9–R16 | 8 | 330 | Resistor | |
+| SW1–SW8 | 8 | Push Button | Push Button 6mm | [2223-TS02-66-50-BK-160-LCR-D-ND](https://www.digikey.com/en/products/filter?keywords=2223-TS02-66-50-BK-160-LCR-D-ND) |
+
+### Joystick Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| J1 | 1 | PORT | GPIO Connector 2×6 | |
+| J2 | 1 | DB-9 Male | DB-9 Connector (Male) | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
+| R1–R8 | 8 | 1k | Resistor | |
+
+### Keyboard Encoder Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| C1, C4 | 2 | 100nF | Capacitor | |
+| C2, C3 | 2 | 22pF | Capacitor | |
+| J1 | 1 | PORT B | GPIO Connector 2×6 | |
+| J2 | 1 | PORT A | GPIO Connector 2×6 | |
+| J3 | 1 | PS/2 KEYBOARD | 6-pin Mini-DIN | |
+| J4 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
+| R1 | 1 | 1k | Resistor | |
+| U1 | 1 | ATmega1284-P | MCU DIP-40 | |
+| Y1 | 1 | 16 MHz | Crystal HC49-U | [3155-16M20P2/49US-ND](https://www.digikey.com/en/products/filter?keywords=3155-16M20P2/49US-ND) |
+
+### Keyboard Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| J1, J2 | 2 | JOYSTICK | DB-9 Connector (Male) | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
+| J3, J4 | 2 | JOYSTICK | GPIO Connector 2×6 | |
+| J5, J6 | 2 | PORT | GPIO Connector 2×6 | |
+| J7 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
+| R1–R16 | 16 | 1k | Resistor | |
+| SW1–SW67 | 67 | Cherry MX | Key Switch | |
+
+### LCD Board
+
+| Reference | Qty | Value | Description |
+|-----------|-----|-------|-------------|
+| C1–C4 | 4 | 100nF | Capacitor |
+| D1, D2 | 2 | Schottky Diode | Schottky Diode DO-35 |
+| J1 | 1 | 6502 Bus | Bus Connector 2×20 |
+| J2 | 1 | IO SELECT | Pin Header 2×8 |
+| J3 | 1 | HVSYNC | Pin Header 1×1 |
+| R1 | 1 | 10k | Resistor |
+| U1 | 1 | 65C22 | VIA DIP-40 |
+| U2 | 1 | Adafruit 2.8" TFT | TFT LCD Module |
+| U3 | 1 | 74HC138 | Decoder DIP-16 |
+
+### LCD Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1, C2 | 2 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| J2 | 1 | GPIO | Pin Header 1×7 | |
+| J3 | 1 | IO SELECT | Pin Header 2×8 | |
+| R1 | 1 | R | Resistor | |
+| U1 | 1 | 65C22 | VIA DIP-40 | |
+| U2 | 1 | LCD-16X2 | 16×2 Character LCD | |
+| U3 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+| VR1 | 1 | 10k | Potentiometer | |
+
+### Mega Helper
+
+| Reference | Qty | Value | Description |
+|-----------|-----|-------|-------------|
+| A1 | 1 | Arduino Mega 2560 | Arduino Mega 2560 R3 Shield |
+| J1 | 1 | 6502 Bus | Bus Connector 2×20 |
+
+### Memory Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C5 | 5 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| J2 | 1 | Pin Header | Pin Header 2×2 | |
+| J3 | 1 | Pin Header | Pin Header 1×2 | |
+| R1, R2 | 2 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| U1, U2, U5 | 3 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
+| U3 | 1 | AS6C62256 | SRAM DIP-28 | |
+| U4 | 1 | AT28C256 | EEPROM DIP-28 | |
+
+### Prototype Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C3 | 3 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| J2 | 1 | Bus Header | Pin Socket 2×20 | |
+| J3 | 1 | EXP | Pin Header 2×4 | |
+| U1 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+
+### PS2 Helper
+
+| Reference | Qty | Value | Description |
+|-----------|-----|-------|-------------|
+| C1–C3 | 3 | 100nF | Disc Capacitor |
+| C4, C5 | 2 | 22pF | Disc Capacitor |
+| J1 | 1 | PORT A | GPIO Connector 2×6 |
+| J2 | 1 | PORT B | GPIO Connector 2×6 |
+| J3 | 1 | PS/2 | Mini-DIN 6-pin |
+| J4 | 1 | JOYSTICK | GPIO Connector 2×6 |
+| R1–R9 | 9 | 1k | Resistor |
+| U1 | 1 | MT8808 | Analog Matrix Switch DIP-28 |
+| U2 | 1 | ATmega328 | MCU DIP-28 |
+| Y1 | 1 | 16 MHz | Crystal |
+
+### RAM Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C7 | 7 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| J2 | 1 | LATCH EN | Pin Header 1×2 | |
+| J3 | 1 | Conn_02x08 | Pin Header 2×8 | |
+| J4 | 1 | BANK ADDR | Pin Header 2×5 | |
+| R1, R2 | 2 | 10k | Resistor | [C17414](https://www.lcsc.com/search?q=C17414) |
+| U1 | 1 | AS6C4008 | SRAM DIP-32 | |
+| U2 | 1 | 74HC573 | Octal Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
+| U3, U6 | 2 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
+| U4 | 1 | 74HC21 | Dual 4-input AND SOIC-14 | [C75398](https://www.lcsc.com/search?q=C75398) |
+| U5 | 1 | 74HC30 | 8-input NAND SOIC-14 | [C19818870](https://www.lcsc.com/search?q=C19818870) |
+| U7 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+
+### RTC Card
+
+| Reference | Qty | Value | Description | LCSC | DigiKey |
+|-----------|-----|-------|-------------|------|---------|
+| BT1 | 1 | BAT-HLD-001-THM | Coin Cell Battery Holder | | |
+| C1–C3 | 3 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
+| J2 | 1 | AUX | Pin Header 1×6 | | |
+| J3 | 1 | INT Select | Pin Header 1×3 | | |
+| J4 | 1 | Conn_02x08 | Pin Header 2×8 | | |
+| R1 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
+| U1 | 1 | DS1511Y | RTC DIP-28 | | [DS1511Y+-ND](https://www.digikey.com/en/products/filter?keywords=DS1511Y+-ND) |
+| U2, U3 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
+
+### Serial Card
+
+| Reference | Qty | Value | Description | LCSC | DigiKey |
+|-----------|-----|-------|-------------|------|---------|
+| C1, C6, C8 | 3 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
+| C2–C5 | 4 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
+| C7 | 1 | 22pF | Unpolarized Capacitor | [C1804](https://www.lcsc.com/search?q=C1804) | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
+| J2 | 1 | DB9 FEMALE (DCE) | DB-9 Connector (Female) | | [609-1487-ND](https://www.digikey.com/en/products/filter?keywords=609-1487-ND) |
+| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | |
+| J4 | 1 | CTS EN | Pin Header 1×3 | | |
+| R1 | 1 | 1M | Resistor | [C103906](https://www.lcsc.com/search?q=C103906) | |
+| U1 | 1 | MAX232 | RS-232 Driver/Receiver | [C59824](https://www.lcsc.com/search?q=C59824) | |
+| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
+| U3 | 1 | 6551 | ACIA DIP-28 | | |
+| Y1 | 1 | 1.8432 MHz | Crystal | | |
+
+### Serial Card Pro
+
+| Reference | Qty | Value | Description | LCSC | DigiKey |
+|-----------|-----|-------|-------------|------|---------|
+| C1, C2, C11, C13 | 4 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
+| C3–C10 | 8 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
+| C12 | 1 | 22pF | Unpolarized Capacitor | [C1804](https://www.lcsc.com/search?q=C1804) | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
+| J2 | 1 | DB9 MALE (DTE) | DB-9 Connector (Male) | | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
+| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | |
+| J4 | 1 | DCD Select | Pin Header 1×3 | | |
+| R1 | 1 | 1M | Resistor | [C103906](https://www.lcsc.com/search?q=C103906) | |
+| U1, U2 | 2 | MAX232 | RS-232 Driver/Receiver | [C59824](https://www.lcsc.com/search?q=C59824) | |
+| U3 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
+| U4 | 1 | 6551 | ACIA DIP-28 | | |
+| Y1 | 1 | 1.8432 MHz | Crystal | | |
+
+### Sound Card
+
+| Reference | Qty | Value | Description | LCSC | DigiKey |
+|-----------|-----|-------|-------------|------|---------|
+| C1, C2 | 2 | 2.2nF | Unpolarized Capacitor | [C28260](https://www.lcsc.com/search?q=C28260) | |
+| C3, C5 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
+| C4 | 1 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
+| J2 | 1 | VDD | JST XH 1×2 | | |
+| J3 | 1 | AUDIO | RCA Connector | | [PJRAN1X1U02X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U02X/1832412) |
+| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | |
+| R1 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
+| U1 | 1 | 6581 | SID Chip DIP-28 | | |
+| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
+
+### Storage Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1 | 1 | LED | Activity LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) |
+| J2 | 1 | Conn_02x08 | Pin Header 2×8 | |
+| J3 | 1 | Compact Flash | CompactFlash Connector | [C444350](https://www.lcsc.com/search?q=C444350) |
+| J4 | 1 | ACT LED | JST XH 1×2 | |
+| R1–R4 | 4 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| R5, R6 | 2 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) |
+| U1 | 1 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
+| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+
+### Storage Card Pro
+
+| Reference | Qty | Value | Description | LCSC | DigiKey |
+|-----------|-----|-------|-------------|------|---------|
+| C1–C4, C7, C8 | 6 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
+| C5, C6 | 2 | 22pF | Disc Capacitor | [C107114](https://www.lcsc.com/search?q=C107114) | |
+| C9, C10 | 2 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
+| D1 | 1 | LED | Activity LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) | |
+| J1 | 1 | ACT LED | JST XH 1×2 | | |
+| J3 | 1 | SPI | Pin Header 1×6 | | |
+| J4 | 1 | SD CARD | SD Card Connector | [C569097](https://www.lcsc.com/search?q=C569097) | |
+| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | |
+| R1, R2 | 2 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) | |
+| R3, R4 | 2 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
+| U1 | 1 | TXS0108EPW | Level Shifter TSSOP-20 | [C17206](https://www.lcsc.com/search?q=C17206) | |
+| U2 | 1 | ATmega328 | MCU DIP-28 | | |
+| U3 | 1 | W25Q128JVS | Flash Memory SOIC-8 | [C97521](https://www.lcsc.com/search?q=C97521) | |
+| U4 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
+| U5 | 1 | LP2985-3.3 | LDO Regulator 3.3V SOT-23-5 | [C95414](https://www.lcsc.com/search?q=C95414) | |
+| Y1 | 1 | 16 MHz | Crystal | | [3155-16M20P2/49US-ND](https://www.digikey.com/en/products/filter?keywords=3155-16M20P2/49US-ND) |
+
+### VERA Helper
+
+| Reference | Qty | Value | Description | DigiKey |
+|-----------|-----|-------|-------------|---------|
+| C1, C2 | 2 | 100nF | Disc Capacitor | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| J1 | 1 | 6502 Bus | Bus Connector 2×20 | |
+| J2 | 1 | VERA Module | Pin Header 2×12 | |
+| J3 | 1 | Audio L | RCA Connector | [PJRAN1X1U02X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U02X/1832412) |
+| J4 | 1 | Audio R | RCA Connector | [PJRAN1X1U03X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U03X/1832413) |
+| J5 | 1 | INT Select | Pin Header 1×3 | |
+| J6 | 1 | Conn_02x08 | Pin Header 2×8 | |
+| U1, U2 | 2 | 74HC138 | Decoder DIP-16 | |
+
+### VGA Card
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| J2 | 1 | INT Select | Pin Header 1×3 | |
+| J3 | 1 | Conn_02x08 | Pin Header 2×8 | |
+| U1 | 1 | Pico9918A | VDP Module DIP-40 | |
+| U2, U3 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+
+### VGA Card Pro
+
+| Reference | Qty | Value | Description | LCSC |
+|-----------|-----|-------|-------------|------|
+| C1–C6 | 6 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| J2 | 1 | VGA | DB-15 VGA Connector (Female) | |
+| J3 | 1 | INT Select | Pin Header 1×3 | |
+| J4 | 1 | Conn_02x08 | Pin Header 2×8 | |
+| Q1 | 1 | BSS138 | N-Channel MOSFET SOT-23 | [C78284](https://www.lcsc.com/search?q=C78284) |
+| R1, R2, R4, R7 | 4 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| R3, R6 | 2 | 2.2k | Resistor | [C17520](https://www.lcsc.com/search?q=C17520) |
+| R5, R8 | 2 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) |
+| R9 | 1 | 820 | Resistor | [C17837](https://www.lcsc.com/search?q=C17837) |
+| R10 | 1 | 390 | Resistor | [C17655](https://www.lcsc.com/search?q=C17655) |
+| R11, R12 | 2 | 22 | Resistor | [C17561](https://www.lcsc.com/search?q=C17561) |
+| U1 | 1 | SN74LVC4245APWR | Octal Bus Transceiver TSSOP-24 | [C7859](https://www.lcsc.com/search?q=C7859) |
+| U2 | 1 | 74LVC245 | Octal Bus Transceiver TSSOP-20 | [C6082](https://www.lcsc.com/search?q=C6082) |
+| U3 | 1 | Raspberry Pi Pico | MCU Module | |
+| U4 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+| U5 | 1 | 74LVC138 | Decoder SOIC-16 | [C6061](https://www.lcsc.com/search?q=C6061) |
+
+### Video Card
+
+| Reference | Qty | Value | Description | LCSC | Mouser | DigiKey |
+|-----------|-----|-------|-------------|------|--------|---------|
+| C1, C2 | 2 | 32pF | Disc Capacitor | [C107114](https://www.lcsc.com/search?q=C107114) | | |
+| C3–C10 | 8 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | | |
+| FB1 | 1 | BLM41PG600SN1L | Ferrite Bead 1806 | [C85844](https://www.lcsc.com/search?q=C85844) | | |
+| J1 | 1 | INT Select | Pin Header 1×3 | | | |
+| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | | |
+| J4 | 1 | VIDEO | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
+| Q1 | 1 | 2N4401 | NPN BJT TO-92 | | | |
+| R1 | 1 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) | | |
+| R2 | 1 | 75 | Resistor | [C17820](https://www.lcsc.com/search?q=C17820) | | |
+| U1 | 1 | TMS9918A | VDP DIP-40 | | | |
+| U2, U5, U6 | 3 | 74HCT574 | 8-bit Register SOIC-20 | [C6001](https://www.lcsc.com/search?q=C6001) | | |
+| U3, U4 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | | |
+| U7 | 1 | AS6C62256 | SRAM DIP-28 | | | |
+| U8 | 1 | 74HCT04 | Hex Inverter SO-14 | [C672096](https://www.lcsc.com/search?q=C672096) | | |
+| Y1 | 1 | 10.738635 MHz | Crystal | | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) | |
+
+### Video Card Pro
+
+| Reference | Qty | Value | Description | LCSC | Mouser | DigiKey |
+|-----------|-----|-------|-------------|------|--------|---------|
+| C1, C2 | 2 | 20pF | Disc Capacitor | [C105173](https://www.lcsc.com/search?q=C105173) | | |
+| C3–C10 | 8 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
+| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | | |
+| FB1 | 1 | BLM41PG600SN1L | Ferrite Bead 1806 | [C85844](https://www.lcsc.com/search?q=C85844) | | |
+| J1 | 1 | VIDEO | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
+| J2 | 1 | SERIAL | Pin Header 1×4 | | | |
+| J3 | 1 | INT Select | Pin Header 1×3 | | | |
+| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | | |
+| Q1 | 1 | 2N4401 | NPN BJT TO-92 | | | |
+| R1, R2 | 2 | 4.7k | Resistor | | | |
+| R3 | 1 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) | | |
+| R4 | 1 | 75 | Resistor | [C17820](https://www.lcsc.com/search?q=C17820) | | |
+| R5 | 1 | 1k | Resistor | | | |
+| U1, U4 | 2 | 74HC157 | Quad 2-to-1 Mux SOIC-16 | [C6823](https://www.lcsc.com/search?q=C6823) | | |
+| U2, U5 | 2 | 74HC166 | Shift Register SOIC-16 | [C473363](https://www.lcsc.com/search?q=C473363) | | |
+| U3 | 1 | ATmega1284-P | MCU DIP-40 | | | |
+| U6 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | | |
+| VR1, VR2 | 2 | 10k | Potentiometer | | | |
+| Y1 | 1 | 14.31818 MHz | Crystal | | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) | |
 
 ## License
 
