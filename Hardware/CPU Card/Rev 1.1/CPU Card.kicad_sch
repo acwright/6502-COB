@@ -7,7 +7,7 @@
 	(title_block
 		(title "6502 CPU Card")
 		(date "2024-07-03")
-		(rev "1.0")
+		(rev "1.1")
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
@@ -6418,7 +6418,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -6627,7 +6627,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 50.3936 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6670,7 +6670,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -6717,7 +6717,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 58.0136 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6760,7 +6760,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -6807,7 +6807,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 65.6336 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6850,7 +6850,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -6897,7 +6897,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 73.2536 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6940,7 +6940,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6987,7 +6987,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 80.8736 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7030,7 +7030,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -7312,7 +7312,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -7510,7 +7510,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "10k"
 			(at 208.28 88.4936 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7553,7 +7553,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2930231"
 			(at 208.28 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -7821,7 +7821,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)

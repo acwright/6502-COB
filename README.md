@@ -319,6 +319,16 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | R1–R6 | 6 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
 | U1 | 1 | 65C02 | CPU DIP-40 | |
 
+#### Revision History
+
+**Rev 1.1**
+
+- Pull-up resistors changed from 1kΩ to 10kΩ.
+
+**Rev 1.0**
+
+- Initial release.
+
 ### CPU Card Pro
 
 | Reference | Qty | Value | Description | LCSC |
