@@ -316,7 +316,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | C1 | 1 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
 | J2 | 1 | Pin Header | Pin Header 1×2 | |
 | J3 | 1 | EXP | Pin Header 2×5 | |
-| R1–R6 | 6 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
+| R1–R6 | 6 | 10k | Resistor | [C2930231](https://www.lcsc.com/search?q=C2930231) |
 | U1 | 1 | 65C02 | CPU DIP-40 | |
 
 #### Revision History
