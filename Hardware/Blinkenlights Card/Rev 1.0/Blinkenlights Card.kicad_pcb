@@ -17850,7 +17850,7 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "RSB"
+	(gr_text "RESB"
 		(at 112.8011 109.8136 0)
 		(layer "F.SilkS")
 		(uuid "4b906fc4-8087-4f45-a40f-aef6b1ab08cb")
