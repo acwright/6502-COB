@@ -59,6 +59,7 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
   - [VGA Card Pro](#vga-card-pro)
   - [Video Card](#video-card)
   - [Video Card Pro](#video-card-pro)
+- [Purchase](#purchase)
 - [License](#license)
 
 ---
@@ -690,6 +691,12 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | U6 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | | |
 | VR1, VR2 | 2 | 10k | Potentiometer | | | |
 | Y1 | 1 | 14.31818 MHz | Crystal | | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) | |
+
+## Purchase
+
+I have a few PCBs available on Tindie for those interested in building their own AC6502 system without ordering from a fab directly.
+
+<a href="https://www.tindie.com/stores/acwrightdesign/?ref=offsite_badges&utm_source=sellers_acwrightdesign&utm_medium=badges&utm_campaign=badge_medium"><img src="https://static.tindie.com/badges/tindie-mediums.png" alt="I sell on Tindie" width="150" height="78"></a>
 
 ## License
 
