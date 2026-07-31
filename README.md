@@ -95,10 +95,17 @@ All AC6502 computers share:
 | Project | Description |
 |---------|-------------|
 | [6502-BIOS](https://github.com/acwright/6502-BIOS) | The shared BIOS (kernel, monitor, BASIC) for all AC6502 computers |
+| [6502-EMULATOR](https://github.com/acwright/6502-EMULATOR) | Emulator for the whole family — desktop app, browser build, and a command line for scripted runs |
 | [6502-PRG](https://github.com/acwright/6502-PRG) | Template project for writing assembly language programs |
 | [6502-CRT](https://github.com/acwright/6502-CRT) | Template project for writing assembly language cartridges |
-| [6502-EMULATOR](https://github.com/acwright/6502-EMULATOR) | Node.js-based AC6502 emulator |
-| [6502-WEBULATOR](https://github.com/acwright/6502-WEBULATOR) | Web-based AC6502 emulator |
+| [6502-ASM](https://github.com/acwright/6502-ASM) | Assembly language example programs and demos |
+| [6502-BAS](https://github.com/acwright/6502-BAS) | BASIC program listings |
+| [6502-WOZMON](https://github.com/acwright/6502-WOZMON) | Wozmon as a standalone ROM |
+| [6502-NOP](https://github.com/acwright/6502-NOP) | An all-NOP ROM, for probing a board during bring-up |
+| [6502-ASSETS](https://github.com/acwright/6502-ASSETS) | Documentation, branding, schematic exports, and label artwork |
+| [cffs](https://github.com/acwright/cffs) | Builds CompactFlash disk images for the BIOS filesystem |
+| [bastok](https://github.com/acwright/bastok) | Tokenizes BASIC listings into `.prg` images, and back |
+| [bin2woz](https://github.com/acwright/bin2woz) | Converts a binary into a Wozmon serial upload |
 
 ## Hardware
 
@@ -727,4 +734,4 @@ I have a few PCBs available on Tindie for those interested in building their own
 ## License
 
 Hardware designs are released under the [CERN Open Hardware Licence Version 2 – Permissive](https://ohwr.org/cern_ohl_p_v2.txt).  
-Firmware is released under the [MIT License](./Firmware/KEH%20Controller/LICENSE).
+Firmware is released under the MIT License — [KEH Controller](./Firmware/KEH%20Controller/LICENSE), [PS2 Keyboard Controller](./Firmware/PS2%20Keyboard%20Controller/LICENSE), [STP Controller](./Firmware/STP%20Controller/LICENSE).
