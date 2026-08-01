@@ -2,6 +2,21 @@
 
 An SPI Controller Peripheral for 6502-based computer systems. This firmware runs on an ATmega328P microcontroller and acts as a memory-mapped I/O device, providing the 6502 CPU with access to SPI peripherals including SD cards, Flash memory, and external SPI devices.
 
+> ⚠️ **Experimental — the stock BIOS cannot see this card.** It is not part of
+> the default I/O set the BIOS probes for, and no COB machine is built around it
+> today.
+>
+> The BIOS's storage slot is IO 4 at `$8C00–$8C07`: eight registers of 8-bit True
+> IDE CompactFlash — data, error/feature, sector count, four LBA bytes, and
+> status/command. The boot probe checks BSY/RDY and issues Set Features (`$EF`).
+> This card presents two registers instead (`DATA` at offset 0, `CTRL` at offset
+> 1), so it answers nothing that probe expects: `HW_CF` stays clear and every
+> storage path reports `NO DEVICE` (BASIC) or `I/O ERROR` (Monitor).
+>
+> Using it needs an SPI/SD driver that does not exist in the
+> [BIOS](https://github.com/acwright/6502-BIOS) today — either a modified BIOS or
+> software that drives the two registers directly.
+
 ## Features
 
 - **Memory-Mapped I/O Interface**: Two registers accessible from 6502 address space (DATA and CTRL)
@@ -135,11 +150,15 @@ The upload command performs two operations:
 
 Fuse settings are defined in `fuses.cfg`:
 ```
-lfuse = 0xFF  # Low fuse
+lfuse = 0xFF  # Low power crystal oscillator 8.0-16.0 MHz, max startup time
 hfuse = 0xFF  # High fuse
 efuse = 0xFF  # Extended fuse
-lock = 0xFF   # Lock bits
+lock = 0xFF   # Lock bits (unprogrammed, not written)
 ```
+
+**Note**: Lock bits are left unprogrammed on all of these boards. The upload
+command writes fuses only (`--fuses`, no `--lock`), so the `lock` line above is
+recorded for reference and never programmed.
 
 **Note**: Verify fuse values match your hardware configuration before uploading. Incorrect fuse settings can brick your microcontroller.
 

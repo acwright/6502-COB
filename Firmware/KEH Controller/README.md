@@ -13,6 +13,7 @@ The KEH (Keyboard Encoder Helper) Controller is firmware for the ATMega1284P mic
 - **Buffered Input**: Uses circular buffers to prevent data loss during rapid typing
 - **Debounced Matrix Scanning**: Hardware debouncing for reliable matrix keyboard operation
 - **Enable/Disable Control**: Independent enable signals for PS/2 and matrix inputs
+- **Shared Joystick Ports**: Releases PORT A / PORT B when disabled so the 6502 can read the two Atari 2600-compatible joysticks that share those ports
 
 ## Hardware Connections
 
@@ -64,6 +65,69 @@ The firmware supports an 8x8 keyboard matrix (64 keys maximum):
 
 Each key connects a row to a column when pressed. The matrix is scanned with rows driven low and columns read with pull-ups.
 
+### Joystick Interface
+
+PORT A and PORT B are shared between this encoder and two Atari 2600-compatible
+joysticks. The Keyboard Encoder Helper has no DB-9 connectors of its own — the
+sticks arrive on the same 2×6 box headers that carry the VIA ports (`J1` PORT B,
+`J2` PORT A), or across the `J4` DB-25 keyboard cable. Three helper boards reach
+those lines:
+
+- **Keyboard Helper** — the usual path. Its `J7` DB-25 takes the whole keyboard
+  cable from KEH's `J4`, and the two DB-9s it carries (`J1` JOYSTICK A, `J2`
+  JOYSTICK B) are those same port lines brought back out, with the 1kΩ pull-ups
+  (`R1`–`R16`) fitted. Its `J3`/`J4` 2×6 headers are the same two sticks again.
+- **Joystick Helper** — converts a single port header to a DB-9 with the 1kΩ
+  pull-ups fitted, which is where Atari 2600 compatibility comes from.
+- **GPIO Helper** — not a stick, but its `J1` PORT A side is eight push buttons
+  to ground behind 1kΩ pull-ups, so it stands in for one electrically while
+  testing.
+
+The BIOS reads the two sticks through those same ports:
+
+| BIOS routine | BASIC | VIA port | KEH header | Encoder released by |
+|---|---|---|---|---|
+| `ReadJoystick1` (`$A048`) | `JOY(1)` | PORT B | `J1` | `CB2` high — matrix encoder off |
+| `ReadJoystick2` (`$A04B`) | `JOY(2)` | PORT A | `J2` | `CA2` high — PS/2 encoder off |
+
+> Note the naming trap: the Keyboard Helper's *JOYSTICK A* connector is PORT A,
+> which is `JOY(2)`, and *JOYSTICK B* is PORT B, which is `JOY(1)`.
+
+Each read returns the port raw, as a bitmask:
+
+```
+Bit:  7   6   5   4   3   2   1   0
+      R   L   D   U   Y   X   B   A
+```
+
+The ports are **active low** — every line is pulled high and grounded by the
+stick's switch — so a held button reads `0` and an untouched stick reads `$FF`.
+
+This is the firmware's obligation in the joystick path: when `CA2` or `CB2`
+goes high, it releases the corresponding port within 100 µs so the 6502 can
+read the stick directly — the same arrangement a C64 has with a CIA port.
+`disablePS2()` releases PORT A and `disableMatrix()` releases PORT B, both by
+returning the pins to `INPUT_PULLUP` rather than bare `INPUT`. That matters
+here in particular, since a KEH port can legitimately have no external
+pull-ups fitted at all — see the helper board list above.
+
+The BIOS reads a stick as `KBDisable` → settle → read the port directly →
+`KBEnable`. Nothing is transmitted over the shared lines, so there is nothing
+for one stick to corrupt on the other's behalf — **both sticks read correctly
+even when held at the same time.** An earlier design had the encoder push
+joystick state to the 6502 as control bytes over the keyboard channel instead;
+that could not report a held button on the port it was reporting over, and was
+abandoned. See
+[BIOS `PLAN.md` §2](https://github.com/acwright/6502-BIOS/blob/main/PLAN.md)
+for the full account.
+
+**Measured release latency: to be measured later.** This is the figure the
+BIOS's `KBDisable` settle wait is sized against. Cycle-counting the compiled
+firmware puts the worst-case code path at ~17 µs against a 100 µs budget, but
+that excludes a PS/2 interrupt landing in the window and says nothing about how
+long the bus takes to charge through a pull-up, so the published number comes
+from a scope. See [PLAN.md](../../PLAN.md).
+
 ## Keyboard Matrix Layout
 
 ```
@@ -109,6 +173,10 @@ When VIA_CB2 (Pin 13) is pulled LOW:
 
 ### Dual Mode
 Both keyboards can operate simultaneously if both enable signals are active.
+
+### Joystick Reads
+When an enable signal goes HIGH the firmware releases that port so the joystick
+sharing it can be read by the 6502 — see [Joystick Interface](#joystick-interface).
 
 ## ASCII Character Mapping
 
@@ -210,8 +278,8 @@ The project uses a MiniPro TL866 programmer for uploading.
    # Flash the program
    minipro -p "ATMEGA1284P@DIP40" -c code -w .pio/build/atmega1284p/firmware.hex
    
-   # Flash the fuses and lock bits
-   minipro -p "ATMEGA1284P@DIP40" -c config -w fuses.cfg --fuses --lock
+   # Flash the fuses
+   minipro -p "ATMEGA1284P@DIP40" -c config -w fuses.cfg --fuses
    ```
 
 ## Fuse Configuration
@@ -222,14 +290,27 @@ The `fuses.cfg` file contains the ATMega1284P fuse settings:
 lfuse = 0xff   # Low fuse
 hfuse = 0xff   # High fuse  
 efuse = 0xff   # Extended fuse
-lock = 0xff    # Lock bits (unprogrammed)
+lock = 0xff    # Lock bits (unprogrammed, not written)
 ```
 
 **Fuse Settings:**
-- **Low Fuse (0xFF)**: Full-swing crystal oscillator, no clock divide
+- **Low Fuse (0xFF)**: Low power crystal oscillator (8.0–16.0 MHz) for the
+  on-board 16 MHz crystal (`Y1`), slowly-rising-power start-up (16K CK + 65 ms),
+  no clock divide (CKDIV8 off), clock output disabled
 - **High Fuse (0xFF)**: Default settings
 - **Extended Fuse (0xFF)**: Default settings
 - **Lock Bits (0xFF)**: No memory lock protection
+
+> **Note**: The low fuse selects a *crystal* oscillator, which is what this board
+> needs — the Keyboard Encoder Helper carries a 16 MHz HC49-U crystal across
+> XTAL1/XTAL2. Full Swing is a different setting (`CKSEL3:1 = 011`) and is not
+> used here. The ACE board's `AB Controller` runs from a full-can oscillator
+> module instead and therefore uses the *external clock* setting
+> (`lfuse = 0xE0`); the two are not interchangeable.
+
+> **Note**: Lock bits are left unprogrammed on all of these boards. The upload
+> command writes fuses only (`--fuses`, no `--lock`), so the `lock` line above is
+> recorded for reference and never programmed.
 
 ⚠️ **Warning**: Incorrect fuse settings can brick your microcontroller. Verify fuse values are appropriate for your hardware configuration before programming.
 
@@ -290,6 +371,12 @@ which minipro
 - Check PS/2 clock and data connections
 - Verify matrix keyboard connections
 - Ensure VIA interface connections are correct
+
+**Problem**: `JOY(1)`/`JOY(2)` return keystrokes or a stuck value
+- Confirm the BIOS is v1.5 or later — older BIOS reads the port before the
+  encoder has released it (see [Joystick Interface](#joystick-interface))
+- Verify the stick's pull-ups are present (the Keyboard Helper and Joystick
+  Helper carry them; a bare box-header connection does not)
 
 **Problem**: Incorrect characters output
 - Check for proper pull-up resistors on PS/2 lines

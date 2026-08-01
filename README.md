@@ -149,7 +149,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Storage Card/`** — CompactFlash storage interface supporting up to 128GB via IDE-compatible protocol.
 
-**`Hardware/Storage Card Pro/`** — SD card (up to 32GB) and 16MB onboard SPI flash storage interface. *(Untested)*
+**`Hardware/Storage Card Pro/`** — SD card (up to 32GB) and 16MB onboard SPI flash storage interface. *(Untested, experimental — the stock BIOS has no driver for it; see [STP Controller](#stp-controller))*
 
 **`Hardware/LCD Card/`** — 16×2 character LCD display via 65C22 VIA in 4-bit or 8-bit mode.
 
@@ -161,7 +161,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Keyboard Encoder Helper/`** — ATmega1284p-based dual keyboard encoder supporting PS/2 keyboard and 8×8 matrix keyboard simultaneously via 65C22 VIA.
 
-**`Hardware/PS2 Helper/`** — ATmega328p-based PS/2 keyboard bridge that drives an MT8808 analog crosspoint switch to emulate a matrix keyboard for the 65C22 VIA.
+**`Hardware/PS2 Helper/`** — ATmega328p-based PS/2 keyboard bridge that drives an MT8808 analog crosspoint switch to emulate a matrix keyboard. Its output is a raw 8×8 matrix and feeds the matrix inputs of a Keyboard Encoder Helper, which is what talks to the 65C22 VIA — not the VIA directly.
 
 **`Hardware/Keyboard Helper/`** — 64-key matrix keyboard with Atari 2600-compatible joystick support.
 
@@ -209,6 +209,11 @@ Firmware for the ATmega328p on the PS2 Helper. Provides:
 - Make/break detection and extended scan code support
 - Function key emulation via FN key combinations
 
+The MT8808 closes row/column contacts in place of physical key switches, so this
+card connects to the **matrix inputs of a Keyboard Encoder Helper**, not to a
+65C22 VIA. The encoder does the scanning and ASCII conversion; wired straight to
+a VIA the card produces nothing, as the BIOS has no matrix-scanning code.
+
 See [Firmware/PS2 Keyboard Controller/README.md](./Firmware/PS2%20Keyboard%20Controller/README.md) for setup and usage instructions.
 
 ### STP Controller
@@ -220,6 +225,13 @@ Firmware for the ATmega328p on the Storage Card Pro. Provides:
 - Support for SD card, 16MB SPI flash, and external SPI devices
 - Dual-speed SPI (4 MHz normal operation, 400 kHz initialization)
 - PHI2-synchronized interface for reliable 6502 communication
+
+⚠️ **Experimental.** The Storage Card Pro is not part of the default I/O set the
+BIOS probes for, and no COB machine is built around it today. The BIOS storage
+slot expects eight True IDE CompactFlash registers at `$8C00–$8C07`; this card
+presents two SPI registers instead, so a stock BIOS reports `NO DEVICE` for every
+storage path. Using it needs a modified BIOS or software that drives the two
+registers directly.
 
 See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) for setup and usage instructions.
 

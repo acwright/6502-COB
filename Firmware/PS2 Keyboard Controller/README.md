@@ -2,7 +2,20 @@
 
 ## Overview
 
-This firmware runs on an ATmega328/ATmega328P microcontroller and acts as a bridge between a PS/2 keyboard and a custom keyboard matrix interface. It reads PS/2 scan codes from a standard PS/2 keyboard and translates them to control an MT8808 analog crosspoint switch, which in turn drives an 8×8 keyboard matrix connected to a 65C22 VIA (Versatile Interface Adapter).
+This firmware runs on an ATmega328/ATmega328P microcontroller and acts as a bridge between a PS/2 keyboard and a custom keyboard matrix interface. It reads PS/2 scan codes from a standard PS/2 keyboard and translates them to control an MT8808 analog crosspoint switch, closing the same row/column contacts a physical key switch would.
+
+> ⚠️ **This card feeds a keyboard encoder, not a VIA directly.** The MT8808
+> output is a *raw 8×8 matrix* — it takes the place of the key switches, not of
+> the encoder that scans them. Wire the PS2 Helper's PORT A / PORT B headers to
+> the **matrix inputs of a Keyboard Encoder Helper** (see
+> [KEH Controller](../KEH%20Controller/README.md)), which does the scanning,
+> debouncing and ASCII conversion, and hands a finished byte plus a `CB1` strobe
+> to the 65C22 VIA.
+>
+> Wired straight to a VIA this card produces nothing. The BIOS has no
+> matrix-scanning code anywhere; its keyboard path expects a completed ASCII byte
+> on PORT B with a `CB1` strobe, which is what the KEH provides and this card
+> does not.
 
 ## Features
 
@@ -12,6 +25,7 @@ This firmware runs on an ATmega328/ATmega328P microcontroller and acts as a brid
 - **Function Key Emulation**: Maps F1-F10 function keys to FN + number key combinations
 - **Buffered Input**: Uses a 16-byte circular buffer to prevent scan code loss
 - **MT8808 Control**: Drives an 8×8 analog crosspoint switch matrix via 3-bit X/Y addressing
+- **Matrix Emulation**: Presents itself to a keyboard encoder as a physical 8×8 key matrix, not as a byte-wide port
 
 ## Hardware Requirements
 
@@ -22,7 +36,11 @@ This firmware runs on an ATmega328/ATmega328P microcontroller and acts as a brid
 ### External Components
 - **MT8808**: 8×8 analog crosspoint switch IC
 - **PS/2 Keyboard**: Standard PS/2 keyboard with clock and data lines
-- **65C22 VIA**: Connected to MT8808 matrix output (Port A = rows, Port B = columns)
+- **Keyboard encoder**: The MT8808 matrix output (PORT A = rows, PORT B = columns)
+  connects to the matrix inputs of a Keyboard Encoder Helper running
+  [KEH Controller](../KEH%20Controller/README.md). The encoder scans this matrix
+  and is what talks to the 65C22 VIA — the crosspoint switch never drives the VIA
+  itself.
 
 ### Pin Mapping
 
@@ -180,7 +198,8 @@ pio run -e atmega328 --target upload
 This command will:
 1. Write the compiled firmware to the chip
 2. Program the fuse bits from `fuses.cfg`
-3. Set the lock bits
+
+Lock bits are **not** programmed — the upload command passes `--fuses` only.
 
 ### Manual Upload with AVRdude
 
@@ -200,16 +219,20 @@ avrdude -c avrisp -p m328p -P /dev/ttyUSB0 -b 19200 \
 The `fuses.cfg` file contains the following settings:
 
 ```
-lfuse = 0xFF  (External crystal, max startup time)
+lfuse = 0xFF  (Low power crystal oscillator 8.0-16.0 MHz, max startup time)
 hfuse = 0xFF  (SPIEN enabled, bootloader disabled)
 efuse = 0xFF  (Brown-out detection disabled)
-lock  = 0xFF  (No memory lock)
+lock  = 0xFF  (No memory lock — unprogrammed, never written)
 ```
 
-**Note**: Fuse settings depend on your hardware configuration. Common settings for 16 MHz external crystal:
-- Low Fuse: 0xFF (full swing crystal oscillator)
-- High Fuse: 0xD9 (SPIEN enabled, EESAVE disabled, 2048 byte bootloader)
-- Extended Fuse: 0xFD (BOD 2.7V)
+**Note**: `lfuse = 0xFF` puts `CKSEL3:0` at `1111`, which selects the *Low Power*
+crystal oscillator (8.0–16.0 MHz) — the right setting for the PS2 Helper's 16 MHz
+crystal (`Y1`). Full Swing is a different setting (`CKSEL3:1 = 011`) and is not
+used here.
+
+**Note**: Lock bits are left unprogrammed on all of these boards. The upload
+command writes fuses only (`--fuses`, no `--lock`), so the `lock` line above is
+recorded for reference and never programmed.
 
 ## Configuration
 
@@ -249,9 +272,15 @@ case 0x1C:      // A
 - Test DATA and STROBE signals with oscilloscope
 - Ensure RESET line properly initializes MT8808
 
+### No Keys Reach the Computer at All
+- Check that the MT8808 output goes to a **keyboard encoder's matrix inputs**,
+  not to a VIA. Wired straight to a VIA the card is silent — nothing scans the
+  matrix. See the note in [Overview](#overview).
+- Verify the encoder's matrix side is enabled (`CB2` low on the KEH)
+
 ### Incorrect Key Mapping
 - Verify scan code mapping in `ps2ToMatrix()` function
-- Check physical matrix wiring to VIA ports
+- Check physical matrix wiring to the encoder's PORT A / PORT B
 - Use serial debugging to monitor received scan codes
 
 ### Build Errors
