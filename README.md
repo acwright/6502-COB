@@ -5,6 +5,9 @@
 
 An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
+> 📖 **Guide:** [AC6502 Documentation](https://acwright.github.io/6502-DOCS/) — the user's and programmer's guide for the whole family.
+> See [COB's page in the family appendix](https://acwright.github.io/6502-DOCS/family/cob).
+
 ---
 
 ## Table of Contents
@@ -102,7 +105,7 @@ All AC6502 computers share:
 | [6502-BAS](https://github.com/acwright/6502-BAS) | BASIC program listings |
 | [6502-WOZMON](https://github.com/acwright/6502-WOZMON) | Wozmon as a standalone ROM |
 | [6502-NOP](https://github.com/acwright/6502-NOP) | An all-NOP ROM, for probing a board during bring-up |
-| [6502-ASSETS](https://github.com/acwright/6502-ASSETS) | Documentation, branding, schematic exports, and label artwork |
+| [6502-DOCS](https://github.com/acwright/6502-DOCS) | The documentation site — the guide, the printable reference cards, branding and label artwork |
 | [cffs](https://github.com/acwright/cffs) | Builds CompactFlash disk images for the BIOS filesystem |
 | [bastok](https://github.com/acwright/bastok) | Tokenizes BASIC listings into `.prg` images, and back |
 | [bin2woz](https://github.com/acwright/bin2woz) | Converts a binary into a Wozmon serial upload |
