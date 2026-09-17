@@ -313,7 +313,7 @@ See the LICENSE file in the project root for licensing information.
 
 ## Author
 
-A.C. Wright - 6502 Project
+A.C. Wright
 
 ## Version History
 
