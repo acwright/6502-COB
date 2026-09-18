@@ -137,8 +137,21 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 **`Hardware/GPIO Card/`** — General-purpose I/O via 65C22 VIA supporting keyboards, joysticks, timers, and custom devices.
 
 **`Hardware/Serial Card/`** — RS-232 serial communication via 65C51 ACIA and MAX232 level shifter.
+Female DB-9 wired as **DCE**, so a straight-through cable reaches a PC. `DCD` and `DSR` are tied to
+ground; `DTR` is not connected. The `CTS EN` jumper (J4) picks whether the ACIA's `CTS` comes from
+ground or from the cable — **ground is the default**, which leaves the transmitter always free to
+send.
 
 **`Hardware/Serial Card Pro/`** — Enhanced serial card with full modem control signals (DTR, DCD, DSR).
+Male DB-9 wired as **DTE**, like a PC, so reaching a laptop needs a **null-modem** cable — unlike the
+plain Serial Card. `CTS`, `DSR` and `DTR` always reach the cable; the `DCD EN` jumper picks ground or
+the cable for `DCD` — **ground is the default**.
+
+**The handshake lines are not decoration.** On a real R6551, measured on a KIM in 2026: `CTS` high
+stops the transmitter dead, and `DCD` high stops the receiver and the arriving byte is lost. A card
+jumpered to take either from the cable, plugged into something that does not assert them, looks like
+a dead board — no banner, no echo — until the line comes back. Ground is the default for exactly
+that reason.
 
 **`Hardware/VGA Card/`** — VGA 640×480 video output via Raspberry Pi Pico running [Pico9918](https://github.com/visrealm/pico9918) with TMS9918A-compatible graphics modes.
 
