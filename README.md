@@ -329,6 +329,11 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | U1 | 1 | LM555 | Timer SOIC-8 | |
 | X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | |
 
+**Building a Rev 1.1:**
+
+- **Leave R5 unfitted.** R5 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the Backplane Pro's reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` then has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
+- **Use a centre-positive 5 V supply only.** Rev 1.1 has no reverse-polarity protection on the barrel jack.
+
 #### Rev 1.0
 
 | Reference | Qty | Value | Description | LCSC | DigiKey | Mouser |
@@ -354,7 +359,11 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | U1 | 1 | LM555xM | Timer SOIC-8 | [C7593](https://www.lcsc.com/search?q=C7593) | | |
 | X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | | | |
 
+**Building a Rev 1.0:** leave R3 unfitted, or remove it from a built board. R3 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's, and the CPU Card's pull-up is the only one a COB needs. The Rev 1.1 notes above explain what that means for a machine without a CPU Card.
+
 ### Blinkenlights Card
+
+**Rev 1.0:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit the card to watch the bus, not in a machine that relies on its interrupts. A later revision will buffer those three LEDs through the 74HC04's spare gates, as `RDY` and `BE` already are.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -388,6 +397,8 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | U1 | 1 | 74HC74 | Dual D Flip-flop DIP-14 |
 
 ### CPU Card
+
+**Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The table below is Rev 1.1's.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -528,6 +539,8 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | A1 | 1 | Arduino Mega 2560 | Arduino Mega 2560 R3 Shield |
 | J1 | 1 | 6502 Bus | Bus Connector 2×20 |
 
+**Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
+
 ### Memory Card
 
 | Reference | Qty | Value | Description | LCSC |
@@ -565,6 +578,14 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | Y1 | 1 | 16 MHz | Crystal |
 
 ### RAM Card
+
+**Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Before fitting one:
+
+- **Jumper both windows on J3, and nothing else:** 1–2 for IO 1 (`$8000`) and 3–4 for IO 2 (`$8400`), the setting the BIOS expects. R1 and R2 pull the window selects low, and the selects are active low, so a window left without a jumper is selected at every address: the card then drives the data bus on every read, against the system RAM and ROM. J3's other positions connect the same two windows to other addresses, so a third jumper puts two 74HC138 outputs on one window's select and ties them together.
+- **One bank latch serves both windows.** A write to `$83FF` and a write to `$87FF` load the same 74HC573, so both windows always show the same bank number, each in its own half of the AS6C4008. A program can't point one window at one bank and the other window at another, so copying between banks through the two windows doesn't work on this card.
+- **The data bus reaches the latch bit-reversed** (`D0` drives the latch's `D7`). That only renumbers the banks, and no program can tell.
+
+A Rev 1.1, with a latch per window and window selects that read as not selected when a jumper is missing, is planned.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -692,6 +713,8 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | U1, U2 | 2 | 74HC138 | Decoder DIP-16 | |
 
 ### VGA Card
+
+**Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so JP7 stays bridged.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
