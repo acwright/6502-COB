@@ -36,6 +36,7 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
   - [Blinkenlights Card](#blinkenlights-card)
   - [Breadboard Helper](#breadboard-helper)
   - [Clock Helper](#clock-helper)
+  - [Clock Card](#clock-card)
   - [CPU Card](#cpu-card)
   - [CPU Card Pro](#cpu-card-pro)
   - [DB25 Helper](#db25-helper)
@@ -124,6 +125,8 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 **`Hardware/Backplane Helper/`** — Adds additional card slots to expand the total backplane configuration up to 12 slots.
 
 ### Cards
+
+**`Hardware/Clock Card/`** — The Backplane Pro's clock, reset and power on a card, so a COB can be built on the passive Backplane: a 1 MHz DIP-14 can oscillator to `PHI2` through a clock-enable header (so the Clock Helper's single-step and halt still work), the 555 power-on and push-button reset pulling `RESB` low through an NPN, and a 5 V barrel jack with reverse-polarity protection. *(Drawn, not yet made)*
 
 **`Hardware/CPU Card/`** — Hosts the 65C02 CPU in a card form factor for backplane-based COB systems.
 
@@ -322,8 +325,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 | D2 | 1 | 1N5819 | Schottky Diode DO-41 | |
 | J1 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
 | J2–J4, J7, J8 | 5 | 6502 Card Connector | Card Edge 2×20 | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J5 | 1 | CLOCK ENBL SW | Pin Header 1×2 | |
-| J6 | 1 | RESET SW | Pin Header 1×2 | |
+| J5 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
+| J6 | 1 | RESET SW | JST XH 1×2 | |
 | J9 | 1 | 6502 Bus | Bus Connector 2×20 | |
 | JP1 | 1 | Solder Jumper | Solder Jumper 2-pole | |
 | Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
@@ -345,8 +348,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 | D1 | 1 | LED | Power LED 3mm | |
 | J1 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
 | J2–J4, J7, J8 | 5 | 6502 Card Connector | Card Edge 2×20 | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J5 | 1 | CLOCK ENBL SW | Pin Header 1×2 | |
-| J6 | 1 | RESET SW | Pin Header 1×2 | |
+| J5 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
+| J6 | 1 | RESET SW | JST XH 1×2 | |
 | J9 | 1 | 6502 Bus | Bus Connector 2×20 | |
 | JP1 | 1 | Solder Jumper | Solder Jumper 2-pole | |
 | Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
@@ -426,6 +429,29 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 | SW1, SW2 | 2 | XKB5858-Z | DPDT Toggle Switch |
 | SW3 | 1 | XKB5858-W | DPDT Toggle Switch |
 | U1 | 1 | 74HC74 | Dual D Flip-flop DIP-14 |
+
+### Clock Card
+
+Rev 1.0, drawn, not yet made. The card's oscillator socket takes any DIP-14 can; it is drawn, labelled and tested with 1 MHz, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+
+| Reference | Qty | Value | Description | Mouser |
+|-----------|-----|-------|-------------|--------|
+| C1, C3 | 2 | 10uF | Polarized capacitor | |
+| C2, C4, C5 | 3 | 100nF | Disc capacitor (C4 and C5 decouple X1 and U1) | |
+| D1 | 1 | LED | Power LED 3mm | |
+| D2 | 1 | 1N5819 | Schottky Diode DO-41 | |
+| J2 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
+| J3 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
+| J4 | 1 | RESET SW | JST XH 1×2 | |
+| JP1 | 1 | Solder Jumper | Solder Jumper 2-pole, open | |
+| Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
+| R1 | 1 | 330 | Resistor | |
+| R2 | 1 | 1M | Resistor | |
+| R3 | 1 | 47k | Resistor | |
+| R4 | 1 | 10k | Resistor | |
+| SW1 | 1 | RESET | Tact Push Button 6mm | |
+| U1 | 1 | LM555 | Timer DIP-8 | |
+| X1 | 1 | 1 MHz | Oscillator, DIP-14 can | |
 
 ### CPU Card
 
