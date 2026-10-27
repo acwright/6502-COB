@@ -119,7 +119,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Backplane/`** — Passive backplane providing 5 card slots with full bus interconnect across all slots.
 
-**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input.
+**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input. Rev 1.2 removes the `RESB` pull-up and adds reverse-polarity protection on the barrel jack.
 
 **`Hardware/Backplane Helper/`** — Adds additional card slots to expand the total backplane configuration up to 12 slots.
 
@@ -305,6 +305,37 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ### Backplane Pro
 
+#### Rev 1.2
+
+Drawn, not yet made. Two changes from Rev 1.1:
+
+- **R5 is removed.** It was a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
+- **D2, a 1N5819, is added** in series between the barrel jack (J1) and the power switch (SW1), anode at the jack, so a reversed supply can't reach VCC. It drops about 0.3–0.4 V, so VCC sits near 4.6 V.
+
+The backplane carries no decoupling capacitors, as on the other backplanes: every card that plugs in has 100nF on each of its own chips.
+
+| Reference | Qty | Value | Description | Mouser |
+|-----------|-----|-------|-------------|--------|
+| C1, C3 | 2 | 10uF | Polarized capacitor | |
+| C2 | 1 | 100nF | Unpolarized capacitor | |
+| D1 | 1 | LED | Power LED 3mm | |
+| D2 | 1 | 1N5819 | Schottky Diode DO-41 | |
+| J1 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
+| J2–J4, J7, J8 | 5 | 6502 Card Connector | Card Edge 2×20 | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
+| J5 | 1 | CLOCK ENBL SW | Pin Header 1×2 | |
+| J6 | 1 | RESET SW | Pin Header 1×2 | |
+| J9 | 1 | 6502 Bus | Bus Connector 2×20 | |
+| JP1 | 1 | Solder Jumper | Solder Jumper 2-pole | |
+| Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
+| R1 | 1 | 330 | Resistor | |
+| R2 | 1 | 1M | Resistor | |
+| R3 | 1 | 47k | Resistor | |
+| R4 | 1 | 10k | Resistor | |
+| SW1 | 1 | POWER | SPDT Power Switch | [612-400MSP1R6BLKM6QE](https://www.mouser.com/ProductDetail/612-400MSP1R6BLKM6QE) |
+| SW2 | 1 | RESET | Tact Push Button 5mm | |
+| U1 | 1 | LM555 | Timer DIP-8 | |
+| X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | |
+
 #### Rev 1.1
 
 | Reference | Qty | Value | Description | Mouser |
@@ -326,7 +357,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | R5 | 1 | 1k | Resistor | |
 | SW1 | 1 | POWER | SPDT Power Switch | [612-400MSP1R6BLKM6QE](https://www.mouser.com/ProductDetail/612-400MSP1R6BLKM6QE) |
 | SW2 | 1 | RESET | Tact Push Button 5mm | |
-| U1 | 1 | LM555 | Timer SOIC-8 | |
+| U1 | 1 | LM555 | Timer DIP-8 | |
 | X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | |
 
 **Building a Rev 1.1:**
