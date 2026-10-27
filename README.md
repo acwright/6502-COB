@@ -771,12 +771,24 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### VGA Card
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- `A1` reaches U1 pin 11, the pico9918's `MODE1`, as on the ACE Rev 1.1. A PICO9918 PRO takes it through a header pin soldered into its `MDE1` pad.
+- JP1 is open as made, so the pico9918's `/INT` reaches `IRQB` (or `NMIB`, through J2) only through D1.
+- D1 is named in its value field: a BAT85, cathode toward the pico9918.
+
+**Rev 1.0**
+
+- Initial release.
+
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so JP7 stays bridged.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
 | C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
+| D1 | 1 | BAT85 | Schottky Diode DO-35 | |
 | J2 | 1 | INT Select | Pin Header 1×3 | |
 | J3 | 1 | Conn_02x08 | Pin Header 2×8 | |
 | U1 | 1 | Pico9918A | VDP Module DIP-40 | |
