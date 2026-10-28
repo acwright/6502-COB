@@ -9231,7 +9231,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "b58bb1e1-061c-4560-86fc-16fefc438447")
 		)
-		(pad "S1" thru_hole circle
+		(pad "" thru_hole circle
 			(at -5.08 2.54 90)
 			(size 1.635 1.635)
 			(drill 1.09)
@@ -9240,7 +9240,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "9d190215-a197-4831-a225-77a7ac629acf")
 		)
-		(pad "S2" thru_hole circle
+		(pad "" thru_hole circle
 			(at -5.08 -2.54 90)
 			(size 1.635 1.635)
 			(drill 1.09)
