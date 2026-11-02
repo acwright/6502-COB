@@ -260,6 +260,8 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 3D-printable enclosure parts and laser-cut top panels for the COB system.
 
+The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG](CAD/Bases/Plate%20Mounting%20Drawing.svg)) shows where the two Backplanes (each a Backplane or a Backplane Pro), the Backplane Helper and the Keyboard Encoder Helper mount on the base plate, with every hole's position and the hardware the build needs. The plate is a stack of three 3 mm acrylic layers.
+
 ## Production
 `Production/`
 
