@@ -1,0 +1,11 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,6502 GPIO Connector,1,PORT A,
+J2,6502 GPIO Connector,1,PORT B,
+SW1,SW_PUSH_6mm,1,PA7,
+SW2,SW_PUSH_6mm,1,PA6,
+SW3,SW_PUSH_6mm,1,PA5,
+SW4,SW_PUSH_6mm,1,PA4,
+SW5,SW_PUSH_6mm,1,PA3,
+SW6,SW_PUSH_6mm,1,PA2,
+SW7,SW_PUSH_6mm,1,PA1,
+SW8,SW_PUSH_6mm,1,PA0,

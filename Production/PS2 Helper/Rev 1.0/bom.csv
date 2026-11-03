@@ -1,0 +1,7 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,6502 GPIO Connector,1,PORT A,
+J2,6502 GPIO Connector,1,PORT B,
+J3,KMDGX-6S-BS,1,PS/2,
+J4,6502 GPIO Connector,1,JOYSTICK,
+U1,DIP-28_W15.24mm_Socket_LongPads,1,MT8808,
+U2,DIP-28_W7.62mm_Socket_LongPads,1,ATmega328,
