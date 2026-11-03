@@ -126,7 +126,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 ### Cards
 
-**`Hardware/Clock Card/`** — The Backplane Pro's clock, reset and power on a card, so a COB can be built on the passive Backplane: a 1 MHz DIP-14 can oscillator to `PHI2` through a clock-enable header (so the Clock Helper's single-step and halt still work), the 555 power-on and push-button reset pulling `RESB` low through an NPN, and a 5 V barrel jack with reverse-polarity protection. *(Drawn, not yet made)*
+**`Hardware/Clock Card/`** — The Backplane Pro's clock, reset and power on a card, so a COB can be built on the passive Backplane: a 1 MHz DIP-14 can oscillator to `PHI2` through a clock-enable header (so the Clock Helper's single-step and halt still work), the 555 power-on and push-button reset pulling `RESB` low through an NPN, and a 5 V barrel jack with reverse-polarity protection. *(Ordered, not yet built)*
 
 **`Hardware/CPU Card/`** — Hosts the 65C02 CPU in a card form factor for backplane-based COB systems.
 
@@ -434,7 +434,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Clock Card
 
-Rev 1.0, drawn, not yet made. The card's oscillator socket takes any DIP-14 can; it is drawn, labelled and tested with 1 MHz, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscillator socket takes any DIP-14 can; it is drawn, labelled and tested with 1 MHz, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
 
 | Reference | Qty | Value | Description | Mouser |
 |-----------|-----|-------|-------------|--------|
