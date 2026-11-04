@@ -26,17 +26,17 @@ Every revision of every board in this repository, and what is known about each. 
 | CPU Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | CPU Card Pro | 1.0 | Never made | — |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
 | Clock Card | 1.0 | Ordered | — |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02 |
-| Clock Helper | 1.0 | Made, matches order | Yes | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | SVG only | yes |  |
+| Clock Helper | 1.0 | Made, matches order | Yes | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
 | Clock Helper | 1.1 | Drawn | — |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
-| DB25 Helper | 1.0 | Made, matches order | Yes | Y65 | 2025-10-06 | `013b131` | — | 100×50 | 5.32–6.25 mm | SVG only | yes |  |
+| DB25 Helper | 1.0 | Made, matches order | Yes | Y65 | 2025-10-06 | `013b131` | — | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | DB25 Helper | 1.1 | Drawn | — |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | GPIO Breadboard Helper | 1.0 | Made, matches order | Yes | Y57 | 2025-10-06 | `0dd90c8` | 4 | 58.83×55 | — | — | — |  |
 | GPIO Card | 1.0 | Made, matches order | Yes | Y45 | 2024-06-19 | `390cb17` | 3 | 100×57.62 | — | — | — |  |
-| GPIO Helper | 1.0 | Made, matches order | Yes | Y66 | 2025-10-06 | `013b131` | 4 | 100×50 | 5.32–6.25 mm | SVG only | yes |  |
+| GPIO Helper | 1.0 | Made, matches order | Yes | Y66 | 2025-10-06 | `013b131` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | GPIO Helper | 1.1 | Drawn | — |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
-| Joystick Helper | 1.0 | Made, matches order | Yes | Y73 | 2025-11-16 | `4f73288` | 4 | 50×50 | 5.32–5.68 mm | SVG only | yes |  |
+| Joystick Helper | 1.0 | Made, matches order | Yes | Y73 | 2025-11-16 | `4f73288` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
 | Joystick Helper | 1.1 | Drawn | — |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
-| Keyboard Encoder Helper | 1.0 | Made, matches order | Yes | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | SVG only | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
+| Keyboard Encoder Helper | 1.0 | Made, matches order | Yes | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | yes | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
 | Keyboard Encoder Helper | 1.1 | Drawn | — |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, matches order | Yes | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
 | LCD Board | 1.0 | Made, matches order | Yes | Y80 | 2026-01-13 | `2a232e3` | — | 100×100 | 6 mm | yes | — |  |
@@ -45,7 +45,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Mega Helper | 1.0 | Made, matches order | Yes | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | Yes | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | PS2 Helper | 1.0 | Made, matches order | Yes | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
-| PS2 Helper | 1.1 | Drawn | — |  |  |  | — | 100×50 | 6 mm | SVG only | yes |  |
+| PS2 Helper | 1.1 | Drawn | — |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Prototype Card | 1.0 | Made, matches order | Yes | Y22 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | RAM Card | 1.0 | Made, matches order | Yes | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
 | RTC Card | 1.0 | Made, matches order | Yes | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |

@@ -264,7 +264,7 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 Keyboard Encoder Helper Rev 1.0, the board on sale, has the old 88 × 39 mm holes, and the COB's base plate is drilled for Rev 1.1's 88 × 38 mm. To fit a Rev 1.0 board, drill plate holes 9 and 21 (x 296, at y 16 and y 104 on the plate mounting drawing) out to 5 mm. The two screws then sit 1 mm to the left of those holes' centers, and the board moves less than 1 mm into the 10 mm gap beside the Backplane Helper. Drill through all three layers of the plate, and add a washer if a screw head doesn't sit flat. The plate mounting drawing itself shows Rev 1.1.
 
-The Rev 1.0 top panels for the Clock, DB25, GPIO, Joystick and Keyboard Encoder Helpers, and the Rev 1.1 top panel for the PS2 Helper, are SVG only. They are derived from the other revision's panel by moving the four mounting holes, and none has been cut yet.
+The Rev 1.0 top panels for the Clock, DB25, GPIO, Joystick and Keyboard Encoder Helpers, and the Rev 1.1 top panel for the PS2 Helper, are derived from the other revision's panel by moving the four mounting holes. None of them has been cut yet.
 
 The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG](CAD/Bases/Plate%20Mounting%20Drawing.svg)) shows where the two Backplanes (each a Backplane or a Backplane Pro), the Backplane Helper and the Keyboard Encoder Helper mount on the base plate, with every hole's position and the hardware the build needs. The plate is a stack of three 3 mm acrylic layers.
 
