@@ -363,6 +363,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 #### Rev 1.1
 
+- Built and tested. `Hardware/Backplane Pro/Rev 1.1/` and `Production/Backplane Pro/Rev 1.1/` match the boards JLCPCB made (order Y93). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | Mouser |
 |-----------|-----|-------|-------------|--------|
 | C1, C3 | 2 | 10uF | Polarized capacitor | |
@@ -391,6 +393,10 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - **Use a centre-positive 5 V supply only.** Rev 1.1 has no reverse-polarity protection on the barrel jack.
 
 #### Rev 1.0
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Backplane Pro/Rev 1.0/` and `Production/Backplane Pro/Rev 1.0/` match the boards JLCPCB made (order Y30). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- This board was called the Backplane when it was ordered, so its silkscreen says `6502 BACKPLANE`. Today's [Backplane](#backplane) is a different board, order Y50.
+- The PCB file was restored to that layout on 2026-11-04. A later edit only moved C8, C14, D1 and TP1 slightly, and Rev 1.1 is a full redesign, so that edit has no revision of its own. The schematic and BOM are today's, and they match this copper.
 
 | Reference | Qty | Value | Description | LCSC | DigiKey | Mouser |
 |-----------|-----|-------|-------------|------|---------|--------|

@@ -16729,7 +16729,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502 Bus Connector"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical"
 			(at 229.87 128.27 0)
 			(hide yes)
 			(show_name no)
