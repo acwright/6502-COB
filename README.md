@@ -260,6 +260,10 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 3D-printable enclosure parts and laser-cut top panels for the COB system.
 
+**Top panels, enclosures, jigs are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`, `CAD/Enclosures/<Board>/Rev X/`, `CAD/Jigs/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
+
+The Rev 1.0 top panels for the Clock, DB25, GPIO, Joystick and Keyboard Encoder Helpers, and the Rev 1.1 top panel for the PS2 Helper, are SVG only. They are derived from the other revision's panel by moving the four mounting holes, and none has been cut yet.
+
 The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG](CAD/Bases/Plate%20Mounting%20Drawing.svg)) shows where the two Backplanes (each a Backplane or a Backplane Pro), the Backplane Helper and the Keyboard Encoder Helper mount on the base plate, with every hole's position and the hardware the build needs. The plate is a stack of three 3 mm acrylic layers.
 
 ## Production
@@ -443,7 +447,7 @@ This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](ht
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Today's enclosure in `CAD/Enclosures/Clock Helper/` fits Rev 1.1, not Rev 1.0.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Clock Helper/` and `CAD/Tops/Clock Helper/`.
 
 **Rev 1.0**
 
@@ -526,7 +530,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/DB25 Helper/` fits Rev 1.1, not Rev 1.0.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/DB25 Helper/` and `CAD/Tops/DB25 Helper/`.
 - The project's name is `DB25 Helper`. The order's Gerbers carry its old name, `GPIO DB25 Helper`.
 
 **Rev 1.0**
@@ -578,7 +582,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/GPIO Helper/` fits Rev 1.1, not Rev 1.0.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/GPIO Helper/` and `CAD/Tops/GPIO Helper/`.
 
 **Rev 1.0**
 
@@ -599,7 +603,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Today's enclosure in `CAD/Enclosures/Joystick Helper/` fits Rev 1.1, not Rev 1.0. The holes' courtyards now overlap J2's, which DRC reports; check the fit before ordering.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap J2's, which DRC reports; check the fit before ordering.
 
 **Rev 1.0**
 
@@ -617,7 +621,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/Keyboard Encoder Helper/` fits Rev 1.1, not Rev 1.0.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
 
 **Rev 1.0**
 
@@ -733,7 +737,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the resistors `R2`–`R9` and reroutes the tracks around them.
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/PS2 Helper/` fits Rev 1.1, not Rev 1.0.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
 - Drops the `R2-R9` silkscreen label.
 
 **Rev 1.0**
