@@ -163,7 +163,7 @@ that reason.
 
 **`Hardware/Video Card/`** — Composite video output via TMS9918A Video Display Processor with 16KB video RAM.
 
-**`Hardware/Video Card Pro/`** — Enhanced composite video card. *(Untested)*
+**`Hardware/Video Card Pro/`** — Enhanced composite video card. *(Never made)*
 
 **`Hardware/Sound Card/`** — 3-voice SID audio output via ARMSID module with RCA line-level output.
 
@@ -199,7 +199,7 @@ that reason.
 
 **`Hardware/Mega Helper/`** — Arduino Mega 2560 interface adapter for the AC6502 bus.
 
-**`Hardware/LCD Board/`** — 320×240 TFT LCD display (ILI9341) interfaced via 65C22 VIA. *(Untested)*
+**`Hardware/LCD Board/`** — 320×240 TFT LCD display (ILI9341) interfaced via 65C22 VIA.
 
 **`Hardware/VERA Helper/`** — VERA FPGA video module adapter for the AC6502 bus.
 
@@ -316,6 +316,12 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 | J6, J7 | 2 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | |
 
 ### Backplane Helper
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Backplane Helper/Rev 1.0/` and `Production/Backplane Helper/Rev 1.0/` match the boards JLCPCB made (order Y77). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | DigiKey | Mouser |
 |-----------|-----|-------|-------------|---------|--------|
@@ -663,6 +669,13 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### LCD Board
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release. Built and tested. `Hardware/LCD Board/Rev 1.0/` and `Production/LCD Board/Rev 1.0/` match the boards JLCPCB made (order Y80). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+
 | Reference | Qty | Value | Description |
 |-----------|-----|-------|-------------|
 | C1–C4 | 4 | 100nF | Capacitor |
@@ -701,6 +714,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### Mega Helper
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Mega Helper/Rev 1.0/` and `Production/Mega Helper/Rev 1.0/` match the boards JLCPCB made (order Y81). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description |
 |-----------|-----|-------|-------------|
 | A1 | 1 | Arduino Mega 2560 | Arduino Mega 2560 R3 Shield |
@@ -709,6 +728,13 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
 
 ### Memory Card
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Memory Card/Rev 1.0/` and `Production/Memory Card/Rev 1.0/` match the boards JLCPCB made (order Y20). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -763,6 +789,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 | Y1 | 1 | 16 MHz | Crystal |
 
 ### RAM Card
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/RAM Card/Rev 1.0/` and `Production/RAM Card/Rev 1.0/` match the boards JLCPCB made (order Y69). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 **Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Before fitting one:
 
@@ -879,6 +911,13 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### Storage Card
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Storage Card/Rev 1.0/` and `Production/Storage Card/Rev 1.0/` match the boards JLCPCB made (order Y47). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
 | C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
@@ -929,6 +968,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 **Rev 1.0**
 
 - Initial release, and the board on sale. Its mounting holes are off the standard: 5.75 and 6.25 mm from the long sides' ends, and 5.32 and 5.68 mm from the top and bottom.
+- Built and tested. `Hardware/VERA Helper/Rev 1.0/` and `Production/VERA Helper/Rev 1.0/` match the boards JLCPCB made (order Y71). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
