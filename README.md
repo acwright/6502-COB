@@ -399,11 +399,21 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Blinkenlights Card
 
-**Rev 1.0:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit the card to watch the bus, not in a machine that relies on its interrupts. A later revision will buffer those three LEDs through the 74HC04's spare gates, as `RDY` and `BE` already are.
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Adds `C1`–`C4`, 100nF decoupling capacitors, one beside each chip, with tracks rerouted to reach them. Rev 1.0 has no pads for them.
+- The silkscreen spells out `RESB`. Rev 1.0's says `RSB`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Blinkenlights Card/Rev 1.0/` and `Production/Blinkenlights Card/Rev 1.0/` match the boards JLCPCB made (order Y40). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
+**Both revisions:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit the card to watch the bus, not in a machine that relies on its interrupts. A later revision will buffer those three LEDs through the 74HC04's spare gates, as `RDY` and `BE` already are.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
-| C1–C4 | 4 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
 | D1–D25 | 25 | LED | LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) |
 | D26, D27 | 2 | LED | LED 0805 | [C2295](https://www.lcsc.com/search?q=C2295) |
 | D28–D30 | 3 | LED | LED 0805 | [C2296](https://www.lcsc.com/search?q=C2296) |
@@ -411,6 +421,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 | R1–R32 | 32 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) |
 | U1, U2, U4 | 3 | 74HC573 | 8-bit Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
 | U3 | 1 | 74HC04 | Hex Inverter SOIC-14 | [C5590](https://www.lcsc.com/search?q=C5590) |
+
+This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](https://www.lcsc.com/search?q=C49678).
 
 ### Breadboard Helper
 
@@ -532,6 +544,16 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### Joystick Helper
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`). Their courtyards now overlap J2's, which DRC reports; check the fit before ordering.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Joystick Helper/Rev 1.0/` and `Production/Joystick Helper/Rev 1.0/` match the boards JLCPCB made (order Y73). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
 | J1 | 1 | PORT | GPIO Connector 2×6 | |
@@ -623,6 +645,18 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### PS2 Helper
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the resistors `R2`–`R9` and reroutes the tracks around them.
+- Moves the four mounting holes (`H1`–`H4`).
+- Drops the `R2-R9` silkscreen label.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/PS2 Helper/Rev 1.0/` and `Production/PS2 Helper/Rev 1.0/` match the boards JLCPCB made (order Y61). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description |
 |-----------|-----|-------|-------------|
 | C1–C3 | 3 | 100nF | Disc Capacitor |
@@ -693,13 +727,24 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### Serial Card Pro
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- `J2` uses KiCad's standard DB-9 footprint, in a new position, in place of Rev 1.0's own. Its pin spacing and mounting lugs are the same, so the same connector fits both revisions.
+- The silkscreen says `DB9 MALE (DTE)`. Rev 1.0's says `DB9 Male (DTE)`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Serial Card Pro/Rev 1.0/` and `Production/Serial Card Pro/Rev 1.0/` match the boards JLCPCB made (order Y36). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | LCSC | DigiKey |
 |-----------|-----|-------|-------------|------|---------|
 | C1, C2, C11, C13 | 4 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
 | C3–C10 | 8 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
 | C12 | 1 | 22pF | Unpolarized Capacitor | [C1804](https://www.lcsc.com/search?q=C1804) | |
 | D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
-| J2 | 1 | DB9 MALE (DTE) | DB-9 Connector (Male) | | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
+| J2 | 1 | DB9 Male (DTE) | DB-9 Connector (Male) | | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
 | J3 | 1 | Conn_02x08 | Pin Header 2×8 | | |
 | J4 | 1 | DCD Select | Pin Header 1×3 | | |
 | R1 | 1 | 1M | Resistor | [C103906](https://www.lcsc.com/search?q=C103906) | |
@@ -780,12 +825,13 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - `A1` reaches U1 pin 11, the pico9918's `MODE1`, as on the ACE Rev 1.1. A PICO9918 PRO takes it through a header pin soldered into its `MDE1` pad.
 - JP1 is open as made, so the pico9918's `/INT` reaches `IRQB` (or `NMIB`, through J2) only through D1.
 - D1 is named in its value field: a BAT85, cathode toward the pico9918.
+- U1, the pico9918, is turned around, and the board's outline around its VGA jack changes. The two mounting holes move, and the tracks are rerouted to suit.
 
 **Rev 1.0**
 
-- Initial release.
+- Initial release, and the board on sale. `Hardware/VGA Card/Rev 1.0/` and `Production/VGA Card/Rev 1.0/` match the boards JLCPCB made (order Y64). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-**Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so JP7 stays bridged.
+**Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -820,6 +866,19 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### Video Card
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain.
+- U1 and U7 use socket footprints (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
+- Adds the OSHW and A.C. Wright logos to the silkscreen.
+- The silkscreen labels `J4` as `VIDEO`. Rev 1.0's says `Video Out`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Video Card/Rev 1.0/` and `Production/Video Card/Rev 1.0/` match the boards JLCPCB made (order Y53). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | LCSC | Mouser | DigiKey |
 |-----------|-----|-------|-------------|------|--------|---------|
 | C1, C2 | 2 | 32pF | Disc Capacitor | [C107114](https://www.lcsc.com/search?q=C107114) | | |
@@ -828,7 +887,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 | FB1 | 1 | BLM41PG600SN1L | Ferrite Bead 1806 | [C85844](https://www.lcsc.com/search?q=C85844) | | |
 | J1 | 1 | INT Select | Pin Header 1×3 | | | |
 | J3 | 1 | Conn_02x08 | Pin Header 2×8 | | | |
-| J4 | 1 | VIDEO | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
+| J4 | 1 | Video Out | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
 | Q1 | 1 | 2N4401 | NPN BJT TO-92 | | | |
 | R1 | 1 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) | | |
 | R2 | 1 | 75 | Resistor | [C17820](https://www.lcsc.com/search?q=C17820) | | |
