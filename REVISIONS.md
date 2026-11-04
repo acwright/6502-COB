@@ -21,7 +21,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane Pro | 1.2 | Drawn | — |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | Blinkenlights Card | 1.0 | Made, matches order | Yes | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
-| Breadboard Helper | 1.0 | Made, not compared | Not recorded |  |  |  | 3 | 75×55 | — | — | — | on Tindie; JLCPCB's files not yet found |
+| Breadboard Helper | 1.0 | Made, matches order | Yes | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
 | CPU Card | 1.0 | Made, matches order | Yes | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | CPU Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | CPU Card Pro | 1.0 | Never made | — |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |

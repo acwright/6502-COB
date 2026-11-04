@@ -452,6 +452,14 @@ This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](ht
 
 ### Breadboard Helper
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Built and tested. `Hardware/Breadboard Helper/Rev 1.0/` and `Production/Breadboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y39). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
+- This is a different board from the [GPIO Breadboard Helper](#gpio-breadboard-helper): this one breaks out the full 6502 bus, and that one breaks out a VIA's PORT A and PORT B.
+
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
 | J1 | 1 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) |
