@@ -433,6 +433,16 @@ This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](ht
 
 ### Clock Helper
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Today's enclosure in `CAD/Enclosures/Clock Helper/` fits Rev 1.1, not Rev 1.0.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Clock Helper/Rev 1.0/` and `Production/Clock Helper/Rev 1.0/` match the boards JLCPCB made (order Y74). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description |
 |-----------|-----|-------|-------------|
 | C1 | 1 | 100nF | Capacitor |
@@ -504,6 +514,17 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### DB25 Helper
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/DB25 Helper/` fits Rev 1.1, not Rev 1.0.
+- The project's name is `DB25 Helper`. The order's Gerbers carry its old name, `GPIO DB25 Helper`.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/DB25 Helper/Rev 1.0/` and `Production/DB25 Helper/Rev 1.0/` match the boards JLCPCB made (order Y65). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
 | J1 | 1 | PORT A | GPIO Connector 2×6 | |
@@ -533,6 +554,16 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### GPIO Helper
 
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/GPIO Helper/` fits Rev 1.1, not Rev 1.0.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/GPIO Helper/Rev 1.0/` and `Production/GPIO Helper/Rev 1.0/` match the boards JLCPCB made (order Y66). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
 | D1–D8 | 8 | LED | LED 3mm | |
@@ -548,7 +579,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`). Their courtyards now overlap J2's, which DRC reports; check the fit before ordering.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Today's enclosure in `CAD/Enclosures/Joystick Helper/` fits Rev 1.1, not Rev 1.0. The holes' courtyards now overlap J2's, which DRC reports; check the fit before ordering.
 
 **Rev 1.0**
 
@@ -561,6 +592,16 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 | R1–R8 | 8 | 1k | Resistor | |
 
 ### Keyboard Encoder Helper
+
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/Keyboard Encoder Helper/` fits Rev 1.1, not Rev 1.0.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Keyboard Encoder Helper/Rev 1.0/` and `Production/Keyboard Encoder Helper/Rev 1.0/` match the boards JLCPCB made (order Y72). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
@@ -650,7 +691,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the resistors `R2`–`R9` and reroutes the tracks around them.
-- Moves the four mounting holes (`H1`–`H4`).
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Today's enclosure in `CAD/Enclosures/PS2 Helper/` fits Rev 1.1, not Rev 1.0.
 - Drops the `R2-R9` silkscreen label.
 
 **Rev 1.0**

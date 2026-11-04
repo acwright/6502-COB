@@ -1,11 +1,2 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
-C1,C_Disc_D5.0mm_W2.5mm_P2.50mm,1,100nF,C49678
-D1,LED_D3.0mm,1,RDY,
-D2,LED_D3.0mm,1,SYNC,
-"R1, R2",R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,2,1k,
-"R3, R4, R5",R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,3,1k,C17513
-"R6, R7, R8",R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,3,330,
-SW1,XKB5858,1,CYCLE/INSTR,XKB5858-Z
-SW2,XKB5858,1,RUN/STOP,XKB5858-Z
-SW3,XKB5858,1,STEP,XKB5858-W
-U1,DIP-14_W7.62mm_Socket_LongPads,1,74HC74,
+C1,C_Disc_D5.0mm_W2.5mm_P2.50mm,1,100nF,
