@@ -260,6 +260,8 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 3D-printable enclosure parts and laser-cut top panels for the COB system.
 
+**Board images** are in `CAD/Images/<Board>/Rev X/`: `Front.png` and `Back.png` on white, and `Front Transparent.png` and `Back Transparent.png` with no background. Every image is a 3D render at the same size, with the black solder mask and white silkscreen the boards are made with. Bare-board photos may differ, because the renders show parts fitted.
+
 **Top panels, enclosures and jigs are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`, `CAD/Enclosures/<Board>/Rev X/`, `CAD/Jigs/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
 
 Keyboard Encoder Helper Rev 1.0, the board on sale, has the old 88 × 39 mm holes, and the COB's base plate is drilled for Rev 1.1's 88 × 38 mm. To fit a Rev 1.0 board, drill plate holes 9 and 21 (x 296, at y 16 and y 104 on the plate mounting drawing) out to 5 mm. The two screws then sit 1 mm to the left of those holes' centers, and the board moves less than 1 mm into the 10 mm gap beside the Backplane Helper. Drill through all three layers of the plate, and add a washer if a screw head doesn't sit flat. The plate mounting drawing itself shows Rev 1.1.
