@@ -296,6 +296,12 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ### Backplane
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Backplane/Rev 1.0/` and `Production/Backplane/Rev 1.0/` match the boards JLCPCB made (order Y50). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey | Mouser |
 |-----------|-----|-------|-------------|---------|--------|
 | J1–J5 | 5 | 6502 Card Connector | Card Edge 2×20 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
@@ -491,13 +497,15 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 #### Revision History
 
-**Rev 1.1**
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Pull-up resistors changed from 1kΩ to 10kΩ.
+- Some tracks are rerouted.
+- The silkscreen labels U1 `65C02` and J3 `EXP`, and adds a `6502` label. It drops Rev 1.0's "Jumper J2 for original 6502" note.
 
 **Rev 1.0**
 
-- Initial release.
+- Initial release, and the board on sale. `Hardware/CPU Card/Rev 1.0/` and `Production/CPU Card/Rev 1.0/` match the boards JLCPCB made (order Y18). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### CPU Card Pro
 
@@ -533,6 +541,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### GPIO Breadboard Helper
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/GPIO Breadboard Helper/Rev 1.0/` and `Production/GPIO Breadboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y57). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description |
 |-----------|-----|-------|-------------|
 | J1 | 1 | PORT A | GPIO Connector 2×6 |
@@ -541,6 +555,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 | J4 | 1 | PORT B | GPIO Connector 2×6 |
 
 ### GPIO Card
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/GPIO Card/Rev 1.0/` and `Production/GPIO Card/Rev 1.0/` match the boards JLCPCB made (order Y45). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -617,6 +637,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### Keyboard Helper
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Keyboard Helper/Rev 1.0/` and `Production/Keyboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y70). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
 | J1, J2 | 2 | JOYSTICK | DB-9 Connector (Male) | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
@@ -641,6 +667,16 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 | U3 | 1 | 74HC138 | Decoder DIP-16 |
 
 ### LCD Card
+
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- `JP1` is open as made. On Rev 1.0 it is bridged.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/LCD Card/Rev 1.0/` and `Production/LCD Card/Rev 1.0/` match the boards JLCPCB made (order Y27). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -676,6 +712,12 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 | U4 | 1 | AT28C256 | EEPROM DIP-28 | |
 
 ### Prototype Card
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Prototype Card/Rev 1.0/` and `Production/Prototype Card/Rev 1.0/` match the boards JLCPCB made (order Y22). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | LCSC |
 |-----------|-----|-------|-------------|------|
@@ -737,6 +779,12 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### RTC Card
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/RTC Card/Rev 1.0/` and `Production/RTC Card/Rev 1.0/` match the boards JLCPCB made (order Y62). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | LCSC | DigiKey |
 |-----------|-----|-------|-------------|------|---------|
 | BT1 | 1 | BAT-HLD-001-THM | Coin Cell Battery Holder | | |
@@ -750,6 +798,12 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 | U2, U3 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
 
 ### Serial Card
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Serial Card/Rev 1.0/` and `Production/Serial Card/Rev 1.0/` match the boards JLCPCB made (order Y67). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | LCSC | DigiKey |
 |-----------|-----|-------|-------------|------|---------|
@@ -796,6 +850,12 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### Sound Card
 
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Sound Card/Rev 1.0/` and `Production/Sound Card/Rev 1.0/` match the boards JLCPCB made (order Y84). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
 | Reference | Qty | Value | Description | LCSC | DigiKey |
 |-----------|-----|-------|-------------|------|---------|
 | C1, C2 | 2 | 2.2nF | Unpolarized Capacitor | [C28260](https://www.lcsc.com/search?q=C28260) | |
@@ -823,6 +883,12 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 | U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
 
 ### Storage Card Pro
+
+#### Revision History
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. `Hardware/Storage Card Pro/Rev 1.0/` and `Production/Storage Card Pro/Rev 1.0/` match the boards JLCPCB made (order Y78). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 | Reference | Qty | Value | Description | LCSC | DigiKey |
 |-----------|-----|-------|-------------|------|---------|
