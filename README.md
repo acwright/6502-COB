@@ -260,7 +260,9 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 3D-printable enclosure parts and laser-cut top panels for the COB system.
 
-**Top panels, enclosures, jigs are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`, `CAD/Enclosures/<Board>/Rev X/`, `CAD/Jigs/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
+**Top panels, enclosures and jigs are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`, `CAD/Enclosures/<Board>/Rev X/`, `CAD/Jigs/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
+
+Keyboard Encoder Helper Rev 1.0 has the old 88 × 39 mm holes, so it doesn't fit the standoffs on the COB's base plate, which is drilled for Rev 1.1's 88 × 38 mm. The plate mounting drawing shows Rev 1.1.
 
 The Rev 1.0 top panels for the Clock, DB25, GPIO, Joystick and Keyboard Encoder Helpers, and the Rev 1.1 top panel for the PS2 Helper, are SVG only. They are derived from the other revision's panel by moving the four mounting holes, and none has been cut yet.
 
@@ -914,6 +916,16 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 | Y1 | 1 | 16 MHz | Crystal | | [3155-16M20P2/49US-ND](https://www.digikey.com/en/products/filter?keywords=3155-16M20P2/49US-ND) |
 
 ### VERA Helper
+
+#### Revision History
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 69 mm to 88 × 68 mm.
+
+**Rev 1.0**
+
+- Initial release, and the board on sale. Its mounting holes are off the standard: 5.75 and 6.25 mm from the long sides' ends, and 5.32 and 5.68 mm from the top and bottom.
 
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|
