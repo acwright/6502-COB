@@ -271,6 +271,8 @@ The **[plate mounting drawing](CAD/Bases/Plate%20Mounting%20Drawing.png)** ([SVG
 ## Production
 `Production/`
 
+[REVISIONS.md](REVISIONS.md) lists every board revision: whether it was made, its JLCPCB order, the commit it was made from, and what fits it.
+
 JLCPCB-ready Gerber files and BOM/CPL for PCB fabrication and assembly.
 
 ## Schematics
@@ -605,7 +607,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap J2's, which DRC reports; check the fit before ordering.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap J2's. The project excludes that from DRC, but check the fit before ordering.
 
 **Rev 1.0**
 
