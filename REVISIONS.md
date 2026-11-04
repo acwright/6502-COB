@@ -24,7 +24,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Breadboard Helper | 1.0 | To confirm |  |  |  | 3 | 75×55 | — | — | — |  |
 | CPU Card | 1.0 | Made, checked | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | CPU Card | 1.1 | Drawn |  |  |  | — | 100×57.62 | — | — | — |  |
-| CPU Card Pro | 1.0 | Never made |  |  |  | — | 100×57.62 | — | — | — | PCB company 'A.C. Wright Design / bahamutkotd'; schematic company 'A.C. Wright Design / bahamutkotd' |
+| CPU Card Pro | 1.0 | Never made |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
 | Clock Card | 1.0 | Ordered |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02 |
 | Clock Helper | 1.0 | Made, checked | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | SVG only | yes |  |
 | Clock Helper | 1.1 | Drawn |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
@@ -36,7 +36,7 @@ Every revision of every board in this repository, and what is known about each. 
 | GPIO Helper | 1.1 | Drawn |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Joystick Helper | 1.0 | Made, checked | Y73 | 2025-11-16 | `4f73288` | 4 | 50×50 | 5.32–5.68 mm | SVG only | yes |  |
 | Joystick Helper | 1.1 | Drawn |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
-| Keyboard Encoder Helper | 1.0 | Made, checked | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | SVG only | yes |  |
+| Keyboard Encoder Helper | 1.0 | Made, checked | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | SVG only | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
 | Keyboard Encoder Helper | 1.1 | Drawn |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, checked | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
 | LCD Board | 1.0 | To confirm |  |  |  | — | 100×100 | 6 mm | yes | — |  |

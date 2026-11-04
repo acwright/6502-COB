@@ -130,7 +130,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/CPU Card/`** — Hosts the 65C02 CPU in a card form factor for backplane-based COB systems.
 
-**`Hardware/CPU Card Pro/`** — Hosts a 65816 16-bit CPU (backward-compatible with 65C02). *(Untested)*
+**`Hardware/CPU Card Pro/`** — Hosts a 65816 16-bit CPU (backward-compatible with 65C02). *(Untested)* Its title block credits bahamutkotd, who contributed.
 
 **`Hardware/Memory Card/`** — Provides 32KB SRAM and 32KB EEPROM with address decoding logic for COB systems using the CPU Card.
 
@@ -262,7 +262,7 @@ See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) f
 
 **Top panels, enclosures and jigs are versioned by board revision**, like `Hardware/`: `CAD/Tops/<Board>/Rev X/`, `CAD/Enclosures/<Board>/Rev X/`, `CAD/Jigs/<Board>/Rev X/`. Each revision has its own complete folder, even when two revisions share the same files. `Bases/` holds the parts for a whole computer, not for one board, so it isn't versioned.
 
-Keyboard Encoder Helper Rev 1.0 has the old 88 × 39 mm holes, so it doesn't fit the standoffs on the COB's base plate, which is drilled for Rev 1.1's 88 × 38 mm. The plate mounting drawing shows Rev 1.1.
+Keyboard Encoder Helper Rev 1.0, the board on sale, has the old 88 × 39 mm holes, and the COB's base plate is drilled for Rev 1.1's 88 × 38 mm. To fit a Rev 1.0 board, drill plate holes 9 and 21 (x 296, at y 16 and y 104 on the plate mounting drawing) out to 5 mm. The two screws then sit 1 mm to the left of those holes' centers, and the board moves less than 1 mm into the 10 mm gap beside the Backplane Helper. Drill through all three layers of the plate, and add a washer if a screw head doesn't sit flat. The plate mounting drawing itself shows Rev 1.1.
 
 The Rev 1.0 top panels for the Clock, DB25, GPIO, Joystick and Keyboard Encoder Helpers, and the Rev 1.1 top panel for the PS2 Helper, are SVG only. They are derived from the other revision's panel by moving the four mounting holes, and none has been cut yet.
 
@@ -607,7 +607,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap J2's. The project excludes that from DRC, but check the fit before ordering.
+- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap the courtyard of J2, the DB9 connector. That has been reviewed and is fine, so the project excludes it from DRC.
 
 **Rev 1.0**
 
@@ -630,6 +630,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Keyboard Encoder Helper/Rev 1.0/` and `Production/Keyboard Encoder Helper/Rev 1.0/` match the boards JLCPCB made (order Y72). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- To mount it on the COB's base plate, two plate holes have to be drilled wider: see [CAD](#cad).
 
 | Reference | Qty | Value | Description | DigiKey |
 |-----------|-----|-------|-------------|---------|

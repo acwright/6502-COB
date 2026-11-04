@@ -253,35 +253,37 @@
 <text x="418" y="132.8" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Each Backplane position takes a Backplane or a Backplane Pro. They have the same size and the same holes, in</text>
 <text x="418" y="136.7" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">every revision. The Backplanes and the Backplane Helper are turned 180° from their PCB files, with their bus</text>
 <text x="418" y="140.6" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">connectors to the left and their card slots toward the front.</text>
-<text x="418" y="146.3" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">The plate is a stack of three 3 mm acrylic layers, each cut from Plate.svg. Plate.svg is drawn turned 180°</text>
-<text x="418" y="150.2" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">from this view.</text>
-<text x="418" y="155.9" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">The SVG is drawn 1:1, so it can be printed at full size to check a plate.</text>
-<text x="418" y="165.6" font-size="4.2" text-anchor="start" fill="#16202c" font-weight="bold">Hardware</text>
-<text x="418" y="172.6" font-size="3.1" text-anchor="start" fill="#16202c" font-weight="bold">Part</text>
-<text x="510" y="172.6" font-size="3.1" text-anchor="start" fill="#16202c" font-weight="bold">Count</text>
-<line x1="418" y1="174" x2="614" y2="174" stroke="#16202c" stroke-width="0.25"/>
-<text x="418" y="178.6" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 10 standoff, female-male</text>
-<text x="510" y="178.6" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
-<text x="418" y="183.65" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 10 standoff, female-female</text>
-<text x="510" y="183.65" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
-<text x="418" y="188.7" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 12 pan head</text>
-<text x="510" y="188.7" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
-<text x="418" y="193.75" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 6 pan head</text>
-<text x="510" y="193.75" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
-<text x="418" y="198.8" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 16 countersunk</text>
-<text x="510" y="198.8" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">8</text>
-<text x="418" y="203.85" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 nut</text>
-<text x="510" y="203.85" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">8</text>
-<text x="418" y="208.9" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Rubber foot, Ø10</text>
-<text x="510" y="208.9" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">5</text>
-<text x="418" y="219.95" font-size="4.2" text-anchor="start" fill="#16202c" font-weight="bold">How a hole goes together</text>
-<text x="418" y="226.45" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">A normal hole, from the bottom up: an M3 × 12 pan head through the back of the plate, a female-male</text>
-<text x="418" y="230.35" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">standoff, the board, a female-female standoff, the top, and an M3 × 6 pan head.</text>
-<text x="418" y="236.05" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Corners: an M3 × 16 countersunk screw from the top, through the plate, into a nut in the Corner's lower</text>
-<text x="418" y="239.95" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">jaw.</text>
-<text x="418" y="245.65" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Center Support: an M3 × 16 countersunk screw from the top, through the retainer and the plate, into a</text>
-<text x="418" y="249.55" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">nut in the Center Support. Four of these.</text>
-<text x="418" y="255.25" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Rubber feet: one in the Ø10 recess under each Corner and under the Center Support.</text>
+<text x="418" y="146.3" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Keyboard Encoder Helper Rev 1.0, the board on sale, has 88 × 39 mm holes. To fit one, drill holes 9 and 21</text>
+<text x="418" y="150.2" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">out to 5 mm, and put their screws 1 mm to the left of center.</text>
+<text x="418" y="155.9" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">The plate is a stack of three 3 mm acrylic layers, each cut from Plate.svg. Plate.svg is drawn turned 180°</text>
+<text x="418" y="159.8" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">from this view.</text>
+<text x="418" y="165.5" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">The SVG is drawn 1:1, so it can be printed at full size to check a plate.</text>
+<text x="418" y="175.2" font-size="4.2" text-anchor="start" fill="#16202c" font-weight="bold">Hardware</text>
+<text x="418" y="182.2" font-size="3.1" text-anchor="start" fill="#16202c" font-weight="bold">Part</text>
+<text x="510" y="182.2" font-size="3.1" text-anchor="start" fill="#16202c" font-weight="bold">Count</text>
+<line x1="418" y1="183.6" x2="614" y2="183.6" stroke="#16202c" stroke-width="0.25"/>
+<text x="418" y="188.2" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 10 standoff, female-male</text>
+<text x="510" y="188.2" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
+<text x="418" y="193.25" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 10 standoff, female-female</text>
+<text x="510" y="193.25" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
+<text x="418" y="198.3" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 12 pan head</text>
+<text x="510" y="198.3" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
+<text x="418" y="203.35" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 6 pan head</text>
+<text x="510" y="203.35" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">16</text>
+<text x="418" y="208.4" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 × 16 countersunk</text>
+<text x="510" y="208.4" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">8</text>
+<text x="418" y="213.45" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">M3 nut</text>
+<text x="510" y="213.45" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">8</text>
+<text x="418" y="218.5" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Rubber foot, Ø10</text>
+<text x="510" y="218.5" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">5</text>
+<text x="418" y="229.55" font-size="4.2" text-anchor="start" fill="#16202c" font-weight="bold">How a hole goes together</text>
+<text x="418" y="236.05" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">A normal hole, from the bottom up: an M3 × 12 pan head through the back of the plate, a female-male</text>
+<text x="418" y="239.95" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">standoff, the board, a female-female standoff, the top, and an M3 × 6 pan head.</text>
+<text x="418" y="245.65" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Corners: an M3 × 16 countersunk screw from the top, through the plate, into a nut in the Corner's lower</text>
+<text x="418" y="249.55" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">jaw.</text>
+<text x="418" y="255.25" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Center Support: an M3 × 16 countersunk screw from the top, through the retainer and the plate, into a</text>
+<text x="418" y="259.15" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">nut in the Center Support. Four of these.</text>
+<text x="418" y="264.85" font-size="3" text-anchor="start" fill="#16202c" font-weight="normal">Rubber feet: one in the Ø10 recess under each Corner and under the Center Support.</text>
 <text x="42" y="15" font-size="7.2" text-anchor="start" fill="#16202c" font-weight="bold">COB base plate: mounting drawing</text>
 <text x="42" y="23" font-size="3.6" text-anchor="start" fill="#7b8794" font-weight="normal">Looking down on the plate, as the computer is used. All dimensions in mm.</text>
 <line x1="34" y1="337.2" x2="614" y2="337.2" stroke="#16202c" stroke-width="0.25"/>
