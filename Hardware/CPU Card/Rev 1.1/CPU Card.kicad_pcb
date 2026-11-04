@@ -1839,7 +1839,7 @@
 				)
 			)
 		)
-		(attr through_hole)
+		(attr through_hole board_only)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
@@ -2132,7 +2132,7 @@
 				)
 			)
 		)
-		(attr through_hole)
+		(attr through_hole board_only)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
@@ -3973,7 +3973,7 @@
 				)
 			)
 		)
-		(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+		(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard board_only)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
