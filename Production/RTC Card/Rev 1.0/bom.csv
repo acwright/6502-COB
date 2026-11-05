@@ -1,4 +1,10 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
+BT1,BAT_BAT-HLD-001-THM,1,CR2032,
 "C1, C2, C3",0805,3,100nF,C49678
+D1,D_DO-35_SOD27_P7.62mm_Horizontal,1,BAT85,
+J2,PinHeader_1x06_P2.54mm_Vertical,1,AUX,
+J3,PinHeader_1x03_P2.54mm_Vertical,1,INT Select,
+J4,PinHeader_2x08_P2.54mm_Vertical,1,Conn_02x08_Odd_Even,
 R1,0805,1,1k,C17513
+U1,DIP-28_W15.24mm_Socket_LongPads,1,DS1511Y,
 "U2, U3",SOIC-16_3.9x9.9mm_P1.27mm,2,74HC138,C5602

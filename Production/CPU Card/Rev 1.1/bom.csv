@@ -1,3 +1,6 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
 C1,0805,1,100nF,C49678
-"R1, R2, R3, R4, R5, R6",0805,6,10k,C2930231
+J2,PinHeader_1x02_P2.54mm_Vertical,1,Conn_01x02,
+J3,PinHeader_2x05_P2.54mm_Vertical,1,EXP,
+"R1, R2, R3, R4, R5, R6",0805,6,10k,C17414
+U1,DIP-40_W15.24mm_Socket_LongPads,1,65C02,

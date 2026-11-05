@@ -623,11 +623,76 @@
 				)
 			)
 		)
+		(property "Digikey" "2092-KMDGX-6S-BS-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac3c4879-e8e4-5a3e-8b98-46553fa20347")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "806-KMDGX-6S-BS"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ea1debc3-17e1-5434-828d-2fd843a57d3d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7b4fcea1-12e0-5c15-9d06-d38e665cae03")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7c13b5e-1928-5644-82fb-fa1252e012e6")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "553a6f5d-d2a3-5dbb-8f87-a05494289808")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MINI?DIN*")
 		(path "/ac16d11a-b729-4429-a601-161e3f78a0ea")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 8.3 4.4)
 			(end 8.3 0)
@@ -926,7 +991,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C107114"
+		(property "LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -939,11 +1004,63 @@
 				)
 			)
 		)
+		(property "Digikey" "478-7724-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b0cd5205-f0a4-5b02-884b-59537fad4600")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "581-SR151A200JAR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2194b066-da63-5258-94f3-10bc4ee153b2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "338ba4c8-626e-5f46-99ba-d38b6fcbf20b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "06e8f12c-bb4f-52f8-b9ad-f1f8c2c3fa9f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e276dbda-8223-445f-9010-e35782dd8b51")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start -1.37 -1.37)
 			(end 3.87 -1.37)
@@ -1102,7 +1219,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C107114"
+		(property "LCSC" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1115,11 +1232,63 @@
 				)
 			)
 		)
+		(property "Digikey" "478-3187-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2b584699-319d-574c-891c-8876cc79bb5c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "581-SR205C104KAR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8f1a3ac6-2688-560b-9fa9-cacba6f573f0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e09e56fc-9aab-5f31-97d2-79c61c344d7c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "58e85404-e1d1-5a13-9ee2-8257b56e620d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/bf993ecf-173e-4f05-a6ba-a065ab2ca03f")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 3.87 1.37)
 			(end -1.37 1.37)
@@ -1536,7 +1705,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -1572,11 +1741,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e68ad9c0-32bb-54bf-9ba9-59197326cc09")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fef3e8eb-652d-5bb9-8dfc-8ae00cc286dc")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7998488c-8238-5c35-92d3-cb7dadaac918")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd14000c-839f-5f91-8830-34b8c8366cc9")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d02f393c-3222-5a8f-9e96-d0bf2d0af309")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/7b7a73f0-78eb-4fef-9d3a-6d55bc7ac455")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -1792,7 +2026,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1828,11 +2062,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "773d6c53-7f1b-5bdd-8920-9b6f27ddc727")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "754aeaa6-6b2e-52ca-9529-cbc1c6dd05be")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e30eb8d5-3bc4-52e7-9cdd-72128623668c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac508557-7f11-50cb-b00d-b1e3b8eac74f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a5a8ac7-e07b-5f6c-9f23-65a6322e421b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/a1056697-100f-4716-b2af-e1697883d166")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -1991,11 +2290,76 @@
 				)
 			)
 		)
+		(property "Digikey" "ATMEGA328P-PU-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3e90a769-04b9-556d-ad32-7d7e3ac7358e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "556-ATMEGA328P-PU"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7dba4f58-3da3-5c70-8fed-e90879d5f9d1")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f1be9d13-8323-5d56-bc22-6535d4f9da52")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d60ee9b0-5713-5ba1-ad65-a728a3f26047")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a63f6971-3531-5516-af8c-2be1c7ed8006")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "DIP*W7.62mm*")
 		(path "/8412b911-8a79-457e-afbd-a81624c0498e")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 6.06 -1.33)
 			(end 4.81 -1.33)
@@ -2527,11 +2891,76 @@
 				)
 			)
 		)
+		(property "Digikey" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e8ed9a78-c564-533d-856d-95fa500910de")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "737-BHR-12-VUA"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b248ab6c-3d17-5343-a426-a0f538e5bf62")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "33607781-26cf-50b4-a8d2-584e4c49586a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d88f529-c68f-5df0-aae6-fa7bf013b584")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "611b95be-5d32-5a55-94e8-8d0ec3de1c9f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/8a111a44-6692-493e-b3b6-f9efc7a7fb23")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 5.75 3.81)
 			(end 4.572 3.81)
@@ -3554,7 +3983,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3590,11 +4019,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "28c6a217-1c3b-55e9-ab52-6f86738d6209")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "046f5e2b-c3f4-588a-8a11-010a02d3db2b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "01efe3ab-beb7-5b5f-988f-e3df0a460b66")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d9a1ffd-3320-5401-997b-77f233852a4d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a21b352d-326f-5638-88f5-3d85bddf7e0a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/7626feb4-b1e6-43d6-b343-265dfe9f0faa")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -3846,11 +4340,76 @@
 				)
 			)
 		)
+		(property "Digikey" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bea07941-3478-5575-9d9e-4aff5c9ced8a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "737-BHR-12-VUA"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "21957a00-2970-55db-9647-3291a2520adb")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "28927082-69a5-5e24-b9b3-3bf4d6813011")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de63656f-2b36-5a3e-96a1-40a2cdcdd23b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6b48c2b4-e9c7-578c-abfe-2b742d29ef57")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/5e7779aa-0f83-4bd0-bb86-bc8da7ea8f0f")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 5.75 3.81)
 			(end 4.572 3.81)
@@ -4146,7 +4705,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4182,11 +4741,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0098c125-7e53-5fb2-b13e-0f72eb5d1934")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9074cadd-c60c-5546-a94e-7395fea1aaac")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2b87a450-b053-5d83-b39b-d09a97308aec")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f816db8c-fad5-596e-8495-0257093507ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "38f34cd3-a5f2-552a-9447-71f39cfb259b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/41495348-7aa7-45f0-a354-bb0cd88f0603")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -4436,11 +5060,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "14742924-11ca-5cb5-a993-ab534566ac58")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee0b2012-404f-5349-ad70-49d804a123b0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "25ab9ee1-a9f9-5d26-9567-31e186cb7160")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5d2b78a-77b1-5502-b4da-0f962f158f6c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "73dec3e9-54ac-56ea-8e91-938fb5615578")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/37315628-029a-4c9e-b71d-5699183dc5ea")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -4600,11 +5289,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3cff929d-177e-533c-8c45-853e3dd2a804")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "28ddc727-3b37-5339-81a7-0436c08f481b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fdf8d474-acd3-5314-8756-adb3342d7545")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0080f9fb-b037-53f3-be33-d89062bd0324")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e0d430a6-2d23-5331-a7ab-5fc68183f9d2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/e0558981-1655-4f0d-a3c8-167d9039777a")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -4729,7 +5483,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4765,11 +5519,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c94517a-f931-5fdb-9035-3e165089f599")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4392bcd7-ffce-5789-a66f-aae19319559b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ca7407df-89f8-5364-8df6-74b170a7e42f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb658ae3-d610-5b56-8fd3-384d5df00619")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0b9ec8b8-e11f-5e03-984b-46d53099a164")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/c2eba4ea-cae9-4355-8264-6af5ef04c024")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -4928,7 +5747,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C107114"
+		(property "LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4941,11 +5760,63 @@
 				)
 			)
 		)
+		(property "Digikey" "478-3187-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b88b35a5-0797-5b27-8204-1b7b84b3e07d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "581-SR205C104KAR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4e90c9b5-1505-5d9f-8d1d-5a8c6598941e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d684bbf5-f6a2-5441-a550-bcc2fb617d95")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eb079b20-fef8-5819-b370-d7185c309754")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/bd7eb2a2-743b-4265-9ef0-cd4a2f1bc636")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start -1.37 -1.37)
 			(end 3.87 -1.37)
@@ -5104,7 +5975,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C107114"
+		(property "LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5117,11 +5988,63 @@
 				)
 			)
 		)
+		(property "Digikey" "478-7724-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c7c0e842-cd97-529c-a1e0-4b1fe6365113")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "581-SR151A200JAR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "12209d17-c712-5b90-83fa-0c509fb98378")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4e1cc162-8a98-5774-8f81-fb7ec70e1807")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "201712b9-fdd8-5646-8021-01aef046ec87")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1da64d34-cd1a-4662-8d4a-9fe1be31e65e")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start -1.37 -1.37)
 			(end 3.87 -1.37)
@@ -5281,7 +6204,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C107114"
+		(property "LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5294,11 +6217,63 @@
 				)
 			)
 		)
+		(property "Digikey" "478-3187-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "738dc0db-753e-5ffe-aee3-bdaa8defb880")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "581-SR205C104KAR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "327ee27e-4891-50c6-a449-b38640ea190a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1f923f4b-006c-5c61-abd0-26a660be152f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dab972ff-762e-5bd8-be4f-bf8a58675044")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/47ce5033-d521-4bb4-ab70-93a996c6fab8")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start -1.37 -1.37)
 			(end 3.87 -1.37)
@@ -5423,7 +6398,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5459,11 +6434,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f82024d4-e1c2-51cd-926a-2257e17822ce")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aa8755a7-8000-5225-a733-48099f65943d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "91343074-ee1e-58f1-8d84-b84af6eaf390")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8e2c5046-40ad-5577-8bab-855085660d79")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d427b1a0-a474-5e33-8830-bf551d40e08b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/eb30f01d-d225-4cb7-8654-c18db7b0144e")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)
@@ -5622,10 +6662,75 @@
 				)
 			)
 		)
+		(property "Digikey" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9bafccc9-8925-510c-a99e-de226a144085")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec3e4622-803f-5c98-9c74-c9e809281676")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8b4d8771-bcc6-5b7d-a418-ee2ae773d3c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "06a43bd2-c728-5ace-adf1-4f7f18ce4704")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" "eBay"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85cd4448-2d88-53d6-8af3-1cbdd715d703")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/9629e1ee-9b2e-4276-90e9-7c2e4cd1431a")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 13.68 -1.33)
 			(end 8.62 -1.33)
@@ -6248,11 +7353,76 @@
 				)
 			)
 		)
+		(property "Digikey" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "765d4324-3be4-5db1-b102-b7167f764c62")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "737-BHR-12-VUA"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cca91776-5419-5d10-ac71-98a878bcff7f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fbb74ef9-6561-5144-acb2-a4d558bf78d3")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "53b7268e-d2c0-5942-99df-669f6422b0df")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" "2057-BHR-12-VUA-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cdf6a113-19d5-525a-9e0e-5bdb05047955")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/82f99585-7f32-44c5-89f1-13c6c1a0300b")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 4.572 8.89)
 			(end 5.75 8.89)
@@ -6581,7 +7751,7 @@
 				)
 			)
 		)
-		(property "Digikey" "3155-16M20P2/49US-ND"
+		(property "Digikey" "X1103-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6594,11 +7764,63 @@
 				)
 			)
 		)
+		(property "Mouser" "520-HCU1600-20X"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "73e687e6-1270-5f02-8630-0ba545093be2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7d41b9a5-f06b-5979-8ff7-985a5f0b2036")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3f84b8fc-2835-501b-950d-d2e80a715085")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f8e33769-8c1d-52fc-adaf-4459fe8f5928")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Crystal*")
 		(path "/e7dc0d90-43a2-4702-93e7-8890ef928aa1")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 5.565 2.435)
 			(end -0.685 2.435)
@@ -6789,7 +8011,7 @@
 				)
 			)
 		)
-		(property "Value" "1K"
+		(property "Value" "1k"
 			(at 2.54 1.92 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6825,11 +8047,76 @@
 				)
 			)
 		)
+		(property "Digikey" "13-MFR-12FTF52-1KCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "536ea749-71a4-5461-8aea-3f5384c56eba")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "603-MFR-12FTF52-1K"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e99e49d4-5d72-5b29-bb47-dacb2b195d13")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Jameco" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba85c7bd-91db-5b2f-965a-e1ef52d9873d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0945e2a4-3683-5afd-aeac-dbe56a0be7c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Other" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ad3d5561-3b3c-5833-8af1-61dfaa388b7d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/2e7f27d0-1a47-4f8d-9fe3-13a8370ed139")
 		(sheetname "/")
 		(sheetfile "PS2 Helper.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole)
 		(fp_line
 			(start 0.62 -0.92)
 			(end 4.46 -0.92)

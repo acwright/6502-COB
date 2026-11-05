@@ -2,7 +2,12 @@
 "C1, C11, C13, C2",0805,4,100nF,C49678
 "C10, C3, C4, C5, C6, C7, C8, C9",0805,8,1uF,C28323
 C12,0805,1,22pF,C1804
-R1,0805,1,1M,C103906
+D1,D_DO-35_SOD27_P7.62mm_Horizontal,1,BAT85,
+J2,DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm,1,DB9 MALE (DTE),
+J3,PinHeader_2x08_P2.54mm_Vertical,1,Conn_02x08_Odd_Even,
+J4,PinHeader_1x03_P2.54mm_Vertical,1,DCD Select,
+R1,0805,1,1M,C17514
 "U1, U2",MAX232D,2,MAX232,C59824
 U3,SOIC-16_3.9x9.9mm_P1.27mm,1,74HC138,C5602
-U4,DIP-28_W15.24mm_Socket_LongPads,1,6551,
+U4,DIP-28_W15.24mm_Socket_LongPads,1,R6551AP,
+Y1,Crystal_HC49-U_Vertical,1,1.8432 MHz,

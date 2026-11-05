@@ -1,3 +1,9 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
 "C1, C2",0805,2,100nF,C49678
+D1,D_DO-35_SOD27_P7.62mm_Horizontal,1,BAT85,
+J2,PinHeader_1x07_P2.54mm_Horizontal,1,GPIO,
+J3,PinHeader_2x08_P2.54mm_Vertical,1,Conn_02x08_Odd_Even,
+U1,DIP-40_W15.24mm_Socket_LongPads,1,65C22,
+U2,LCD-16X2,1,LCD-16X2,
 U3,SOIC-16_3.9x9.9mm_P1.27mm,1,74HC138,C5602
+VR1,3386F-1-103LF,1,10k,

@@ -1,3 +1,5 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,6502 GPIO Connector,1,PORT A,
 J2,PinHeader_1x12_P2.54mm_Vertical,1,PORT A,
 J3,PinHeader_1x12_P2.54mm_Vertical,1,PORT B,
+J4,6502 GPIO Connector,1,PORT B,
