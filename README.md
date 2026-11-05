@@ -403,7 +403,7 @@ Parts list: [BOM.md](BOM.md#clock-helper).
 
 ### Clock Card
 
-Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscillator socket takes any DIP-14 can; it is drawn, labelled and tested with 1 MHz, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+Rev 1.0 has been ordered. No card has been built or tested yet. The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
 
 ### CPU Card
 

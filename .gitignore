@@ -7,3 +7,5 @@
 .lck
 Thumbs.db
 .vscode/
+# KiCad local history
+.history
