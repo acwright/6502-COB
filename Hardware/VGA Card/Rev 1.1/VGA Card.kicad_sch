@@ -7237,7 +7237,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-40_W15.24mm_LongPads"
+		(property "Footprint" "Package_DIP:DIP-40_W15.24mm_Socket_LongPads"
 			(at 215.9 44.45 0)
 			(hide yes)
 			(show_name no)

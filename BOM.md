@@ -389,7 +389,7 @@ Cart files: [digikey.csv](BOM/CPU%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.c
 | U2 | 1 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
 | U3 | 1 | 74HC245 | Nexperia USA Inc. 74HC245PW,118 | [1727-4296-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-4296-1-ND) | [771-HC245PW118](https://www.mouser.com/ProductDetail/771-HC245PW118) | LCSC [C5626](https://www.lcsc.com/search?q=C5626) | Yes |
 | U4 | 1 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -409,7 +409,7 @@ Cart files: [digikey.csv](BOM/CPU%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 | J3 | 1 | EXP | Pin header 2×5, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | R1–R6 | 6 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
 | U1 | 1 | 65C02 | Western Design Center (WDC) W65C02S6TPG-14 |  | [955-W65C02S6TPG-14](https://www.mouser.com/ProductDetail/955-W65C02S6TPG-14) |  | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -426,7 +426,7 @@ Cart files: [digikey.csv](BOM/CPU%20Card/Rev%201.0/digikey.csv), [mouser.csv](BO
 | J3 | 1 | EXP | Pin header 2×5, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | R1–R6 | 6 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
 | U1 | 1 | 65C02 | Western Design Center (WDC) W65C02S6TPG-14 |  | [955-W65C02S6TPG-14](https://www.mouser.com/ProductDetail/955-W65C02S6TPG-14) |  | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -579,7 +579,7 @@ Cart files: [digikey.csv](BOM/GPIO%20Card/Rev%201.0/digikey.csv), [mouser.csv](B
 | J4 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND | |
 | U1 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | U2 | 1 | 65C22 | Western Design Center (WDC) W65C22N6TPG-14 |  | [955-W65C22N6TPG-14](https://www.mouser.com/ProductDetail/955-W65C22N6TPG-14) |  | |
-| U2 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U2 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -697,7 +697,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 | R1 | 1 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
 | U1 | 1 | ATmega1284 | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
 
 - **C2, C3:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 
@@ -718,7 +718,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 | R1 | 1 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
 | U1 | 1 | ATmega1284-P | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
 
 - **C2, C3:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 
@@ -766,7 +766,7 @@ Cart files: [digikey.csv](BOM/LCD%20Board/Rev%201.0/digikey.csv), [mouser.csv](B
 | U2 | 1 | Adafruit 2.8 TFT LCD | Adafruit 2.8 TFT LCD, Adafruit 2.8 TFT LCD |  |  | [Adafruit](https://www.adafruit.com/product/1770) |
 | U3 | 1 | 74HC138 | Texas Instruments SN74HC138N | [296-1575-5-ND](https://www.digikey.com/en/products/filter?keywords=296-1575-5-ND) | [595-SN74HC138N](https://www.mouser.com/ProductDetail/595-SN74HC138N) |  |
 | U3 | 1 | Socket | IC socket, 16-pin, 0.3 in | [3M5475-ND](https://www.digikey.com/en/products/filter?keywords=3M5475-ND) | [517-4816-3004-CP](https://www.mouser.com/ProductDetail/517-4816-3004-CP) | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -792,7 +792,7 @@ Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 | U2 | 1 | LCD-16X2 | LCD-16X2, LCD-16X2 |  |  | [Amazon](https://www.amazon.com/dp/B0DSFXK7QK) | |
 | U3 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | VR1 | 1 | 10k | Bourns Inc. 3386F-1-103LF | [3386F-103LF-ND](https://www.digikey.com/en/products/filter?keywords=3386F-103LF-ND) | [652-3386F-1-103LF](https://www.mouser.com/ProductDetail/652-3386F-1-103LF) |  | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -817,7 +817,7 @@ Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.0/digikey.csv), [mouser.csv](BO
 | U2 | 1 | LCD-16X2 | LCD-16X2, LCD-16X2 |  |  | [Amazon](https://www.amazon.com/dp/B0DSFXK7QK) | |
 | U3 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | VR1 | 1 | 10k | Bourns Inc. 3386F-1-103LF | [3386F-103LF-ND](https://www.digikey.com/en/products/filter?keywords=3386F-103LF-ND) | [652-3386F-1-103LF](https://www.mouser.com/ProductDetail/652-3386F-1-103LF) |  | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -959,7 +959,7 @@ Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.0/digikey.csv), [mouser.csv](BO
 | U4 | 1 | 74HC21 | Texas Instruments SN74HC21DR | [296-14842-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14842-1-ND) | [595-SN74HC21DR](https://www.mouser.com/ProductDetail/595-SN74HC21DR) | LCSC [C75398](https://www.lcsc.com/search?q=C75398) | Yes |
 | U5 | 1 | 74HC30 | Nexperia USA Inc. 74HC30D,653 | [1727-3066-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-3066-1-ND) | [771-74HC30D-T](https://www.mouser.com/ProductDetail/771-74HC30D-T) | LCSC [C19818870](https://www.lcsc.com/search?q=C19818870) | Yes |
 | U7 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
-| U1 | 1 | Socket | IC socket, 32-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 32-pin, 0.6 in | [3M5470-ND](https://www.digikey.com/en/products/filter?keywords=3M5470-ND) | [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -1259,6 +1259,7 @@ Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 | J3 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | U1 | 1 | Pico9918A | Pico9918A, DIP-40_W15.24mm |  |  | [Tindie](https://www.tindie.com/products/visrealm/pico9918-pro/) | |
 | U2, U3 | 2 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -1311,7 +1312,7 @@ Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey.csv), [mouser
 | U6 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | VR1, VR2 | 2 | 10k | Bourns Inc. 3386F-1-103LF | [3386F-103LF-ND](https://www.digikey.com/en/products/filter?keywords=3386F-103LF-ND) | [652-3386F-1-103LF](https://www.mouser.com/ProductDetail/652-3386F-1-103LF) |  | |
 | Y1 | 1 | 14.31818 MHz | ECS Inc. ECS-143-20-4X | [X1081-ND](https://www.digikey.com/en/products/filter?keywords=X1081-ND) | [520-HCU143-20-4X](https://www.mouser.com/ProductDetail/520-HCU143-20-4X) |  | |
-| U3 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U3 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
@@ -1345,7 +1346,7 @@ Cart files: [digikey.csv](BOM/Video%20Card/Rev%201.1/digikey.csv), [mouser.csv](
 | U8 | 1 | 74HCT04 | Nexperia USA Inc. 74HCT04D,653 | [1727-2830-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2830-1-ND) | [771-74HCT04D-T](https://www.mouser.com/ProductDetail/771-74HCT04D-T) | LCSC [C672096](https://www.lcsc.com/search?q=C672096) | Yes |
 | Y1 | 1 | 10.738635 MHz | CTS MP107-E | [CTX1443-ND](https://www.digikey.com/en/products/filter?keywords=CTX1443-ND) | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) |  | |
 | U7 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
-| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | | |
+| U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 

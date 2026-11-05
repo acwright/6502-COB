@@ -3725,12 +3725,12 @@
 			)
 		)
 	)
-	(footprint "Package_DIP:DIP-40_W15.24mm_LongPads"
+	(footprint "Package_DIP:DIP-40_W15.24mm_Socket_LongPads"
 		(layer "F.Cu")
 		(uuid "916dcbcb-3e03-4001-abbc-8f5e1d89cfd4")
 		(at 169 81 -90)
-		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), LongPads")
-		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil LongPads")
+		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
+		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U1"
 			(at 7.63 -2.66 90)
 			(layer "F.SilkS")
@@ -3930,8 +3930,19 @@
 			(uuid "6e59e774-5b5d-4ddd-b907-3d3664e0d657")
 		)
 		(fp_rect
-			(start -1.46 -1.53)
-			(end 16.69 49.78)
+			(start -1.44 -1.39)
+			(end 16.68 49.65)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "a491f0f5-b785-47cd-b292-4bf1af190af7")
+		)
+		(fp_rect
+			(start -1.53 -1.59)
+			(end 16.77 49.84)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -3989,6 +4000,17 @@
 			)
 			(layer "F.Fab")
 			(uuid "c50e0486-9006-4725-846c-3127193fc5dc")
+		)
+		(fp_rect
+			(start -1.27 -1.33)
+			(end 16.51 49.59)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "33f0eefa-ff7a-4e20-929c-6c93d3c69a4b")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 7.62 24.13 0)
@@ -4449,7 +4471,7 @@
 			(uuid "9737c1a9-087c-48f9-904f-7b9f26c3a76e")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-40_W15.24mm.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-40_W15.24mm_Socket.step"
 			(offset
 				(xyz 0 0 0)
 			)

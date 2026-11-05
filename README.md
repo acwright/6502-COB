@@ -686,6 +686,7 @@ Parts list: [BOM.md](BOM.md#vera-helper).
 - JP1 is open as made, so the pico9918's `/INT` reaches `IRQB` (or `NMIB`, through J2) only through D1.
 - D1 is named in its value field: a BAT85, cathode toward the pico9918.
 - U1, the pico9918, is turned around, and the board's outline around its VGA jack changes. The two mounting holes move, and the tracks are rerouted to suit.
+- U1 uses a socket footprint (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
 
 **Rev 1.0**
 
