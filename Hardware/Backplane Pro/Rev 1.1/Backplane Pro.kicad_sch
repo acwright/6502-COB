@@ -15160,7 +15160,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3a349ecf-dd07-4760-bc66-a5b290030019")
 		(property "Reference" "R5"
 			(at 240.538 34.3916 0)

@@ -17512,7 +17512,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "DNP: the RESB pull-up is on the CPU Card"
 			(at 0.6625 2.35 360)
 			(layer "F.Fab")
 			(hide yes)
@@ -17629,7 +17629,7 @@
 		(path "/3a349ecf-dd07-4760-bc66-a5b290030019")
 		(sheetname "Root")
 		(sheetfile "Backplane Pro.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -0.227064 -0.735)
 			(end 0.227064 -0.735)

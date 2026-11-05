@@ -19339,7 +19339,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "3a349ecf-dd07-4760-bc66-a5b290030019")
 		(property "Reference" "R3"
 			(at 235.458 28.0416 0)
@@ -19352,7 +19352,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "DNP: the RESB pull-up is on the CPU Card"
 			(at 235.458 30.353 0)
 			(show_name no)
 			(do_not_autoplace no)

@@ -10,6 +10,8 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 
 ---
 
+**Building one? Every part you need, with supplier numbers and known issues, is in [BOM.md](BOM.md).**
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -304,6 +306,8 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 ## Bill of Materials
 
+Every part for every board, by revision, is in **[BOM.md](BOM.md)**, with supplier numbers, known issues and files to upload to Digi-Key and Mouser.
+
 ### Backplane
 
 #### Revision History
@@ -312,10 +316,7 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 
 - Initial release, and the board on sale. `Hardware/Backplane/Rev 1.0/` and `Production/Backplane/Rev 1.0/` match the boards JLCPCB made (order Y50). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | DigiKey | Mouser |
-|-----------|-----|-------|-------------|---------|--------|
-| J1–J5 | 5 | 6502 Card Connector | Card Edge 2×20 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J6, J7 | 2 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | |
+Parts list: [BOM.md](BOM.md#backplane).
 
 ### Backplane Helper
 
@@ -324,11 +325,6 @@ Shared KiCad symbol and footprint libraries used across all AC6502 hardware proj
 **Rev 1.0**
 
 - Initial release, and the board on sale. Built and tested. `Hardware/Backplane Helper/Rev 1.0/` and `Production/Backplane Helper/Rev 1.0/` match the boards JLCPCB made (order Y77). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | DigiKey | Mouser |
-|-----------|-----|-------|-------------|---------|--------|
-| J1, J2 | 2 | 6502 Card Connector | Card Edge 2×20 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J3 | 1 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | |
 
 ### Backplane Pro
 
@@ -341,53 +337,11 @@ Drawn, not yet made. Two changes from Rev 1.1:
 
 The backplane carries no decoupling capacitors, as on the other backplanes: every card that plugs in has 100nF on each of its own chips.
 
-| Reference | Qty | Value | Description | Mouser |
-|-----------|-----|-------|-------------|--------|
-| C1, C3 | 2 | 10uF | Polarized capacitor | |
-| C2 | 1 | 100nF | Unpolarized capacitor | |
-| D1 | 1 | LED | Power LED 3mm | |
-| D2 | 1 | 1N5819 | Schottky Diode DO-41 | |
-| J1 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
-| J2–J4, J7, J8 | 5 | 6502 Card Connector | Card Edge 2×20 | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J5 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
-| J6 | 1 | RESET SW | JST XH 1×2 | |
-| J9 | 1 | 6502 Bus | Bus Connector 2×20 | |
-| JP1 | 1 | Solder Jumper | Solder Jumper 2-pole | |
-| Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
-| R1 | 1 | 330 | Resistor | |
-| R2 | 1 | 1M | Resistor | |
-| R3 | 1 | 47k | Resistor | |
-| R4 | 1 | 10k | Resistor | |
-| SW1 | 1 | POWER | SPDT Power Switch | [612-400MSP1R6BLKM6QE](https://www.mouser.com/ProductDetail/612-400MSP1R6BLKM6QE) |
-| SW2 | 1 | RESET | Tact Push Button 5mm | |
-| U1 | 1 | LM555 | Timer DIP-8 | |
-| X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | |
+Parts list: [BOM.md](BOM.md#backplane-pro).
 
 #### Rev 1.1
 
 - Built and tested. `Hardware/Backplane Pro/Rev 1.1/` and `Production/Backplane Pro/Rev 1.1/` match the boards JLCPCB made (order Y93). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | Mouser |
-|-----------|-----|-------|-------------|--------|
-| C1, C3 | 2 | 10uF | Polarized capacitor | |
-| C2 | 1 | 100nF | Unpolarized capacitor | |
-| D1 | 1 | LED | Power LED 3mm | |
-| J1 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
-| J2–J4, J7, J8 | 5 | 6502 Card Connector | Card Edge 2×20 | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J5 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
-| J6 | 1 | RESET SW | JST XH 1×2 | |
-| J9 | 1 | 6502 Bus | Bus Connector 2×20 | |
-| JP1 | 1 | Solder Jumper | Solder Jumper 2-pole | |
-| Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
-| R1 | 1 | 330 | Resistor | |
-| R2 | 1 | 1M | Resistor | |
-| R3 | 1 | 47k | Resistor | |
-| R4 | 1 | 10k | Resistor | |
-| R5 | 1 | 1k | Resistor | |
-| SW1 | 1 | POWER | SPDT Power Switch | [612-400MSP1R6BLKM6QE](https://www.mouser.com/ProductDetail/612-400MSP1R6BLKM6QE) |
-| SW2 | 1 | RESET | Tact Push Button 5mm | |
-| U1 | 1 | LM555 | Timer DIP-8 | |
-| X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | |
 
 **Building a Rev 1.1:**
 
@@ -400,28 +354,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - This board was called the Backplane when it was ordered, so its silkscreen says `6502 BACKPLANE`. Today's [Backplane](#backplane) is a different board, order Y50.
 - The PCB file was restored to that layout on 2026-11-04. A later edit only moved C8, C14, D1 and TP1 slightly, and Rev 1.1 is a full redesign, so that edit has no revision of its own. The schematic and BOM are today's, and they match this copper.
 
-| Reference | Qty | Value | Description | LCSC | DigiKey | Mouser |
-|-----------|-----|-------|-------------|------|---------|--------|
-| C1, C3–C14 | 13 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
-| C2 | 1 | 10uF | Polarized capacitor | [C7171](https://www.lcsc.com/search?q=C7171) | | |
-| D1 | 1 | 1N5819 | Schottky Diode SOD-323F | [C191023](https://www.lcsc.com/search?q=C191023) | | |
-| D2 | 1 | LED | LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) | | |
-| J1 | 1 | PWR_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
-| J2 | 1 | USB-C | USB 2.0 Type-C Receptacle | [C2988369](https://www.lcsc.com/search?q=C2988369) | | |
-| J3 | 1 | RESET_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
-| J4 | 1 | CLOCK_ENBL_SW | JST XH 1×2 | | [455-2247-ND](https://www.digikey.com/en/products/filter?keywords=455-2247-ND) | |
-| J5–J9 | 5 | 6502 Card Connector | Card Edge 2×20 | | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |
-| J10 | 1 | 6502 Bus | Bus Connector 2×20 | | | |
-| Q1 | 1 | SS8050 | NPN Transistor SOT-23 | [C2150](https://www.lcsc.com/search?q=C2150) | | |
-| R1 | 1 | 1M | Resistor | [C17514](https://www.lcsc.com/search?q=C17514) | | |
-| R2 | 1 | 47k | Resistor | [C17713](https://www.lcsc.com/search?q=C17713) | | |
-| R3 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | | |
-| R4 | 1 | 10k | Resistor | [C17414](https://www.lcsc.com/search?q=C17414) | | |
-| R5, R6 | 2 | 5.1k | Resistor | [C27834](https://www.lcsc.com/search?q=C27834) | | |
-| R7 | 1 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) | | |
-| SW1 | 1 | Reset | Push Button | [C318884](https://www.lcsc.com/search?q=C318884) | | |
-| U1 | 1 | LM555xM | Timer SOIC-8 | [C7593](https://www.lcsc.com/search?q=C7593) | | |
-| X1 | 1 | OCXO-14 | Crystal Oscillator DIP-14 | | | |
+Parts list: [BOM.md](BOM.md#backplane-pro).
 
 **Building a Rev 1.0:** leave R3 unfitted, or remove it from a built board. R3 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's, and the CPU Card's pull-up is the only one a COB needs. The Rev 1.1 notes above explain what that means for a machine without a CPU Card.
 
@@ -440,17 +373,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Both revisions:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit the card to watch the bus, not in a machine that relies on its interrupts. A later revision will buffer those three LEDs through the 74HC04's spare gates, as `RDY` and `BE` already are.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| D1–D25 | 25 | LED | LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) |
-| D26, D27 | 2 | LED | LED 0805 | [C2295](https://www.lcsc.com/search?q=C2295) |
-| D28–D30 | 3 | LED | LED 0805 | [C2296](https://www.lcsc.com/search?q=C2296) |
-| D31, D32 | 2 | LED | LED 0805 | [C2293](https://www.lcsc.com/search?q=C2293) |
-| R1–R32 | 32 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) |
-| U1, U2, U4 | 3 | 74HC573 | 8-bit Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
-| U3 | 1 | 74HC04 | Hex Inverter SOIC-14 | [C5590](https://www.lcsc.com/search?q=C5590) |
-
-This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](https://www.lcsc.com/search?q=C49678).
+Parts list: [BOM.md](BOM.md#blinkenlights-card).
 
 ### Breadboard Helper
 
@@ -462,10 +385,7 @@ This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](ht
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 - This is a different board from the [GPIO Breadboard Helper](#gpio-breadboard-helper): this one breaks out the full 6502 bus, and that one breaks out a VIA's PORT A and PORT B.
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| J1 | 1 | 6502 Bus | Bus Connector 2×20 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) |
-| J2, J3 | 2 | Pin Header | Pin Header 1×20 | |
+Parts list: [BOM.md](BOM.md#breadboard-helper).
 
 ### Clock Helper
 
@@ -479,51 +399,15 @@ This table is Rev 1.0's. Rev 1.1 also needs `C1`–`C4`: 4 × 100nF, [C49678](ht
 
 - Initial release, and the board on sale. `Hardware/Clock Helper/Rev 1.0/` and `Production/Clock Helper/Rev 1.0/` match the boards JLCPCB made (order Y74). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description |
-|-----------|-----|-------|-------------|
-| C1 | 1 | 100nF | Capacitor |
-| D1, D2 | 2 | LED | LED 3mm |
-| J1 | 1 | IO | Pin Header 1×5 |
-| R1–R5 | 5 | 1k | Resistor |
-| R6–R8 | 3 | 330 | Resistor |
-| SW1, SW2 | 2 | XKB5858-Z | DPDT Toggle Switch |
-| SW3 | 1 | XKB5858-W | DPDT Toggle Switch |
-| U1 | 1 | 74HC74 | Dual D Flip-flop DIP-14 |
+Parts list: [BOM.md](BOM.md#clock-helper).
 
 ### Clock Card
 
 Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscillator socket takes any DIP-14 can; it is drawn, labelled and tested with 1 MHz, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
 
-| Reference | Qty | Value | Description | Mouser |
-|-----------|-----|-------|-------------|--------|
-| C1, C3 | 2 | 10uF | Polarized capacitor | |
-| C2, C4, C5 | 3 | 100nF | Disc capacitor (C4 and C5 decouple X1 and U1) | |
-| D1 | 1 | LED | Power LED 3mm | |
-| D2 | 1 | 1N5819 | Schottky Diode DO-41 | |
-| J2 | 1 | 5V DC | DC Barrel Jack | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |
-| J3 | 1 | CLOCK ENBL SW | JST XH 1×2 | |
-| J4 | 1 | RESET SW | JST XH 1×2 | |
-| JP1 | 1 | Solder Jumper | Solder Jumper 2-pole, open | |
-| Q1 | 1 | 2N3904 | NPN Transistor TO-92 | |
-| R1 | 1 | 330 | Resistor | |
-| R2 | 1 | 1M | Resistor | |
-| R3 | 1 | 47k | Resistor | |
-| R4 | 1 | 10k | Resistor | |
-| SW1 | 1 | RESET | Tact Push Button 6mm | |
-| U1 | 1 | LM555 | Timer DIP-8 | |
-| X1 | 1 | 1 MHz | Oscillator, DIP-14 can | |
-
 ### CPU Card
 
-**Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The table below is Rev 1.1's.
-
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1 | 1 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| J2 | 1 | Pin Header | Pin Header 1×2 | |
-| J3 | 1 | EXP | Pin Header 2×5 | |
-| R1–R6 | 6 | 10k | Resistor | [C2930231](https://www.lcsc.com/search?q=C2930231) |
-| U1 | 1 | 65C02 | CPU DIP-40 | |
+**Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
 
 #### Revision History
 
@@ -539,16 +423,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 ### CPU Card Pro
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1–C4 | 4 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| J2 | 1 | BANK ADDR | Pin Header 2×5 | |
-| J3 | 1 | EXP | Pin Header 2×4 | |
-| R1–R6 | 6 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
-| U1 | 1 | 65C816 | CPU DIP-40 | |
-| U2 | 1 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
-| U3 | 1 | 74HC245 | Octal Bus Transceiver TSSOP-20 | [C5626](https://www.lcsc.com/search?q=C5626) |
-| U4 | 1 | 74HC573 | 8-bit Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
+Parts list: [BOM.md](BOM.md#cpu-card-pro).
 
 ### DB25 Helper
 
@@ -563,11 +438,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/DB25 Helper/Rev 1.0/` and `Production/DB25 Helper/Rev 1.0/` match the boards JLCPCB made (order Y65). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| J1 | 1 | PORT A | GPIO Connector 2×6 | |
-| J2 | 1 | PORT B | GPIO Connector 2×6 | |
-| J3 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
+Parts list: [BOM.md](BOM.md#db25-helper).
 
 ### GPIO Breadboard Helper
 
@@ -577,13 +448,6 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/GPIO Breadboard Helper/Rev 1.0/` and `Production/GPIO Breadboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y57). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description |
-|-----------|-----|-------|-------------|
-| J1 | 1 | PORT A | GPIO Connector 2×6 |
-| J2 | 1 | PORT A | Pin Header 1×12 |
-| J3 | 1 | PORT B | Pin Header 1×12 |
-| J4 | 1 | PORT B | GPIO Connector 2×6 |
-
 ### GPIO Card
 
 #### Revision History
@@ -592,15 +456,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/GPIO Card/Rev 1.0/` and `Production/GPIO Card/Rev 1.0/` match the boards JLCPCB made (order Y45). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1, C2 | 2 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
-| J2 | 1 | IO SELECT | Pin Header 2×8 | |
-| J3 | 1 | PORT A | GPIO Connector 2×6 | |
-| J4 | 1 | PORT B | GPIO Connector 2×6 | |
-| U1 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
-| U2 | 1 | 65C22 | VIA DIP-40 | |
+Parts list: [BOM.md](BOM.md#gpio-card).
 
 ### GPIO Helper
 
@@ -614,14 +470,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/GPIO Helper/Rev 1.0/` and `Production/GPIO Helper/Rev 1.0/` match the boards JLCPCB made (order Y66). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| D1–D8 | 8 | LED | LED 3mm | |
-| J1 | 1 | PORT A | GPIO Connector 2×6 | |
-| J2 | 1 | PORT B | GPIO Connector 2×6 | |
-| R1–R8 | 8 | 1k | Resistor | |
-| R9–R16 | 8 | 330 | Resistor | |
-| SW1–SW8 | 8 | Push Button | Push Button 6mm | [2223-TS02-66-50-BK-160-LCR-D-ND](https://www.digikey.com/en/products/filter?keywords=2223-TS02-66-50-BK-160-LCR-D-ND) |
+Parts list: [BOM.md](BOM.md#gpio-helper).
 
 ### Joystick Helper
 
@@ -635,11 +484,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/Joystick Helper/Rev 1.0/` and `Production/Joystick Helper/Rev 1.0/` match the boards JLCPCB made (order Y73). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| J1 | 1 | PORT | GPIO Connector 2×6 | |
-| J2 | 1 | DB-9 Male | DB-9 Connector (Male) | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
-| R1–R8 | 8 | 1k | Resistor | |
+Parts list: [BOM.md](BOM.md#joystick-helper).
 
 ### Keyboard Encoder Helper
 
@@ -654,17 +499,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 - Initial release, and the board on sale. `Hardware/Keyboard Encoder Helper/Rev 1.0/` and `Production/Keyboard Encoder Helper/Rev 1.0/` match the boards JLCPCB made (order Y72). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - To mount it on the COB's base plate, two plate holes have to be drilled wider: see [CAD](#cad).
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| C1, C4 | 2 | 100nF | Capacitor | |
-| C2, C3 | 2 | 22pF | Capacitor | |
-| J1 | 1 | PORT B | GPIO Connector 2×6 | |
-| J2 | 1 | PORT A | GPIO Connector 2×6 | |
-| J3 | 1 | PS/2 KEYBOARD | 6-pin Mini-DIN | |
-| J4 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
-| R1 | 1 | 1k | Resistor | |
-| U1 | 1 | ATmega1284-P | MCU DIP-40 | |
-| Y1 | 1 | 16 MHz | Crystal HC49-U | [3155-16M20P2/49US-ND](https://www.digikey.com/en/products/filter?keywords=3155-16M20P2/49US-ND) |
+Parts list: [BOM.md](BOM.md#keyboard-encoder-helper).
 
 ### Keyboard Helper
 
@@ -673,15 +508,6 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Keyboard Helper/Rev 1.0/` and `Production/Keyboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y70). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| J1, J2 | 2 | JOYSTICK | DB-9 Connector (Male) | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
-| J3, J4 | 2 | JOYSTICK | GPIO Connector 2×6 | |
-| J5, J6 | 2 | PORT | GPIO Connector 2×6 | |
-| J7 | 1 | KEYBOARD | DB-25 Connector (Male) | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) |
-| R1–R16 | 16 | 1k | Resistor | |
-| SW1–SW67 | 67 | Cherry MX | Key Switch | |
 
 ### LCD Board
 
@@ -692,17 +518,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 - Initial release. Built and tested. `Hardware/LCD Board/Rev 1.0/` and `Production/LCD Board/Rev 1.0/` match the boards JLCPCB made (order Y80). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
-| Reference | Qty | Value | Description |
-|-----------|-----|-------|-------------|
-| C1–C4 | 4 | 100nF | Capacitor |
-| D1, D2 | 2 | Schottky Diode | Schottky Diode DO-35 |
-| J1 | 1 | 6502 Bus | Bus Connector 2×20 |
-| J2 | 1 | IO SELECT | Pin Header 2×8 |
-| J3 | 1 | HVSYNC | Pin Header 1×1 |
-| R1 | 1 | 10k | Resistor |
-| U1 | 1 | 65C22 | VIA DIP-40 |
-| U2 | 1 | Adafruit 2.8" TFT | TFT LCD Module |
-| U3 | 1 | 74HC138 | Decoder DIP-16 |
+Parts list: [BOM.md](BOM.md#lcd-board).
 
 ### LCD Card
 
@@ -716,17 +532,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/LCD Card/Rev 1.0/` and `Production/LCD Card/Rev 1.0/` match the boards JLCPCB made (order Y27). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1, C2 | 2 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
-| J2 | 1 | GPIO | Pin Header 1×7 | |
-| J3 | 1 | IO SELECT | Pin Header 2×8 | |
-| R1 | 1 | R | Resistor | |
-| U1 | 1 | 65C22 | VIA DIP-40 | |
-| U2 | 1 | LCD-16X2 | 16×2 Character LCD | |
-| U3 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
-| VR1 | 1 | 10k | Potentiometer | |
+Parts list: [BOM.md](BOM.md#lcd-card).
 
 ### Mega Helper
 
@@ -735,11 +541,6 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.0**
 
 - Initial release, and the board on sale. Built and tested. `Hardware/Mega Helper/Rev 1.0/` and `Production/Mega Helper/Rev 1.0/` match the boards JLCPCB made (order Y81). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description |
-|-----------|-----|-------|-------------|
-| A1 | 1 | Arduino Mega 2560 | Arduino Mega 2560 R3 Shield |
-| J1 | 1 | 6502 Bus | Bus Connector 2×20 |
 
 **Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
 
@@ -752,15 +553,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 - Initial release, and the board on sale. Built and tested. `Hardware/Memory Card/Rev 1.0/` and `Production/Memory Card/Rev 1.0/` match the boards JLCPCB made (order Y20). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1–C5 | 5 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| J2 | 1 | Pin Header | Pin Header 2×2 | |
-| J3 | 1 | Pin Header | Pin Header 1×2 | |
-| R1, R2 | 2 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
-| U1, U2, U5 | 3 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
-| U3 | 1 | AS6C62256 | SRAM DIP-28 | |
-| U4 | 1 | AT28C256 | EEPROM DIP-28 | |
+Parts list: [BOM.md](BOM.md#memory-card).
 
 ### Prototype Card
 
@@ -769,13 +562,6 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Prototype Card/Rev 1.0/` and `Production/Prototype Card/Rev 1.0/` match the boards JLCPCB made (order Y22). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1–C3 | 3 | 100nF | Unpolarized capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| J2 | 1 | Bus Header | Pin Socket 2×20 | |
-| J3 | 1 | EXP | Pin Header 2×4 | |
-| U1 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
 
 ### PS2 Helper
 
@@ -791,18 +577,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 - Initial release, and the board on sale. `Hardware/PS2 Helper/Rev 1.0/` and `Production/PS2 Helper/Rev 1.0/` match the boards JLCPCB made (order Y61). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description |
-|-----------|-----|-------|-------------|
-| C1–C3 | 3 | 100nF | Disc Capacitor |
-| C4, C5 | 2 | 22pF | Disc Capacitor |
-| J1 | 1 | PORT A | GPIO Connector 2×6 |
-| J2 | 1 | PORT B | GPIO Connector 2×6 |
-| J3 | 1 | PS/2 | Mini-DIN 6-pin |
-| J4 | 1 | JOYSTICK | GPIO Connector 2×6 |
-| R1–R9 | 9 | 1k | Resistor |
-| U1 | 1 | MT8808 | Analog Matrix Switch DIP-28 |
-| U2 | 1 | ATmega328 | MCU DIP-28 |
-| Y1 | 1 | 16 MHz | Crystal |
+Parts list: [BOM.md](BOM.md#ps2-helper).
 
 ### RAM Card
 
@@ -820,19 +595,7 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card's oscil
 
 A Rev 1.1, with a latch per window and window selects that read as not selected when a jumper is missing, is planned.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1–C7 | 7 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| J2 | 1 | LATCH EN | Pin Header 1×2 | |
-| J3 | 1 | Conn_02x08 | Pin Header 2×8 | |
-| J4 | 1 | BANK ADDR | Pin Header 2×5 | |
-| R1, R2 | 2 | 10k | Resistor | [C17414](https://www.lcsc.com/search?q=C17414) |
-| U1 | 1 | AS6C4008 | SRAM DIP-32 | |
-| U2 | 1 | 74HC573 | Octal Latch SOIC-20 | [C5608](https://www.lcsc.com/search?q=C5608) |
-| U3, U6 | 2 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
-| U4 | 1 | 74HC21 | Dual 4-input AND SOIC-14 | [C75398](https://www.lcsc.com/search?q=C75398) |
-| U5 | 1 | 74HC30 | 8-input NAND SOIC-14 | [C19818870](https://www.lcsc.com/search?q=C19818870) |
-| U7 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+Parts list: [BOM.md](BOM.md#ram-card).
 
 ### RTC Card
 
@@ -842,18 +605,6 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 - Initial release, and the board on sale. `Hardware/RTC Card/Rev 1.0/` and `Production/RTC Card/Rev 1.0/` match the boards JLCPCB made (order Y62). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC | DigiKey |
-|-----------|-----|-------|-------------|------|---------|
-| BT1 | 1 | BAT-HLD-001-THM | Coin Cell Battery Holder | | |
-| C1–C3 | 3 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
-| J2 | 1 | AUX | Pin Header 1×6 | | |
-| J3 | 1 | INT Select | Pin Header 1×3 | | |
-| J4 | 1 | Conn_02x08 | Pin Header 2×8 | | |
-| R1 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
-| U1 | 1 | DS1511Y | RTC DIP-28 | | [DS1511Y+-ND](https://www.digikey.com/en/products/filter?keywords=DS1511Y+-ND) |
-| U2, U3 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
-
 ### Serial Card
 
 #### Revision History
@@ -862,20 +613,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 - Initial release, and the board on sale. `Hardware/Serial Card/Rev 1.0/` and `Production/Serial Card/Rev 1.0/` match the boards JLCPCB made (order Y67). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC | DigiKey |
-|-----------|-----|-------|-------------|------|---------|
-| C1, C6, C8 | 3 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
-| C2–C5 | 4 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
-| C7 | 1 | 22pF | Unpolarized Capacitor | [C1804](https://www.lcsc.com/search?q=C1804) | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
-| J2 | 1 | DB9 FEMALE (DCE) | DB-9 Connector (Female) | | [609-1487-ND](https://www.digikey.com/en/products/filter?keywords=609-1487-ND) |
-| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | |
-| J4 | 1 | CTS EN | Pin Header 1×3 | | |
-| R1 | 1 | 1M | Resistor | [C103906](https://www.lcsc.com/search?q=C103906) | |
-| U1 | 1 | MAX232 | RS-232 Driver/Receiver | [C59824](https://www.lcsc.com/search?q=C59824) | |
-| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
-| U3 | 1 | 6551 | ACIA DIP-28 | | |
-| Y1 | 1 | 1.8432 MHz | Crystal | | |
+Parts list: [BOM.md](BOM.md#serial-card).
 
 ### Serial Card Pro
 
@@ -890,20 +628,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 - Initial release, and the board on sale. `Hardware/Serial Card Pro/Rev 1.0/` and `Production/Serial Card Pro/Rev 1.0/` match the boards JLCPCB made (order Y36). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC | DigiKey |
-|-----------|-----|-------|-------------|------|---------|
-| C1, C2, C11, C13 | 4 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
-| C3–C10 | 8 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
-| C12 | 1 | 22pF | Unpolarized Capacitor | [C1804](https://www.lcsc.com/search?q=C1804) | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | |
-| J2 | 1 | DB9 Male (DTE) | DB-9 Connector (Male) | | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) |
-| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | |
-| J4 | 1 | DCD Select | Pin Header 1×3 | | |
-| R1 | 1 | 1M | Resistor | [C103906](https://www.lcsc.com/search?q=C103906) | |
-| U1, U2 | 2 | MAX232 | RS-232 Driver/Receiver | [C59824](https://www.lcsc.com/search?q=C59824) | |
-| U3 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
-| U4 | 1 | 6551 | ACIA DIP-28 | | |
-| Y1 | 1 | 1.8432 MHz | Crystal | | |
+Parts list: [BOM.md](BOM.md#serial-card-pro).
 
 ### Sound Card
 
@@ -912,18 +637,6 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Sound Card/Rev 1.0/` and `Production/Sound Card/Rev 1.0/` match the boards JLCPCB made (order Y84). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | LCSC | DigiKey |
-|-----------|-----|-------|-------------|------|---------|
-| C1, C2 | 2 | 2.2nF | Unpolarized Capacitor | [C28260](https://www.lcsc.com/search?q=C28260) | |
-| C3, C5 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
-| C4 | 1 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
-| J2 | 1 | VDD | JST XH 1×2 | | |
-| J3 | 1 | AUDIO | RCA Connector | | [PJRAN1X1U02X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U02X/1832412) |
-| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | |
-| R1 | 1 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
-| U1 | 1 | 6581 | SID Chip DIP-28 | | |
-| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
 
 ### Storage Card
 
@@ -934,17 +647,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - Initial release, and the board on sale. Built and tested. `Hardware/Storage Card/Rev 1.0/` and `Production/Storage Card/Rev 1.0/` match the boards JLCPCB made (order Y47). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | LED | Activity LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) |
-| J2 | 1 | Conn_02x08 | Pin Header 2×8 | |
-| J3 | 1 | Compact Flash | CompactFlash Connector | [C444350](https://www.lcsc.com/search?q=C444350) |
-| J4 | 1 | ACT LED | JST XH 1×2 | |
-| R1–R4 | 4 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
-| R5, R6 | 2 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) |
-| U1 | 1 | 74HC00 | Quad NAND SOIC-14 | [C5586](https://www.lcsc.com/search?q=C5586) |
-| U2 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+Parts list: [BOM.md](BOM.md#storage-card).
 
 ### Storage Card Pro
 
@@ -953,25 +656,6 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Storage Card Pro/Rev 1.0/` and `Production/Storage Card Pro/Rev 1.0/` match the boards JLCPCB made (order Y78). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-| Reference | Qty | Value | Description | LCSC | DigiKey |
-|-----------|-----|-------|-------------|------|---------|
-| C1–C4, C7, C8 | 6 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | |
-| C5, C6 | 2 | 22pF | Disc Capacitor | [C107114](https://www.lcsc.com/search?q=C107114) | |
-| C9, C10 | 2 | 1uF | Unpolarized Capacitor | [C28323](https://www.lcsc.com/search?q=C28323) | |
-| D1 | 1 | LED | Activity LED 0805 | [C2297](https://www.lcsc.com/search?q=C2297) | |
-| J1 | 1 | ACT LED | JST XH 1×2 | | |
-| J3 | 1 | SPI | Pin Header 1×6 | | |
-| J4 | 1 | SD CARD | SD Card Connector | [C569097](https://www.lcsc.com/search?q=C569097) | |
-| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | |
-| R1, R2 | 2 | 330 | Resistor | [C17630](https://www.lcsc.com/search?q=C17630) | |
-| R3, R4 | 2 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) | |
-| U1 | 1 | TXS0108EPW | Level Shifter TSSOP-20 | [C17206](https://www.lcsc.com/search?q=C17206) | |
-| U2 | 1 | ATmega328 | MCU DIP-28 | | |
-| U3 | 1 | W25Q128JVS | Flash Memory SOIC-8 | [C97521](https://www.lcsc.com/search?q=C97521) | |
-| U4 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | |
-| U5 | 1 | LP2985-3.3 | LDO Regulator 3.3V SOT-23-5 | [C95414](https://www.lcsc.com/search?q=C95414) | |
-| Y1 | 1 | 16 MHz | Crystal | | [3155-16M20P2/49US-ND](https://www.digikey.com/en/products/filter?keywords=3155-16M20P2/49US-ND) |
 
 ### VERA Helper
 
@@ -986,17 +670,7 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - Initial release, and the board on sale. Its mounting holes are off the standard: 5.75 and 6.25 mm from the long sides' ends, and 5.32 and 5.68 mm from the top and bottom.
 - Built and tested. `Hardware/VERA Helper/Rev 1.0/` and `Production/VERA Helper/Rev 1.0/` match the boards JLCPCB made (order Y71). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | DigiKey |
-|-----------|-----|-------|-------------|---------|
-| C1, C2 | 2 | 100nF | Disc Capacitor | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
-| J1 | 1 | 6502 Bus | Bus Connector 2×20 | |
-| J2 | 1 | VERA Module | Pin Header 2×12 | |
-| J3 | 1 | Audio L | RCA Connector | [PJRAN1X1U02X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U02X/1832412) |
-| J4 | 1 | Audio R | RCA Connector | [PJRAN1X1U03X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U03X/1832413) |
-| J5 | 1 | INT Select | Pin Header 1×3 | |
-| J6 | 1 | Conn_02x08 | Pin Header 2×8 | |
-| U1, U2 | 2 | 74HC138 | Decoder DIP-16 | |
+Parts list: [BOM.md](BOM.md#vera-helper).
 
 ### VGA Card
 
@@ -1015,36 +689,9 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
 
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1, C2 | 2 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | BAT85 | Schottky Diode DO-35 | |
-| J2 | 1 | INT Select | Pin Header 1×3 | |
-| J3 | 1 | Conn_02x08 | Pin Header 2×8 | |
-| U1 | 1 | Pico9918A | VDP Module DIP-40 | |
-| U2, U3 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
+Parts list: [BOM.md](BOM.md#vga-card).
 
 ### VGA Card Pro
-
-| Reference | Qty | Value | Description | LCSC |
-|-----------|-----|-------|-------------|------|
-| C1–C6 | 6 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | |
-| J2 | 1 | VGA | DB-15 VGA Connector (Female) | |
-| J3 | 1 | INT Select | Pin Header 1×3 | |
-| J4 | 1 | Conn_02x08 | Pin Header 2×8 | |
-| Q1 | 1 | BSS138 | N-Channel MOSFET SOT-23 | [C78284](https://www.lcsc.com/search?q=C78284) |
-| R1, R2, R4, R7 | 4 | 1k | Resistor | [C17513](https://www.lcsc.com/search?q=C17513) |
-| R3, R6 | 2 | 2.2k | Resistor | [C17520](https://www.lcsc.com/search?q=C17520) |
-| R5, R8 | 2 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) |
-| R9 | 1 | 820 | Resistor | [C17837](https://www.lcsc.com/search?q=C17837) |
-| R10 | 1 | 390 | Resistor | [C17655](https://www.lcsc.com/search?q=C17655) |
-| R11, R12 | 2 | 22 | Resistor | [C17561](https://www.lcsc.com/search?q=C17561) |
-| U1 | 1 | SN74LVC4245APWR | Octal Bus Transceiver TSSOP-24 | [C7859](https://www.lcsc.com/search?q=C7859) |
-| U2 | 1 | 74LVC245 | Octal Bus Transceiver TSSOP-20 | [C6082](https://www.lcsc.com/search?q=C6082) |
-| U3 | 1 | Raspberry Pi Pico | MCU Module | |
-| U4 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) |
-| U5 | 1 | 74LVC138 | Decoder SOIC-16 | [C6061](https://www.lcsc.com/search?q=C6061) |
 
 ### Video Card
 
@@ -1061,48 +708,9 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 - Initial release, and the board on sale. `Hardware/Video Card/Rev 1.0/` and `Production/Video Card/Rev 1.0/` match the boards JLCPCB made (order Y53). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-| Reference | Qty | Value | Description | LCSC | Mouser | DigiKey |
-|-----------|-----|-------|-------------|------|--------|---------|
-| C1, C2 | 2 | 32pF | Disc Capacitor | [C107114](https://www.lcsc.com/search?q=C107114) | | |
-| C3–C10 | 8 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | | |
-| FB1 | 1 | BLM41PG600SN1L | Ferrite Bead 1806 | [C85844](https://www.lcsc.com/search?q=C85844) | | |
-| J1 | 1 | INT Select | Pin Header 1×3 | | | |
-| J3 | 1 | Conn_02x08 | Pin Header 2×8 | | | |
-| J4 | 1 | Video Out | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
-| Q1 | 1 | 2N4401 | NPN BJT TO-92 | | | |
-| R1 | 1 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) | | |
-| R2 | 1 | 75 | Resistor | [C17820](https://www.lcsc.com/search?q=C17820) | | |
-| U1 | 1 | TMS9918A | VDP DIP-40 | | | |
-| U2, U5, U6 | 3 | 74HCT574 | 8-bit Register SOIC-20 | [C6001](https://www.lcsc.com/search?q=C6001) | | |
-| U3, U4 | 2 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | | |
-| U7 | 1 | AS6C62256 | SRAM DIP-28 | | | |
-| U8 | 1 | 74HCT04 | Hex Inverter SO-14 | [C672096](https://www.lcsc.com/search?q=C672096) | | |
-| Y1 | 1 | 10.738635 MHz | Crystal | | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) | |
+Parts list: [BOM.md](BOM.md#video-card).
 
 ### Video Card Pro
-
-| Reference | Qty | Value | Description | LCSC | Mouser | DigiKey |
-|-----------|-----|-------|-------------|------|--------|---------|
-| C1, C2 | 2 | 20pF | Disc Capacitor | [C105173](https://www.lcsc.com/search?q=C105173) | | |
-| C3–C10 | 8 | 100nF | Unpolarized Capacitor | [C49678](https://www.lcsc.com/search?q=C49678) | | |
-| D1 | 1 | Schottky Diode | Schottky Diode DO-35 | | | |
-| FB1 | 1 | BLM41PG600SN1L | Ferrite Bead 1806 | [C85844](https://www.lcsc.com/search?q=C85844) | | |
-| J1 | 1 | VIDEO | RCA Connector | | | [PJRAN1X1U04X](https://www.digikey.com/en/products/detail/switchcraft-inc/PJRAN1X1U04X/969899) |
-| J2 | 1 | SERIAL | Pin Header 1×4 | | | |
-| J3 | 1 | INT Select | Pin Header 1×3 | | | |
-| J5 | 1 | Conn_02x08 | Pin Header 2×8 | | | |
-| Q1 | 1 | 2N4401 | NPN BJT TO-92 | | | |
-| R1, R2 | 2 | 4.7k | Resistor | | | |
-| R3 | 1 | 470 | Resistor | [C17710](https://www.lcsc.com/search?q=C17710) | | |
-| R4 | 1 | 75 | Resistor | [C17820](https://www.lcsc.com/search?q=C17820) | | |
-| R5 | 1 | 1k | Resistor | | | |
-| U1, U4 | 2 | 74HC157 | Quad 2-to-1 Mux SOIC-16 | [C6823](https://www.lcsc.com/search?q=C6823) | | |
-| U2, U5 | 2 | 74HC166 | Shift Register SOIC-16 | [C473363](https://www.lcsc.com/search?q=C473363) | | |
-| U3 | 1 | ATmega1284-P | MCU DIP-40 | | | |
-| U6 | 1 | 74HC138 | Decoder SOIC-16 | [C5602](https://www.lcsc.com/search?q=C5602) | | |
-| VR1, VR2 | 2 | 10k | Potentiometer | | | |
-| Y1 | 1 | 14.31818 MHz | Crystal | | [774-MP107-E](https://www.mouser.com/ProductDetail/774-MP107-E) | |
 
 ## Purchase
 
