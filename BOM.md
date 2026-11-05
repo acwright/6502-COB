@@ -88,6 +88,8 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | RTC Card | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
 | Serial Card Pro | 1.0 | U4 | The silk says 6551; fit an R6551AP. |
 | Serial Card | 1.0 | U3 | The silk says 6551; fit an R6551AP. |
+| Sound Card | 1.0 | J2 | `VDD` is the supply for a real SID at pin 28: 12 V for a 6581, 9 V for an 8580. The standard build does not provide it, and it has never been tested. Leave it unconnected with an ARMSID. |
+| Sound Card | 1.0 | U1 | The silk says 6581; fit an ARMSID. |
 | Storage Card Pro | 1.0 | C5, C6 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
 | Video Card | 1.0 | C1, C2 | Fit 32 or 33 pF. 33 pF is the standard value, and it is what the tested card has. |
 | Video Card | 1.0 | U1 | The TMS9918A is out of production, and eBay is the likely source. The VGA Card is the recommended alternative to this board. |
@@ -1092,13 +1094,13 @@ Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 | J3 | 1 | AUDIO | Switchcraft Inc. PJRAN1X1U02X | [PJRAN1X1U02X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U02X-ND) | [502-PJRAN1X1U02X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U02X) |  | |
 | J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | R1 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
-| U1 | 1 | 6581 | 6581, DIP-28_W15.24mm |  |  | [Retrocomp](https://retrocomp.cz/produkt?id=2) | |
+| U1 | 1 | 6581 | Retrocomp ARMSID |  |  | [Retrocomp](https://retrocomp.cz/produkt?id=2) | |
 | U2 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
-- **U1:** SID 6581, out of production
+- **U1:** A modern replacement for the MOS 6581 SID, which is out of production. Every tested build uses one. A real 6581 also needs 12 V at pin 28, which the standard build does not provide.
 
 
 ## Storage Card Pro
