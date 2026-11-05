@@ -142,7 +142,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/GPIO Card/`** — General-purpose I/O via 65C22 VIA supporting keyboards, joysticks, timers, and custom devices.
 
-**`Hardware/Serial Card/`** — RS-232 serial communication via 65C51 ACIA and MAX232 level shifter.
+**`Hardware/Serial Card/`** — RS-232 serial communication via R6551AP ACIA and MAX232 level shifter.
 Female DB-9 wired as **DCE**, so a straight-through cable reaches a PC. `DCD` and `DSR` are tied to
 ground; `DTR` is not connected. The `CTS EN` jumper (J4) picks whether the ACIA's `CTS` comes from
 ground or from the cable — **ground is the default**, which leaves the transmitter always free to
