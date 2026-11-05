@@ -9244,7 +9244,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DB9 MALE (DTE)"
+		(property "Value" "SERIAL (DTE)"
 			(at 154.94 109.22 0)
 			(show_name no)
 			(do_not_autoplace no)

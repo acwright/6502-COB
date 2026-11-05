@@ -3697,7 +3697,7 @@
 				)
 			)
 		)
-		(property "Value" "ATmega1284-P"
+		(property "Value" "ATmega1284"
 			(at 7.62 50.59 90)
 			(layer "F.SilkS")
 			(uuid "8fc04a7f-16ff-4ceb-9aa0-94a1094aca96")

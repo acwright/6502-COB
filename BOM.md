@@ -662,7 +662,7 @@ Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.1/digikey.csv), [mouser.
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
 |---|---|---|---|---|---|---|
 | J1 | 1 | PORT | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
-| J2 | 1 | DB9 MALE | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  |
+| J2 | 1 | JOYSTICK | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  |
 | R1–R8 | 8 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
 
 ### Joystick Helper Rev 1.0
@@ -695,7 +695,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 | J3 | 1 | PS/2 KEYBOARD | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
 | J4 | 1 | KEYBOARD | Amphenol D25P33E4GX00LF | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) | [649-D25P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D25P33E4GX00LF) |  |
 | R1 | 1 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
-| U1 | 1 | ATmega1284-P | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
+| U1 | 1 | ATmega1284 | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
 | U1 | 1 | Socket | IC socket, 40-pin, 0.6 in |  |  | |
 
@@ -1005,7 +1005,7 @@ Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey.csv), [mouse
 | C3–C10 | 8 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
 | C12 | 1 | 22pF | Samsung Electro-Mechanics CL21C220JBANNNC | [1276-1047-1-ND](https://www.digikey.com/en/products/filter?keywords=1276-1047-1-ND) | [187-CL21C220JBANNNC](https://www.mouser.com/ProductDetail/187-CL21C220JBANNNC) | LCSC [C1804](https://www.lcsc.com/search?q=C1804) | Yes |
 | D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
-| J2 | 1 | DB9 MALE (DTE) | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  | |
+| J2 | 1 | SERIAL (DTE) | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  | |
 | J3 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | J4 | 1 | DCD Select | Pin header 1×3, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
 | R1 | 1 | 1M | YAGEO RC0805FR-071ML | [311-1.00MCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00MCRCT-ND) | [603-RC0805FR-071ML](https://www.mouser.com/ProductDetail/603-RC0805FR-071ML) | LCSC [C17514](https://www.lcsc.com/search?q=C17514) | Yes |

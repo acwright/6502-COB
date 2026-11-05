@@ -3732,7 +3732,7 @@
 				)
 			)
 		)
-		(property "Value" "DB9 MALE"
+		(property "Value" "JOYSTICK"
 			(at 21.9 0.99 270)
 			(layer "F.SilkS")
 			(uuid "45fcb713-7778-40d2-8327-dbfd7b0d5aeb")

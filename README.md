@@ -622,7 +622,7 @@ Parts list: [BOM.md](BOM.md#serial-card).
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - `J2` uses KiCad's standard DB-9 footprint, in a new position, in place of Rev 1.0's own. Its pin spacing and mounting lugs are the same, so the same connector fits both revisions.
-- The silkscreen says `DB9 MALE (DTE)`. Rev 1.0's says `DB9 Male (DTE)`.
+- The silkscreen says `SERIAL (DTE)`. Rev 1.0's says `DB9 Male (DTE)`.
 
 **Rev 1.0**
 

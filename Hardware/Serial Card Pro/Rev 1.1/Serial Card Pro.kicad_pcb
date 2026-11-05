@@ -1868,7 +1868,7 @@
 				)
 			)
 		)
-		(property "Value" "DB9 MALE (DTE)"
+		(property "Value" "SERIAL (DTE)"
 			(at -11.5636 4.0811 180)
 			(layer "F.SilkS")
 			(uuid "64e81725-28aa-4942-af6d-198bec97bb1c")
