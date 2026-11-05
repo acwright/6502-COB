@@ -16,7 +16,7 @@ Every part for every board in this repository, by revision, with supplier number
 
 ## Which revision do I have?
 
-Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and the [README](README.md) lists what changed between them.
+Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and its history lists what changed between them.
 
 | Board | Revision | What the silk says | Status |
 |---|---|---|---|
@@ -98,12 +98,14 @@ These change what you buy or fit. The boards themselves stay as they were made.
 
 ### Build notes
 
-These come from the README.
+How to build each board, where it needs more than its parts list.
+
+<!-- Build notes: hand-written. tools/bom/gen_bom.py keeps everything between these two markers. -->
 
 **Backplane Pro**
 
 **Building a Rev 1.1:**
-- **Leave R5 unfitted.** R5 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the Backplane Pro's reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` then has no pull-up, so whatever drives the bus instead (a [Mega Helper](README.md#mega-helper), for example) must hold `RESB` high itself.
+- **Leave R5 unfitted.** R5 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the Backplane Pro's reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` then has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
 - **Use a centre-positive 5 V supply only.** Rev 1.1 has no reverse-polarity protection on the barrel jack.
 
 **Building a Rev 1.0:** leave R3 unfitted, or remove it from a built board. R3 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's, and the CPU Card's pull-up is the only one a COB needs. The Rev 1.1 notes above explain what that means for a machine without a CPU Card.
@@ -116,6 +118,10 @@ These come from the README.
 
 **Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
 
+**Mega Helper**
+
+**Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
+
 **RAM Card**
 
 **Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Before fitting one:
@@ -127,6 +133,7 @@ These come from the README.
 
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
 
+<!-- End of build notes. -->
 
 ## Backplane Helper
 
