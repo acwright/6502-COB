@@ -124,7 +124,7 @@
 	(net 44 "/$9000")
 	(net 45 "/EXP2")
 	(net 46 "/EXP3")
-	(footprint "6502 Parts:BREADBOARD-MINI"
+	(footprint "6502 Parts:Breadboard Mini"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000606257ed")
 		(at 125.73 95.25)
@@ -155,7 +155,7 @@
 				(justify top)
 			)
 		)
-		(property "Footprint" "6502 Parts:BREADBOARD-MINI"
+		(property "Footprint" "6502 Parts:Breadboard Mini"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -363,7 +363,7 @@
 			(uuid "015f23b8-b601-4e9e-b4f1-5edab8369ad0")
 		)
 	)
-	(footprint "6502 Parts:BREADBOARD-MINI"
+	(footprint "6502 Parts:Breadboard Mini"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000606257fb")
 		(at 171.45 95.25)
@@ -394,7 +394,7 @@
 				(justify top)
 			)
 		)
-		(property "Footprint" "6502 Parts:BREADBOARD-MINI"
+		(property "Footprint" "6502 Parts:Breadboard Mini"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2306,7 +2306,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:6502CARDEDGE"
+	(footprint "6502 Parts:6502 Card Edge"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-000060643606")
 		(at 115.29 132.49)
@@ -2334,7 +2334,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

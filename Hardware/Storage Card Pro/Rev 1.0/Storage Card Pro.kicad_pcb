@@ -4386,7 +4386,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:10067847-001RLF"
+	(footprint "6502 Parts:microSD Socket"
 		(layer "F.Cu")
 		(uuid "a9b5b9be-c4c3-48d4-99d6-39035e06ffb8")
 		(at 195.24 95.03 90)
@@ -5419,7 +5419,7 @@
 			)
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/10067847-001RLF.step"
+		(model "${KIPRJMOD}/../../../Models/microSD Socket.step"
 			(offset
 				(xyz 0.5 23.5 0)
 			)

@@ -961,7 +961,7 @@
 			(uuid "94c85211-e069-4cdb-8770-a3912519d585")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)

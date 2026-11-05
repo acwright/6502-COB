@@ -4219,7 +4219,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SD-SMD_CFH-L3C1LBL01MN0"
+	(footprint "6502 Parts:CompactFlash Socket Plated Pegs"
 		(layer "F.Cu")
 		(uuid "bde3fc07-8436-4fa5-b36d-f681d6b77e04")
 		(at 168.98 108.45 180)
@@ -5178,7 +5178,7 @@
 			(uuid "a29769ef-3b56-4597-991b-acf5d1f9cd74")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/CFH-L3C1-1.step"
+		(model "${KIPRJMOD}/../../../Models/CompactFlash Socket Plated Pegs.step"
 			(offset
 				(xyz 0 -8 3.5)
 			)

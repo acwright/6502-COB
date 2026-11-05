@@ -12103,7 +12103,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 59.69 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -12351,7 +12351,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 97.79 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -12599,7 +12599,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 135.89 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -12847,7 +12847,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 173.99 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -13095,7 +13095,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 212.09 52.07 0)
 			(hide yes)
 			(show_name no)

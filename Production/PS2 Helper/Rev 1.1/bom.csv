@@ -3,7 +3,7 @@
 "C4, C5",C_Disc_D5.0mm_W2.5mm_P2.50mm,2,20pF,
 J1,6502 GPIO Connector,1,PORT A,
 J2,6502 GPIO Connector,1,PORT B,
-J3,KMDGX-6S-BS,1,PS/2,
+J3,PS2 Jack,1,PS/2,
 J4,6502 GPIO Connector,1,JOYSTICK,
 "R1, R2, R3, R4, R5, R6, R7, R8, R9",R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,9,1K,
 U1,DIP-28_W15.24mm_Socket_LongPads,1,MT8808,

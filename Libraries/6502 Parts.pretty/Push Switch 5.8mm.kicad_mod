@@ -1,13 +1,13 @@
-(footprint "XKB5858"
-	(version 20241229)
+(footprint "Push Switch 5.8mm"
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "REF**"
 		(at 0.15 -4 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "b02af862-6c0c-4f3c-ab11-cc397220e973")
+		(uuid "6ebfeae7-7969-43a9-87fc-91c334e86296")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 		(at 0 1 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "3d7658ec-27f5-439c-bd83-4981194c601d")
+		(uuid "28f3a418-fbcd-49b2-a494-8de690843ff7")
 		(effects
 			(font
 				(size 1 1)
@@ -31,7 +31,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "9b809a9a-f6f3-445e-9cba-2ce78c2bf846")
+		(uuid "d32ae167-4e84-49ef-bc63-e973440a2f04")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "478fc2a8-7a1b-4490-8745-6fe4d58b6a95")
+		(uuid "ce3cfbfa-c0f6-4194-8217-c36c90f1b236")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -52,6 +52,7 @@
 		)
 	)
 	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -1.3 -2.9)
 		(end 1.2 -2.9)
@@ -60,7 +61,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "841094a9-6ae6-4a63-8a24-e2c7f34aaee6")
+		(uuid "264e822b-a1a3-4a51-b37d-05f7ad4506d8")
 	)
 	(fp_line
 		(start -1.2 2.9)
@@ -70,7 +71,7 @@
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "9789190b-ce56-4392-ae3e-da64c7d75f0d")
+		(uuid "142aca07-93a5-4a8e-a30d-e7cee96ae937")
 	)
 	(fp_rect
 		(start -2.9 -2.9)
@@ -81,13 +82,13 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "c35fbee8-24e0-462f-a14a-d599c9e090c9")
+		(uuid "591956f6-3254-48d4-a9f8-16bda6e61bd2")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "770c1394-ada3-413b-9677-c413dd8eb837")
+		(uuid "7b22e4d9-fc2e-47c7-ad04-1571aa90ff04")
 		(effects
 			(font
 				(size 1 1)
@@ -101,7 +102,7 @@
 		(drill 0.9525)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "2246f624-d753-470c-8973-9cdcc01ce76e")
+		(uuid "223880b6-2621-4a7e-83e7-166e0fc712a8")
 	)
 	(pad "2" thru_hole circle
 		(at -2.25 0)
@@ -110,7 +111,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "b0f05038-1a00-46e7-8562-3e244f17e410")
+		(uuid "dcf81b1a-11b7-41df-a77e-51e38e67f124")
 	)
 	(pad "3" thru_hole circle
 		(at -2.25 2)
@@ -119,7 +120,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "b5881494-8936-43e0-8baf-865d56c5f6da")
+		(uuid "79d1a422-1ed2-4cd9-8351-1f7003808f21")
 	)
 	(pad "4" thru_hole circle
 		(at 2.25 -2)
@@ -128,7 +129,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "a4d4709f-3249-4b8e-a30b-44aa0092457e")
+		(uuid "b79209f2-c9b4-4ec7-9be7-8a2395e878be")
 	)
 	(pad "5" thru_hole circle
 		(at 2.25 0)
@@ -137,7 +138,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "1f0c29ea-709f-44c8-8cc8-8c6f9ad6845b")
+		(uuid "5571a4b5-0809-4a3f-8493-7fec36fdf2a7")
 	)
 	(pad "6" thru_hole circle
 		(at 2.25 2)
@@ -146,10 +147,10 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(thermal_bridge_angle 90)
-		(uuid "adc036ed-94f6-421f-9f2b-a25836bc6f48")
+		(uuid "8edaa210-050c-44ea-9633-8bd5e249f75e")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Models/XKB5858.step"
+	(model "${KIPRJMOD}/../../../Models/Push Switch 5.8mm.step"
 		(offset
 			(xyz 0 0 0.4)
 		)

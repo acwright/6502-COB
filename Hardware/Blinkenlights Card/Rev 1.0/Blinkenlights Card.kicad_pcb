@@ -178,7 +178,7 @@
 	(net 98 "Net-(U3-Pad2)")
 	(net 99 "Net-(U3-Pad11)")
 	(net 100 "Net-(U3-Pad12)")
-	(footprint "6502 Parts:6502CARDEDGE"
+	(footprint "6502 Parts:6502 Card Edge"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-000060643606")
 		(at 115.29 132.49)
@@ -206,7 +206,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

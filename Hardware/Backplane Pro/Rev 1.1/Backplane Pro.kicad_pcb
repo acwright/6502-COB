@@ -273,7 +273,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605ddf7d")
 		(at 114.3 66 -90)
@@ -1009,7 +1009,7 @@
 			(uuid "4146497a-7eba-4fe0-aaa6-86f8a07870d7")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -1021,7 +1021,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605ddfb5")
 		(at 130.8 66 -90)
@@ -1757,7 +1757,7 @@
 			(uuid "63c5316e-ff6f-4c6f-910b-fdcf60a53fbe")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -1769,7 +1769,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605de03f")
 		(at 147.3 66 -90)
@@ -2505,7 +2505,7 @@
 			(uuid "654261d3-1c7a-4302-a9a5-54db69005af5")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -2517,7 +2517,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605de077")
 		(at 163.8 66 -90)
@@ -3253,7 +3253,7 @@
 			(uuid "0b7a2d81-0acb-4bc0-b54c-2bdbebdbb379")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -4418,7 +4418,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-00006064018f")
 		(at 97.8 66 -90)
@@ -5154,7 +5154,7 @@
 			(uuid "23a99cdb-d8d0-46d9-b3a7-58c709ef4807")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -6609,7 +6609,7 @@
 			(uuid "6d7772b9-ce8f-407e-9e0b-ea4a8bfa301d")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/61204021621.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Bus Connector.step"
 			(offset
 				(xyz 1.25 -24 4.5)
 			)
@@ -9469,7 +9469,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SW_400MSP1R6BLKM6QE"
+	(footprint "6502 Parts:Power Switch"
 		(layer "F.Cu")
 		(uuid "5387810d-2a45-42c2-a81d-21e04a8aa3fe")
 		(at 154.92 135.74625 90)
@@ -9900,7 +9900,7 @@
 			(uuid "29aa1df5-2120-4899-a7fd-94a0e3774755")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/400MSP1R6BLKM6QE.step"
+		(model "${KIPRJMOD}/../../../Models/Power Switch.step"
 			(offset
 				(xyz -1 0 3)
 			)

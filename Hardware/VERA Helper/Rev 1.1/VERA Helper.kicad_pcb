@@ -2693,7 +2693,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U02X"
+	(footprint "6502 Parts:RCA Jack White"
 		(layer "F.Cu")
 		(uuid "34aef1e6-5ecc-4396-90ca-3d0aa43cd4d1")
 		(at 133.4636 82.0636 180)
@@ -3100,7 +3100,7 @@
 			(uuid "02881ba1-8a2d-41ea-9e58-0c68cb165f47")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U02X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack White.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3820,7 +3820,7 @@
 			(uuid "08d49bba-90e2-4e43-a065-c01ac88c004a")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/61204021621.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Bus Connector.step"
 			(offset
 				(xyz 1.25 -24 4.5)
 			)
@@ -4666,7 +4666,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U02X"
+	(footprint "6502 Parts:RCA Jack White"
 		(layer "F.Cu")
 		(uuid "60632ca9-ec34-42b1-a783-11ea3e183592")
 		(at 146.4636 82.0636 180)
@@ -5073,7 +5073,7 @@
 			(uuid "128cc780-efb3-404e-bd09-b0d967b61726")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U02X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack White.step"
 			(offset
 				(xyz 0 0 0)
 			)

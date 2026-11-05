@@ -2005,7 +2005,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:MAX232D"
+	(footprint "6502 Parts:SOIC-16"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000606d3368")
 		(at 179.1261 96.5586)
@@ -2436,7 +2436,7 @@
 			(uuid "e14cef8b-2b76-44e4-aacf-02147cc82f27")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/MAX232D.step"
+		(model "${KIPRJMOD}/../../../Models/SOIC-16.step"
 			(offset
 				(xyz 0 0 0)
 			)

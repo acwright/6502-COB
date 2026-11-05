@@ -7,7 +7,7 @@ J2,DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesO
 J3,PinHeader_2x08_P2.54mm_Vertical,1,Conn_02x08_Odd_Even,
 J4,PinHeader_1x03_P2.54mm_Vertical,1,DCD Select,
 R1,0805,1,1M,C17514
-"U1, U2",MAX232D,2,MAX232,C59824
+"U1, U2",SOIC-16,2,MAX232,C59824
 U3,SOIC-16_3.9x9.9mm_P1.27mm,1,74HC138,C5602
 U4,DIP-28_W15.24mm_Socket_LongPads,1,R6551AP,
 Y1,Crystal_HC49-U_Vertical,1,1.8432 MHz,

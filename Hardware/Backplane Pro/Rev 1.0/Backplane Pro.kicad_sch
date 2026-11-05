@@ -15918,7 +15918,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 39.37 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16166,7 +16166,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 77.47 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16414,7 +16414,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 115.57 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16662,7 +16662,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 153.67 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -16910,7 +16910,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+		(property "Footprint" "6502 Parts:6502 Card Slot"
 			(at 191.77 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -19792,7 +19792,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SW_TS-1187A-B-A-B"
+		(property "Footprint" "6502 Parts:Tact Switch SMD 5.1mm"
 			(at 156.21 45.72 0)
 			(hide yes)
 			(show_name no)

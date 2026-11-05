@@ -11,7 +11,7 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:10067847-001RLF"
+		(symbol "6502 Parts:microSD Socket"
 			(pin_names
 				(offset 1.016)
 			)
@@ -76,7 +76,7 @@
 					)
 				)
 			)
-			(symbol "10067847-001RLF_0_0"
+			(symbol "microSD Socket_0_0"
 				(rectangle
 					(start -7.62 -25.4)
 					(end 7.62 17.78)
@@ -10788,7 +10788,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:10067847-001RLF")
+		(lib_id "6502 Parts:microSD Socket")
 		(at 241.3 130.81 0)
 		(unit 1)
 		(body_style 1)
@@ -10821,7 +10821,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:10067847-001RLF"
+		(property "Footprint" "6502 Parts:microSD Socket"
 			(at 241.3 130.81 0)
 			(hide yes)
 			(show_name no)

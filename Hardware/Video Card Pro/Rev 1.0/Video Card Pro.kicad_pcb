@@ -6280,7 +6280,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+	(footprint "6502 Parts:RCA Jack Yellow"
 		(layer "F.Cu")
 		(uuid "7f920bb9-232a-4d51-8ef7-e7ad7493d03e")
 		(at 185.5 82.5 90)
@@ -6687,7 +6687,7 @@
 			(uuid "dec3e31a-9fc5-48d6-a98c-6069f4a3ef91")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U04X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack Yellow.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -9356,7 +9356,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:3386F-1-103LF"
+	(footprint "6502 Parts:Trimmer 3386F"
 		(layer "F.Cu")
 		(uuid "ed6493c0-15ba-4c44-a6f3-1f24b70e5aad")
 		(at 170.93 97.975)
@@ -9744,7 +9744,7 @@
 			(uuid "1ad3bb84-9fb9-49b6-8229-45ca1a3ddc90")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/3386F-1-103LF.step"
+		(model "${KIPRJMOD}/../../../Models/Trimmer 3386F.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -12192,7 +12192,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:3386F-1-103LF"
+	(footprint "6502 Parts:Trimmer 3386F"
 		(layer "F.Cu")
 		(uuid "fa30e6e4-c4d7-476d-900d-0f7e281d7a2a")
 		(at 170.9 78.685)
@@ -12580,7 +12580,7 @@
 			(uuid "88b7af0c-8ab5-4622-b542-d1c364fbcb9e")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/3386F-1-103LF.step"
+		(model "${KIPRJMOD}/../../../Models/Trimmer 3386F.step"
 			(offset
 				(xyz 0 0 0)
 			)

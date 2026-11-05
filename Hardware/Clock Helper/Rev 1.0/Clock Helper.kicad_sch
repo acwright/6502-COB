@@ -3574,7 +3574,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 127 93.98 0)
 			(effects
 				(font
@@ -3893,7 +3893,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 90.17 185.42 0)
 			(effects
 				(font
@@ -4025,7 +4025,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 172.72 81.28 0)
 			(effects
 				(font
@@ -4290,7 +4290,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 110.49 185.42 0)
 			(effects
 				(font
@@ -5044,7 +5044,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 130.81 185.42 0)
 			(effects
 				(font
@@ -5369,7 +5369,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:XKB5858"
+		(property "Footprint" "6502 Parts:Push Switch 5.8mm"
 			(at 127 76.2 0)
 			(effects
 				(font

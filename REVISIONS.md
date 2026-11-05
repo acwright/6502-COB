@@ -53,7 +53,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Serial Card Pro | 1.0 | Made, matches order | Yes | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Sound Card | 1.0 | Made, matches order | Yes | Y84 | 2026-01-13 | `3b4c7bb` | 4 | 100×57.62 | — | — | — |  |
-| Storage Card | 1.0 | Made, matches order | Yes | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — |  |
+| Storage Card | 1.0 | Made, matches order | Yes | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card Pro | 1.0 | Made, matches order | Not yet | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
 | VERA Helper | 1.0 | Made, matches order | Yes | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | — |  |  |  | — | 100×80 | 6 mm | — | — |  |

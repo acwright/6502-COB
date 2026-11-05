@@ -6295,7 +6295,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:MAX232D"
+	(footprint "6502 Parts:SOIC-16"
 		(layer "F.Cu")
 		(uuid "705e3211-93d2-4323-acbc-554d3b23213e")
 		(at 177.4011 94.3836)
@@ -6322,7 +6322,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6726,7 +6726,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "5879e3e1-0287-41ea-a7f8-df6e5eeea7c0")
 		)
-		(model "${KIPRJMOD}/../../../Models/MAX232D.step"
+		(model "${KIPRJMOD}/../../../Models/SOIC-16.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -8021,7 +8021,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:MAX232D"
+	(footprint "6502 Parts:SOIC-16"
 		(layer "F.Cu")
 		(uuid "a6fb654c-d41c-4e63-8130-09d72369b070")
 		(at 177.4261 110.6336)
@@ -8048,7 +8048,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8452,7 +8452,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "fb400ec7-fb3c-4cdb-a15d-2a2d121f80e2")
 		)
-		(model "${KIPRJMOD}/../../../Models/MAX232D.step"
+		(model "${KIPRJMOD}/../../../Models/SOIC-16.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -10136,7 +10136,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:6502CARDEDGE"
+	(footprint "6502 Parts:6502 Card Edge"
 		(layer "F.Cu")
 		(uuid "c36cb94c-d394-4321-8dd8-d3a9f9173dfc")
 		(at 115.29 132.49)
@@ -10164,7 +10164,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

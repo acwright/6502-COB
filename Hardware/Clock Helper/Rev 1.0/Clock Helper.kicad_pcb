@@ -436,7 +436,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:XKB5858"
+	(footprint "6502 Parts:Push Switch 5.8mm"
 		(layer "F.Cu")
 		(uuid "18c01f80-78e5-4ca5-b5c6-599990549411")
 		(at 134.7761 118.0906 -90)
@@ -672,7 +672,7 @@
 			(uuid "7ebd7adf-5935-40c7-8026-4a51e30e56f1")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/XKB5858.step"
+		(model "${KIPRJMOD}/../../../Models/Push Switch 5.8mm.step"
 			(offset
 				(xyz 0 0 0.4)
 			)
@@ -684,7 +684,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:XKB5858"
+	(footprint "6502 Parts:Push Switch 5.8mm"
 		(layer "F.Cu")
 		(uuid "1f7e4045-bb67-4087-921e-48e4a36752f4")
 		(at 144.0261 118.0906 -90)
@@ -920,7 +920,7 @@
 			(uuid "6c013d33-46eb-4bd0-946f-73395ffb9365")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/XKB5858.step"
+		(model "${KIPRJMOD}/../../../Models/Push Switch 5.8mm.step"
 			(offset
 				(xyz 0 0 0.4)
 			)
@@ -2172,7 +2172,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:XKB5858"
+	(footprint "6502 Parts:Push Switch 5.8mm"
 		(layer "F.Cu")
 		(uuid "4f4ea884-55b5-4045-a31a-e8d8894f596b")
 		(at 125.2761 118.0906 -90)
@@ -2408,7 +2408,7 @@
 			(uuid "93c1b367-743c-4e80-995c-df9d4d001db8")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/XKB5858.step"
+		(model "${KIPRJMOD}/../../../Models/Push Switch 5.8mm.step"
 			(offset
 				(xyz 0 0 0.4)
 			)

@@ -727,7 +727,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:BAT_BAT-HLD-001-THM"
+	(footprint "6502 Parts:CR2032 Holder"
 		(layer "F.Cu")
 		(uuid "439a1c45-e370-49ee-8fe9-6809cfdbbd27")
 		(at 180.9 88.71 90)
@@ -1120,7 +1120,7 @@
 			(uuid "d8032990-7c09-4513-afb2-9497e30b8821")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/BAT-HLD-001-THM.step"
+		(model "${KIPRJMOD}/../../../Models/CR2032 Holder.step"
 			(offset
 				(xyz 0 0 0)
 			)

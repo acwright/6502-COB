@@ -809,7 +809,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "6502 Parts:Compact Flash"
+		(symbol "6502 Parts:CompactFlash Socket Plated Pegs"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -868,7 +868,7 @@
 					)
 				)
 			)
-			(symbol "Compact Flash_1_0"
+			(symbol "CompactFlash Socket Plated Pegs_1_0"
 				(pin power_in line
 					(at 1.27 -48.26 90)
 					(length 5.08)
@@ -1806,7 +1806,7 @@
 					)
 				)
 			)
-			(symbol "Compact Flash_1_1"
+			(symbol "CompactFlash Socket Plated Pegs_1_1"
 				(rectangle
 					(start -15.24 39.37)
 					(end 13.97 -43.18)
@@ -8344,7 +8344,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:Compact Flash")
+		(lib_id "6502 Parts:CompactFlash Socket Plated Pegs")
 		(at 198.12 74.93 0)
 		(unit 1)
 		(body_style 1)
@@ -8377,7 +8377,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SD-SMD_CFH-L3C1LBL01MN0"
+		(property "Footprint" "6502 Parts:CompactFlash Socket Plated Pegs"
 			(at 196.85 35.56 0)
 			(hide yes)
 			(show_name no)

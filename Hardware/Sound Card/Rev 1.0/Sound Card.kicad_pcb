@@ -1790,7 +1790,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U02X"
+	(footprint "6502 Parts:RCA Jack White"
 		(layer "F.Cu")
 		(uuid "7f920bb9-232a-4d51-8ef7-e7ad7493d03e")
 		(at 196.5 82.5 90)
@@ -2197,7 +2197,7 @@
 			(uuid "3c18f9c5-2d4c-45c5-bd52-0c7715ade44e")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U02X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack White.step"
 			(offset
 				(xyz 0 0 0)
 			)

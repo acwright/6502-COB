@@ -1,14 +1,14 @@
 (footprint "DB9 Male"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(descr "9 PIN SERIAL CONNECTOR - FEMALE PCB MOUNT RIGHT ANGLE")
 	(tags "9 PIN SERIAL CONNECTOR - FEMALE PCB MOUNT RIGHT ANGLE")
 	(property "Reference" ">NAME"
 		(at -16.7 0.4 90)
 		(layer "F.SilkS")
-		(uuid "9436f464-0cd1-43f2-8bae-2e0b1ef9e364")
+		(uuid "1069436f-b3e7-4bad-af45-ad56a7518761")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 	(property "Value" ">VALUE"
 		(at 16.7 0 90)
 		(layer "F.SilkS")
-		(uuid "29751a3b-b1b3-464f-8d12-c54cd0b8b1a3")
+		(uuid "c7205db8-bb24-4671-8100-08aeb80b273f")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "95a304d7-bf61-49a6-a6d2-32f1f46014ee")
+		(uuid "02a43d66-cf8f-40b6-8224-0c12b6cd6d46")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "991aaefc-2d9a-4a11-a606-d250e36f51a9")
+		(uuid "a435d939-234f-49ed-bd9b-418a399c4cc2")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -54,6 +54,7 @@
 		)
 	)
 	(attr exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -15.39748 2.79908)
 		(end -15.39748 -2.54)
@@ -62,7 +63,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "86f0a27e-94ba-4b42-9d59-3c8197244301")
+		(uuid "ac6016a3-a4ad-42d5-96bc-f5e53692b3f5")
 	)
 	(fp_line
 		(start -15.39748 2.79908)
@@ -72,7 +73,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "5c507048-0d50-44da-b9b6-f6f0bec24e77")
+		(uuid "5c8354a0-d4e8-4853-8625-81fc61758bd4")
 	)
 	(fp_line
 		(start 15.39748 2.79908)
@@ -82,7 +83,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "e576ad15-86c6-4fbc-9367-b3697ec26935")
+		(uuid "a39366c4-c5da-4ca6-a99d-56b54da58c46")
 	)
 	(fp_line
 		(start -15.39748 -9.4996)
@@ -92,7 +93,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "6f9f2402-3a50-4d2e-81b1-1e369a86a9f7")
+		(uuid "72ab97aa-a057-457b-85d0-5896f19280e8")
 	)
 	(fp_line
 		(start -15.39748 -2.54254)
@@ -102,7 +103,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "9f66b62a-14e2-4970-af42-d75167923b59")
+		(uuid "d8dec8b4-91b2-41c9-9f07-858a042daa22")
 	)
 	(fp_line
 		(start -8.128 -10.21842)
@@ -112,7 +113,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "43b47fbf-5cf5-436e-a49f-bec2dc6c9cdb")
+		(uuid "b7ad2a07-8b08-4b5b-93a7-53fee55aff90")
 	)
 	(fp_line
 		(start -7.62 -15.80642)
@@ -122,7 +123,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "8e0a1c59-7ae4-4ebb-a03c-d9be10755bbb")
+		(uuid "88300533-7d5a-4110-81dc-b3e241263e5f")
 	)
 	(fp_line
 		(start 8.128 -10.21842)
@@ -132,7 +133,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "74765d6f-6640-44ec-af4d-a07d2e3986a2")
+		(uuid "6328df59-5187-4d8a-b399-7fb8b6488e96")
 	)
 	(fp_line
 		(start 15.39748 -2.54)
@@ -142,7 +143,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "72794dda-a1ff-4280-b5cf-47d435372451")
+		(uuid "892b727f-29ff-4131-bf48-8078f8adc14c")
 	)
 	(fp_arc
 		(start -8.128 -15.29842)
@@ -153,7 +154,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "0c6439eb-7cb2-4cef-9127-876b00bb11e1")
+		(uuid "a9a19574-e04a-4d34-8875-eb95c2c2627a")
 	)
 	(fp_arc
 		(start -8.128 -10.21842)
@@ -164,7 +165,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "e9668fb2-215a-45cd-b80f-464c990f660b")
+		(uuid "12edfa11-7cab-4347-a8e2-b3252ac3b8ca")
 	)
 	(fp_arc
 		(start 7.62 -15.80642)
@@ -175,7 +176,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "ca68dd07-5170-4156-8ac4-1bf310e49c5d")
+		(uuid "714e40f1-73de-4d95-af5e-10d26c181458")
 	)
 	(fp_arc
 		(start 8.76046 -9.58342)
@@ -186,7 +187,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "5712dbb7-14e1-4e8b-b770-5cc3cb02fb75")
+		(uuid "01b84dce-8b77-4eae-a15f-1facffba650f")
 	)
 	(pad "1" thru_hole rect
 		(at 5.53974 1.41986)
@@ -195,7 +196,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "a16ab3b0-d767-42bc-990f-dae0db59f90e")
+		(uuid "91d37773-4edb-4c52-a282-fa4e3f85e9f7")
 	)
 	(pad "2" thru_hole circle
 		(at 2.7686 1.41986)
@@ -204,7 +205,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "515428d2-a7f1-46d6-bd1a-1fcb8d35f8bf")
+		(uuid "ac8e6d9b-2710-48e8-b086-d13c78d96c12")
 	)
 	(pad "3" thru_hole circle
 		(at 0 1.41986)
@@ -213,7 +214,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "3576425c-c4ec-4cc5-b344-1d632a7f7dc0")
+		(uuid "c6c6ef21-b928-4e4c-8966-fb72af58405c")
 	)
 	(pad "4" thru_hole circle
 		(at -2.7686 1.41986)
@@ -222,7 +223,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "b5951b37-334b-48bc-a093-f153b40d5c3f")
+		(uuid "016a6fea-54c2-4e2d-84e6-3b88fd433087")
 	)
 	(pad "5" thru_hole circle
 		(at -5.53974 1.41986)
@@ -231,7 +232,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "26102e51-8e6e-45e5-94e1-1005ac52fee9")
+		(uuid "ab8ffa6e-96f7-4793-ad3b-eb2fe6483a2c")
 	)
 	(pad "6" thru_hole circle
 		(at 4.14782 -1.41986)
@@ -240,7 +241,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "c93f6e1f-30e5-44c7-b806-f848c091de74")
+		(uuid "d68c9920-5945-408f-ad97-aded89ce0656")
 	)
 	(pad "7" thru_hole circle
 		(at 1.37922 -1.41986)
@@ -249,7 +250,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "1a6118f0-ede7-4f81-b4ac-c39cba009fbf")
+		(uuid "fb030db1-c09e-430a-b974-a671f73dd859")
 	)
 	(pad "8" thru_hole circle
 		(at -1.37922 -1.41986)
@@ -258,7 +259,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "5941b64f-c784-41f5-bd22-04617a0b4152")
+		(uuid "bab09be2-5ea0-4b7d-85dd-81d507880576")
 	)
 	(pad "9" thru_hole circle
 		(at -4.14782 -1.41986)
@@ -267,7 +268,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "9cc3a7be-bef1-4ef9-a232-f0e457365736")
+		(uuid "fb40d9c3-b5bf-44c8-8762-daa0f8090c59")
 	)
 	(pad "G1" thru_hole circle
 		(at -12.49934 0)
@@ -276,7 +277,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "7165c7ad-3eda-4497-b6ea-05a0b4ea0388")
+		(uuid "c045c3b8-7b46-425a-88e1-1cfb488d1f6a")
 	)
 	(pad "G2" thru_hole circle
 		(at 12.49934 0)
@@ -285,7 +286,7 @@
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(solder_mask_margin 0.1016)
-		(uuid "932333a0-70b4-4b51-922a-dcdedc4df6f2")
+		(uuid "9a70151f-9428-4d9f-bb97-daa3561eb829")
 	)
 	(embedded_fonts no)
 	(model "${KICAD10_3DMODEL_DIR}/Connector_Dsub.3dshapes/DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm.step"
@@ -298,6 +299,5 @@
 		(rotate
 			(xyz 0 0 180)
 		)
-	)
 	)
 )

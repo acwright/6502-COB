@@ -809,7 +809,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "6502 Parts:BAT-HLD-001-THM"
+		(symbol "6502 Parts:CR2032 Holder"
 			(pin_names
 				(offset 1.016)
 			)
@@ -840,7 +840,7 @@
 					(justify left bottom)
 				)
 			)
-			(property "Footprint" "6502 Parts:BAT_BAT-HLD-001-THM"
+			(property "Footprint" "6502 Parts:CR2032 Holder"
 				(at -0.254 -8.382 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -886,7 +886,7 @@
 					(justify bottom)
 				)
 			)
-			(symbol "BAT-HLD-001-THM_0_0"
+			(symbol "CR2032 Holder_0_0"
 				(polyline
 					(pts
 						(xy -3.81 1.905) (xy -2.54 1.905)
@@ -960,7 +960,7 @@
 					)
 				)
 			)
-			(symbol "BAT-HLD-001-THM_1_0"
+			(symbol "CR2032 Holder_1_0"
 				(pin power_in line
 					(at -6.35 0 0)
 					(length 5.08)
@@ -10283,7 +10283,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:BAT-HLD-001-THM")
+		(lib_id "6502 Parts:CR2032 Holder")
 		(at 186.69 64.77 270)
 		(unit 1)
 		(body_style 1)
@@ -10314,7 +10314,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:BAT_BAT-HLD-001-THM"
+		(property "Footprint" "6502 Parts:CR2032 Holder"
 			(at 178.308 64.516 0)
 			(hide yes)
 			(show_name no)

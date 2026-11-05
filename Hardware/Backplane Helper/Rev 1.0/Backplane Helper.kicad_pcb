@@ -273,7 +273,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605de03f")
 		(at 118.3 67 -90)
@@ -1009,7 +1009,7 @@
 			(uuid "654261d3-1c7a-4302-a9a5-54db69005af5")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -1021,7 +1021,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:RHDR40W82P485X254_2X20_5740X93"
+	(footprint "6502 Parts:6502 Card Slot"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605de077")
 		(at 134.8 67 -90)
@@ -1757,7 +1757,7 @@
 			(uuid "0b7a2d81-0acb-4bc0-b54c-2bdbebdbb379")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/5-5530843-4.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Card Slot.step"
 			(offset
 				(xyz 24.5 2.5 15.5)
 			)
@@ -4378,7 +4378,7 @@
 			(uuid "6d7772b9-ce8f-407e-9e0b-ea4a8bfa301d")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/61204021621.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Bus Connector.step"
 			(offset
 				(xyz 1.25 -24 4.5)
 			)

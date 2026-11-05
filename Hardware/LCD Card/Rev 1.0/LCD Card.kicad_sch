@@ -11,7 +11,7 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:6502CARDEDGE"
+		(symbol "6502 Parts:6502 Card Edge"
 			(pin_names
 				(offset 1.016)
 			)
@@ -62,7 +62,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "6502CARDEDGE_1_0"
+			(symbol "6502 Card Edge_1_0"
 				(rectangle
 					(start -10.16 25.4)
 					(end 10.16 -27.94)
@@ -8136,7 +8136,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "6502 Parts:3386F-1-103TLF"
+		(property "Footprint" "6502 Parts:Trimmer 3386F"
 			(at 212.09 41.91 0)
 			(effects
 				(font
@@ -9122,7 +9122,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:6502CARDEDGE")
+		(lib_id "6502 Parts:6502 Card Edge")
 		(at 54.61 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9146,7 +9146,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 54.61 54.61 0)
 			(effects
 				(font

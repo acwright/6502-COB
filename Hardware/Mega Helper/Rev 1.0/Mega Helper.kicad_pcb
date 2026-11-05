@@ -1097,7 +1097,7 @@
 			(uuid "a572109d-a8f7-43ef-abd0-cfd7e5ef9d18")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/61204021621.step"
+		(model "${KIPRJMOD}/../../../Models/6502 Bus Connector.step"
 			(offset
 				(xyz 1.25 -24 4.5)
 			)

@@ -961,7 +961,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:3386F-1-103LF"
+	(footprint "6502 Parts:Trimmer 3386F"
 		(layer "F.Cu")
 		(uuid "1f5696b6-f878-4443-a3e9-ed227c24d326")
 		(at 183.14 115.255)
@@ -1350,7 +1350,7 @@
 			(uuid "4b6441c7-e8b9-4f73-a7e5-1cb770d4faca")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/3386F-1-103LF.step"
+		(model "${KIPRJMOD}/../../../Models/Trimmer 3386F.step"
 			(offset
 				(xyz 0 0 0)
 			)

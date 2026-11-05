@@ -840,7 +840,7 @@
 			(uuid "f31ea4b0-c5ba-4676-85e1-e6d4376825d0")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -3612,7 +3612,7 @@
 			(uuid "6799e56e-c25b-4d37-9f87-2edadb6785bf")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)

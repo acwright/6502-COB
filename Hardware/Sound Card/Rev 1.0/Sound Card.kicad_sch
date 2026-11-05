@@ -809,7 +809,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "6502 Parts:6581"
+		(symbol "6502 Parts:SID"
 			(pin_names
 				(offset 1.016)
 			)
@@ -875,7 +875,7 @@
 					)
 				)
 			)
-			(symbol "6581_0_0"
+			(symbol "SID_0_0"
 				(rectangle
 					(start -8.89 24.13)
 					(end 8.89 -24.13)
@@ -888,7 +888,7 @@
 					)
 				)
 			)
-			(symbol "6581_1_0"
+			(symbol "SID_1_0"
 				(pin input line
 					(at 11.43 20.32 180)
 					(length 2.54)
@@ -1396,7 +1396,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "6502 Parts:PJRAN1X1U02X"
+		(symbol "6502 Parts:RCA Jack White"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -1426,7 +1426,7 @@
 					)
 				)
 			)
-			(property "Footprint" "6502 Parts:SWITCHCRAFT_PJRAN1X1U02X"
+			(property "Footprint" "6502 Parts:RCA Jack White"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1492,7 +1492,7 @@
 					)
 				)
 			)
-			(symbol "PJRAN1X1U02X_0_1"
+			(symbol "RCA Jack White_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy -0.508 0)
@@ -1553,7 +1553,7 @@
 					)
 				)
 			)
-			(symbol "PJRAN1X1U02X_1_1"
+			(symbol "RCA Jack White_1_1"
 				(pin passive line
 					(at 0 -5.08 90)
 					(length 2.54)
@@ -5810,7 +5810,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:PJRAN1X1U02X")
+		(lib_id "6502 Parts:RCA Jack White")
 		(at 142.24 53.34 0)
 		(unit 1)
 		(body_style 1)
@@ -5843,7 +5843,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SWITCHCRAFT_PJRAN1X1U02X"
+		(property "Footprint" "6502 Parts:RCA Jack White"
 			(at 142.24 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -7213,7 +7213,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:6581")
+		(lib_id "6502 Parts:SID")
 		(at 57.15 63.5 0)
 		(unit 1)
 		(body_style 1)

@@ -7245,7 +7245,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+	(footprint "6502 Parts:RCA Jack Yellow"
 		(layer "F.Cu")
 		(uuid "7f920bb9-232a-4d51-8ef7-e7ad7493d03e")
 		(at 185.5 82.5 90)
@@ -7271,7 +7271,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+		(property "Footprint" "6502 Parts:RCA Jack Yellow"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7657,7 +7657,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "d8b8a861-6b39-47da-aa41-7f8a740fc5ac")
 		)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U04X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack Yellow.step"
 			(offset
 				(xyz 0 0 0)
 			)

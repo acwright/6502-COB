@@ -8392,7 +8392,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "6502 Parts:3386F-1-103LF"
+		(property "Footprint" "6502 Parts:Trimmer 3386F"
 			(at 212.09 41.91 0)
 			(hide yes)
 			(show_name no)

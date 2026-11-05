@@ -11,7 +11,7 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:KMDGX-6S-BS"
+		(symbol "6502 Parts:PS2 Jack"
 			(pin_names
 				(offset 1.016)
 			)
@@ -40,7 +40,7 @@
 					)
 				)
 			)
-			(property "Footprint" "6502 Parts:KMDGX-6S-BS"
+			(property "Footprint" "6502 Parts:PS2 Jack"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -95,7 +95,7 @@
 					)
 				)
 			)
-			(symbol "KMDGX-6S-BS_0_1"
+			(symbol "PS2 Jack_0_1"
 				(polyline
 					(pts
 						(xy -4.318 -2.54) (xy -3.048 -2.54) (xy -3.048 -4.064)
@@ -318,7 +318,7 @@
 					)
 				)
 			)
-			(symbol "KMDGX-6S-BS_1_1"
+			(symbol "PS2 Jack_1_1"
 				(pin passive line
 					(at 7.62 -2.54 180)
 					(length 2.54)
@@ -7858,7 +7858,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:KMDGX-6S-BS")
+		(lib_id "6502 Parts:PS2 Jack")
 		(at 184.15 121.92 0)
 		(unit 1)
 		(body_style 1)
@@ -7889,7 +7889,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:KMDGX-6S-BS"
+		(property "Footprint" "6502 Parts:PS2 Jack"
 			(at 184.15 121.92 0)
 			(hide yes)
 			(show_name no)

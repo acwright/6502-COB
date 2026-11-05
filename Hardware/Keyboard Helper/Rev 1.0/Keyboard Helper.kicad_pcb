@@ -12933,7 +12933,7 @@
 			(uuid "a5274c9a-18e7-4c7b-b811-a9473c46d0d6")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -14522,7 +14522,7 @@
 			(uuid "71b7b14f-9567-451f-a6f6-4b52d104a513")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -17319,7 +17319,7 @@
 			(uuid "8fd1f5fb-726c-4d76-84fc-0f09ea65fdf6")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -25209,7 +25209,7 @@
 			(uuid "eac5663c-641b-4adb-abd3-4040e8692de9")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)

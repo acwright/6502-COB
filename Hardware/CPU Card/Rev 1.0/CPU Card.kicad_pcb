@@ -950,7 +950,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:6502CARDEDGE"
+	(footprint "6502 Parts:6502 Card Edge"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-00006064386f")
 		(at 115.25 132.44)
@@ -978,7 +978,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

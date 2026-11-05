@@ -5861,7 +5861,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:MAX232D"
+	(footprint "6502 Parts:SOIC-16"
 		(layer "F.Cu")
 		(uuid "705e3211-93d2-4323-acbc-554d3b23213e")
 		(at 177.4011 94.3836)
@@ -6292,7 +6292,7 @@
 			(uuid "5879e3e1-0287-41ea-a7f8-df6e5eeea7c0")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/MAX232D.step"
+		(model "${KIPRJMOD}/../../../Models/SOIC-16.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -7493,7 +7493,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:MAX232D"
+	(footprint "6502 Parts:SOIC-16"
 		(layer "F.Cu")
 		(uuid "a6fb654c-d41c-4e63-8130-09d72369b070")
 		(at 177.4261 110.6336)
@@ -7924,7 +7924,7 @@
 			(uuid "fb400ec7-fb3c-4cdb-a15d-2a2d121f80e2")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/MAX232D.step"
+		(model "${KIPRJMOD}/../../../Models/SOIC-16.step"
 			(offset
 				(xyz 0 0 0)
 			)

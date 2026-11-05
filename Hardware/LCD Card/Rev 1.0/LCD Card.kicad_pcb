@@ -1072,7 +1072,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:3386F-1-103TLF"
+	(footprint "6502 Parts:Trimmer 3386F"
 		(layer "F.Cu")
 		(uuid "1f5696b6-f878-4443-a3e9-ed227c24d326")
 		(at 183.14 115.255)
@@ -1099,7 +1099,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:3386F-1-103TLF"
+		(property "Footprint" "6502 Parts:Trimmer 3386F"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1462,7 +1462,7 @@
 			(solder_mask_margin 0.102)
 			(uuid "4b6441c7-e8b9-4f73-a7e5-1cb770d4faca")
 		)
-		(model "${KIPRJMOD}/../../../Models/3386F-1-103LF.step"
+		(model "${KIPRJMOD}/../../../Models/Trimmer 3386F.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -4878,7 +4878,7 @@
 			(uuid "ecc2933a-68c2-4ca4-8bcc-bc85e6ad899a")
 		)
 	)
-	(footprint "6502 Parts:6502CARDEDGE"
+	(footprint "6502 Parts:6502 Card Edge"
 		(layer "F.Cu")
 		(uuid "c2ea052b-0501-4b42-bde5-cc650b7f3c06")
 		(at 117.4 126.7)
@@ -4906,7 +4906,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

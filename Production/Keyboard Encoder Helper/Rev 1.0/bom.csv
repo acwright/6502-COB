@@ -3,7 +3,7 @@
 "C2, C3",C_Disc_D5.0mm_W2.5mm_P2.50mm,2,22pF,
 J1,6502 GPIO Connector,1,PORT B,
 J2,6502 GPIO Connector,1,PORT A,
-J3,KMDGX-6S-BS,1,PS/2 KEYBOARD,
+J3,PS2 Jack,1,PS/2 KEYBOARD,
 J4,DSUB-25_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm,1,KEYBOARD,
 R1,R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,1,1K,
 U1,DIP-40_W15.24mm_Socket_LongPads,1,ATmega1284-P,

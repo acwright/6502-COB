@@ -268,7 +268,7 @@ It needs Node.js and KiCad's `kicad-cli`, which it finds on the `PATH`, at the m
 ## Libraries
 `Libraries/`
 
-Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects.
+Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects, with their 3D models in `Models/`. A part is named for what it is and its shape, such as `RJ45 Jack LED` or `CR2032 Holder`, never for a manufacturer's part number, so a replacement part with the same footprint fits without renaming anything. The part numbers to buy are in [BOM.md](BOM.md). Every AC6502 repository carries the same copy of each part.
 
 ## Bill of Materials
 

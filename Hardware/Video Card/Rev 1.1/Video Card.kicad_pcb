@@ -7259,7 +7259,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+	(footprint "6502 Parts:RCA Jack Yellow"
 		(layer "F.Cu")
 		(uuid "7f920bb9-232a-4d51-8ef7-e7ad7493d03e")
 		(at 185.5 82.5 90)
@@ -7666,7 +7666,7 @@
 			(uuid "dec3e31a-9fc5-48d6-a98c-6069f4a3ef91")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/PJRAN1X1U04X.step"
+		(model "${KIPRJMOD}/../../../Models/RCA Jack Yellow.step"
 			(offset
 				(xyz 0 0 0)
 			)

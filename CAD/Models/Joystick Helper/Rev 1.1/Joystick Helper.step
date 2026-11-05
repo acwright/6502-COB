@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('KiCad electronic assembly'),'2;1');
-FILE_NAME('Joystick Helper.step','2026-11-04T11:29:02',('Pcbnew'),(
+FILE_NAME('Joystick Helper.step','2026-11-05T13:44:24',('Pcbnew'),(
     'Kicad'),'Open CASCADE STEP processor 7.9','KiCad to STEP converter'
   ,'Unknown');
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
@@ -707,7 +707,7 @@ SHAPE_REPRESENTATION_RELATIONSHIP() );
 #639 = PRODUCT_DEFINITION_SHAPE('','',#640);
 #640 = PRODUCT_DEFINITION('design','',#641,#644);
 #641 = PRODUCT_DEFINITION_FORMATION('','',#642);
-#642 = PRODUCT('0702461201','0702461201','',(#643));
+#642 = PRODUCT('6502 GPIO Connector','6502 GPIO Connector','',(#643));
 #643 = PRODUCT_CONTEXT('',#2,'mechanical');
 #644 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #645 = SHAPE_REPRESENTATION('',(#11,#646),#650);

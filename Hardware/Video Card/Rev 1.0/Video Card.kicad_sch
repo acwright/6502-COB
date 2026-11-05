@@ -1812,7 +1812,7 @@
 				)
 			)
 		)
-		(symbol "6502 Parts:PJRAN1X1U04X"
+		(symbol "6502 Parts:RCA Jack Yellow"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
@@ -1834,7 +1834,7 @@
 					)
 				)
 			)
-			(property "Footprint" "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+			(property "Footprint" "6502 Parts:RCA Jack Yellow"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1888,7 +1888,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "PJRAN1X1U04X_0_1"
+			(symbol "RCA Jack Yellow_0_1"
 				(arc
 					(start -1.778 -0.508)
 					(mid 0.2311 -1.8066)
@@ -1949,7 +1949,7 @@
 					)
 				)
 			)
-			(symbol "PJRAN1X1U04X_1_1"
+			(symbol "RCA Jack Yellow_1_1"
 				(pin passive line
 					(at 0 -5.08 90)
 					(length 2.54)
@@ -13137,7 +13137,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:PJRAN1X1U04X")
+		(lib_id "6502 Parts:RCA Jack Yellow")
 		(at 213.36 162.56 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13164,7 +13164,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:SWITCHCRAFT_PJRAN1X1U04X"
+		(property "Footprint" "6502 Parts:RCA Jack Yellow"
 			(at 213.36 162.56 0)
 			(effects
 				(font

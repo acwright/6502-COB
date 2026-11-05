@@ -1895,7 +1895,7 @@
 			(uuid "94c85211-e069-4cdb-8770-a3912519d585")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -3668,7 +3668,7 @@
 			(uuid "70516183-99f7-47f4-9f6f-74087b5fbd4e")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/0702461201.step"
+		(model "${KIPRJMOD}/../../../Models/6502 GPIO Connector.step"
 			(offset
 				(xyz 1.3 -6.4 4.5)
 			)
@@ -6201,7 +6201,7 @@
 			)
 		)
 	)
-	(footprint "6502 Parts:KMDGX-6S-BS"
+	(footprint "6502 Parts:PS2 Jack"
 		(layer "F.Cu")
 		(uuid "cb590bef-f1c7-453e-b68d-55dc4e520d2e")
 		(at 146.5111 123.5636 180)
@@ -6563,7 +6563,7 @@
 			(uuid "385b9d75-a22c-40a4-a1e1-a0fe1c72647c")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/../../../Models/KMDGX-6S-BS.step"
+		(model "${KIPRJMOD}/../../../Models/PS2 Jack.step"
 			(offset
 				(xyz 1.5 8.5 0)
 			)

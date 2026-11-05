@@ -809,7 +809,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "6502 Parts:65C51"
+		(symbol "6502 Parts:ACIA 6551"
 			(pin_names
 				(offset 1.016)
 			)
@@ -871,7 +871,7 @@
 					)
 				)
 			)
-			(symbol "65C51_0_1"
+			(symbol "ACIA 6551_0_1"
 				(rectangle
 					(start -11.43 29.21)
 					(end 11.43 -29.21)
@@ -884,7 +884,7 @@
 					)
 				)
 			)
-			(symbol "65C51_1_1"
+			(symbol "ACIA 6551_1_1"
 				(pin power_in line
 					(at 0 -31.75 90)
 					(length 2.54)
@@ -10889,7 +10889,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 128.27 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -11871,7 +11871,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 214.63 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -12156,7 +12156,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:65C51")
+		(lib_id "6502 Parts:ACIA 6551")
 		(at 59.69 161.29 0)
 		(unit 1)
 		(body_style 1)

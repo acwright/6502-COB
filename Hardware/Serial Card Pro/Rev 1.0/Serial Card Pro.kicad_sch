@@ -11,7 +11,7 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:6502CARDEDGE"
+		(symbol "6502 Parts:6502 Card Edge"
 			(pin_names
 				(offset 1.016)
 			)
@@ -62,7 +62,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "6502CARDEDGE_1_0"
+			(symbol "6502 Card Edge_1_0"
 				(rectangle
 					(start -10.16 25.4)
 					(end 10.16 -27.94)
@@ -796,7 +796,7 @@
 				)
 			)
 		)
-		(symbol "6502 Parts:65C51"
+		(symbol "6502 Parts:ACIA 6551"
 			(pin_names
 				(offset 1.016)
 			)
@@ -846,7 +846,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "65C51_0_1"
+			(symbol "ACIA 6551_0_1"
 				(rectangle
 					(start -11.43 29.21)
 					(end 11.43 -29.21)
@@ -859,7 +859,7 @@
 					)
 				)
 			)
-			(symbol "65C51_1_1"
+			(symbol "ACIA 6551_1_1"
 				(pin power_in line
 					(at 0 -31.75 90)
 					(length 2.54)
@@ -8173,7 +8173,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:6502CARDEDGE")
+		(lib_id "6502 Parts:6502 Card Edge")
 		(at 57.15 52.07 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8197,7 +8197,7 @@
 				)
 			)
 		)
-		(property "Footprint" "6502 Parts:6502CARDEDGE"
+		(property "Footprint" "6502 Parts:6502 Card Edge"
 			(at 57.15 52.07 0)
 			(effects
 				(font
@@ -10154,7 +10154,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 128.27 95.25 0)
 			(effects
 				(font
@@ -11020,7 +11020,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:MAX232D"
+		(property "Footprint" "6502 Parts:SOIC-16"
 			(at 214.63 95.25 0)
 			(effects
 				(font
@@ -11285,7 +11285,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:65C51")
+		(lib_id "6502 Parts:ACIA 6551")
 		(at 59.69 161.29 0)
 		(unit 1)
 		(exclude_from_sim no)

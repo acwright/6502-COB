@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('KiCad electronic assembly'),'2;1');
-FILE_NAME('DB25 Helper.step','2026-11-04T11:55:41',('Pcbnew'),('Kicad'),
+FILE_NAME('DB25 Helper.step','2026-11-05T13:43:31',('Pcbnew'),('Kicad'),
   'Open CASCADE STEP processor 7.9','KiCad to STEP converter','Unknown'
   );
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
@@ -53,7 +53,7 @@ GLOBAL_UNCERTAINTY_ASSIGNED_CONTEXT((#35)) GLOBAL_UNIT_ASSIGNED_CONTEXT(
 #38 = PRODUCT_DEFINITION_SHAPE('','',#39);
 #39 = PRODUCT_DEFINITION('design','',#40,#43);
 #40 = PRODUCT_DEFINITION_FORMATION('','',#41);
-#41 = PRODUCT('0702461201','0702461201','',(#42));
+#41 = PRODUCT('6502 GPIO Connector','6502 GPIO Connector','',(#42));
 #42 = PRODUCT_CONTEXT('',#2,'mechanical');
 #43 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #44 = SHAPE_REPRESENTATION('',(#11,#45),#49);
