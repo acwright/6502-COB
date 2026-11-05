@@ -1151,7 +1151,7 @@
 				)
 			)
 		)
-		(property "Digikey" "2073-DCJ200-10-A-K1-K-ND"
+		(property "Digikey" "CP-102AH-ND"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -1163,7 +1163,7 @@
 				)
 			)
 		)
-		(property "Mouser" "640-DCJ200-10-A-K1-K"
+		(property "Mouser" "490-PJ-102AH"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)

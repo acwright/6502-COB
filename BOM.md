@@ -78,12 +78,9 @@ These change what you buy or fit. The boards themselves stay as they were made.
 |---|---|---|---|
 | Backplane Pro | 1.0 | J10 | Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins. |
 | Backplane Pro | 1.0 | R3 | Do not fit this. If your board came with it soldered, remove it. See the build notes. |
-| Backplane Pro | 1.1 | J1 | `DCJ200-10-A-K1-K` is obsolete, so stock will run out. A replacement that fits this footprint is still being looked for. Pads 1 and 2 are 6.0 mm apart, and pad 3 is 3 mm along and 4.7 mm to the side. |
 | Backplane Pro | 1.1 | R5 | Do not fit this. If your board came with it soldered, remove it. See the build notes. |
-| Backplane Pro | 1.2 | J1 | `DCJ200-10-A-K1-K` is obsolete, so stock will run out. A replacement that fits this footprint is still being looked for. Pads 1 and 2 are 6.0 mm apart, and pad 3 is 3 mm along and 4.7 mm to the side. |
 | Breadboard Helper | 1.0 | J1 | Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins. |
 | CPU Card | 1.0 | R1–R6 | Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes. |
-| Clock Card | 1.0 | J2 | `DCJ200-10-A-K1-K` is obsolete, so stock will run out. A replacement that fits this footprint is still being looked for. Pads 1 and 2 are 6.0 mm apart, and pad 3 is 3 mm along and 4.7 mm to the side. |
 | Keyboard Encoder Helper | 1.0 | C2, C3 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
 | PS2 Helper | 1.0 | C4, C5 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
 | PS2 Helper | 1.0 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
@@ -159,7 +156,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.2/digikey.csv), [mouser.cs
 | C2 | 1 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
 | D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
-| J1 | 1 | 5V DC | GCT DCJ200-10-A-K1-K | [2073-DCJ200-10-A-K1-K-ND](https://www.digikey.com/en/products/filter?keywords=2073-DCJ200-10-A-K1-K-ND) | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |  |
+| J1 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J2–J4, J7, J8 | 5 | 6502 Card Connector | TE Connectivity 5-5530843-4 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |  |
 | J5 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | J6 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
@@ -176,7 +173,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.2/digikey.csv), [mouser.cs
 | U1 | 1 | Socket | IC socket, 8-pin, 0.3 in | [3M5473-ND](https://www.digikey.com/en/products/filter?keywords=3M5473-ND) | [517-4808-3004-CP](https://www.mouser.com/ProductDetail/517-4808-3004-CP) | |
 
 - **D1:** Green shown. The colour is the builder's choice.
-- **J1:** Obsolete. Replacement open.
+- **J1:** Replaces GCT DCJ200-10-A-K1-K, now obsolete, which older builds used. Its pads and body match this footprint on the datasheet. No board has been built with it yet.
 - **J9:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Backplane Pro Rev 1.1
@@ -190,7 +187,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.cs
 | C1, C3 | 2 | 10uF | Panasonic EEA-GA1C100 | [P14482-ND](https://www.digikey.com/en/products/filter?keywords=P14482-ND) | [667-EEA-GA1C100](https://www.mouser.com/ProductDetail/667-EEA-GA1C100) |  |
 | C2 | 1 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
-| J1 | 1 | 5V DC | GCT DCJ200-10-A-K1-K | [2073-DCJ200-10-A-K1-K-ND](https://www.digikey.com/en/products/filter?keywords=2073-DCJ200-10-A-K1-K-ND) | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |  |
+| J1 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J2–J4, J7, J8 | 5 | 6502 Card Connector | TE Connectivity 5-5530843-4 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |  |
 | J5 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | J6 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
@@ -209,7 +206,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.cs
 **Do not fit** R5: see the build notes.
 
 - **D1:** Green shown. The colour is the builder's choice.
-- **J1:** Obsolete. Replacement open.
+- **J1:** Replaces GCT DCJ200-10-A-K1-K, now obsolete, which older builds used. Its pads and body match this footprint on the datasheet. No board has been built with it yet.
 - **J9:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Backplane Pro Rev 1.0
@@ -445,7 +442,7 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 | C2, C4, C5 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
 | D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
-| J2 | 1 | 5V DC | GCT DCJ200-10-A-K1-K | [2073-DCJ200-10-A-K1-K-ND](https://www.digikey.com/en/products/filter?keywords=2073-DCJ200-10-A-K1-K-ND) | [640-DCJ200-10-A-K1-K](https://www.mouser.com/ProductDetail/640-DCJ200-10-A-K1-K) |  |
+| J2 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J3 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | J4 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | Q1 | 1 | 2N3904 | onsemi 2N3904BU | [2N3904FS-ND](https://www.digikey.com/en/products/filter?keywords=2N3904FS-ND) | [512-2N3904BU](https://www.mouser.com/ProductDetail/512-2N3904BU) |  |
@@ -459,7 +456,7 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 | U1 | 1 | Socket | IC socket, 8-pin, 0.3 in | [3M5473-ND](https://www.digikey.com/en/products/filter?keywords=3M5473-ND) | [517-4808-3004-CP](https://www.mouser.com/ProductDetail/517-4808-3004-CP) | |
 
 - **D1:** Green shown. The colour is the builder's choice.
-- **J2:** Obsolete. Replacement open.
+- **J2:** Replaces GCT DCJ200-10-A-K1-K, now obsolete, which older builds used. Its pads and body match this footprint on the datasheet. No board has been built with it yet.
 
 
 ## Clock Helper

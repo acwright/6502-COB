@@ -7252,7 +7252,7 @@
 				)
 			)
 		)
-		(property "Digikey" "2073-DCJ200-10-A-K1-K-ND"
+		(property "Digikey" "CP-102AH-ND"
 			(at 26.67 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -7263,7 +7263,7 @@
 				)
 			)
 		)
-		(property "Mouser" "640-DCJ200-10-A-K1-K"
+		(property "Mouser" "490-PJ-102AH"
 			(at 26.67 33.02 0)
 			(hide yes)
 			(show_name no)
