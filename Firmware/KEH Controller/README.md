@@ -2,7 +2,7 @@
 
 ## Overview
 
-The KEH (Keyboard Encoder Helper) Controller is firmware for the ATMega1284P microcontroller that provides dual keyboard input support for 6502-based computer systems. It can simultaneously handle both PS/2 keyboard input and custom keyboard matrix input, converting keypresses to ASCII codes and outputting them through a 6522 VIA (Versatile Interface Adapter) interface.
+The KEH (Keyboard Encoder Helper) Controller is firmware for the ATmega1284 microcontroller (an ATmega1284P works the same) that provides dual keyboard input support for 6502-based computer systems. It can simultaneously handle both PS/2 keyboard input and custom keyboard matrix input, converting keypresses to ASCII codes and outputting them through a 6522 VIA (Versatile Interface Adapter) interface.
 
 ## Features
 
@@ -17,7 +17,7 @@ The KEH (Keyboard Encoder Helper) Controller is firmware for the ATMega1284P mic
 
 ## Hardware Connections
 
-### ATMega1284P Pin Assignments
+### ATmega1284 Pin Assignments
 
 #### VIA PORT A (Pins 24-31)
 Used for row scanning (matrix mode) or ASCII output (PS/2 mode):
@@ -245,46 +245,46 @@ Letters are always uppercase (A-Z). Numbers, symbols, space, and navigation keys
 
 2. **Build the firmware:**
    ```bash
-   # Build for ATMega1284P (default)
-   pio run -e atmega1284p
-   
-   # Or build for ATMega1284
+   # Build for ATmega1284 (default)
    pio run -e atmega1284
+   
+   # Or build for ATmega1284P
+   pio run -e atmega1284p
    ```
 
 3. **Build output:**
    The compiled firmware will be located at:
    ```
-   .pio/build/atmega1284p/firmware.hex
+   .pio/build/atmega1284/firmware.hex
    ```
 
 ### Uploading the Firmware
 
 The project uses a MiniPro TL866 programmer for uploading.
 
-1. **Connect the MiniPro programmer** to your ATMega1284P chip
+1. **Connect the MiniPro programmer** to your ATmega1284 chip
 
 2. **Upload firmware and fuses:**
    ```bash
-   # Upload to ATMega1284P
-   pio run -e atmega1284p -t upload
-   
-   # Or upload to ATMega1284
+   # Upload to ATmega1284
    pio run -e atmega1284 -t upload
+   
+   # Or upload to ATmega1284P
+   pio run -e atmega1284p -t upload
    ```
 
 3. **Manual upload (if needed):**
    ```bash
-   # Flash the program
-   minipro -p "ATMEGA1284P@DIP40" -c code -w .pio/build/atmega1284p/firmware.hex
+   # Flash the program (for an ATmega1284P, use ATMEGA1284P@DIP40 and the atmega1284p build)
+   minipro -p "ATMEGA1284@DIP40" -c code -w .pio/build/atmega1284/firmware.hex
    
    # Flash the fuses
-   minipro -p "ATMEGA1284P@DIP40" -c config -w fuses.cfg --fuses
+   minipro -p "ATMEGA1284@DIP40" -c config -w fuses.cfg --fuses
    ```
 
 ## Fuse Configuration
 
-The `fuses.cfg` file contains the ATMega1284P fuse settings:
+The `fuses.cfg` file contains the fuse settings, the same for the ATmega1284 and ATmega1284P:
 
 ```properties
 lfuse = 0xff   # Low fuse

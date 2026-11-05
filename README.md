@@ -147,7 +147,7 @@ that reason.
 
 ### Helpers
 
-**`Hardware/Keyboard Encoder Helper/`** — ATmega1284p-based dual keyboard encoder supporting PS/2 keyboard and 8×8 matrix keyboard simultaneously via 65C22 VIA.
+**`Hardware/Keyboard Encoder Helper/`** — ATmega1284-based dual keyboard encoder supporting PS/2 keyboard and 8×8 matrix keyboard simultaneously via 65C22 VIA.
 
 **`Hardware/PS2 Helper/`** — ATmega328p-based PS/2 keyboard bridge that drives an MT8808 analog crosspoint switch to emulate a matrix keyboard. Its output is a raw 8×8 matrix and feeds the matrix inputs of a Keyboard Encoder Helper, which is what talks to the 65C22 VIA — not the VIA directly.
 
@@ -178,7 +178,7 @@ This repository contains [PlatformIO](https://platformio.org/)-based firmware fo
 ### KEH Controller
 `Firmware/KEH Controller/`
 
-Firmware for the ATmega1284p on the Keyboard Encoder Helper. Provides:
+Firmware for the ATmega1284 on the Keyboard Encoder Helper. Provides:
 
 - Simultaneous PS/2 keyboard and 8×8 matrix keyboard scanning
 - ASCII conversion with modifier key support (Shift, Ctrl)

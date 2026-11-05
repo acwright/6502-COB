@@ -26,7 +26,7 @@
 // - Function keys F1-F10 are mapped as FN + number keys 1-0
 // ============================================================================
 
-// ATMega1284 PORT A / 6522 VIA PORT A
+// ATmega1284 PORT A / 6522 VIA PORT A
 #define VIA_PA0 24
 #define VIA_PA1 25
 #define VIA_PA2 26
@@ -36,7 +36,7 @@
 #define VIA_PA6 30
 #define VIA_PA7 31
 
-// ATMega1284 PORT B / 6522 VIA PORT B
+// ATmega1284 PORT B / 6522 VIA PORT B
 #define VIA_PB0 0
 #define VIA_PB1 1
 #define VIA_PB2 2
