@@ -14617,7 +14617,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ATmega1284-P"
+		(property "Value" "ATmega1284"
 			(at 106.2833 127 0)
 			(show_name no)
 			(do_not_autoplace no)

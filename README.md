@@ -479,6 +479,7 @@ Parts list: [BOM.md](BOM.md#gpio-helper).
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap the courtyard of J2, the DB9 connector. That has been reviewed and is fine, so the project excludes it from DRC.
+- The silkscreen says `JOYSTICK` at `J2`. Rev 1.0's says `DB9 MALE`.
 
 **Rev 1.0**
 
@@ -493,6 +494,7 @@ Parts list: [BOM.md](BOM.md#joystick-helper).
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
+- The silkscreen says `20pF` at `C2` and `C3`, the value to fit with the 16 MHz crystal, and `ATmega1284` at `U1`. Rev 1.0's say `22pF` and `ATmega1284-P`.
 
 **Rev 1.0**
 
@@ -572,6 +574,7 @@ Parts list: [BOM.md](BOM.md#memory-card).
 - Moves the resistors `R2`–`R9` and reroutes the tracks around them.
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
 - Drops the `R2-R9` silkscreen label.
+- The silkscreen says `20pF` at `C4` and `C5`, the value to fit with the 16 MHz crystal. Rev 1.0's says `22pF`.
 
 **Rev 1.0**
 
@@ -622,7 +625,7 @@ Parts list: [BOM.md](BOM.md#serial-card).
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - `J2` uses KiCad's standard DB-9 footprint, in a new position, in place of Rev 1.0's own. Its pin spacing and mounting lugs are the same, so the same connector fits both revisions.
-- The silkscreen says `SERIAL (DTE)`. Rev 1.0's says `DB9 Male (DTE)`.
+- The silkscreen says `SERIAL (DTE)` and `R6551AP`. Rev 1.0's says `DB9 Male (DTE)` and `6551`.
 
 **Rev 1.0**
 
@@ -664,6 +667,7 @@ Parts list: [BOM.md](BOM.md#storage-card).
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 69 mm to 88 × 68 mm.
+- `C1` and `C2` use the 2.5 mm capacitor footprint in place of Rev 1.0's 5 mm one, matching the family's other through-hole boards. Pad 1 of each stays where it was.
 
 **Rev 1.0**
 
@@ -711,6 +715,14 @@ Parts list: [BOM.md](BOM.md#vga-card).
 Parts list: [BOM.md](BOM.md#video-card).
 
 ### Video Card Pro
+
+#### Revision History
+
+**Rev 1.0**
+
+- Drawn, and never ordered.
+
+Parts list: [BOM.md](BOM.md#video-card-pro).
 
 ## Purchase
 

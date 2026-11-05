@@ -9097,7 +9097,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm"
 			(at 23.8252 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -9141,7 +9141,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-3188-ND"
+		(property "Digikey" "478-3187-ND"
 			(at 22.86 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -9152,7 +9152,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR215C104KAR"
+		(property "Mouser" "581-SR205C104KAR"
 			(at 22.86 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -9231,7 +9231,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm"
 			(at 120.3452 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9275,7 +9275,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-3188-ND"
+		(property "Digikey" "478-3187-ND"
 			(at 119.38 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -9286,7 +9286,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR215C104KAR"
+		(property "Mouser" "581-SR205C104KAR"
 			(at 119.38 125.73 0)
 			(hide yes)
 			(show_name no)

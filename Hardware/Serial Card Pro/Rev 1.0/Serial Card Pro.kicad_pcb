@@ -2466,12 +2466,12 @@
 			(solder_mask_margin 0.1016)
 			(uuid "617e05a6-51a1-44c2-b2bb-8ebac3876232")
 		)
-		(model "${KIPRJMOD}/../../../Models/PRT-00429.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Connector_Dsub.3dshapes/DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm.step"
 			(offset
-				(xyz 0 6 4.5)
+				(xyz 5.53974 -1.41986 0)
 			)
 			(scale
-				(xyz 0.388 0.388 0.388)
+				(xyz 1 1 1)
 			)
 			(rotate
 				(xyz 0 0 180)
