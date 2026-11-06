@@ -58,6 +58,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested |
 | [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested |
+| [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested |
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested |
@@ -1055,6 +1056,33 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## Serial Card
+
+### Serial Card Rev 1.1
+
+Drawn, not made yet.
+
+Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Serial%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1, C6, C8 | 3 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| C2–C5 | 4 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
+| C7 | 1 | 22pF | Samsung Electro-Mechanics CL21C220JBANNNC | [1276-1047-1-ND](https://www.digikey.com/en/products/filter?keywords=1276-1047-1-ND) | [187-CL21C220JBANNNC](https://www.mouser.com/ProductDetail/187-CL21C220JBANNNC) | LCSC [C1804](https://www.lcsc.com/search?q=C1804) | Yes |
+| D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
+| J2 | 1 | SERIAL (DCE) | Amphenol D09S33E4GX00LF | [609-1487-ND](https://www.digikey.com/en/products/filter?keywords=609-1487-ND) | [649-D09S33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09S33E4GX00LF) |  | |
+| J3 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J4 | 1 | CTS EN | Pin header 1×3, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| R1 | 1 | 1M | YAGEO RC0805FR-071ML | [311-1.00MCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00MCRCT-ND) | [603-RC0805FR-071ML](https://www.mouser.com/ProductDetail/603-RC0805FR-071ML) | LCSC [C17514](https://www.lcsc.com/search?q=C17514) | Yes |
+| U1 | 1 | MAX232 | Texas Instruments MAX232IDR | [296-26141-1-ND](https://www.digikey.com/en/products/filter?keywords=296-26141-1-ND) | [595-MAX232IDR](https://www.mouser.com/ProductDetail/595-MAX232IDR) | LCSC [C59824](https://www.lcsc.com/search?q=C59824) | Yes |
+| U2 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U3 | 1 | R6551AP | Rockwell R6551AP |  |  | [Jameco 43318](https://www.jameco.com/z/R6551AP-Rockwell-IC-6551-Asynchronous-Communication-Interface-Adapter-DIP-28-pin_43318.html) | |
+| Y1 | 1 | 1.8432 MHz | Abracon LLC AB-1.8432MHZ-B2 | [535-9009-ND](https://www.digikey.com/en/products/filter?keywords=535-9009-ND) | [815-AB-1.8432-B2](https://www.mouser.com/ProductDetail/815-AB-1.8432-B2) |  | |
+| U3 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **D1:** A 1N914 also works.
+- **U3:** Rockwell R6551AP, out of production. Do not substitute a W65C51.
 
 ### Serial Card Rev 1.0
 

@@ -1,6 +1,6 @@
 # Revisions
 
-Every revision of every board in this repository, and what is known about each. The audit date is at the end.
+Every revision of every board in this repository, and what is known about each. The dates of the checks are at the end.
 
 **Status** says what has happened to a revision:
 
@@ -50,6 +50,7 @@ Every revision of every board in this repository, and what is known about each. 
 | RAM Card | 1.0 | Made, matches order | Yes | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
 | RTC Card | 1.0 | Made, matches order | Yes | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |
 | Serial Card | 1.0 | Made, matches order | Yes | Y67 | 2025-10-06 | `013b131` | 3 | 100×57.62 | — | — | — |  |
+| Serial Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.0 | Made, matches order | Yes | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Sound Card | 1.0 | Made, matches order | Yes | Y84 | 2026-01-13 | `3b4c7bb` | 4 | 100×57.62 | — | — | — |  |
@@ -64,7 +65,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Video Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Video Card Pro | 1.0 | Never made | — |  |  |  | — | 100×57.62 | — | — | — |  |
 
-The audit last ran on 2026-11-04. Each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Tindie stock is from the listings as saved on 2026-10-23.
+JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Each time this table is written, every PCB is checked again against its production zip, for copper and drill holes. Tindie stock is from the listings as saved on 2026-10-23.
 
 <!-- History: hand-written. tools/revision-audit/register.py keeps everything from here to the end. -->
 
@@ -276,6 +277,10 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - Initial release, and the board on sale. `Hardware/RTC Card/Rev 1.0/` and `Production/RTC Card/Rev 1.0/` match the boards JLCPCB made (order Y62). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### Serial Card
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The silkscreen says `SERIAL (DCE)` at J2 and `R6551AP` at U3. Rev 1.0's says `DB9 FEMALE (DCE)` and `6551`. Nothing else changed: the copper, mask, holes and outline are Rev 1.0's.
 
 **Rev 1.0**
 
