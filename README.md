@@ -29,6 +29,7 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 - [CAD](#cad)
 - [Production](#production)
 - [Schematics](#schematics)
+- [Shared lines](#shared-lines)
 - [Checking the schematics](#checking-the-schematics)
 - [Libraries](#libraries)
 - [Bill of Materials](#bill-of-materials)
@@ -249,6 +250,18 @@ JLCPCB-ready Gerber files and BOM/CPL for PCB fabrication and assembly.
 `Schematics/`
 
 PDF schematics for each board.
+
+## Shared lines
+
+Five lines of the 6502 bus are shared by every board on it: `RESB`, `IRQB`, `NMIB`, `RDY` and `BE`. A board may pull one of these lines low, and nothing drives one high. Each line is held high by one 10kΩ pull-up resistor to VCC, on the board with the CPU: the ACE Board, the KIM Board, the VCS Main Board, the COB CPU Card or CPU Card Pro, or the DEV Board. No other board has one. Two pull-ups on the same line would sit in parallel and lower its resistance, so a card that adds its own pull-up changes the machine for every other board. The VIAs and PIAs in the BOMs, the W65C22N and W65C21N, have open-drain interrupt outputs for this reason. A W65C22S drives `IRQB` high as well as low, so it can't share the line without a diode.
+
+The same holds where a board has its own reset circuit. A reset switch, its timer and the transistor that pulls `RESB` low can be on any board, such as the COB Backplane Pro or the Clock Card, but the `RESB` pull-up is only ever on the board with the CPU. Each of those boards draws its pull-ups together, in one group on its schematic.
+
+`SOB` is a CPU pin that isn't on the bus. It is tied to VCC, directly or through a 10kΩ resistor.
+
+A few chips have a pull-up of their own inside the chip, such as an ATmega's reset pin. Where such a pin is wired to `RESB`, its pull-up of 30–60kΩ sits in parallel with the 10kΩ one. That's harmless, because whatever pulls `RESB` low can sink the extra current many times over.
+
+A revision that doesn't follow this yet says so in its known issues in [BOM.md](BOM.md), with what to fit or remove.
 
 ## Checking the schematics
 `Tests/check-schematics.mjs`
