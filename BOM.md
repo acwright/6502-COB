@@ -28,6 +28,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested |
 | [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested |
+| [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made |
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested |
 | [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
@@ -60,7 +61,9 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested |
 | [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested |
+| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
@@ -363,6 +366,21 @@ Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.0/digikey.csv), [mous
 
 
 ## Breadboard Helper
+
+### Breadboard Helper Rev 1.1
+
+Drawn, not made yet.
+
+Cart files: [digikey.csv](BOM/Breadboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Breadboard%20Helper/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| J1 | 1 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+| J2, J3 | 2 | Conn_01x20 | Pin header 1×20, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **J1:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Breadboard Helper Rev 1.0
 
@@ -1114,6 +1132,29 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ## Sound Card
 
+### Sound Card Rev 1.1
+
+Drawn, not made yet.
+
+Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Sound%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Sound%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Sound%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1, C2 | 2 | 2.2nF | Samsung Electro-Mechanics CL21C222JBFNNNE | [1276-2993-1-ND](https://www.digikey.com/en/products/filter?keywords=1276-2993-1-ND) | [187-CL21C222JBFNNNE](https://www.mouser.com/ProductDetail/187-CL21C222JBFNNNE) | LCSC [C28260](https://www.lcsc.com/search?q=C28260) | Yes |
+| C3, C5 | 2 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| C4 | 1 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
+| J2 | 1 | SID VDD | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
+| J3 | 1 | AUDIO | Switchcraft Inc. PJRAN1X1U02X | [PJRAN1X1U02X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U02X-ND) | [502-PJRAN1X1U02X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U02X) |  | |
+| J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| R1 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| U1 | 1 | ARMSID | Retrocomp ARMSID |  |  | [Retrocomp](https://retrocomp.cz/produkt?id=2) | |
+| U2 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **U1:** A modern replacement for the MOS 6581 SID, which is out of production. Every tested build uses one. A real 6581 also needs 12 V at pin 28, which the standard build does not provide.
+
 ### Sound Card Rev 1.0
 
 Made, tested.
@@ -1139,6 +1180,34 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## Storage Card Pro
+
+### Storage Card Pro Rev 1.1
+
+Drawn, not made yet.
+
+Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1–C4, C7, C8 | 6 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| C5, C6 | 2 | 20pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  | |
+| C9, C10 | 2 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
+| D1 | 1 | ACT | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
+| J1 | 1 | ACT LED | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
+| J3 | 1 | SPI | Adam Tech PH1RB-06-UA | [2057-PH1RB-06-UA-ND](https://www.digikey.com/en/products/filter?keywords=2057-PH1RB-06-UA-ND) | [737-PH1RB-06-UA](https://www.mouser.com/ProductDetail/737-PH1RB-06-UA) |  | |
+| J4 | 1 | SD CARD | Amphenol 10067847-001RLF | [609-3956-1-ND](https://www.digikey.com/en/products/filter?keywords=609-3956-1-ND) | [649-10067847-001RLF](https://www.mouser.com/ProductDetail/649-10067847-001RLF) | LCSC [C569097](https://www.lcsc.com/search?q=C569097) | Yes |
+| J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| R1, R2 | 2 | 330 | YAGEO RC0805FR-07330RL | [311-330CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-330CRCT-ND) | [603-RC0805FR-07330RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07330RL) | LCSC [C17630](https://www.lcsc.com/search?q=C17630) | Yes |
+| R3, R4 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| U1 | 1 | TXS0108EPW | Texas Instruments TXS0108EPWR | [296-23011-1-ND](https://www.digikey.com/en/products/filter?keywords=296-23011-1-ND) | [595-TXS0108EPWR](https://www.mouser.com/ProductDetail/595-TXS0108EPWR) | LCSC [C17206](https://www.lcsc.com/search?q=C17206) | Yes |
+| U2 | 1 | ATmega328 | Microchip Technology ATMEGA328P-PU | [ATMEGA328P-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA328P-PU-ND) | [556-ATMEGA328P-PU](https://www.mouser.com/ProductDetail/556-ATMEGA328P-PU) |  | |
+| U3 | 1 | W25Q128JVS | Winbond Electronics W25Q128JVSIQ | [W25Q128JVSIQ-ND](https://www.digikey.com/en/products/filter?keywords=W25Q128JVSIQ-ND) | [454-W25Q128JVSIQ](https://www.mouser.com/ProductDetail/454-W25Q128JVSIQ) | LCSC [C97521](https://www.lcsc.com/search?q=C97521) | Yes |
+| U4 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U5 | 1 | LP2985-3.3 | Texas Instruments LP2985-33DBVR | [296-18476-1-ND](https://www.digikey.com/en/products/filter?keywords=296-18476-1-ND) | [595-LP2985-33DBVR](https://www.mouser.com/ProductDetail/595-LP2985-33DBVR) | LCSC [C95414](https://www.lcsc.com/search?q=C95414) | Yes |
+| Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  | |
+| U2 | 1 | Socket | IC socket, 28-pin, 0.3 in | [3M5480-ND](https://www.digikey.com/en/products/filter?keywords=3M5480-ND) | [517-4828-3004-CP](https://www.mouser.com/ProductDetail/517-4828-3004-CP) | | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.0
 

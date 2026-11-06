@@ -22,6 +22,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Blinkenlights Card | 1.0 | Made, matches order | Yes | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Breadboard Helper | 1.0 | Made, matches order | Yes | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
+| Breadboard Helper | 1.1 | Drawn | — |  |  |  | — | 75×55 | — | — | — |  |
 | CPU Card | 1.0 | Made, matches order | Yes | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | CPU Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | CPU Card Pro | 1.0 | Never made | — |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
@@ -54,8 +55,10 @@ Every revision of every board in this repository, and what is known about each. 
 | Serial Card Pro | 1.0 | Made, matches order | Yes | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Sound Card | 1.0 | Made, matches order | Yes | Y84 | 2026-01-13 | `3b4c7bb` | 4 | 100×57.62 | — | — | — |  |
+| Sound Card | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card | 1.0 | Made, matches order | Yes | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card Pro | 1.0 | Made, matches order | Not yet | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
+| Storage Card Pro | 1.1 | Drawn | — |  |  |  | — | 100×57.62 | — | — | — |  |
 | VERA Helper | 1.0 | Made, matches order | Yes | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | — |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | Yes | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
@@ -118,6 +121,10 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Initial release, and the board on sale. `Hardware/Blinkenlights Card/Rev 1.0/` and `Production/Blinkenlights Card/Rev 1.0/` match the boards JLCPCB made (order Y40). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### Breadboard Helper
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- J1 uses the `6502 Bus Connector` footprint, the box header that is fitted, in place of Rev 1.0's plain 2×20 pin header. The pads are in the same places, so the copper, mask, holes and outline are Rev 1.0's. Only the silkscreen outline changes. The box header is longer than the board's edge, as on Rev 1.0 boards built with one, so its outline is cut off there.
 
 **Rev 1.0**
 
@@ -299,6 +306,10 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 
 ### Sound Card
 
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The silkscreen says `ARMSID` at U1 and `SID VDD` at J2. Rev 1.0's says `6581` and `VDD`. Every tested build uses an ARMSID, and J2 is only for a real SID's supply, so the labels now say so. J2 stays: the COB is the experimenter's machine. Nothing else changed: the copper, mask, holes and outline are Rev 1.0's.
+
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Sound Card/Rev 1.0/` and `Production/Sound Card/Rev 1.0/` match the boards JLCPCB made (order Y84). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
@@ -311,6 +322,10 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
 ### Storage Card Pro
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The silkscreen says `20pF` at C5 and C6, the value the BOM lists. Rev 1.0's says `22pF`. Nothing else changed: the copper, mask, holes and outline are Rev 1.0's. No Storage Card Pro has been tested yet, at either revision.
 
 **Rev 1.0**
 
