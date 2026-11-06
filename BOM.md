@@ -956,7 +956,7 @@ Cart files: [digikey.csv](BOM/Prototype%20Card/Rev%201.0/digikey.csv), [mouser.c
 |---|---|---|---|---|---|---|---|
 | B1, B2 | 2 | BREADBOARDMINI | SparkFun PRT-12047 |  | [474-PRT-12047](https://www.mouser.com/ProductDetail/474-PRT-12047) | [SparkFun](https://www.sparkfun.com/products/12047) | |
 | C1–C3 | 3 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| J2 | 1 | Conn_02x20_Odd_Even | Sullins PPPC202LFBN-RC | [S7123-ND](https://www.digikey.com/en/products/filter?keywords=S7123-ND) |  |  | |
+| J2 | 1 | 6502 Bus | Sullins PPPC202LFBN-RC | [S7123-ND](https://www.digikey.com/en/products/filter?keywords=S7123-ND) |  |  | |
 | J3 | 1 | Conn_02x04_Odd_Even | Pin header 2×4, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | U1 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 

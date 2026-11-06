@@ -1,6 +1,6 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
 "B1, B2",Breadboard Mini,2,BREADBOARDMINI,
 "C1, C2, C3",0805,3,100nF,C49678
-J2,PinSocket_2x20_P2.54mm_Vertical,1,Conn_02x20_Odd_Even,
+J2,PinSocket_2x20_P2.54mm_Vertical,1,6502 Bus,
 J3,PinHeader_2x04_P2.54mm_Vertical,1,Conn_02x04_Odd_Even,
 U1,SOIC-16_3.9x9.9mm_P1.27mm,1,74HC138,C5602

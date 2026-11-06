@@ -673,7 +673,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "5V")
+			(net "VCC")
 			(pinfunction "Pin_2_2")
 			(pintype "passive")
 			(uuid "191a4488-569a-4bc4-a1a2-6bf1eb9c5419")
@@ -1080,7 +1080,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "5V")
+			(net "VCC")
 			(pinfunction "Pin_39_39")
 			(pintype "passive")
 			(uuid "82e79dd3-bbd2-4f96-922a-905e512be319")
@@ -1407,7 +1407,7 @@
 			(drill 1.016)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "5V")
+			(net "VCC")
 			(pinfunction "5V_5V1")
 			(pintype "power_in")
 			(uuid "609fc6d9-3dd9-480d-99fb-3dc40ef97a20")
@@ -1418,7 +1418,7 @@
 			(drill 1.016)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "5V")
+			(net "VCC")
 			(pinfunction "5V_5V3")
 			(pintype "power_in")
 			(uuid "0a61cc7a-c679-4907-81f6-008dd76cf780")
@@ -1429,7 +1429,7 @@
 			(drill 1.016)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net "5V")
+			(net "VCC")
 			(pinfunction "5V_5V4")
 			(pintype "power_in")
 			(uuid "b2ed3e2b-019d-4a1a-a6a1-8593da3588f1")
@@ -4162,7 +4162,7 @@
 		(end 185.52 64.2)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "2213cf30-255e-456a-802a-53605b235747")
 	)
 	(segment
@@ -4170,7 +4170,7 @@
 		(end 115.53 109.37)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "27ff337a-4094-4020-b547-dcbd14a9c740")
 	)
 	(segment
@@ -4178,7 +4178,7 @@
 		(end 127.1 112.46)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "29dea81c-212c-4871-a65d-706f54aaa1de")
 	)
 	(segment
@@ -4186,7 +4186,7 @@
 		(end 127.1 109.34)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "54e5d63f-bde5-42d7-9075-ae359608ba0c")
 	)
 	(segment
@@ -4194,7 +4194,7 @@
 		(end 162.5725 109.2475)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "5a1e92e4-8784-4748-9078-dd09bf752d26")
 	)
 	(segment
@@ -4202,7 +4202,7 @@
 		(end 186.9 65.58)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "9cf0b2cb-407f-47bb-8367-0f54bb091405")
 	)
 	(segment
@@ -4210,7 +4210,7 @@
 		(end 162.5725 88.4175)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "a21f73d9-9c8b-430b-980c-f8b1974a5fbd")
 	)
 	(segment
@@ -4218,7 +4218,7 @@
 		(end 115.53 87.095)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "eb1e197d-e6c6-4fe3-acd7-d2be25eb77fd")
 	)
 	(segment
@@ -4226,7 +4226,7 @@
 		(end 115.53 87.97)
 		(width 0.3)
 		(layer "F.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "f6a42ff5-3509-4c91-a356-0fcc0ab74ff4")
 	)
 	(via
@@ -4244,7 +4244,7 @@
 			(back no)
 		)
 		(filling no)
-		(net "5V")
+		(net "VCC")
 		(uuid "6d8bc046-cc8d-41ad-b14c-ebbf063d8b85")
 	)
 	(via
@@ -4262,7 +4262,7 @@
 			(back no)
 		)
 		(filling no)
-		(net "5V")
+		(net "VCC")
 		(uuid "961cda0c-65b2-4ba9-84d9-ab35b1565b20")
 	)
 	(via
@@ -4280,7 +4280,7 @@
 			(back no)
 		)
 		(filling no)
-		(net "5V")
+		(net "VCC")
 		(uuid "de62e334-65b4-425a-b1ef-09d85a481c35")
 	)
 	(via
@@ -4298,7 +4298,7 @@
 			(back no)
 		)
 		(filling no)
-		(net "5V")
+		(net "VCC")
 		(uuid "ff5be3f7-86c8-43d3-afe9-b1ffee1f2f92")
 	)
 	(segment
@@ -4306,7 +4306,7 @@
 		(end 127.11 109.33)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "59bddbda-e47a-4a6a-86a3-8bfc9ef1a3fe")
 	)
 	(segment
@@ -4314,7 +4314,7 @@
 		(end 162.57 109.25)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "64536973-8c09-41da-b314-ae79dd0164c8")
 	)
 	(segment
@@ -4322,7 +4322,7 @@
 		(end 127.07 109.37)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "8bf059a0-5b16-4b7d-9cd0-e0042e936438")
 	)
 	(segment
@@ -4330,7 +4330,7 @@
 		(end 186.9 88.37)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "a48cfe59-8822-485a-a848-937413ecae0b")
 	)
 	(segment
@@ -4338,7 +4338,7 @@
 		(end 162.49 109.33)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "afed0a6d-36b1-4672-ac54-e22ae00423e5")
 	)
 	(segment
@@ -4346,7 +4346,7 @@
 		(end 182.98 64.2)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "b1d357a1-ec10-46ec-b7d2-c8c379a32f96")
 	)
 	(segment
@@ -4354,7 +4354,7 @@
 		(end 162.62 88.37)
 		(width 0.3)
 		(layer "B.Cu")
-		(net "5V")
+		(net "VCC")
 		(uuid "cb7cab04-a2b0-45f2-b92f-402e59e36464")
 	)
 	(segment

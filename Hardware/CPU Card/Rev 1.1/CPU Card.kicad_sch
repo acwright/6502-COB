@@ -4173,7 +4173,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape input)
+		(shape output)
 		(at 87.63 67.31 0)
 		(effects
 			(font
@@ -4283,7 +4283,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape output)
+		(shape input)
 		(at 218.44 76.2 0)
 		(effects
 			(font
@@ -4305,7 +4305,7 @@
 		)
 	)
 	(global_label "EXP3"
-		(shape input)
+		(shape bidirectional)
 		(at 52.07 74.93 180)
 		(effects
 			(font
@@ -4393,7 +4393,7 @@
 		)
 	)
 	(global_label "EXP2"
-		(shape input)
+		(shape bidirectional)
 		(at 52.07 77.47 180)
 		(effects
 			(font
@@ -4415,7 +4415,7 @@
 		)
 	)
 	(global_label "A7"
-		(shape input)
+		(shape output)
 		(at 87.63 80.01 0)
 		(effects
 			(font
@@ -4437,7 +4437,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape input)
+		(shape output)
 		(at 87.63 72.39 0)
 		(effects
 			(font
@@ -4459,7 +4459,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape input)
+		(shape output)
 		(at 52.07 67.31 180)
 		(effects
 			(font
@@ -4525,7 +4525,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape output)
+		(shape input)
 		(at 52.07 54.61 180)
 		(effects
 			(font
@@ -4547,7 +4547,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape input)
+		(shape output)
 		(at 87.63 64.77 0)
 		(effects
 			(font
@@ -4635,7 +4635,7 @@
 		)
 	)
 	(global_label "A6"
-		(shape input)
+		(shape output)
 		(at 87.63 82.55 0)
 		(effects
 			(font
@@ -4657,7 +4657,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape output)
+		(shape passive)
 		(at 52.07 52.07 180)
 		(effects
 			(font
@@ -4679,7 +4679,7 @@
 		)
 	)
 	(global_label "EXP1"
-		(shape output)
+		(shape bidirectional)
 		(at 116.84 142.24 0)
 		(effects
 			(font
@@ -4723,7 +4723,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape output)
+		(shape input)
 		(at 52.07 59.69 180)
 		(effects
 			(font
@@ -4745,7 +4745,7 @@
 		)
 	)
 	(global_label "BE"
-		(shape output)
+		(shape input)
 		(at 218.44 83.82 0)
 		(effects
 			(font
@@ -4767,7 +4767,7 @@
 		)
 	)
 	(global_label "RDY"
-		(shape output)
+		(shape input)
 		(at 218.44 60.96 0)
 		(effects
 			(font
@@ -4811,7 +4811,7 @@
 		)
 	)
 	(global_label "EXP0"
-		(shape input)
+		(shape bidirectional)
 		(at 87.63 57.15 0)
 		(effects
 			(font
@@ -4877,7 +4877,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape output)
+		(shape passive)
 		(at 87.63 100.33 0)
 		(effects
 			(font
@@ -4965,7 +4965,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape output)
+		(shape input)
 		(at 218.44 53.34 0)
 		(effects
 			(font
@@ -5119,7 +5119,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 152.4 59.69 0)
 		(effects
 			(font
@@ -5251,7 +5251,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape input)
+		(shape output)
 		(at 87.63 87.63 0)
 		(effects
 			(font
@@ -5317,7 +5317,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape input)
+		(shape output)
 		(at 87.63 69.85 0)
 		(effects
 			(font
@@ -5339,7 +5339,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 116.84 69.85 180)
 		(effects
 			(font
@@ -5361,7 +5361,7 @@
 		)
 	)
 	(global_label "A9"
-		(shape input)
+		(shape output)
 		(at 87.63 74.93 0)
 		(effects
 			(font
@@ -5383,7 +5383,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape input)
+		(shape output)
 		(at 87.63 97.79 0)
 		(effects
 			(font
@@ -5405,7 +5405,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape input)
+		(shape output)
 		(at 87.63 92.71 0)
 		(effects
 			(font
@@ -5427,7 +5427,7 @@
 		)
 	)
 	(global_label "EXP1"
-		(shape input)
+		(shape bidirectional)
 		(at 87.63 54.61 0)
 		(effects
 			(font
@@ -5471,7 +5471,7 @@
 		)
 	)
 	(global_label "EXP3"
-		(shape output)
+		(shape bidirectional)
 		(at 116.84 147.32 0)
 		(effects
 			(font
@@ -5493,7 +5493,7 @@
 		)
 	)
 	(global_label "BE"
-		(shape output)
+		(shape input)
 		(at 52.07 64.77 180)
 		(effects
 			(font
@@ -5537,7 +5537,7 @@
 		)
 	)
 	(global_label "EXP2"
-		(shape output)
+		(shape bidirectional)
 		(at 116.84 144.78 0)
 		(effects
 			(font
@@ -5603,7 +5603,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape output)
+		(shape input)
 		(at 218.44 68.58 0)
 		(effects
 			(font
@@ -5691,7 +5691,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape input)
+		(shape output)
 		(at 87.63 90.17 0)
 		(effects
 			(font
@@ -5735,7 +5735,7 @@
 		)
 	)
 	(global_label "A5"
-		(shape input)
+		(shape output)
 		(at 87.63 85.09 0)
 		(effects
 			(font
@@ -5779,7 +5779,7 @@
 		)
 	)
 	(global_label "RDY"
-		(shape output)
+		(shape input)
 		(at 52.07 62.23 180)
 		(effects
 			(font
@@ -5845,7 +5845,7 @@
 		)
 	)
 	(global_label "SYNC"
-		(shape input)
+		(shape output)
 		(at 52.07 69.85 180)
 		(effects
 			(font
@@ -5911,7 +5911,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape input)
+		(shape output)
 		(at 87.63 95.25 0)
 		(effects
 			(font
@@ -5933,7 +5933,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape output)
+		(shape passive)
 		(at 87.63 52.07 0)
 		(effects
 			(font
@@ -5955,7 +5955,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape input)
+		(shape output)
 		(at 87.63 62.23 0)
 		(effects
 			(font
@@ -5999,7 +5999,7 @@
 		)
 	)
 	(global_label "A8"
-		(shape input)
+		(shape output)
 		(at 87.63 77.47 0)
 		(effects
 			(font
@@ -6021,7 +6021,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 198.12 40.64 90)
 		(effects
 			(font
@@ -6043,7 +6043,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape output)
+		(shape input)
 		(at 52.07 57.15 180)
 		(effects
 			(font
@@ -6065,7 +6065,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape input)
+		(shape output)
 		(at 87.63 59.69 0)
 		(effects
 			(font
@@ -6087,7 +6087,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape output)
+		(shape passive)
 		(at 52.07 100.33 180)
 		(effects
 			(font
@@ -6175,7 +6175,7 @@
 		)
 	)
 	(global_label "EXP0"
-		(shape output)
+		(shape bidirectional)
 		(at 116.84 139.7 0)
 		(effects
 			(font
@@ -8378,6 +8378,17 @@
 				)
 			)
 		)
+	)
+	(text "EXP0 and EXP1 carry HRDB (High ROM disable bar) in a build that uses cartridges:\na cartridge grounds them to take $C000-$FFFF from the ROM. They are free only in\na build that never uses cartridges. EXP2 and EXP3 are always free."
+		(exclude_from_sim no)
+		(at 39.37 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "62b1fca9-50d2-5233-a67e-8cb849fa60c3")
 	)
 	(sheet_instances
 		(path "/"

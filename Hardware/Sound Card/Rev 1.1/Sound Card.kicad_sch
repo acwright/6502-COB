@@ -4644,7 +4644,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape input)
+		(shape output)
 		(at 121.92 142.24 180)
 		(effects
 			(font
@@ -4688,7 +4688,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 137.16 123.19 90)
 		(effects
 			(font
@@ -4710,7 +4710,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape input)
+		(shape output)
 		(at 121.92 144.78 180)
 		(effects
 			(font
@@ -4732,7 +4732,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape input)
+		(shape output)
 		(at 43.18 82.55 180)
 		(effects
 			(font
@@ -4776,7 +4776,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape input)
+		(shape output)
 		(at 121.92 152.4 180)
 		(effects
 			(font
@@ -4798,7 +4798,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 43.18 80.01 180)
 		(effects
 			(font
@@ -4908,7 +4908,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape output)
+		(shape passive)
 		(at 40.64 173.99 180)
 		(effects
 			(font
@@ -4974,7 +4974,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 220.98 138.43 90)
 		(effects
 			(font
@@ -5018,7 +5018,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape input)
+		(shape output)
 		(at 121.92 154.94 180)
 		(effects
 			(font
@@ -5040,7 +5040,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape output)
+		(shape passive)
 		(at 76.2 173.99 0)
 		(effects
 			(font
@@ -5062,7 +5062,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape input)
+		(shape output)
 		(at 121.92 139.7 180)
 		(effects
 			(font
@@ -5194,7 +5194,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape input)
+		(shape output)
 		(at 43.18 71.12 180)
 		(effects
 			(font
@@ -5304,7 +5304,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape input)
+		(shape output)
 		(at 43.18 68.58 180)
 		(effects
 			(font
@@ -5326,7 +5326,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape input)
+		(shape output)
 		(at 43.18 73.66 180)
 		(effects
 			(font
@@ -5414,7 +5414,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape output)
+		(shape input)
 		(at 40.64 128.27 180)
 		(effects
 			(font
@@ -5458,7 +5458,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape input)
+		(shape output)
 		(at 43.18 63.5 180)
 		(effects
 			(font
@@ -5546,7 +5546,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape output)
+		(shape passive)
 		(at 40.64 125.73 180)
 		(effects
 			(font
@@ -5568,7 +5568,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape input)
+		(shape output)
 		(at 121.92 157.48 180)
 		(effects
 			(font
@@ -5590,7 +5590,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape output)
+		(shape passive)
 		(at 76.2 125.73 0)
 		(effects
 			(font
@@ -5722,7 +5722,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape input)
+		(shape output)
 		(at 43.18 66.04 180)
 		(effects
 			(font
@@ -5744,7 +5744,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 55.88 34.29 90)
 		(effects
 			(font
