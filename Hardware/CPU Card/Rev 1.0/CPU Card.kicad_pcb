@@ -4224,19 +4224,6 @@
 				)
 			)
 		)
-		(property "Note" "Jumper J2 for orginal 6502"
-			(at 0 0 -90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "924ab1df-8a97-42d7-82b5-22e62f215c9d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey" "S1011EC-40-ND"
 			(at 0 0 0)
 			(unlocked yes)

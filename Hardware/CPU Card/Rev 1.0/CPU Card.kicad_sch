@@ -4711,7 +4711,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 135.89 0)
+			(at 213.36 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5249,7 +5249,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 48.26 0)
+			(at 109.22 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5347,14 +5347,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "Note" "Jumper J2 for orginal 6502"
-			(at 85.598 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(property "Digikey" "S1011EC-40-ND"
@@ -7747,6 +7739,16 @@
 			(justify left bottom)
 		)
 		(uuid "6f9c6534-95d3-5cde-aade-b868635a6d85")
+	)
+	(text "Jumper J2 for original 6502"
+		(exclude_from_sim no)
+		(at 85.598 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d991c3f6-e9d7-51d2-988f-d8fc841ada3d")
 	)
 	(sheet_instances
 		(path "/"

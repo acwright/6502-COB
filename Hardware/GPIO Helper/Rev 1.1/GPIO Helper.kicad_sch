@@ -5222,8 +5222,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 118.11 143.51 0)
-			(hide yes)
+			(at 118.11 142.24 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6312,8 +6311,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 236.22 119.38 0)
-			(hide yes)
+			(at 236.22 118.11 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

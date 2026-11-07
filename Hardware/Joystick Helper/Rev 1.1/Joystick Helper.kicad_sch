@@ -3819,7 +3819,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 182.88 147.32 0)
+			(at 182.88 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4169,7 +4169,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 154.94 66.04 0)
+			(at 154.94 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects

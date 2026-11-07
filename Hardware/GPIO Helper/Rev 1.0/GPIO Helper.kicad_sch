@@ -4865,12 +4865,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 118.11 143.51 0)
+			(at 118.11 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" ""
@@ -5857,12 +5856,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 236.22 119.38 0)
+			(at 236.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" ""

@@ -9374,8 +9374,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 187.96 40.64 0)
-			(hide yes)
+			(at 187.96 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9453,8 +9452,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 127 106.68 0)
-			(hide yes)
+			(at 127 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9615,8 +9613,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 81.28 133.35 0)
-			(hide yes)
+			(at 81.28 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9962,8 +9959,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 105.41 184.15 0)
-			(hide yes)
+			(at 105.41 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10569,8 +10565,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 171.45 0)
-			(hide yes)
+			(at 213.36 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10999,8 +10994,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 121.92 161.29 0)
-			(hide yes)
+			(at 121.92 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11078,8 +11072,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 106.68 0)
-			(hide yes)
+			(at 213.36 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12094,8 +12087,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 250.19 77.47 0)
-			(hide yes)
+			(at 250.19 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12173,8 +12165,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 59.69 200.66 0)
-			(hide yes)
+			(at 59.69 199.39 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12467,8 +12458,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 158.75 148.59 0)
-			(hide yes)
+			(at 158.75 147.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12680,8 +12670,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 101.6 40.64 0)
-			(hide yes)
+			(at 101.6 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12839,8 +12828,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 163.83 77.47 0)
-			(hide yes)
+			(at 163.83 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
