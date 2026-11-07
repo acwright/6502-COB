@@ -19,61 +19,63 @@ Every part for every board in this repository, by revision, with supplier number
 
 Look on the board: the silk prints the revision next to the copyright line. [REVISIONS.md](REVISIONS.md) has the facts for each one, and its history lists what changed between them.
 
-| Board | Revision | What the silk says | Status |
-|---|---|---|---|
-| [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested |
-| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Made, tested |
-| [Backplane Pro](#backplane-pro) | 1.2 | Rev 1.2 | Drawn, not made yet |
-| [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested |
-| [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested |
-| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made |
-| [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested |
-| [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet |
-| [Clock Helper](#clock-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Clock Helper](#clock-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [DB25 Helper](#db25-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [DB25 Helper](#db25-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [GPIO Breadboard Helper](#gpio-breadboard-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [GPIO Card](#gpio-card) | 1.0 | Rev 1.0 | Made, tested |
-| [GPIO Helper](#gpio-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [GPIO Helper](#gpio-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Joystick Helper](#joystick-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Joystick Helper](#joystick-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested |
-| [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested |
-| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested |
-| [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested |
-| [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested |
-| [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested |
-| [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested |
-| [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested |
-| [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested |
-| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested |
-| [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested |
-| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made |
-| [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested |
-| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
-| [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made |
-| [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested |
-| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet |
+**To make a new board, make the newest revision**, and check its label first. The README's [Which revision to make](README.md#which-revision-to-make) explains the three labels: **Tested**, **Proven design** and **Untested**.
+
+| Board | Revision | What the silk says | Status | Label |
+|---|---|---|---|---|
+| [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Made, tested | **Tested** |
+| [Backplane Pro](#backplane-pro) | 1.2 | Rev 1.2 | Drawn, not made yet | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |
+| [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, with tracks rerouted to reach them |
+| [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes |
+| [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen |
+| [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet | **Untested**: a new board, ordered and not tested yet |
+| [Clock Helper](#clock-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Clock Helper](#clock-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
+| [DB25 Helper](#db25-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [DB25 Helper](#db25-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
+| [GPIO Breadboard Helper](#gpio-breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [GPIO Card](#gpio-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [GPIO Helper](#gpio-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [GPIO Helper](#gpio-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
+| [Joystick Helper](#joystick-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Joystick Helper](#joystick-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
+| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, silkscreen |
+| [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged |
+| [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |
+| [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen |
+| [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
+| [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
+| [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: made, and not tested yet: the BIOS has no driver for it |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: silkscreen text only, but Rev 1.0 hasn't been tested |
+| [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch |
+| [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1` |
+| [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen |
 
 ## Known issues
 
@@ -144,7 +146,7 @@ How to build each board, where it needs more than its parts list.
 
 ### Backplane Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Backplane%20Helper/Rev%201.0/mouser.csv)
 
@@ -160,7 +162,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.0/digikey.csv), [mouser
 
 ### Backplane Pro Rev 1.2
 
-Drawn, not made yet.
+Drawn, not made yet. **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed.
 
 Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.2/digikey.csv), [mouser.csv](BOM/Backplane%20Pro/Rev%201.2/mouser.csv)
 
@@ -192,7 +194,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.2/digikey.csv), [mouser.cs
 
 ### Backplane Pro Rev 1.1
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane%20Pro/Rev%201.1/mouser.csv)
 
@@ -225,7 +227,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.cs
 
 ### Backplane Pro Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/Backplane%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Backplane%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Backplane%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -262,7 +264,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Backplane Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Backplane/Rev%201.0/digikey.csv), [mouser.csv](BOM/Backplane/Rev%201.0/mouser.csv)
 
@@ -278,7 +280,7 @@ Cart files: [digikey.csv](BOM/Backplane/Rev%201.0/digikey.csv), [mouser.csv](BOM
 
 ### Blinkenlights Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Untested**: decoupling capacitors added, with tracks rerouted to reach them.
 
 Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -323,7 +325,7 @@ Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey.csv), [mous
 
 ### Blinkenlights Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Blinkenlights%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -370,7 +372,7 @@ Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.0/digikey.csv), [mous
 
 ### Breadboard Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: J1 takes the box header's footprint, with the same holes.
 
 Cart files: [digikey.csv](BOM/Breadboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Breadboard%20Helper/Rev%201.1/mouser.csv)
 
@@ -385,7 +387,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Breadboard Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Breadboard%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Breadboard%20Helper/Rev%201.0/mouser.csv)
 
@@ -401,7 +403,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### CPU Card Pro Rev 1.0
 
-Never made.
+Never made. **Untested**: never made.
 
 Cart files: [digikey.csv](BOM/CPU%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/CPU%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -424,7 +426,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### CPU Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen.
 
 Cart files: [digikey.csv](BOM/CPU%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/CPU%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -441,7 +443,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### CPU Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/CPU%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/CPU%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -461,7 +463,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Clock Card Rev 1.0
 
-Ordered, not tested yet.
+Ordered, not tested yet. **Untested**: a new board, ordered and not tested yet.
 
 Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Clock%20Card/Rev%201.0/mouser.csv)
 
@@ -492,7 +494,7 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 
 ### Clock Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes moved to the standard, silkscreen.
 
 Cart files: [digikey.csv](BOM/Clock%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Clock%20Helper/Rev%201.1/mouser.csv)
 
@@ -518,7 +520,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Clock Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Clock%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Clock%20Helper/Rev%201.0/mouser.csv)
 
@@ -547,7 +549,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### DB25 Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes moved to the standard, silkscreen.
 
 Cart files: [digikey.csv](BOM/DB25%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/DB25%20Helper/Rev%201.1/mouser.csv)
 
@@ -559,7 +561,7 @@ Cart files: [digikey.csv](BOM/DB25%20Helper/Rev%201.1/digikey.csv), [mouser.csv]
 
 ### DB25 Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/DB25%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/DB25%20Helper/Rev%201.0/mouser.csv)
 
@@ -574,7 +576,7 @@ Cart files: [digikey.csv](BOM/DB25%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### GPIO Breadboard Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/GPIO%20Breadboard%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/GPIO%20Breadboard%20Helper/Rev%201.0/mouser.csv)
 
@@ -592,7 +594,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### GPIO Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/GPIO%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/GPIO%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/GPIO%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/GPIO%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -617,7 +619,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### GPIO Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes moved to the standard, silkscreen.
 
 Cart files: [digikey.csv](BOM/GPIO%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/GPIO%20Helper/Rev%201.1/mouser.csv)
 
@@ -648,7 +650,7 @@ Cart files: [digikey.csv](BOM/GPIO%20Helper/Rev%201.1/digikey.csv), [mouser.csv]
 
 ### GPIO Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/GPIO%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/GPIO%20Helper/Rev%201.0/mouser.csv)
 
@@ -682,7 +684,7 @@ Cart files: [digikey.csv](BOM/GPIO%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### Joystick Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes moved to the standard, silkscreen.
 
 Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Joystick%20Helper/Rev%201.1/mouser.csv)
 
@@ -694,7 +696,7 @@ Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.1/digikey.csv), [mouser.
 
 ### Joystick Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Joystick%20Helper/Rev%201.0/mouser.csv)
 
@@ -709,7 +711,7 @@ Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.0/digikey.csv), [mouser.
 
 ### Keyboard Encoder Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes, silkscreen.
 
 Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/mouser.csv)
 
@@ -730,7 +732,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 
 ### Keyboard Encoder Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/mouser.csv)
 
@@ -754,7 +756,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 
 ### Keyboard Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Keyboard%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Keyboard%20Helper/Rev%201.0/mouser.csv)
 
@@ -777,7 +779,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Helper/Rev%201.0/digikey.csv), [mouser.
 
 ### LCD Board Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/LCD%20Board/Rev%201.0/digikey.csv), [mouser.csv](BOM/LCD%20Board/Rev%201.0/mouser.csv)
 
@@ -806,7 +808,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### LCD Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged.
 
 Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/LCD%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/LCD%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/LCD%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -832,7 +834,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### LCD Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/LCD%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/LCD%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/LCD%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -862,7 +864,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Mega Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/Mega%20Helper/Rev%201.0/mouser.csv)
 
@@ -878,7 +880,7 @@ Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### Memory Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Memory%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Memory%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Memory%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -900,7 +902,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### PS2 Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen.
 
 Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/PS2%20Helper/Rev%201.1/mouser.csv)
 
@@ -925,7 +927,7 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](
 
 ### PS2 Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/PS2%20Helper/Rev%201.0/mouser.csv)
 
@@ -953,7 +955,7 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.0/digikey.csv), [mouser.csv](
 
 ### Prototype Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Prototype%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Prototype%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Prototype%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Prototype%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -972,7 +974,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RAM Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/RAM%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/RAM%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RAM%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -999,7 +1001,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RTC Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/RTC%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/RTC%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/RTC%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RTC%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -1027,7 +1029,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Pro Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen.
 
 Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Serial%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1055,7 +1057,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Pro Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/Serial%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -1086,7 +1088,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: silkscreen text only.
 
 Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Serial%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1114,7 +1116,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Serial%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -1145,7 +1147,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Sound Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: silkscreen text only.
 
 Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Sound%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Sound%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Sound%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1169,7 +1171,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Sound Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Sound%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Sound%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Sound%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -1196,7 +1198,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Untested**: silkscreen text only, but Rev 1.0 hasn't been tested.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1225,7 +1227,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.0
 
-Made, not tested yet.
+Made, not tested yet. **Untested**: made, and not tested yet: the BIOS has no driver for it.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -1259,7 +1261,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Storage%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Storage%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -1283,7 +1285,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VERA Helper Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: mounting holes, capacitor pitch.
 
 Cart files: [digikey.csv](BOM/VERA%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/VERA%20Helper/Rev%201.1/mouser.csv)
 
@@ -1308,7 +1310,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VERA Helper Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/VERA%20Helper/Rev%201.0/digikey.csv), [mouser.csv](BOM/VERA%20Helper/Rev%201.0/mouser.csv)
 
@@ -1336,7 +1338,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Pro Rev 1.0
 
-Never made.
+Never made. **Untested**: never made.
 
 Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -1369,7 +1371,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1`.
 
 Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1388,7 +1390,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/VGA%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card/Rev%201.0/mouser-through-hole.csv)
 
@@ -1411,7 +1413,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Video Card Pro Rev 1.0
 
-Never made.
+Never made. **Untested**: never made.
 
 Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/Video%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
 
@@ -1448,7 +1450,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Video Card Rev 1.1
 
-Drawn, not made yet.
+Drawn, not made yet. **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen.
 
 Cart files: [digikey.csv](BOM/Video%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Video%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1483,7 +1485,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Video Card Rev 1.0
 
-Made, tested.
+Made, tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Video%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Video%20Card/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card/Rev%201.0/mouser-through-hole.csv)
 
