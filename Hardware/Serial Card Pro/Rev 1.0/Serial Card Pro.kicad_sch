@@ -6334,7 +6334,7 @@
 		)
 		(uuid "ff0a3989-ee3f-4b33-aa02-dd4f165c8b23")
 	)
-	(text "Close J2 & J3 for WDC W65C51"
+	(text "Close JP2 & JP3 for WDC W65C51"
 		(exclude_from_sim no)
 		(at 106.68 126.492 0)
 		(effects

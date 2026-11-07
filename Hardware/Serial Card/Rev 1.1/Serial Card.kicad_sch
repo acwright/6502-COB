@@ -4867,7 +4867,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Close J2 & J3 for WDC W65C51"
+	(text "Close JP2 & JP3 for WDC W65C51"
 		(exclude_from_sim no)
 		(at 103.886 103.378 0)
 		(effects
@@ -6534,7 +6534,7 @@
 		(uuid "8c2e8111-6c97-4652-a4c3-ae025565be0c")
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 41.91 130.81 180)
 		(effects
 			(font
@@ -6600,7 +6600,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 41.91 140.97 180)
 		(effects
 			(font
@@ -6732,7 +6732,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 24.13 118.11 180)
 		(effects
 			(font
@@ -6798,7 +6798,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 189.23 130.81 180)
 		(effects
 			(font
@@ -6886,7 +6886,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 189.23 128.27 180)
 		(effects
 			(font
@@ -7128,7 +7128,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 189.23 140.97 180)
 		(effects
 			(font
@@ -7172,7 +7172,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 189.23 143.51 180)
 		(effects
 			(font
@@ -7216,7 +7216,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 41.91 143.51 180)
 		(effects
 			(font
@@ -7326,7 +7326,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 189.23 133.35 180)
 		(effects
 			(font
@@ -7370,7 +7370,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 41.91 135.89 180)
 		(effects
 			(font
@@ -7414,7 +7414,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 189.23 146.05 180)
 		(effects
 			(font
@@ -12061,7 +12061,7 @@
 		(uuid "344302bd-51e4-5f98-be28-6cc0e0032e5a")
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 39.37 31.75 180)
 		(effects
 			(font
