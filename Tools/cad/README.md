@@ -16,6 +16,7 @@ repositories.
 | `make.py` | Writes `CAD/Bases/Plate.svg`, `Plate Mounting Drawing.svg` and `.png`, and `Plate.stl`. `--check` writes nothing and fails if any is out of date; `derived-check.py` runs it. `--compare` lists how the generated plate differs from the one in git. |
 | `plate.py` | The plate from the assembly file: its outline, its holes and what uses each one in each build, and `Plate.svg`. |
 | `drawing.py` | The mounting drawing: both builds, the numbered holes, the boards, the hardware each build needs, counted from each hole's kind, and how a hole goes together. |
+| `bodies.py` | Reads the parts' 3D bodies from a board's STEP model: each part's box, a profile of it in 1 mm bands above the standoffs, and any round feature at its top. Slow, so cached by the STEP's bytes. |
 | `tops.py` | A board's top, from its PCB, its STEP model and the assembly file: the openings below, merged and kept clear of the mounting holes. `--report` lists every opening and why it's there; `--compare OLD.svg` lists how a top differs from another, such as Fusion's. Needs build123d. |
 | `solid.py` | `Plate.stl`, one layer of the plate as a 3D model, from `Plate.svg`. Needs build123d. |
 | `setup.sh` | Makes `Tools/work/venv`, the Python with build123d that `solid.py` (and the tops, to come) needs. Run it once. |
@@ -49,8 +50,10 @@ computer is used: x to the right and y towards the front, from the plate's back-
 - **`top`**: the board has a top, at `CAD/Tops/<board>/Rev <rev>/<board> Top.svg` in its own repository.
   `"generated": true` marks a top these tools draw, and `"draft": true` one waiting for the owner's approval, which
   `make.py` leaves alone. A generated top lists what no rule gives: `openings`, each round parts (`refs`), a named
-  rule area (`zone`) or a block (`block`, at and size from the board's back-left corner in its PCB file), of a kind
-  from `standards.json`; and round `holes` over a part, centred on the round feature at the top of its 3D model.
+  rule area (`zone`), a block (`block`, at and size from the board's back-left corner in its PCB file) or a lever's
+  swing (`lever`: the part, the height its knob stands above, the length and which way it swings), of a kind from
+  `standards.json`, with its own `margin` if it needs one; and round `holes` over a part, centred on the round feature
+  at the top of its 3D model. `also` lists the other revisions of the board that get the same top in their folders.
 - **`gap`, `gap_y`**: a build's own gaps between boards side by side and one behind the other, when it doesn't keep
   the family's 10 mm.
 - **`positions`**: a board hole with no plate hole under it, named as the mounting drawing names it (S1, S2): for each
@@ -109,7 +112,9 @@ model, and confirmed by the owner the same day (`CAD.md` C2). The owner's ruling
 A top needs an opening wherever a part **reaches into the top's sheet**, higher than the 10 mm standoffs and inside
 the top's outline, and wherever the builder **needs to reach a short part**.
 
-- **Tall parts.** Today's tops have an opening for every part that reaches into the sheet. The connectors at the
+- **Tall parts.** Today's tops have an opening for every part that reaches into the sheet. The opening goes round
+  the part as it is at the top's height, so a tab or pin at board level doesn't pull it off centre, and grows only if
+  something of the part above the top (a ZIF socket's lever, standing up) wouldn't pass through. The connectors at the
   edges (DB9, DB25, PS/2, audio, the power jack, RJ45) stand taller than 10 mm only past the board's edge, so the
   outline clears them. Two that reach in without an opening, the Backplane Pro 1.1 and 1.2's power jack and the DB9
   under the Joystick Helper's enclosure top, get openings (owner).
@@ -137,7 +142,11 @@ them, that acrylic is cut away; each keeps its own shape elsewhere. Keys that si
 window.
 
 **Mounting holes keep their acrylic:** no opening comes within 3.5 mm of a mounting hole's centre, so the screw head
-and the standoff have something to bear on. The KIM Board's breadboard window steps round hole 19 for this.
+and the standoff have something to bear on. Where that costs an opening less than a quarter of itself, its side is
+pulled straight back; otherwise a round bite is cut from it.
+
+**A lever needs room to swing:** a ZIF socket's lever gets a window along its swing, from the centre of its knob, as
+long as the assembly file says, with 2 mm round it so it can be worked with fingers, pliers or tweezers (owner).
 
 **A part at the board's edge** that reaches into the top gets a notch in the outline, as the ACE's DB9s and power jack
 have.

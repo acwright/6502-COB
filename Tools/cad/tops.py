@@ -41,63 +41,31 @@ RULES = [  # (text in the footprint's name, kind)
 
 
 step_path = assembly.step_path
+from bodies import norm, bodies  # noqa: E402
 
 
-def norm(s):
-    import re
-    return re.sub(r'[^A-Za-z0-9]', '', os.path.splitext(os.path.basename(s))[0]).lower()
+def grow(o, n):
+    return n if o is None else [min(o[0], n[0]), min(o[1], n[1]), max(o[2], n[2]), max(o[3], n[3])]
 
 
-def bodies(step, sheet_z0, sheet_z1):
-    """Each STEP child: its label, its box in the PCB's frame (y down), and the box of what of it lies between
-    sheet_z0 and sheet_z1 above the board's top (None if nothing does). Cached by the STEP's bytes."""
-    cache = assembly.Cache('cad-step', os.path.abspath(__file__))
-    key = f'bodies {assembly.digest(step)} {sheet_z0} {sheet_z1}'
-
-    def run():
-        from build123d import import_step, Box, GeomType, Pos
-        a = import_step(step)
-        pcb = [c for c in a.children if c.label.endswith('_PCB')]
-        ztop = max(c.bounding_box().max.Z for c in pcb) if pcb else 1.6
-        slab = Pos(0, 0, ztop + (sheet_z0 + sheet_z1) / 2) * Box(5000, 5000, sheet_z1 - sheet_z0)
-        out = []
-        for c in a.children:
-            if c.label.endswith('_PCB'):
-                continue
-            bb = c.bounding_box()
-            sl = None
-            # a round feature at the part's top, which a hole over it is centred on: a trimmer's rotor. The upright
-            # cylindrical faces within 2.5 mm of the top, at least 1 mm across
-            tb = None
-            for f in c.faces():
-                if f.geom_type != GeomType.CYLINDER:
-                    continue
-                fb = f.bounding_box()
-                if fb.max.Z < bb.max.Z - 2.5 or abs(f.normal_at(f.center()).Z) > 0.01 or max(fb.max.X - fb.min.X, fb.max.Y - fb.min.Y) < 1:
-                    continue
-                n_ = [fb.min.X, -fb.max.Y, fb.max.X, -fb.min.Y]
-                tb = n_ if tb is None else [min(tb[0], n_[0]), min(tb[1], n_[1]), max(tb[2], n_[2]), max(tb[3], n_[3])]
-            if bb.max.Z > ztop + sheet_z0:
-                cut = c & slab
-                if cut is not None and cut.solids():
-                    cb = cut.bounding_box()
-                    sl = [cb.min.X, -cb.max.Y, cb.max.X, -cb.min.Y]
-            out.append([c.label, [bb.min.X, -bb.max.Y, bb.max.X, -bb.min.Y, bb.max.Z - ztop], sl, tb])
-        return out
-    v = cache.get(key, run)
-    cache.save()
-    return v
+def band(p, z0, z1=1e9):
+    """The box of what of a part lies between z0 and z1 above the board, from its profile; None if nothing does."""
+    out = None
+    for z, b in p['profile']:
+        if z + 1 > z0 + 1e-6 and z < z1 - 1e-6:
+            out = grow(out, b)
+    return out
 
 
 def match(parts, bs):
     """Give each footprint the boxes of its STEP children: matched by model name, then by overlap."""
     for p in parts:
         p['body'] = None
-        p['slice'] = None
+        p['profile'] = []
         p['height'] = None
         p['top'] = None
         p['_top_z'] = None
-    for label, bb, sl, tb in bs:
+    for label, bb, prof, tb in bs:
         best = None
         for p in parts:
             ref = p['courtyard'] or p['pads']
@@ -111,11 +79,9 @@ def match(parts, bs):
         if best is None or best[0] <= 0:
             continue
         p = best[1]
-        grow = lambda o, n: n if o is None else [min(o[0], n[0]), min(o[1], n[1]), max(o[2], n[2]), max(o[3], n[3])]
         p['body'] = grow(p['body'], bb[:4])
         p['height'] = max(p['height'] or 0, bb[4])
-        if sl:
-            p['slice'] = grow(p['slice'], sl)
+        p['profile'] += prof
         if tb and (p['_top_z'] is None or bb[4] > p['_top_z']):
             p['top'], p['_top_z'] = tb, bb[4]
 
@@ -137,7 +103,10 @@ class Top:
         self.spec = spec
         sh = std['sheet']
         z0 = std['standoff']
+        self.z0, self.z1 = z0, z0 + sh
         match(q.data['parts'], bodies(step_path(a['_repo'], q.spec), z0, z0 + sh))
+        for p in q.data['parts']:
+            p['slice'] = band(p, z0, z0 + sh)
         x0, y0 = q.at
         self.W, self.H = q.box[2] - q.box[0], q.box[3] - q.box[1]
         P = lambda x, y: (q.place(x, y)[0] - x0, q.place(x, y)[1] - y0)
@@ -158,6 +127,31 @@ class Top:
             if k in p['fpid']:
                 return v
         return None
+
+    def through(self, p):
+        """The box an opening goes round for a part that reaches into the top: the part as it is in the top's sheet,
+        so a tab or pin at board level doesn't pull the opening off centre; grown only if something of it above the
+        sheet (a ZIF socket's lever, standing up) wouldn't pass through the opening."""
+        b = self.tb(p['slice'])
+        up = band(p, self.z1)
+        m = self.std['openings']['tall']['margin']
+        if up:
+            u = self.tb(up)
+            if u[0] < b[0] - m or u[1] < b[1] - m or u[2] > b[2] + m or u[3] > b[3] + m:
+                b = grow(b, u)
+        return b
+
+    def lever(self, o):
+        """A window for a lever that swings down: from the centre of what of the part stands above 'above' mm (its
+        knob), 'length' mm towards 'towards' (back, front, left or right, as the board sits on the plate)."""
+        lv = o['lever']
+        p = next(p for p in self.q.data['parts'] if p['ref'] == lv['ref'])
+        k = self.tb(band(p, lv['above']))
+        cx, cy = (k[0] + k[2]) / 2, (k[1] + k[3]) / 2
+        L = lv['length']
+        box = {'back': [k[0], cy - L, k[2], k[3]], 'front': [k[0], k[1], k[2], cy + L],
+               'left': [cx - L, k[1], k[2], k[3]], 'right': [k[0], k[1], cx + L, k[3]]}[lv['towards']]
+        return box
 
     def add(self, refs, kind, box, why, **kw):
         o = self.std['openings']
@@ -199,12 +193,19 @@ class Top:
                 self.holes.append({'refs': [p['ref']], 'x': (c[0] + c[2]) / 2, 'y': (c[1] + c[3]) / 2, 'd': d,
                                    'why': 'the reset button, under the printed Reset Button'})
             elif reaches:
-                self.add([p['ref']], 'tall', body, f"{p['value']}: {p['height']:.1f} mm tall, reaches into the top")
+                self.add([p['ref']], 'tall', self.through(p), f"{p['value']}: {p['height']:.1f} mm tall, reaches into the top")
         # one window per key; the merge rule below joins keys that sit together into one window
         for p in keys:
             self.add([p['ref']], 'keys', self.tb(p['body']), 'the keys')
         e = q.data['edge_box']
         for o in spec.get('openings', []):
+            if 'lever' in o:
+                self.add([o['lever']['ref'] + ' lever'], o['kind'], self.lever(o), o.get('why', 'a lever'),
+                         margin=o.get('margin', self.std['openings'][o['kind']]['margin']))
+                continue
+            if o.get('body') == 'through':
+                self.add(o['refs'], o['kind'], self.through(parts[o['refs'][0]]), o.get('why', o['kind']))
+                continue
             if 'block' in o:
                 (bx, by), (bw, bh) = o['block']['at'], o['block']['size']
                 self.add([o['block'].get('name', 'block')], o['kind'], self.tb([e[0] + bx, e[1] + by, e[0] + bx + bw, e[1] + by + bh]), o.get('why', ''))
@@ -219,7 +220,32 @@ class Top:
             p = parts[h['ref']]
             c = self.tb(p['top'] or p['body'] or p['pads'])
             self.holes.append({'refs': [h['ref']], 'x': (c[0] + c[2]) / 2, 'y': (c[1] + c[3]) / 2, 'd': h['d'], 'why': h.get('why', '')})
+        self.clear_holes()
         self.merge()
+
+    def clear_holes(self):
+        """An opening that comes within keep_round_holes of a mounting hole has that side pulled straight back, when
+        that costs less than a quarter of the opening; otherwise geometry() cuts a round bite out of it."""
+        R = self.std['top']['keep_round_holes']
+        for o in self.openings:
+            for x, y in self.mount:
+                if not self.shape(o).intersects(Point(x, y).buffer(R, quad_segs=32)):
+                    continue
+                b = o['box']
+                options = []
+                if y - R > b[1]:
+                    options.append([b[0], b[1], b[2], min(b[3], y - R)])
+                if y + R < b[3]:
+                    options.append([b[0], max(b[1], y + R), b[2], b[3]])
+                if x - R > b[0]:
+                    options.append([b[0], b[1], min(b[2], x - R), b[3]])
+                if x + R < b[2]:
+                    options.append([max(b[0], x + R), b[1], b[2], b[3]])
+                area = lambda r: (r[2] - r[0]) * (r[3] - r[1])
+                best = max(options, key=area, default=None)
+                if best and area(best) >= 0.75 * area(b):
+                    o['box'] = best
+                    self.notes.append(f"{'+'.join(o['refs'][:3])}: one side pulled back {area(b) and round(max(abs(p - q) for p, q in zip(b, best)), 2)} mm to keep {R} mm round a mounting hole")
 
     def shape(self, o):
         if o.get('poly') is not None:
@@ -396,7 +422,7 @@ def compare(t, path):
 
 
 def find(a, board, rev):
-    for b in a['builds']:
+    for b in a['builds'] + [{'_placed': a.get('_also', [])}]:
         for q in b['_placed']:
             if q.name == board and q.rev == rev:
                 return q

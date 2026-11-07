@@ -105,6 +105,10 @@ def load(repo):
     a['_path'] = path
     for build in a['builds']:
         build['_placed'] = [Placed(repo, b) for b in build['boards']]
+    # a top drawn for one revision serves the others "also" names, which have the same outline and parts: each
+    # revision's folder gets its own copy, generated from that revision's PCB
+    a['_also'] = [Placed(repo, {**q.spec, 'rev': r}) for b in a['builds'] for q in b['_placed']
+                  for r in (q.spec.get('top') or {}).get('also', [])]
     return a
 
 
@@ -218,10 +222,11 @@ def step_path(repo, b):
 
 def top_inputs(a, q):
     """The sha1 of everything a generated top depends on: its PCB, its STEP model, the assembly file, the standards and
-    tops.py. A generated top carries it, so a stale top can be told without reading 3D models."""
+    tops.py and bodies.py. A generated top carries it, so a stale top can be told without reading 3D models."""
     import hashlib
     h = hashlib.sha1()
-    for p in (q.pcb, step_path(a['_repo'], q.spec), a['_path'], os.path.join(CAD, 'standards.json'), os.path.join(CAD, 'tops.py')):
+    for p in (q.pcb, step_path(a['_repo'], q.spec), a['_path'], os.path.join(CAD, 'standards.json'), os.path.join(CAD, 'tops.py'),
+              os.path.join(CAD, 'bodies.py')):
         h.update(open(p, 'rb').read())
     return h.hexdigest()
 
@@ -230,7 +235,7 @@ def generated_tops(a):
     """[(placed board, path)] for every top this repository generates: its own boards whose top says generated,
     once each. A top marked draft is left out until the owner approves it."""
     out, seen = [], set()
-    for b in a['builds']:
+    for b in a['builds'] + [{'_placed': a.get('_also', [])}]:
         for q in b['_placed']:
             t = q.spec.get('top') or {}
             if not t.get('generated') or t.get('draft') or q.repo != a['_repo'] or (q.name, q.rev) in seen:
