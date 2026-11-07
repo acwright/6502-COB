@@ -2125,7 +2125,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 100.33 87.63 90)
 		(fields_autoplaced yes)
 		(effects
@@ -2355,7 +2355,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape output)
+		(shape passive)
 		(at 123.19 44.45 180)
 		(effects
 			(font

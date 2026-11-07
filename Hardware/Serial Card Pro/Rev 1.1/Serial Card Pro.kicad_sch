@@ -6738,7 +6738,7 @@
 		(uuid "8c2e8111-6c97-4652-a4c3-ae025565be0c")
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 41.91 149.86 180)
 		(effects
 			(font
@@ -6826,7 +6826,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 41.91 160.02 180)
 		(effects
 			(font
@@ -7024,7 +7024,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 24.13 137.16 180)
 		(effects
 			(font
@@ -7068,7 +7068,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 198.12 139.7 180)
 		(effects
 			(font
@@ -7178,7 +7178,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 198.12 137.16 180)
 		(effects
 			(font
@@ -7464,7 +7464,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 198.12 149.86 180)
 		(effects
 			(font
@@ -7508,7 +7508,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 198.12 152.4 180)
 		(effects
 			(font
@@ -7552,7 +7552,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 41.91 162.56 180)
 		(effects
 			(font
@@ -7684,7 +7684,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 198.12 142.24 180)
 		(effects
 			(font
@@ -7816,7 +7816,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 41.91 154.94 180)
 		(effects
 			(font
@@ -7882,7 +7882,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 198.12 154.94 180)
 		(effects
 			(font
@@ -13513,7 +13513,7 @@
 		(uuid "3ad41d5f-851a-5754-8772-9ac7707c1f0f")
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 39.37 31.75 180)
 		(effects
 			(font

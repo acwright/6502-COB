@@ -9242,7 +9242,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 138.43 140.97 90)
 		(effects
 			(font
@@ -9400,7 +9400,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 30.48 168.91 180)
 		(effects
 			(font
@@ -9422,7 +9422,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 30.48 166.37 180)
 		(effects
 			(font
@@ -9600,7 +9600,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 172.72 26.67 90)
 		(effects
 			(font
@@ -9760,7 +9760,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 157.48 36.83 180)
 		(effects
 			(font
@@ -9828,7 +9828,7 @@
 		)
 	)
 	(global_label "INTB_3V3"
-		(shape input)
+		(shape output)
 		(at 88.9 106.68 0)
 		(effects
 			(font
@@ -9874,7 +9874,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 30.48 153.67 180)
 		(effects
 			(font
@@ -9964,7 +9964,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 110.49 22.86 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10078,7 +10078,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 243.84 133.35 90)
 		(effects
 			(font
@@ -10212,7 +10212,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 27.94 29.21 180)
 		(fields_autoplaced yes)
 		(effects
@@ -10398,7 +10398,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 30.48 158.75 180)
 		(effects
 			(font
@@ -10536,7 +10536,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 125.73 153.67 180)
 		(effects
 			(font
@@ -10630,7 +10630,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 85.09 86.36 90)
 		(effects
 			(font
@@ -10696,7 +10696,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 30.48 171.45 180)
 		(effects
 			(font
@@ -10718,7 +10718,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 30.48 156.21 180)
 		(effects
 			(font
@@ -10876,7 +10876,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape output)
+		(shape passive)
 		(at 262.89 35.56 0)
 		(effects
 			(font
@@ -11036,7 +11036,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 38.1 109.22 0)
 		(fields_autoplaced yes)
 		(effects
@@ -11082,7 +11082,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 27.94 46.99 180)
 		(fields_autoplaced yes)
 		(effects
@@ -11172,7 +11172,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 157.48 39.37 180)
 		(effects
 			(font
@@ -11400,7 +11400,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 157.48 41.91 180)
 		(effects
 			(font
@@ -11422,7 +11422,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 157.48 44.45 180)
 		(effects
 			(font
@@ -11646,7 +11646,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 38.1 104.14 0)
 		(fields_autoplaced yes)
 		(effects

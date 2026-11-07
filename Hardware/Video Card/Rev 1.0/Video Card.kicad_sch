@@ -9458,7 +9458,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 83.82 160.02 180)
 		(effects
 			(font
@@ -9544,7 +9544,7 @@
 		)
 	)
 	(global_label "AD2"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 63.5 0)
 		(fields_autoplaced yes)
 		(effects
@@ -9566,7 +9566,7 @@
 		)
 	)
 	(global_label "AD7"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 50.8 0)
 		(fields_autoplaced yes)
 		(effects
@@ -9610,7 +9610,7 @@
 		)
 	)
 	(global_label "RD2"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 57.15 0)
 		(fields_autoplaced yes)
 		(effects
@@ -9780,7 +9780,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 83.82 162.56 180)
 		(effects
 			(font
@@ -9800,7 +9800,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 48.26 119.38 180)
 		(fields_autoplaced yes)
 		(effects
@@ -9888,7 +9888,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 83.82 170.18 180)
 		(effects
 			(font
@@ -10016,7 +10016,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 147.32 110.49 180)
 		(effects
 			(font
@@ -10100,7 +10100,7 @@
 		)
 	)
 	(global_label "AD1"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 66.04 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10270,7 +10270,7 @@
 		)
 	)
 	(global_label "RD7"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 69.85 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10442,7 +10442,7 @@
 		)
 	)
 	(global_label "RD5"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 64.77 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10546,7 +10546,7 @@
 		)
 	)
 	(global_label "AD0"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 68.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10590,7 +10590,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 83.82 172.72 180)
 		(effects
 			(font
@@ -10738,7 +10738,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 83.82 157.48 180)
 		(effects
 			(font
@@ -10866,7 +10866,7 @@
 		)
 	)
 	(global_label "RD0"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 52.07 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10932,7 +10932,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 48.26 114.3 180)
 		(fields_autoplaced yes)
 		(effects
@@ -10994,7 +10994,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 27.94 158.75 180)
 		(effects
 			(font
@@ -11122,7 +11122,7 @@
 		)
 	)
 	(global_label "AD5"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 55.88 0)
 		(fields_autoplaced yes)
 		(effects
@@ -11186,7 +11186,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 29.21 45.72 180)
 		(effects
 			(font
@@ -11310,7 +11310,7 @@
 		)
 	)
 	(global_label "RD3"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 59.69 0)
 		(fields_autoplaced yes)
 		(effects
@@ -11866,7 +11866,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 27.94 140.97 180)
 		(effects
 			(font
@@ -11930,7 +11930,7 @@
 		)
 	)
 	(global_label "RD6"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 67.31 0)
 		(fields_autoplaced yes)
 		(effects
@@ -12082,7 +12082,7 @@
 		)
 	)
 	(global_label "AD3"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 60.96 0)
 		(fields_autoplaced yes)
 		(effects
@@ -12168,7 +12168,7 @@
 		)
 	)
 	(global_label "RD4"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 62.23 0)
 		(fields_autoplaced yes)
 		(effects
@@ -12212,7 +12212,7 @@
 		)
 	)
 	(global_label "AD6"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 53.34 0)
 		(fields_autoplaced yes)
 		(effects
@@ -12470,7 +12470,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 83.82 175.26 180)
 		(effects
 			(font
@@ -12594,7 +12594,7 @@
 		)
 	)
 	(global_label "RD1"
-		(shape bidirectional)
+		(shape output)
 		(at 116.84 54.61 0)
 		(fields_autoplaced yes)
 		(effects
@@ -12744,7 +12744,7 @@
 		)
 	)
 	(global_label "AD4"
-		(shape output)
+		(shape bidirectional)
 		(at 62.23 58.42 0)
 		(fields_autoplaced yes)
 		(effects

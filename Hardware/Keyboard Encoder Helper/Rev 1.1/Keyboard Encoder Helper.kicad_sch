@@ -4860,7 +4860,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape bidirectional)
+		(shape passive)
 		(at 193.04 46.99 0)
 		(effects
 			(font
@@ -5622,7 +5622,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 175.26 74.93 180)
 		(effects
 			(font
@@ -5644,7 +5644,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 85.09 30.48 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5692,7 +5692,7 @@
 		)
 	)
 	(global_label "CA1"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 87.63 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5858,7 +5858,7 @@
 		)
 	)
 	(global_label "CB1"
-		(shape bidirectional)
+		(shape input)
 		(at 110.49 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6074,7 +6074,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 138.43 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6122,7 +6122,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 175.26 46.99 180)
 		(effects
 			(font
@@ -6168,7 +6168,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 172.72 116.84 90)
 		(effects
 			(font
@@ -6190,7 +6190,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape bidirectional)
+		(shape passive)
 		(at 193.04 74.93 0)
 		(effects
 			(font
@@ -6260,7 +6260,7 @@
 		)
 	)
 	(global_label "CA1"
-		(shape bidirectional)
+		(shape input)
 		(at 105.41 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6356,7 +6356,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 77.47 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6404,7 +6404,7 @@
 		)
 	)
 	(global_label "CB1"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 59.69 180)
 		(fields_autoplaced yes)
 		(effects

@@ -4714,7 +4714,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape bidirectional)
+		(shape passive)
 		(at 193.04 46.99 0)
 		(effects
 			(font
@@ -4756,7 +4756,7 @@
 		)
 	)
 	(global_label "PB5"
-		(shape bidirectional)
+		(shape input)
 		(at 120.65 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -4778,7 +4778,7 @@
 		)
 	)
 	(global_label "PB1"
-		(shape bidirectional)
+		(shape input)
 		(at 193.04 52.07 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4954,7 +4954,7 @@
 		)
 	)
 	(global_label "PB6"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 52.07 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4976,7 +4976,7 @@
 		)
 	)
 	(global_label "PB1"
-		(shape bidirectional)
+		(shape input)
 		(at 130.81 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5086,7 +5086,7 @@
 		)
 	)
 	(global_label "PB4"
-		(shape bidirectional)
+		(shape input)
 		(at 123.19 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5214,7 +5214,7 @@
 		)
 	)
 	(global_label "PB2"
-		(shape bidirectional)
+		(shape input)
 		(at 128.27 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5258,7 +5258,7 @@
 		)
 	)
 	(global_label "PB3"
-		(shape bidirectional)
+		(shape input)
 		(at 125.73 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5280,7 +5280,7 @@
 		)
 	)
 	(global_label "PB7"
-		(shape bidirectional)
+		(shape input)
 		(at 115.57 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5390,7 +5390,7 @@
 		)
 	)
 	(global_label "PB6"
-		(shape bidirectional)
+		(shape input)
 		(at 118.11 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5412,7 +5412,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 175.26 74.93 180)
 		(effects
 			(font
@@ -5432,7 +5432,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 85.09 30.48 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5454,7 +5454,7 @@
 		)
 	)
 	(global_label "PB0"
-		(shape bidirectional)
+		(shape input)
 		(at 133.35 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5476,7 +5476,7 @@
 		)
 	)
 	(global_label "CA1"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 87.63 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5628,7 +5628,7 @@
 		)
 	)
 	(global_label "CB1"
-		(shape bidirectional)
+		(shape input)
 		(at 110.49 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5650,7 +5650,7 @@
 		)
 	)
 	(global_label "PB4"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 57.15 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5672,7 +5672,7 @@
 		)
 	)
 	(global_label "PB0"
-		(shape bidirectional)
+		(shape input)
 		(at 193.04 49.53 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5738,7 +5738,7 @@
 		)
 	)
 	(global_label "PB5"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 54.61 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5760,7 +5760,7 @@
 		)
 	)
 	(global_label "PB7"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 49.53 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5804,7 +5804,7 @@
 		)
 	)
 	(global_label "PB2"
-		(shape bidirectional)
+		(shape input)
 		(at 193.04 54.61 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5826,7 +5826,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 138.43 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -5870,7 +5870,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 175.26 46.99 180)
 		(effects
 			(font
@@ -5912,7 +5912,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 172.72 116.84 90)
 		(effects
 			(font
@@ -5932,7 +5932,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape bidirectional)
+		(shape passive)
 		(at 193.04 74.93 0)
 		(effects
 			(font
@@ -5996,7 +5996,7 @@
 		)
 	)
 	(global_label "CA1"
-		(shape bidirectional)
+		(shape input)
 		(at 105.41 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6084,7 +6084,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape bidirectional)
+		(shape passive)
 		(at 77.47 172.72 90)
 		(fields_autoplaced yes)
 		(effects
@@ -6128,7 +6128,7 @@
 		)
 	)
 	(global_label "CB1"
-		(shape bidirectional)
+		(shape input)
 		(at 175.26 59.69 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6194,7 +6194,7 @@
 		)
 	)
 	(global_label "PB3"
-		(shape bidirectional)
+		(shape input)
 		(at 193.04 57.15 0)
 		(fields_autoplaced yes)
 		(effects

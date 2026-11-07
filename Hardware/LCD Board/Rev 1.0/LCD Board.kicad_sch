@@ -5813,7 +5813,7 @@
 		(uuid "d4b95395-4bb1-471a-a504-e65e5c96e6fe")
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 96.52 167.64 180)
 		(effects
 			(font
@@ -5835,7 +5835,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 96.52 157.48 180)
 		(effects
 			(font
@@ -5857,7 +5857,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 96.52 172.72 180)
 		(effects
 			(font
@@ -5901,7 +5901,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 96.52 154.94 180)
 		(effects
 			(font
@@ -5923,7 +5923,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 83.82 35.56 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5947,7 +5947,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 96.52 170.18 180)
 		(effects
 			(font
@@ -5993,7 +5993,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 83.82 33.02 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6181,7 +6181,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 83.82 40.64 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6369,7 +6369,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 83.82 38.1 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6441,7 +6441,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 109.22 76.2 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6657,7 +6657,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 96.52 160.02 180)
 		(effects
 			(font
@@ -6845,7 +6845,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 83.82 66.04 0)
 		(effects
 			(font
@@ -6889,7 +6889,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 83.82 73.66 0)
 		(effects
 			(font
@@ -10262,7 +10262,7 @@
 		(uuid "63b00b5e-74e4-53e3-aa2a-8cadb66002cd")
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 34.29 138.43 180)
 		(fields_autoplaced yes)
 		(effects

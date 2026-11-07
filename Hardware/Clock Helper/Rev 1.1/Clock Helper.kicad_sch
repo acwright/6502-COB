@@ -2400,7 +2400,7 @@
 		(uuid "fb9ddb58-53de-459a-9543-4438d77f2486")
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 55.88 86.36 0)
 		(fields_autoplaced yes)
 		(effects
@@ -2472,7 +2472,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 184.15 62.23 90)
 		(fields_autoplaced yes)
 		(effects
@@ -2496,7 +2496,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 250.19 130.81 90)
 		(fields_autoplaced yes)
 		(effects
@@ -2520,7 +2520,7 @@
 		)
 	)
 	(global_label "RDY"
-		(shape input)
+		(shape output)
 		(at 190.5 88.9 0)
 		(fields_autoplaced yes)
 		(effects
@@ -2568,7 +2568,7 @@
 		)
 	)
 	(global_label "SYNC"
-		(shape input)
+		(shape output)
 		(at 55.88 91.44 0)
 		(fields_autoplaced yes)
 		(effects
@@ -2592,7 +2592,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 100.33 72.39 90)
 		(fields_autoplaced yes)
 		(effects
@@ -2616,7 +2616,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 55.88 88.9 0)
 		(fields_autoplaced yes)
 		(effects

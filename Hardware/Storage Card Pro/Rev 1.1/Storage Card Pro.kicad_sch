@@ -7411,7 +7411,7 @@
 		(uuid "fad29fa4-ac20-4444-9390-57d43ce6a732")
 	)
 	(global_label "3V3"
-		(shape output)
+		(shape passive)
 		(at 147.32 175.26 0)
 		(effects
 			(font
@@ -7549,7 +7549,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 226.06 104.14 90)
 		(effects
 			(font
@@ -7663,7 +7663,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 147.32 73.66 0)
 		(effects
 			(font
@@ -7823,7 +7823,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 41.91 165.1 180)
 		(effects
 			(font
@@ -7867,7 +7867,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 41.91 177.8 180)
 		(effects
 			(font
@@ -8029,7 +8029,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 41.91 172.72 180)
 		(effects
 			(font
@@ -8073,7 +8073,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 147.32 68.58 0)
 		(effects
 			(font
@@ -8095,7 +8095,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 243.84 76.2 90)
 		(effects
 			(font
@@ -8233,7 +8233,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 175.26 119.38 90)
 		(effects
 			(font
@@ -8763,7 +8763,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 147.32 66.04 0)
 		(effects
 			(font
@@ -8875,7 +8875,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 41.91 162.56 180)
 		(effects
 			(font
@@ -9217,7 +9217,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 41.91 175.26 180)
 		(effects
 			(font
@@ -9329,7 +9329,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 39.37 34.29 180)
 		(effects
 			(font
@@ -9351,7 +9351,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 41.91 160.02 180)
 		(effects
 			(font
@@ -9419,7 +9419,7 @@
 		)
 	)
 	(global_label "3V3"
-		(shape input)
+		(shape passive)
 		(at 191.77 33.02 90)
 		(effects
 			(font

@@ -4493,7 +4493,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 240.03 38.1 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4565,7 +4565,7 @@
 		)
 	)
 	(global_label "SYNC"
-		(shape output)
+		(shape input)
 		(at 240.03 60.96 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4731,7 +4731,7 @@
 		)
 	)
 	(global_label "BE"
-		(shape input)
+		(shape output)
 		(at 240.03 55.88 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4779,7 +4779,7 @@
 		)
 	)
 	(global_label "RDY"
-		(shape input)
+		(shape output)
 		(at 240.03 53.34 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4923,7 +4923,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 240.03 40.64 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5091,7 +5091,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 240.03 35.56 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6239,7 +6239,7 @@
 		(uuid "7c37e947-c7d4-5dc6-9b7f-68a692439099")
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 93.98 80.01 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6307,7 +6307,7 @@
 		(uuid "9fd15d6b-adbb-50e2-a55e-c7cdd0e056c8")
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 93.98 82.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6341,7 +6341,7 @@
 		(uuid "7da282ec-dcf4-553a-8fbb-0a181547a64e")
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 73.66 85.09 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6375,7 +6375,7 @@
 		(uuid "53f4ca91-ad59-5d1a-a734-8068305174eb")
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 93.98 85.09 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6443,7 +6443,7 @@
 		(uuid "14e65d9b-0062-5383-be86-0e6ff657af80")
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 93.98 87.63 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6477,7 +6477,7 @@
 		(uuid "17274947-764f-553c-8bfa-38229d1716e8")
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 73.66 90.17 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6511,7 +6511,7 @@
 		(uuid "5a0d0ec7-d668-5519-9cdc-164bfcc0874f")
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 93.98 90.17 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6613,7 +6613,7 @@
 		(uuid "db6d9578-a072-5187-96f5-a3a5ab438b04")
 	)
 	(global_label "A9"
-		(shape output)
+		(shape input)
 		(at 93.98 92.71 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6681,7 +6681,7 @@
 		(uuid "b8a6779a-98c8-5266-ab92-a2063f6a6dea")
 	)
 	(global_label "A8"
-		(shape output)
+		(shape input)
 		(at 93.98 95.25 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6749,7 +6749,7 @@
 		(uuid "67028350-1a35-5fea-982c-a0f125555163")
 	)
 	(global_label "A7"
-		(shape output)
+		(shape input)
 		(at 93.98 97.79 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6817,7 +6817,7 @@
 		(uuid "e1604ff5-f0fb-5c8b-89a5-638e2bf57d65")
 	)
 	(global_label "A6"
-		(shape output)
+		(shape input)
 		(at 93.98 100.33 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6885,7 +6885,7 @@
 		(uuid "612fd3e4-540d-5996-befd-0274961f370a")
 	)
 	(global_label "A5"
-		(shape output)
+		(shape input)
 		(at 93.98 102.87 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6987,7 +6987,7 @@
 		(uuid "e230a4e5-1bee-5f6b-846a-9eb744941a32")
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 93.98 105.41 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7055,7 +7055,7 @@
 		(uuid "3219e783-251c-5926-969a-21ee2efa9d12")
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 93.98 107.95 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7123,7 +7123,7 @@
 		(uuid "d71d0270-3fa3-508c-b2f1-41357ca0fc03")
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 93.98 110.49 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7191,7 +7191,7 @@
 		(uuid "60b214a6-184c-5975-9974-0534333ef4d6")
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 93.98 113.03 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7259,7 +7259,7 @@
 		(uuid "a32b9b85-1ea4-5b6e-87e4-6d01128d2593")
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 93.98 115.57 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7497,7 +7497,7 @@
 		(uuid "2b633f0f-f3db-512b-9ac5-25f3eed7a2f7")
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 93.98 77.47 0)
 		(fields_autoplaced yes)
 		(effects

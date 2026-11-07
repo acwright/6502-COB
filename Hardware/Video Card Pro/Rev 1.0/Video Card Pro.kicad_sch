@@ -8940,7 +8940,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 88.9 160.02 180)
 		(effects
 			(font
@@ -9140,7 +9140,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 88.9 162.56 180)
 		(effects
 			(font
@@ -9162,7 +9162,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 123.19 63.5 0)
 		(effects
 			(font
@@ -9184,7 +9184,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 53.34 111.76 180)
 		(fields_autoplaced yes)
 		(effects
@@ -9406,7 +9406,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 88.9 170.18 180)
 		(effects
 			(font
@@ -9428,7 +9428,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 123.19 66.04 0)
 		(effects
 			(font
@@ -9758,7 +9758,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 88.9 172.72 180)
 		(effects
 			(font
@@ -9868,7 +9868,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 88.9 157.48 180)
 		(effects
 			(font
@@ -9934,7 +9934,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 123.19 60.96 0)
 		(effects
 			(font
@@ -9956,7 +9956,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 53.34 106.68 180)
 		(fields_autoplaced yes)
 		(effects
@@ -10046,7 +10046,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 123.19 68.58 0)
 		(effects
 			(font
@@ -10290,7 +10290,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 123.19 53.34 0)
 		(effects
 			(font
@@ -10730,7 +10730,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 27.94 140.97 180)
 		(effects
 			(font
@@ -11086,7 +11086,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 88.9 175.26 180)
 		(effects
 			(font
@@ -11262,7 +11262,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 123.19 58.42 0)
 		(effects
 			(font

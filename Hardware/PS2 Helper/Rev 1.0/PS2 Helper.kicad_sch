@@ -4153,7 +4153,7 @@
 		(uuid "ffbcdf58-a209-4dcb-bede-02aee5a19ea2")
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 83.82 76.2 90)
 		(effects
 			(font
@@ -4215,7 +4215,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape input)
+		(shape passive)
 		(at 213.36 45.72 0)
 		(effects
 			(font
@@ -4235,7 +4235,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 220.98 96.52 90)
 		(effects
 			(font
@@ -4567,7 +4567,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 34.29 176.53 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4777,7 +4777,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 133.35 72.39 90)
 		(effects
 			(font
@@ -4921,7 +4921,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 74.93 45.72 180)
 		(effects
 			(font
@@ -5443,7 +5443,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 121.92 180.34 180)
 		(effects
 			(font
@@ -5527,7 +5527,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape input)
+		(shape passive)
 		(at 139.7 180.34 0)
 		(effects
 			(font
@@ -5547,7 +5547,7 @@
 		)
 	)
 	(global_label "VCC"
-		(shape input)
+		(shape passive)
 		(at 195.58 45.72 180)
 		(effects
 			(font
@@ -5607,7 +5607,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape input)
+		(shape passive)
 		(at 92.71 45.72 0)
 		(effects
 			(font

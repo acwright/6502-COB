@@ -5816,7 +5816,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 132.08 60.96 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5840,7 +5840,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 132.08 53.34 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5912,7 +5912,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 132.08 55.88 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6054,7 +6054,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 39.37 162.56 180)
 		(effects
 			(font
@@ -6076,7 +6076,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 39.37 160.02 180)
 		(effects
 			(font
@@ -6190,7 +6190,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 39.37 147.32 180)
 		(effects
 			(font
@@ -6236,7 +6236,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 132.08 48.26 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6592,7 +6592,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 132.08 63.5 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6616,7 +6616,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 39.37 152.4 180)
 		(effects
 			(font
@@ -6638,7 +6638,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 139.7 148.59 180)
 		(effects
 			(font
@@ -6754,7 +6754,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 39.37 165.1 180)
 		(effects
 			(font
@@ -6776,7 +6776,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 39.37 149.86 180)
 		(effects
 			(font
@@ -6822,7 +6822,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 132.08 58.42 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7056,7 +7056,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 62.23 109.22 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7080,7 +7080,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 36.83 54.61 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7462,7 +7462,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 62.23 104.14 180)
 		(fields_autoplaced yes)
 		(effects

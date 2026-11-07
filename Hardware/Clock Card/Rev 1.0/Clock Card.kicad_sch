@@ -4409,7 +4409,7 @@
 		(uuid "ffde60fe-9258-4acf-b416-51c5c6c3a850")
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 40.64 139.7 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4503,7 +4503,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 252.73 41.91 0)
 		(fields_autoplaced yes)
 		(effects

@@ -5564,7 +5564,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 38.1 129.54 180)
 		(effects
 			(font
@@ -5610,7 +5610,7 @@
 		)
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 224.79 133.35 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5656,7 +5656,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 43.18 55.88 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5752,7 +5752,7 @@
 		)
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 133.35 66.04 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5798,7 +5798,7 @@
 		)
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 38.1 142.24 180)
 		(effects
 			(font
@@ -5890,7 +5890,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 38.1 137.16 180)
 		(effects
 			(font
@@ -5984,7 +5984,7 @@
 		)
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 166.37 68.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -6080,7 +6080,7 @@
 		)
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 133.35 63.5 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6104,7 +6104,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 38.1 139.7 180)
 		(effects
 			(font
@@ -6408,7 +6408,7 @@
 		)
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 224.79 128.27 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6504,7 +6504,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 38.1 127 180)
 		(effects
 			(font
@@ -6526,7 +6526,7 @@
 		)
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 138.43 125.73 180)
 		(effects
 			(font
@@ -6548,7 +6548,7 @@
 		)
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 43.18 38.1 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6596,7 +6596,7 @@
 		)
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 133.35 68.58 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6714,7 +6714,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 38.1 124.46 180)
 		(effects
 			(font
@@ -6736,7 +6736,7 @@
 		)
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 166.37 66.04 0)
 		(fields_autoplaced yes)
 		(effects

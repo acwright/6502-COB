@@ -3825,7 +3825,7 @@
 		(uuid "fa76fd7e-d08d-4602-a8e8-c9f803dfc030")
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 171.45 72.39 180)
 		(effects
 			(font
@@ -3845,7 +3845,7 @@
 		)
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 171.45 77.47 180)
 		(effects
 			(font
@@ -3865,7 +3865,7 @@
 		)
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 171.45 64.77 180)
 		(effects
 			(font
@@ -3905,7 +3905,7 @@
 		)
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 171.45 74.93 180)
 		(effects
 			(font
@@ -3925,7 +3925,7 @@
 		)
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 171.45 59.69 180)
 		(effects
 			(font
@@ -3945,7 +3945,7 @@
 		)
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 171.45 62.23 180)
 		(effects
 			(font
@@ -6054,7 +6054,7 @@
 		(uuid "9c9f6e4c-98f7-50d4-9820-2853917dd34e")
 	)
 	(global_label "BE"
-		(shape input)
+		(shape output)
 		(at 43.18 55.88 180)
 		(effects
 			(font
@@ -6474,7 +6474,7 @@
 		(uuid "a30e71ce-0e63-5df6-8960-3bf7d018e4c3")
 	)
 	(global_label "IRQB"
-		(shape input)
+		(shape output)
 		(at 43.18 48.26 180)
 		(effects
 			(font
@@ -6504,7 +6504,7 @@
 		(uuid "86b373d6-0626-5a11-a954-15c7987a9598")
 	)
 	(global_label "NMIB"
-		(shape input)
+		(shape output)
 		(at 43.18 50.8 180)
 		(effects
 			(font
@@ -6564,7 +6564,7 @@
 		(uuid "44b4e090-78d3-5f15-b27d-e44a9ea4dc5a")
 	)
 	(global_label "RDY"
-		(shape input)
+		(shape output)
 		(at 43.18 53.34 180)
 		(effects
 			(font
@@ -6594,7 +6594,7 @@
 		(uuid "db3e4639-be86-502e-a2d7-b3146c1ff98d")
 	)
 	(global_label "RESB"
-		(shape input)
+		(shape output)
 		(at 43.18 45.72 180)
 		(effects
 			(font
@@ -6714,7 +6714,7 @@
 		(uuid "5cc74f78-979c-56bc-818c-ac28d297204e")
 	)
 	(global_label "A14"
-		(shape output)
+		(shape input)
 		(at 123.19 53.34 0)
 		(effects
 			(font
@@ -6774,7 +6774,7 @@
 		(uuid "63750610-fe86-5bea-86f8-03a6f2f15539")
 	)
 	(global_label "A13"
-		(shape output)
+		(shape input)
 		(at 123.19 55.88 0)
 		(effects
 			(font
@@ -6804,7 +6804,7 @@
 		(uuid "d27d5af6-150e-5410-8180-80ca6f299d92")
 	)
 	(global_label "RWB"
-		(shape output)
+		(shape input)
 		(at 102.87 58.42 180)
 		(effects
 			(font
@@ -6834,7 +6834,7 @@
 		(uuid "9766abf9-b860-5f17-b40b-8d50331d08ba")
 	)
 	(global_label "A12"
-		(shape output)
+		(shape input)
 		(at 123.19 58.42 0)
 		(effects
 			(font
@@ -6864,7 +6864,7 @@
 		(uuid "31898216-9b1b-5e62-9e4f-9030e134e913")
 	)
 	(global_label "SYNC"
-		(shape output)
+		(shape input)
 		(at 102.87 60.96 180)
 		(effects
 			(font
@@ -6894,7 +6894,7 @@
 		(uuid "f7c7ec22-0de8-5b63-9a23-b1560a075168")
 	)
 	(global_label "A11"
-		(shape output)
+		(shape input)
 		(at 123.19 60.96 0)
 		(effects
 			(font
@@ -6924,7 +6924,7 @@
 		(uuid "a04c4d7e-acbe-5ea1-a34f-4f43918fc36d")
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 102.87 63.5 180)
 		(effects
 			(font
@@ -6954,7 +6954,7 @@
 		(uuid "aa288648-059b-5043-a26a-e0d79742d8ca")
 	)
 	(global_label "A10"
-		(shape output)
+		(shape input)
 		(at 123.19 63.5 0)
 		(effects
 			(font
@@ -7014,7 +7014,7 @@
 		(uuid "af69467e-68e7-510b-a141-c26810f741e0")
 	)
 	(global_label "A9"
-		(shape output)
+		(shape input)
 		(at 123.19 66.04 0)
 		(effects
 			(font
@@ -7074,7 +7074,7 @@
 		(uuid "6237bd19-2fb5-5d8e-ad95-c818d6ff3253")
 	)
 	(global_label "A8"
-		(shape output)
+		(shape input)
 		(at 123.19 68.58 0)
 		(effects
 			(font
@@ -7134,7 +7134,7 @@
 		(uuid "498c776b-9779-5e32-849f-86c1840125ef")
 	)
 	(global_label "A7"
-		(shape output)
+		(shape input)
 		(at 123.19 71.12 0)
 		(effects
 			(font
@@ -7194,7 +7194,7 @@
 		(uuid "e74f969d-04ea-50e9-9951-8b61fd2e4521")
 	)
 	(global_label "A6"
-		(shape output)
+		(shape input)
 		(at 123.19 73.66 0)
 		(effects
 			(font
@@ -7254,7 +7254,7 @@
 		(uuid "b94155ef-2537-5c73-889f-c7dc3e5b93eb")
 	)
 	(global_label "A5"
-		(shape output)
+		(shape input)
 		(at 123.19 76.2 0)
 		(effects
 			(font
@@ -7344,7 +7344,7 @@
 		(uuid "45ee08ae-39ef-5bd1-b782-57da128c3349")
 	)
 	(global_label "A4"
-		(shape output)
+		(shape input)
 		(at 123.19 78.74 0)
 		(effects
 			(font
@@ -7404,7 +7404,7 @@
 		(uuid "c890cc31-cffd-5029-a406-652b27d77828")
 	)
 	(global_label "A3"
-		(shape output)
+		(shape input)
 		(at 123.19 81.28 0)
 		(effects
 			(font
@@ -7464,7 +7464,7 @@
 		(uuid "03ec041b-21f5-57dd-8fbb-800dd2a93248")
 	)
 	(global_label "A2"
-		(shape output)
+		(shape input)
 		(at 123.19 83.82 0)
 		(effects
 			(font
@@ -7524,7 +7524,7 @@
 		(uuid "959d2fe1-2413-555a-990e-9c8bf4393e48")
 	)
 	(global_label "A1"
-		(shape output)
+		(shape input)
 		(at 123.19 86.36 0)
 		(effects
 			(font
@@ -7584,7 +7584,7 @@
 		(uuid "822eca72-25ea-59c2-ac61-4f2fe19df39a")
 	)
 	(global_label "A0"
-		(shape output)
+		(shape input)
 		(at 123.19 88.9 0)
 		(effects
 			(font
@@ -7734,7 +7734,7 @@
 		(uuid "8502c4b1-559b-5d40-81a1-c777573a8c6c")
 	)
 	(global_label "A15"
-		(shape output)
+		(shape input)
 		(at 123.19 50.8 0)
 		(effects
 			(font
