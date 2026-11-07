@@ -42,6 +42,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `schematic/` | Draws and checks the 6502 bus, cart and card connectors (`busfix.py`, `check.py`), and sets each global label's shape from the signal's flow (`flow.py`). |
 | `library/` | Checks the KiCad libraries are the same in all five repositories, and renames parts across them. |
 | `board-images/` | Renders the board images in `CAD/Images/`. |
+| `cad/` | Reads each machine's `CAD/Assembly.json`, which places its boards on the plate, and checks it against the PCBs and today's plate. The family's standards for plates and tops are in its README. |
 | `consistency/` | `table.py --all` prints every board's newest revision against the family's rules. |
 
 ## Data

@@ -1,0 +1,28 @@
+{
+ "_about": "The family's standards for the flat parts, measured from today's plates and tops and confirmed by the owner (CAD.md C2, 2026-11-07). The README explains each one. A machine's CAD/Assembly.json can override any of them for itself, and says why.",
+ "plate": {
+  "margin": 10,
+  "gap": 10,
+  "radius": 5,
+  "hole": 3.2,
+  "corner_hole": 5,
+  "layers": 3
+ },
+ "sheet": 3,
+ "material": "clear acrylic",
+ "standoff": 10,
+ "top": {
+  "hole": 3.2,
+  "enclosure_grow": 2
+ },
+ "openings": {
+  "round_to": 0.5,
+  "access": {"margin": 1.0, "radius": 0.5},
+  "tall": {"margin": 1.5, "radius": 1.0},
+  "crystal": {"margin": 0.5},
+  "lcd": {"margin": 1.0, "radius": 1.0},
+  "keys": {"margin_x": 1.9, "margin_y": 1.6, "radius": 1.0},
+  "merge_below": 3.0,
+  "reset_button": {"hole": 3.3, "printed_part": "ACE: CAD/Bases/Reset Button"}
+ }
+}
