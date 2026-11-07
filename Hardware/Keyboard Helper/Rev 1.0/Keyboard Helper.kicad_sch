@@ -8693,7 +8693,7 @@
 		)
 	)
 	(global_label "PA1"
-		(shape input)
+		(shape bidirectional)
 		(at 219.71 151.13 0)
 		(fields_autoplaced yes)
 		(effects
@@ -8717,7 +8717,7 @@
 		)
 	)
 	(global_label "PA5"
-		(shape input)
+		(shape bidirectional)
 		(at 201.93 153.67 180)
 		(fields_autoplaced yes)
 		(effects
@@ -8765,7 +8765,7 @@
 		)
 	)
 	(global_label "PB1"
-		(shape bidirectional)
+		(shape output)
 		(at 144.78 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -8955,7 +8955,7 @@
 		)
 	)
 	(global_label "PB2"
-		(shape bidirectional)
+		(shape output)
 		(at 142.24 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -9191,7 +9191,7 @@
 		)
 	)
 	(global_label "PA6"
-		(shape input)
+		(shape bidirectional)
 		(at 201.93 151.13 180)
 		(fields_autoplaced yes)
 		(effects
@@ -9931,7 +9931,7 @@
 		)
 	)
 	(global_label "PA7"
-		(shape input)
+		(shape bidirectional)
 		(at 201.93 148.59 180)
 		(fields_autoplaced yes)
 		(effects
@@ -9979,7 +9979,7 @@
 		)
 	)
 	(global_label "PB4"
-		(shape bidirectional)
+		(shape output)
 		(at 137.16 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10099,7 +10099,7 @@
 		)
 	)
 	(global_label "PB0"
-		(shape bidirectional)
+		(shape output)
 		(at 147.32 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10291,7 +10291,7 @@
 		)
 	)
 	(global_label "PA4"
-		(shape input)
+		(shape bidirectional)
 		(at 201.93 156.21 180)
 		(fields_autoplaced yes)
 		(effects
@@ -10315,7 +10315,7 @@
 		)
 	)
 	(global_label "PA0"
-		(shape input)
+		(shape bidirectional)
 		(at 219.71 148.59 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10387,7 +10387,7 @@
 		)
 	)
 	(global_label "PB3"
-		(shape bidirectional)
+		(shape output)
 		(at 139.7 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10459,7 +10459,7 @@
 		)
 	)
 	(global_label "PB6"
-		(shape bidirectional)
+		(shape output)
 		(at 132.08 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10531,7 +10531,7 @@
 		)
 	)
 	(global_label "PA2"
-		(shape input)
+		(shape bidirectional)
 		(at 219.71 153.67 0)
 		(fields_autoplaced yes)
 		(effects
@@ -10745,7 +10745,7 @@
 		)
 	)
 	(global_label "PB5"
-		(shape bidirectional)
+		(shape output)
 		(at 134.62 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10913,7 +10913,7 @@
 		)
 	)
 	(global_label "PB7"
-		(shape bidirectional)
+		(shape output)
 		(at 129.54 168.91 90)
 		(fields_autoplaced yes)
 		(effects
@@ -10937,7 +10937,7 @@
 		)
 	)
 	(global_label "PA3"
-		(shape input)
+		(shape bidirectional)
 		(at 219.71 156.21 0)
 		(fields_autoplaced yes)
 		(effects

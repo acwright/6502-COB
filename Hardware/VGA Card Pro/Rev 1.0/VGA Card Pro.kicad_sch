@@ -9828,7 +9828,7 @@
 		)
 	)
 	(global_label "INTB_3V3"
-		(shape output)
+		(shape input)
 		(at 88.9 106.68 0)
 		(effects
 			(font
