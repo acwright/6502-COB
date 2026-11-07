@@ -17,12 +17,104 @@
  },
  "openings": {
   "round_to": 0.5,
-  "access": {"margin": 1.0, "radius": 0.5},
-  "tall": {"margin": 1.5, "radius": 1.0},
-  "crystal": {"margin": 0.5},
-  "lcd": {"margin": 1.0, "radius": 1.0},
-  "keys": {"margin_x": 1.9, "margin_y": 1.6, "radius": 1.0},
+  "access": {
+   "margin": 1.0,
+   "radius": 0.5
+  },
+  "tall": {
+   "margin": 1.5,
+   "radius": 1.0
+  },
+  "crystal": {
+   "margin": 0.5
+  },
+  "lcd": {
+   "margin": 1.0,
+   "radius": 1.0
+  },
+  "keys": {
+   "margin_x": 1.9,
+   "margin_y": 1.6,
+   "radius": 1.0
+  },
   "merge_below": 3.0,
-  "reset_button": {"hole": 3.3, "printed_part": "ACE: CAD/Bases/Reset Button"}
- }
+  "reset_button": {
+   "hole": 3.3,
+   "printed_part": "ACE: CAD/Bases/Reset Button"
+  }
+ },
+ "stacks": {
+  "_about": "How each kind of hole goes together, and the hardware it takes, for the mounting drawing. 'below' is under the board, 'above' over it (the same for every board hole), 'part' each hole of a printed part.",
+  "screwed": {
+   "text": "A normal hole, from the bottom up: an M3 × 12 pan head through the back of the plate, a female-male standoff, the board, a female-female standoff, the top, and an M3 × 6 pan head.",
+   "below": [
+    [
+     "M3 × 10 standoff, female-male",
+     1
+    ],
+    [
+     "M3 × 12 pan head",
+     1
+    ]
+   ]
+  },
+  "resting": {
+   "text": "{name} on {build}: a female-male standoff stands on the plate with no screw below it.",
+   "below": [
+    [
+     "M3 × 10 standoff, female-male",
+     1
+    ]
+   ]
+  },
+  "on_part": {
+   "text": "{name} on {build}: an M3 × 8 countersunk screw comes up through the {part} and the board into a female-female standoff, then the top.",
+   "below": [
+    [
+     "M3 × 8 countersunk",
+     1
+    ]
+   ]
+  },
+  "above": [
+   [
+    "M3 × 10 standoff, female-female",
+    1
+   ],
+   [
+    "M3 × 6 pan head",
+    1
+   ]
+  ],
+  "part": {
+   "text": "{parts}: an M3 × 16 countersunk screw from the top, through the plate, into a nut in the part below.",
+   "each": [
+    [
+     "M3 × 16 countersunk",
+     1
+    ],
+    [
+     "M3 nut",
+     1
+    ]
+   ]
+  },
+  "feet": {
+   "text": "Rubber feet: one in the Ø10 recess under each {parts}.",
+   "row": "Rubber foot, Ø10",
+   "under": [
+    "Corner",
+    "Center Support"
+   ]
+  }
+ },
+ "hardware_order": [
+  "M3 × 10 standoff, female-male",
+  "M3 × 10 standoff, female-female",
+  "M3 × 12 pan head",
+  "M3 × 6 pan head",
+  "M3 × 16 countersunk",
+  "M3 × 8 countersunk",
+  "M3 nut"
+ ]
 }

@@ -6,6 +6,8 @@
 Everything is in mm, in the PCB file's own frame (x right, y down).
   edge      the board's outline as one polygon, and its bounding box (without the edge line's width)
   holes     every mounting hole: reference, centre, drill
+  radius    the largest arc on the outline: the corner radius
+  zones     every named rule area: its name and box
   parts     every footprint: reference, value, side, position, rotation, the box round its pads, its courtyard's box,
             and the box round everything it draws on the fab and silkscreen layers
 """
@@ -74,8 +76,14 @@ def main(path):
                       'x': round(p.x / 1e6, 4), 'y': round(p.y / 1e6, 4), 'rot': round(f.GetOrientationDegrees(), 3),
                       'pads': box(pb) if pb else None, 'courtyard': cy, 'drawn': box(drawn) if drawn else None,
                       'models': [m.m_Filename for m in f.Models() if m.m_Show]})
+    zones = []
+    for z in b.Zones():
+        if z.GetIsRuleArea() and z.GetZoneName():
+            zb = z.GetBoundingBox()
+            zones.append({'name': z.GetZoneName(), 'box': box(zb)})
+    radius = max([round(d.GetRadius() / 1e6, 4) for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts and d.GetShape() == pcbnew.SHAPE_T_ARC] or [0])
     thick = round(b.GetDesignSettings().GetBoardThickness() / 1e6, 4)
-    json.dump({'path': path, 'edge_box': edge_box, 'outlines': outlines, 'thickness': thick, 'holes': holes, 'parts': parts}, sys.stdout)
+    json.dump({'path': path, 'edge_box': edge_box, 'outlines': outlines, 'thickness': thick, 'radius': radius, 'zones': zones, 'holes': holes, 'parts': parts}, sys.stdout)
 
 
 main(sys.argv[1])

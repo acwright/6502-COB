@@ -4,24 +4,35 @@ The base plates, the top panels and the helper enclosures' tops are laser-cut fr
 how a machine is put together from its assembly file, `CAD/Assembly.json`, and place every board on the plate from
 its own PCB, so a plate, its mounting drawing and its tops can be generated and checked instead of drawn by hand.
 
-**Status (2026-11-07).** The assembly file and its check are written, starting with the KIM. Generating the mounting
-drawing and `Plate.svg` (`CAD.md` C4) and the tops (C5) come next. The other machines get their assembly files when
-their parts are generated (C7). Until then each plate's mounting drawing comes from an older script kept outside
-the repositories.
+**Status (2026-11-07).** The KIM's plate, its mounting drawing and its STL are generated from its assembly file
+(`CAD.md` C4). The tops (C5) come next. The other machines get their assembly files when their parts are generated
+(C7); until then their plates are Fusion's and their mounting drawings come from an older script kept outside the
+repositories.
 
 ## What's here
 
 | File | What it does |
 |---|---|
+| `make.py` | Writes `CAD/Bases/Plate.svg`, `Plate Mounting Drawing.svg` and `.png`, and `Plate.stl`. `--check` writes nothing and fails if any is out of date; `derived-check.py` runs it. `--compare` lists how the generated plate differs from the one in git. |
+| `plate.py` | The plate from the assembly file: its outline, its holes and what uses each one in each build, and `Plate.svg`. |
+| `drawing.py` | The mounting drawing: both builds, the numbered holes, the boards, the hardware each build needs, counted from each hole's kind, and how a hole goes together. |
+| `solid.py` | `Plate.stl`, one layer of the plate as a 3D model, from `Plate.svg`. Needs build123d. |
+| `setup.sh` | Makes `Tools/work/venv`, the Python with build123d that `solid.py` (and the tops, to come) needs. Run it once. |
 | `assembly.py` | Reads `CAD/Assembly.json`, places each board from its PCB, and checks it: every board hole on a plate hole or a listed position, every plate hole used, the margin and gaps kept, every listed top present. `-v` lists every plate hole and what uses it. |
 | `standards.json` | The family's standards, below, as numbers. An assembly file can override one for its own machine, and says why. |
 | `board_dump.py` | Writes one PCB's outline, mounting holes and parts as JSON. It runs with KiCad's Python, which has `pcbnew`; `assembly.py` calls it and caches the result in `Tools/work/cache.json`. |
 | `fusion.py` | Reads the plates and tops drawn in Fusion 360 and exported with the Shaper Origin add-in, in millimetres. |
 
 ```sh
-python3 Tools/cad/assembly.py         # this repository's assembly file, if it has one
-python3 Tools/cad/assembly.py --all   # every repository's
+zsh Tools/cad/setup.sh                # once: the Python that writes the STL
+python3 Tools/cad/make.py             # write this repository's plate, drawing and STL from CAD/Assembly.json
+python3 Tools/cad/make.py --check     # are they current? derived-check.py runs this
+python3 Tools/cad/assembly.py -v      # check the assembly file, and list every plate hole and what uses it
 ```
+
+Add `--all` to any of them for every repository. When `Plate.svg` changes, `make.py` says so: remake `Plate.lbrn2` in
+LightBurn from the new SVG. `Plate.stl`'s header names the `Plate.svg` it was made from, so the check needs no 3D
+tools.
 
 ## The assembly file
 
@@ -38,11 +49,17 @@ computer is used: x to the right and y towards the front, from the plate's back-
   `"generated": true` marks a top these tools draw.
 - **`gap`, `gap_y`**: a build's own gaps between boards side by side and one behind the other, when it doesn't keep
   the family's 10 mm.
-- **`positions`**: a board hole with no plate hole under it, named as the mounting drawing names it (S1, S2), with the
-  builds that use it and how each is stacked.
+- **`positions`**: a board hole with no plate hole under it, named as the mounting drawing names it (S1, S2): for each
+  build that uses it, its kind, `resting` (a standoff stands on the plate) or `on_part` (the board screws to the
+  printed part `part` names).
 - **`printed_parts`**: the printed parts that screw to the plate, with their holes (`"corners"` for the Corners),
   the builds they're in, and a note for the drawing.
-- **`hardware`**, **`notes`**: what the drawing's hardware table and notes need beyond the normal stack.
+- **`plate.added`**: a hole added to the plate after plates were made, with the note the drawing shows for it.
+- **`hardware`**, **`notes`**: what the drawing's hardware table and notes need beyond the stacks, which are in
+  `standards.json`.
+- **Drawing hints**, which only place text: `drawing` (title, subtitle), a build's `short` (its table column) and
+  `phrase` ("the four-board build"), and a board's `label` (where its name goes) and `features` (parts and named rule
+  areas outlined on the drawing).
 
 Keys that start with `_` are notes for the reader, such as why a build keeps its own gap.
 
@@ -132,6 +149,10 @@ the same holes and openings as the board's own top.
 ### The generated files
 
 - **Drawn as the computer is used, seen from above**, front edge at the bottom. Fusion's exports are sometimes turned
-  180° and sometimes not; `assembly.py` finds which way round today's `Plate.svg` is by its holes.
+  180° and sometimes not; `assembly.py` finds which way round a Fusion `Plate.svg` is by its holes.
+- **Plate holes to 0.01 mm.** A board's edge can sit a few micrometres off its holes (the COB Backplane Helper's
+  does), and that shouldn't reach the plate.
+- **`Plate.stl`** is one layer, in the frame Fusion exported the KIM's in: centred, x to the right, z towards the
+  front, y up, from y 6 to 9.
 - **In millimetres**, at 1:1, in the Shaper export's style (a black outline, white holes), so LightBurn imports them
   as it does today. LightBurn files are the owner's: when a cut file changes, say which `.lbrn2` needs remaking.

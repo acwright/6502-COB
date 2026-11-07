@@ -2,6 +2,7 @@
 
 Every plate, top and enclosure top in CAD/ was made that way. Each file is one black path, the part's outline, and a
 white path for every hole and cut-out. The paths use M, L, A and a, in centimetres, under a transform that flips y.
+The files Tools/cad/ generates are drawn the same way, in millimetres and with no transform, so this reads them too.
 read() turns a file into millimetres, in the SVG's own frame: x to the right and y down from the file's top-left
 corner, as LightBurn and a browser show it.
 
@@ -47,11 +48,14 @@ def _arc(p0, rx, large, sweep, p1):
     return cx, cy, r, a0, da
 
 
-def _path(d, tx, ty, k):
+def _path(d, tx, ty, k, flip=True):
     """One path's commands -> (points, arcs) in mm, in the SVG's frame."""
     pts, arcs = [], []
     cur = start = None
-    out = lambda x, y: ((x + tx) * k, (ty - y) * k)
+    if flip:
+        out = lambda x, y: ((x + tx) * k, (ty - y) * k)
+    else:
+        out = lambda x, y: (x * k, y * k)
     for c, args in re.findall(r'([MLAaz])([^MLAaz]*)', d):
         a = _num(args)
         if c in 'ML':
@@ -93,7 +97,7 @@ def read(path):
         d = re.search(r'\bd="([^"]+)"', attrs).group(1)
         tr = re.search(r'transform="matrix\(1,0,0,-1,([-\d.]+),([-\d.]+)\)"', attrs)
         tx, ty = (float(tr.group(1)), float(tr.group(2))) if tr else (0.0, 0.0)
-        pts, arcs = _path(d, tx, ty, k)
+        pts, arcs = _path(d, tx, ty, k, flip=bool(tr))   # the generated files are drawn in the SVG's own frame
         black = 'fill="rgb(0,0,0)"' in attrs
         circle = re.fullmatch(r'M[-\d.,]+ a([\d.]+),\1 0 1,1 [-\d.]+,0 a\1,\1 0 1,1 [-\d.]+,0z', d.strip())
         if black:
