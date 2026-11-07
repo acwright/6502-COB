@@ -2533,6 +2533,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Digikey" "296-1602-5-ND"
@@ -2817,6 +2818,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Digikey" "296-1602-5-ND"
@@ -5594,6 +5596,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Digikey" "296-1602-5-ND"

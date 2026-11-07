@@ -4559,7 +4559,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 128.27) (xy 148.59 130.81)
+			(xy 233.68 129.54) (xy 233.68 132.08)
 		)
 		(stroke
 			(width 0)
@@ -4569,7 +4569,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 109.22) (xy 148.59 113.03)
+			(xy 233.68 110.49) (xy 233.68 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4579,7 +4579,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 128.27) (xy 148.59 128.27)
+			(xy 231.14 129.54) (xy 233.68 129.54)
 		)
 		(stroke
 			(width 0)
@@ -4589,7 +4589,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 120.65) (xy 148.59 120.65)
+			(xy 231.14 121.92) (xy 233.68 121.92)
 		)
 		(stroke
 			(width 0)
@@ -4629,7 +4629,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 118.11) (xy 148.59 118.11)
+			(xy 231.14 119.38) (xy 233.68 119.38)
 		)
 		(stroke
 			(width 0)
@@ -4699,7 +4699,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 115.57) (xy 148.59 115.57)
+			(xy 231.14 116.84) (xy 233.68 116.84)
 		)
 		(stroke
 			(width 0)
@@ -4709,7 +4709,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 125.73) (xy 148.59 125.73)
+			(xy 231.14 127) (xy 233.68 127)
 		)
 		(stroke
 			(width 0)
@@ -4749,7 +4749,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 113.03) (xy 146.05 113.03)
+			(xy 233.68 114.3) (xy 231.14 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4899,7 +4899,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 123.19) (xy 148.59 123.19)
+			(xy 231.14 124.46) (xy 233.68 124.46)
 		)
 		(stroke
 			(width 0)
@@ -5611,7 +5611,7 @@
 	)
 	(global_label "VCC"
 		(shape passive)
-		(at 148.59 109.22 90)
+		(at 233.68 110.49 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5620,7 +5620,7 @@
 		)
 		(uuid "054832f4-fd79-41dc-99cb-51a7f0c7b837")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.59 109.22 0)
+			(at 233.68 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5737,7 +5737,7 @@
 	)
 	(global_label "GPIO0"
 		(shape bidirectional)
-		(at 148.59 125.73 0)
+		(at 233.68 127 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5747,7 +5747,7 @@
 		)
 		(uuid "25f08424-2e80-4275-a916-aaa16105c737")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.3713 125.73 0)
+			(at 243.4613 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5781,7 +5781,7 @@
 	)
 	(global_label "GPIO1"
 		(shape bidirectional)
-		(at 148.59 123.19 0)
+		(at 233.68 124.46 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5791,7 +5791,7 @@
 		)
 		(uuid "2cd32799-46ec-4425-b73d-ca226b299f4f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.3713 123.19 0)
+			(at 243.4613 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6339,7 +6339,7 @@
 	)
 	(global_label "GPIO2"
 		(shape bidirectional)
-		(at 148.59 120.65 0)
+		(at 233.68 121.92 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6349,7 +6349,7 @@
 		)
 		(uuid "9af88d10-5d2e-4edd-b4f1-3449e754c581")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.3713 120.65 0)
+			(at 243.4613 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6381,7 +6381,7 @@
 	)
 	(global_label "GPIO4"
 		(shape bidirectional)
-		(at 148.59 115.57 0)
+		(at 233.68 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6391,7 +6391,7 @@
 		)
 		(uuid "9c06d273-fadb-4ad6-a50c-6cf3c635ea92")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.3713 115.57 0)
+			(at 243.4613 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6661,7 +6661,7 @@
 	)
 	(global_label "GPIO3"
 		(shape bidirectional)
-		(at 148.59 118.11 0)
+		(at 233.68 119.38 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6671,7 +6671,7 @@
 		)
 		(uuid "ce1cbba5-cc7f-43d7-8b4f-4425198eb191")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.3713 118.11 0)
+			(at 243.4613 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7379,7 +7379,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 148.59 130.81 0)
+		(at 233.68 132.08 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7388,7 +7388,7 @@
 		(fields_autoplaced yes)
 		(uuid "3414d73a-978f-4b5c-aba1-268f9354e1b7")
 		(property "Reference" "#PWR03"
-			(at 148.59 137.16 0)
+			(at 233.68 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7397,7 +7397,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 148.59 135.89 0)
+			(at 233.68 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7405,7 +7405,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 148.59 130.81 0)
+			(at 233.68 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7414,7 +7414,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 148.59 130.81 0)
+			(at 233.68 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7423,7 +7423,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 148.59 130.81 0)
+			(at 233.68 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8818,7 +8818,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x07")
-		(at 140.97 120.65 180)
+		(at 226.06 121.92 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8827,7 +8827,7 @@
 		(fields_autoplaced yes)
 		(uuid "f2c343c0-b7f7-469c-8ccd-e90d87299ad6")
 		(property "Reference" "J2"
-			(at 140.97 106.68 0)
+			(at 226.06 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8835,7 +8835,7 @@
 			)
 		)
 		(property "Value" "GPIO"
-			(at 140.97 109.22 0)
+			(at 226.06 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8843,7 +8843,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Horizontal"
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8852,7 +8852,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8861,7 +8861,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8870,7 +8870,7 @@
 			)
 		)
 		(property "Digikey" "2057-PH1RB-07-UA-ND"
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8879,7 +8879,7 @@
 			)
 		)
 		(property "Mouser" "737-PH1RB-07-UA"
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8890,7 +8890,7 @@
 			)
 		)
 		(property "Jameco" ""
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8901,7 +8901,7 @@
 			)
 		)
 		(property "LCSC" ""
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8912,7 +8912,7 @@
 			)
 		)
 		(property "Other" ""
-			(at 140.97 120.65 0)
+			(at 226.06 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
