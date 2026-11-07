@@ -1,0 +1,8 @@
+{
+ "_about": "This repository's exceptions to Tools/offboard/offboard.json: headers that aren't off-board headers though their name says so (not_offboard_refs), and off-board headers accepted on another connector, with the reason (connector_accepted).",
+ "not_offboard_refs": {
+  "COB|Prototype Card|J2": "6502 Bus: the whole bus on a socket, for wires",
+  "COB|Prototype Card|J3": "the address decoder's outputs, for wires"
+ },
+ "connector_accepted": {}
+}

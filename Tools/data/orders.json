@@ -1,0 +1,322 @@
+{
+ "_about": "What is known about each revision beyond its files: made (JLCPCB's order, its date, and the commit it was made from, byte-matched to the export in git), drawn, never made, ordered, notes, tested, and the label each revision carries. Tools/revision-audit/register.py writes REVISIONS.md from it.",
+ "made": {
+  "COB|Backplane|1.0": [
+   "Y50",
+   "2024-07-03",
+   "3e494e3"
+  ],
+  "COB|Blinkenlights Card|1.0": [
+   "Y40",
+   "2024-06-08",
+   "7d050b0"
+  ],
+  "COB|CPU Card|1.0": [
+   "Y18",
+   "2024-04-03",
+   "da975a6"
+  ],
+  "COB|Clock Helper|1.0": [
+   "Y74",
+   "2025-11-21",
+   "65a5e49"
+  ],
+  "COB|DB25 Helper|1.0": [
+   "Y65",
+   "2025-10-06",
+   "013b131"
+  ],
+  "COB|GPIO Breadboard Helper|1.0": [
+   "Y57",
+   "2025-10-06",
+   "0dd90c8"
+  ],
+  "COB|GPIO Card|1.0": [
+   "Y45",
+   "2024-06-19",
+   "390cb17"
+  ],
+  "COB|GPIO Helper|1.0": [
+   "Y66",
+   "2025-10-06",
+   "013b131"
+  ],
+  "COB|Joystick Helper|1.0": [
+   "Y73",
+   "2025-11-16",
+   "4f73288"
+  ],
+  "COB|Keyboard Encoder Helper|1.0": [
+   "Y72",
+   "2025-11-14",
+   "4470a4f"
+  ],
+  "COB|Keyboard Helper|1.0": [
+   "Y70",
+   "2025-10-27",
+   "3b654ed"
+  ],
+  "COB|LCD Card|1.0": [
+   "Y27",
+   "2024-04-22",
+   "f77fc20"
+  ],
+  "COB|PS2 Helper|1.0": [
+   "Y61",
+   "2025-10-06",
+   "0969243"
+  ],
+  "COB|Prototype Card|1.0": [
+   "Y22",
+   "2024-04-03",
+   "da975a6"
+  ],
+  "COB|RTC Card|1.0": [
+   "Y62",
+   "2025-10-06",
+   "0969243"
+  ],
+  "COB|Serial Card|1.0": [
+   "Y67",
+   "2025-10-06",
+   "013b131"
+  ],
+  "COB|Serial Card Pro|1.0": [
+   "Y36",
+   "2024-05-20",
+   "ffafeba"
+  ],
+  "COB|Sound Card|1.0": [
+   "Y84",
+   "2026-01-13",
+   "3b4c7bb"
+  ],
+  "COB|Storage Card Pro|1.0": [
+   "Y78",
+   "2025-12-11",
+   "b89a4a4"
+  ],
+  "COB|VGA Card|1.0": [
+   "Y64",
+   "2025-10-06",
+   "0dd90c8"
+  ],
+  "COB|Video Card|1.0": [
+   "Y53",
+   "2024-07-09",
+   "f890f21"
+  ],
+  "COB|LCD Board|1.0": [
+   "Y80",
+   "2026-01-13",
+   "2a232e3"
+  ],
+  "COB|VERA Helper|1.0": [
+   "Y71",
+   "2025-11-04",
+   "e74f44e"
+  ],
+  "COB|Storage Card|1.0": [
+   "Y47",
+   "2024-06-22",
+   "b8f89eb"
+  ],
+  "COB|RAM Card|1.0": [
+   "Y69",
+   "2025-10-28",
+   "9b9e95d"
+  ],
+  "COB|Memory Card|1.0": [
+   "Y20",
+   "2024-04-03",
+   "da975a6"
+  ],
+  "COB|Mega Helper|1.0": [
+   "Y81",
+   "2026-01-10",
+   "affcc47"
+  ],
+  "COB|Backplane Helper|1.0": [
+   "Y77",
+   "2025-12-02",
+   "4115600"
+  ],
+  "COB|Backplane Pro|1.0": [
+   "Y30",
+   "2024-04-30",
+   "305dab8"
+  ],
+  "COB|Backplane Pro|1.1": [
+   "Y93",
+   "2026-06-21",
+   "7486bd6"
+  ],
+  "COB|Breadboard Helper|1.0": [
+   "Y39",
+   "2024-06-08",
+   "7d050b0"
+  ]
+ },
+ "drawn": [
+  "COB|Backplane Pro|1.2",
+  "COB|Blinkenlights Card|1.1",
+  "COB|Breadboard Helper|1.1",
+  "COB|CPU Card|1.1",
+  "COB|Clock Helper|1.1",
+  "COB|DB25 Helper|1.1",
+  "COB|GPIO Helper|1.1",
+  "COB|Joystick Helper|1.1",
+  "COB|Keyboard Encoder Helper|1.1",
+  "COB|LCD Card|1.1",
+  "COB|PS2 Helper|1.1",
+  "COB|Serial Card Pro|1.1",
+  "COB|Serial Card|1.1",
+  "COB|Sound Card|1.1",
+  "COB|Storage Card Pro|1.1",
+  "COB|VERA Helper|1.1",
+  "COB|VGA Card|1.1",
+  "COB|Video Card|1.1"
+ ],
+ "never": [
+  "COB|CPU Card Pro|1.0",
+  "COB|VGA Card Pro|1.0",
+  "COB|Video Card Pro|1.0"
+ ],
+ "ordered": {
+  "COB|Clock Card|1.0": "Order 1, placed 2026-11-02"
+ },
+ "made_unchecked": {},
+ "notes": {
+  "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
+  "COB|CPU Card Pro|1.0": "title block credits bahamutkotd, who contributed",
+  "COB|Backplane Pro|1.0": "the board's silk says 6502 BACKPLANE, its name when ordered"
+ },
+ "tested": {
+  "COB|Backplane Helper|1.0": "Yes",
+  "COB|LCD Board|1.0": "Yes",
+  "COB|Mega Helper|1.0": "Yes",
+  "COB|Memory Card|1.0": "Yes",
+  "COB|RAM Card|1.0": "Yes",
+  "COB|Storage Card|1.0": "Yes",
+  "COB|VERA Helper|1.0": "Yes",
+  "COB|Backplane Pro|1.0": "Yes",
+  "COB|Backplane|1.0": "Yes",
+  "COB|Backplane Pro|1.1": "Yes",
+  "COB|Blinkenlights Card|1.0": "Yes",
+  "COB|CPU Card|1.0": "Yes",
+  "COB|Clock Helper|1.0": "Yes",
+  "COB|DB25 Helper|1.0": "Yes",
+  "COB|GPIO Breadboard Helper|1.0": "Yes",
+  "COB|GPIO Card|1.0": "Yes",
+  "COB|GPIO Helper|1.0": "Yes",
+  "COB|Joystick Helper|1.0": "Yes",
+  "COB|Keyboard Encoder Helper|1.0": "Yes",
+  "COB|Keyboard Helper|1.0": "Yes",
+  "COB|LCD Card|1.0": "Yes",
+  "COB|PS2 Helper|1.0": "Yes",
+  "COB|Prototype Card|1.0": "Yes",
+  "COB|RTC Card|1.0": "Yes",
+  "COB|Serial Card|1.0": "Yes",
+  "COB|Serial Card Pro|1.0": "Yes",
+  "COB|Sound Card|1.0": "Yes",
+  "COB|VGA Card|1.0": "Yes",
+  "COB|Video Card|1.0": "Yes",
+  "COB|Storage Card Pro|1.0": "Not yet",
+  "COB|Breadboard Helper|1.0": "Yes"
+ },
+ "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
+ "labels": {
+  "COB|Backplane Pro|1.2": [
+   "Untested",
+   "A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed"
+  ],
+  "COB|Blinkenlights Card|1.1": [
+   "Untested",
+   "Decoupling capacitors added, with tracks rerouted to reach them"
+  ],
+  "COB|Breadboard Helper|1.1": [
+   "Proven design",
+   "J1 takes the box header's footprint, with the same holes"
+  ],
+  "COB|CPU Card Pro|1.0": [
+   "Untested",
+   "Never made"
+  ],
+  "COB|CPU Card|1.1": [
+   "Proven design",
+   "10k pull-ups, some tracks rerouted, silkscreen"
+  ],
+  "COB|Clock Card|1.0": [
+   "Untested",
+   "A new board, ordered and not tested yet"
+  ],
+  "COB|Clock Helper|1.1": [
+   "Proven design",
+   "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|DB25 Helper|1.1": [
+   "Proven design",
+   "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|GPIO Helper|1.1": [
+   "Proven design",
+   "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|Joystick Helper|1.1": [
+   "Proven design",
+   "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|Keyboard Encoder Helper|1.1": [
+   "Proven design",
+   "Mounting holes, silkscreen"
+  ],
+  "COB|LCD Card|1.1": [
+   "Proven design",
+   "JP1, a solder jumper, ships open, where Rev 1.0's is bridged"
+  ],
+  "COB|PS2 Helper|1.1": [
+   "Proven design",
+   "Resistors moved and tracks rerouted, mounting holes, silkscreen"
+  ],
+  "COB|Serial Card Pro|1.1": [
+   "Proven design",
+   "The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen"
+  ],
+  "COB|Serial Card|1.1": [
+   "Proven design",
+   "Silkscreen text only"
+  ],
+  "COB|Sound Card|1.1": [
+   "Proven design",
+   "Silkscreen text only"
+  ],
+  "COB|Storage Card Pro|1.0": [
+   "Untested",
+   "Made, and not tested yet: the BIOS has no driver for it"
+  ],
+  "COB|Storage Card Pro|1.1": [
+   "Untested",
+   "Silkscreen text only, but Rev 1.0 hasn't been tested"
+  ],
+  "COB|VERA Helper|1.1": [
+   "Proven design",
+   "Mounting holes, capacitor pitch"
+  ],
+  "COB|VGA Card Pro|1.0": [
+   "Untested",
+   "Never made"
+  ],
+  "COB|VGA Card|1.1": [
+   "Untested",
+   "The pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1`"
+  ],
+  "COB|Video Card Pro|1.0": [
+   "Untested",
+   "Never made"
+  ],
+  "COB|Video Card|1.1": [
+   "Proven design",
+   "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen"
+  ]
+ }
+}

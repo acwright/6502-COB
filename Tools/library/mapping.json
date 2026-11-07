@@ -1,0 +1,79 @@
+{
+ "_why": "Library parts are named for what they are and their geometry, not a manufacturer part number (owner, 2026-11-05).",
+ "footprints": {
+  "10067847-001RLF": "microSD Socket",
+  "101DTAABR01": "CompactFlash Socket",
+  "SD-SMD_CFH-L3C1LBL01MN0": "CompactFlash Socket Plated Pegs",
+  "3386F-1-103LF": "Trimmer 3386F",
+  "3386F-1-103TLF": "Trimmer 3386F",
+  "6502CARDEDGE": "6502 Card Edge",
+  "BREADBOARD-MINI": "Breadboard Mini",
+  "J1B1211CCD": "RJ45 Jack LED",
+  "KMDGX-6S-BS": "PS2 Jack",
+  "MAX232D": "SOIC-16",
+  "RHDR40W82P485X254_2X20_5740X93": "6502 Card Slot",
+  "SWITCHCRAFT_PJRAN1X1U02X": "RCA Jack White",
+  "SWITCHCRAFT_PJRAN1X1U0XX": "RCA Jack White",
+  "SWITCHCRAFT_PJRAN1X1U04X": "RCA Jack Yellow",
+  "SW_400MSP1R6BLKM6QE": "Power Switch",
+  "SW_TS-1187A-B-A-B": "Tact Switch SMD 5.1mm",
+  "XKB5858": "Push Switch 5.8mm",
+  "BAT_BAT-HLD-001-THM": "CR2032 Holder"
+ },
+ "footprints_by_repo": {
+  "ACE": {
+   "BAT_BAT-HLD-001-THM": "CR2032 Holder Numbered"
+  }
+ },
+ "_footprints_by_repo_why": "ACE's holder numbers its pads 1 and 2 for KiCad's Battery_Cell symbol; COB's and DEV's say + and -, for the CR2032 Holder symbol. Renumbering would change made boards' netlists.",
+ "delete_footprints": [
+  "DS01C-254-L-08BE"
+ ],
+ "models": {
+  "0702461201.step": "6502 GPIO Connector.step",
+  "10067847-001RLF.step": "microSD Socket.step",
+  "101D-TAAB-R01.step": "CompactFlash Socket.step",
+  "CFH-L3C1-1.step": "CompactFlash Socket Plated Pegs.step",
+  "228-1277-00-0602J.step": "ZIF Socket 28.step",
+  "240-1280-00-0602J.step": "ZIF Socket 40.step",
+  "3386F-1-103LF.step": "Trimmer 3386F.step",
+  "400MSP1R6BLKM6QE.step": "Power Switch.step",
+  "5-5530843-4.step": "6502 Card Slot.step",
+  "61204021621.step": "6502 Bus Connector.step",
+  "BAT-HLD-001-THM.step": "CR2032 Holder.step",
+  "J1B1211CCD.step": "RJ45 Jack LED.step",
+  "KMDGX-6S-BS.step": "PS2 Jack.step",
+  "MAX232D.step": "SOIC-16.step",
+  "PJRAN1X1U02X.step": "RCA Jack White.step",
+  "PJRAN1X1U0XX.step": "RCA Jack White.step",
+  "PJRAN1X1U04X.step": "RCA Jack Yellow.step",
+  "TS-1187A-B-A-B.step": "Tact Switch SMD 5.1mm.step",
+  "XKB5858.step": "Push Switch 5.8mm.step"
+ },
+ "delete_models": [
+  "DS01C-254-L-08BE.step",
+  "Mini-Black.step"
+ ],
+ "symbols": {
+  "6581": "SID",
+  "65C51": "ACIA 6551",
+  "W65C21N": "PIA 6521",
+  "65C21": "PIA 6521",
+  "KMDGX-6S-BS": "PS2 Jack",
+  "PJRAN1X1U02X": "RCA Jack White",
+  "PJRAN1X1U04X": "RCA Jack Yellow",
+  "BAT-HLD-001-THM": "CR2032 Holder",
+  "10067847-001RLF": "microSD Socket",
+  "6502CARDEDGE": "6502 Card Edge",
+  "BREADBOARDMINI": "Breadboard Mini"
+ },
+ "symbols_by_repo": {
+  "ACE": {
+   "Compact Flash": "CompactFlash Socket"
+  },
+  "COB": {
+   "Compact Flash": "CompactFlash Socket Plated Pegs"
+  }
+ },
+ "_symbols_by_repo_why": "ACE's and COB's 'Compact Flash' were different symbols under one name: COB's has pins for the socket's plated pegs."
+}

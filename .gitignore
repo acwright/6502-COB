@@ -9,3 +9,7 @@ Thumbs.db
 .vscode/
 # KiCad local history
 .history
+
+# Tools/: generated files and caches
+Tools/work/
+__pycache__/

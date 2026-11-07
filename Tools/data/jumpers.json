@@ -1,0 +1,886 @@
+[
+ {
+  "repo": "COB",
+  "board": "Backplane Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1",
+   "J1"
+  ],
+  "what": "Power: JP1 is across J1 (`PWR_SW`), the header for a power switch on a case.",
+  "shipped": "Open.",
+  "do": "Bridge JP1, or wire a switch to J1. Until one is done the backplane has no power.",
+  "need": "To run",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Backplane Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP2",
+   "J4"
+  ],
+  "what": "Clock: JP2 is across J4 (`CLOCK_ENBL_SW`), the header for a switch that stops the clock.",
+  "shipped": "Open.",
+  "do": "Bridge JP2, or wire a switch to J4. Until one is done there is no clock on `PHI2`.",
+  "need": "To run",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Backplane Pro",
+  "revs": [
+   "1.1",
+   "1.2"
+  ],
+  "refs": [
+   "JP1",
+   "J5"
+  ],
+  "what": "Clock: JP1 is across J5 (`CLOCK ENBL SW`), the header for a switch that stops the clock.",
+  "shipped": "Open.",
+  "do": "Bridge JP1, or wire a switch to J5. Until one is done there is no clock on `PHI2`.",
+  "need": "To run",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Clock Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1",
+   "J3"
+  ],
+  "what": "Clock: JP1 is across J3 (`CLOCK ENBL SW`), the header for a switch that stops the clock.",
+  "shipped": "Open.",
+  "do": "Bridge JP1, or wire a switch to J3. Until one is done there is no clock on `PHI2`.",
+  "need": "To run",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "CPU Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP1",
+   "J2"
+  ],
+  "what": "Original 6502: grounds pin 1, which is `VSS` on an NMOS 6502 and `VPB` on a 65C02.",
+  "shipped": "Open, no shunt.",
+  "do": "Leave both open for a 65C02. Bridge JP1, or fit a shunt on J2, only for an original 6502.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "CPU Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "`EXP`: shunts here join CPU signals (`VPB`, `MLB`, `SOB`, `PHI1O`, `PHI2O`) to the bus's extra pins.",
+  "shipped": "No shunts.",
+  "do": "Leave it empty unless a project needs one. Never join `EXP0` or `EXP1` in a build that uses cartridges (see *Extra pins*).",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "CPU Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "`EXP`: shunts here join 65816 signals (`VPB`, `MLB`, `MX`, `E`) to the bus's extra pins.",
+  "shipped": "No shunts.",
+  "do": "Leave it empty unless a project needs one. Never join `EXP0` or `EXP1` in a build that uses cartridges (see *Extra pins*).",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "GPIO Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J2"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9400`: IO 6, where the BIOS looks for the GPIO Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "GPIO Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the VIA's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Board",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J2"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Board",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D2, the diode in the VIA's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The VIA's interrupt output only pulls low, so D2 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the VIA's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Card",
+  "revs": [
+   "1.1"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Across D1, the diode in the VIA's interrupt line.",
+  "shipped": "Open.",
+  "do": "Leave it. The interrupt reaches `IRQB` through D1, which works with or without the jumper.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Memory Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J2",
+   "JP1",
+   "JP2"
+  ],
+  "what": "`HRDB`: joins the bus's `EXP1` and `EXP0` to the ROM's High ROM disable, so a cartridge can take `$C000–$FFFF`.",
+  "shipped": "Open, no shunts.",
+  "do": "Fit two shunts on J2, or bridge JP1 and JP2, in a COB that takes cartridges. Leave them open to keep `EXP0` and `EXP1` free (see *Extra pins*).",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Memory Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3",
+   "JP3"
+  ],
+  "what": "ROM write: joins the ROM's `/WE` to the bus's write strobe, so a program can write the EEPROM in circuit.",
+  "shipped": "Open, no shunt.",
+  "do": "Leave it open: R2 holds `/WE` high, and the ROM can't be overwritten by mistake. Fit a shunt on J3, or bridge JP3, only to write the ROM in circuit.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "RAM Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O windows: two shunts pick the two 1 KB windows the banks answer in.",
+  "shipped": "No shunts.",
+  "do": "Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. R1 and R2 pull the selects low, so a window left without its shunt answers at every address.",
+  "need": "To run",
+  "shunts": 2
+ },
+ {
+  "repo": "COB",
+  "board": "RAM Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1",
+   "J2"
+  ],
+  "what": "`LATCH EN`: JP1 holds the bank latch's outputs on; J2 is for a switch in its place.",
+  "shipped": "JP1 bridged.",
+  "do": "Leave it. To switch the latch off with J2, cut JP1 first.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "RTC Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J4"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$8800`: IO 3, where the BIOS looks for the RTC Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "RTC Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "RTC Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the DS1511Y's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The DS1511Y's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "RTC Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP3",
+   "JP2"
+  ],
+  "what": "JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
+  "shipped": "JP3 bridged, JP2 open.",
+  "do": "Leave them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9000`: IO 5, where the BIOS looks for the Serial Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the ACIA's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The ACIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP2",
+   "JP3"
+  ],
+  "what": "Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C7 (22pF) to ground.",
+  "shipped": "Both open.",
+  "do": "Leave them open: the tested cards run without them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9000`: IO 5, where the BIOS looks for the Serial Card Pro.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the ACIA's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The ACIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP2",
+   "JP3"
+  ],
+  "what": "Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C12 (22pF) to ground.",
+  "shipped": "Both open.",
+  "do": "Leave them open: the tested cards run without them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J4"
+  ],
+  "what": "`CTS`: where the ACIA's `CTS` comes from.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on pins 2 and 3, ground, as the boards are built. On pins 1 and 2 it takes `CTS` from the cable, and a cable that doesn't assert it stops the transmitter. With no shunt the input floats, and serial may not work.",
+  "need": "For serial",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J4"
+  ],
+  "what": "`DCD`: where the ACIA's `DCD` comes from.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on pins 1 and 2, ground, as the boards are built. On pins 2 and 3 it takes `DCD` from the cable, and a cable that doesn't assert it stops the receiver. With no shunt the input floats, and serial may not work.",
+  "need": "For serial",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Sound Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J5"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9800`: IO 7, where the BIOS looks for the Sound Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Storage Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J2"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Storage Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J5"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card Pro. The BIOS doesn't support this card yet.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J6"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J5"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB` or `NMIB`, as your program needs. `IRQB` is the usual choice; the BIOS doesn't use this interrupt. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP2"
+  ],
+  "what": "Bridged across D1, the diode in the VERA module's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it as shipped. Cut JP2 if the module drives its interrupt high as well as low, so D1 stays in the line.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP3",
+   "JP1"
+  ],
+  "what": "JP3 feeds `PHI2` to an enable of U2, a 74HC138, so the board is selected only while `PHI2` is high. JP1 would tie that enable high instead.",
+  "shipped": "JP3 bridged, JP1 open.",
+  "do": "Leave them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J2"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP3",
+   "JP2"
+  ],
+  "what": "JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
+  "shipped": "JP3 bridged, JP2 open.",
+  "do": "Leave them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Across D1, the diode in the pico9918's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Cut JP1. The pico9918 drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other card.",
+  "need": "For interrupts",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.1"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Across D1, the diode in the pico9918's interrupt line.",
+  "shipped": "Open.",
+  "do": "Leave it open: the pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Never bridge it.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J4"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card Pro.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP4",
+   "JP3"
+  ],
+  "what": "JP4 feeds `PHI2` to an enable of U5, a 74LVC138, so the board is selected only while `PHI2` is high. JP3 would tie that enable high instead.",
+  "shipped": "JP4 bridged, JP3 open.",
+  "do": "Leave them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Adds R1, a 1k pull-up, to the 5 V side of the interrupt's level shifter (Q1).",
+  "shipped": "Open.",
+  "do": "Leave it open: the CPU board's 10k pull-up on `IRQB` does that job, and two pull-ups would sit in parallel (see *Shared lines*).",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP2"
+  ],
+  "what": "Bridged across D1, the diode in the level shifter's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The level shifter's interrupt output only pulls low, so D1 isn't needed. Cut JP2 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "J1"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP1",
+   "JP2"
+  ],
+  "what": "JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
+  "shipped": "JP1 bridged, JP2 open.",
+  "do": "Leave them.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "refs": [
+   "JP3",
+   "JP4",
+   "JP5",
+   "JP6"
+  ],
+  "what": "Video RAM timing: which clock the column latch (U6) takes from U8, a 74HCT04. As shipped it is `/CAS` through three inverters; cut JP4 and JP6 and bridge JP3 and JP5 for one inverter, with less delay.",
+  "shipped": "JP4 and JP6 bridged, JP3 and JP5 open.",
+  "do": "Leave them. The tested cards run as shipped.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP7"
+  ],
+  "what": "Bridged across D1, the diode in the TMS9918A's interrupt line.",
+  "shipped": "Open.",
+  "do": "Leave it open, so D1 stays in the line.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.1"
+  ],
+  "refs": [
+   "JP7"
+  ],
+  "what": "Bridged across D1, the diode in the TMS9918A's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The TMS9918A's interrupt output only pulls low, so D1 isn't needed. Cut JP7 only for a part that drives its interrupt high as well as low.",
+  "need": null,
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J5"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card Pro.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
+  "need": "For interrupts",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "JP1"
+  ],
+  "what": "Bridged across D1, the diode in the ATmega1284's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it only if the ATmega's firmware drives its interrupt open-drain, low or released. If the firmware drives it high, cut JP1 so D1 stays in the line.",
+  "need": null,
+  "shunts": 0
+ }
+]

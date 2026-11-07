@@ -1,0 +1,140 @@
+{
+ "_about": "Tools/offboard/gen.py writes each README's 'Off-board headers' section from this file, Tools/data/offboard.json and the newest revision's PCB. Every pin header, pin socket and JST XH header on a newest revision must be an off-board header (a kind below), a jumper in Tools/data/jumpers.json, or listed under not_offboard here or not_offboard_refs in Tools/data/offboard.json, or the check fails. In the texts, {NAME} is filled from the PCB by the finder of that name: 'net' looks at the parts sharing a net with the header (GND and VCC aside), 'board' at every part on the board.",
+ "single_board": [
+  "ACE|ACE Board",
+  "KIM|KIM Board"
+ ],
+ "connector": {
+  "single": "PinHeader",
+  "multi": "JST_XH"
+ },
+ "kinds": {
+  "RESET SW": {
+   "find": {
+    "SW": [
+     "net",
+     "SW",
+     ""
+    ]
+   },
+   "what": "A reset button on the case. The header is wired across {SW}, the board's own reset button.",
+   "leave": "{SW}, if the case covers it. Both buttons reset the machine if it stays."
+  },
+  "CLOCK ENBL SW": {
+   "find": {
+    "JP": [
+     "net",
+     "JP",
+     ""
+    ]
+   },
+   "what": "A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across {JP}, a solder jumper.",
+   "leave": "Nothing, but leave {JP} open, or the switch can't stop the clock (see [Jumpers](#jumpers))."
+  },
+  "POWER LED": {
+   "find": {
+    "LED": [
+     "net",
+     "D",
+     "LED"
+    ],
+    "R": [
+     "net",
+     "R",
+     ""
+    ]
+   },
+   "what": "A power LED on the case: anode to pin 1 (`VCC`), cathode to pin 2, which runs through {R} to ground.",
+   "leave": "{LED}, the board's own power LED. It shares {R}, so with both fitted each gets half the current."
+  },
+  "VCC": {
+   "find": {
+    "JACK": [
+     "board",
+     "J",
+     "BarrelJack"
+    ],
+    "SW": [
+     "board",
+     "SW",
+     "^POWER$"
+    ],
+    "D": [
+     "board",
+     "D",
+     "1N5819"
+    ]
+   },
+   "what": "Power from a jack and a switch on the case: 5 V on pin 1, ground on pin 2. The header is on `VCC` itself, past {D}, the reverse-polarity diode, and {SW}, the power switch.",
+   "leave": "{JACK}, the barrel jack, and {SW}, the power switch. Nothing on the board protects this header, so the case's supply must be a regulated 5 V, wired the right way around."
+  },
+  "AUDIO": {
+   "find": {
+    "JACK": [
+     "net",
+     "J",
+     "RCA"
+    ]
+   },
+   "what": "Audio to a jack or an amplifier on the case: the same signal as {JACK}, on pin 1, with ground on pin 2.",
+   "leave": "{JACK}, if the case has its own jack. They can stay fitted beside it."
+  },
+  "KEYBOARD": {
+   "find": {
+    "KEYS": [
+     "net",
+     "SW",
+     "Cherry_MX"
+    ]
+   },
+   "what": "The keyboard matrix: `PA0`–`PA7` on pins 1–8 and `PB0`–`PB7` on pins 9–16. A keyboard on the case, such as a Keyboard Helper, connects here.",
+   "leave": "The key switches, {KEYS}."
+  },
+  "ACT LED": {
+   "find": {
+    "R": [
+     "net",
+     "R",
+     ""
+    ],
+    "LED": [
+     "board",
+     "D",
+     "^ACT$"
+    ]
+   },
+   "what": "An activity LED on the case: anode to pin 1, cathode to pin 2, which runs through {R}, the LED's own resistor.",
+   "leave": "Nothing. {LED}, the board's own activity LED, has its own resistor, so both light."
+  },
+  "PANEL": {
+   "find": {
+    "SW": [
+     "net",
+     "SW",
+     ""
+    ]
+   },
+   "what": "Four buttons on the case, each between its pin and ground: Run/Stop on pin 1, Step on pin 3, Clock on pin 5 and Reset on pin 7. Pins 2, 4, 6 and 8 are ground. Each button is wired across one of {SW}, the board's own buttons.",
+   "leave": "{SW}, if the case covers them. Both sets of buttons work if they stay."
+  }
+ },
+ "not_offboard": {
+  "AUX": "the RTC Card's spare RTC pins",
+  "BANK ADDR": "the bank address lines, for wires",
+  "Conn_01x20": "the Breadboard Helper's breadboard pins",
+  "ETHERNET": "the DEV Board's Ethernet module",
+  "GPIO": "the LCD Card's display module",
+  "HVSYNC": "the LCD Board's sync output",
+  "IO": "the Clock Helper's lines to the bus, for wires",
+  "PADDLES": "paddle controllers",
+  "PORT A": "the GPIO Breadboard Helper's breadboard pins",
+  "PORT B": "the GPIO Breadboard Helper's breadboard pins",
+  "SERIAL": "a microcontroller's serial port, for programming and debugging",
+  "SID VDD": "the supply for a real SID's pin 28, which the ARMSID doesn't use",
+  "SPI": "a microcontroller's SPI port",
+  "STORAGE": "the ribbon between the ACE Board and the ACE CF Adapter",
+  "USB HOST": "the DEV Board's USB host port",
+  "VBAT": "the DEV Board's Teensy RTC battery",
+  "VERA Module": "the VERA module itself"
+ }
+}

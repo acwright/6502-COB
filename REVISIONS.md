@@ -76,7 +76,7 @@ Every revision of every board in this repository, and what is known about each. 
 
 JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Each time this table is written, every PCB is checked again against its production zip, for copper and drill holes. Tindie stock is from the listings as saved on 2026-10-23.
 
-<!-- History: hand-written. tools/revision-audit/register.py keeps everything from here to the end. -->
+<!-- History: hand-written. Tools/revision-audit/register.py keeps everything from here to the end. -->
 
 ## History
 

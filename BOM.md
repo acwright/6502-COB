@@ -107,7 +107,7 @@ These change what you buy or fit. The boards themselves stay as they were made.
 
 How to build each board, where it needs more than its parts list.
 
-<!-- Build notes: hand-written. tools/bom/gen_bom.py keeps everything between these two markers. -->
+<!-- Build notes: hand-written. Tools/bom/gen_bom.py keeps everything between these two markers. -->
 
 **Backplane Pro**
 
