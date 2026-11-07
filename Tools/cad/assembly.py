@@ -211,6 +211,35 @@ def top_path(repo, b):
     return f"{repo_dir(r)}/CAD/Tops/{b['board']}/Rev {rev}/{b['board']} Top.svg"
 
 
+def step_path(repo, b):
+    r = b.get('repo', repo)
+    return f"{repo_dir(r)}/CAD/Models/{b['board']}/Rev {b['rev']}/{b['board']}.step"
+
+
+def top_inputs(a, q):
+    """The sha1 of everything a generated top depends on: its PCB, its STEP model, the assembly file, the standards and
+    tops.py. A generated top carries it, so a stale top can be told without reading 3D models."""
+    import hashlib
+    h = hashlib.sha1()
+    for p in (q.pcb, step_path(a['_repo'], q.spec), a['_path'], os.path.join(CAD, 'standards.json'), os.path.join(CAD, 'tops.py')):
+        h.update(open(p, 'rb').read())
+    return h.hexdigest()
+
+
+def generated_tops(a):
+    """[(placed board, path)] for every top this repository generates: its own boards whose top says generated,
+    once each. A top marked draft is left out until the owner approves it."""
+    out, seen = [], set()
+    for b in a['builds']:
+        for q in b['_placed']:
+            t = q.spec.get('top') or {}
+            if not t.get('generated') or t.get('draft') or q.repo != a['_repo'] or (q.name, q.rev) in seen:
+                continue
+            seen.add((q.name, q.rev))
+            out.append((q, top_path(a['_repo'], q.spec)))
+    return out
+
+
 def corner_holes(a, W, H):
     c = a['plate']['corner_hole']
     return [(c, c), (W - c, c), (c, H - c), (W - c, H - c)]

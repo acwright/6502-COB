@@ -9,6 +9,8 @@ What it writes, in CAD/Bases/:
   Plate.svg                     the plate's cut file: one layer, cut three times
   Plate Mounting Drawing.svg    the drawing for builders, and its .png
   Plate.stl                     one layer as a 3D model (needs Tools/work/venv: run Tools/cad/setup.sh once)
+and in CAD/Tops/<board>/Rev X/, the top of each of this repository's boards whose top the assembly file marks
+generated (tops.py, which needs the venv too). A top marked draft is left alone until the owner approves it.
 
 When Plate.svg changes, the owner remakes Plate.lbrn2 in LightBurn from the new SVG.
 """
@@ -65,6 +67,27 @@ def make(a):
         print(a['_repo'], 'wrote', f'{BASES}/Plate.stl')
 
 
+def top_digest(path):
+    """The inputs sha1 a generated top carries; None for a top not made here."""
+    try:
+        head = open(path).read(600)
+    except OSError:
+        return None
+    return head.split('inputs sha1 ')[1].split()[0] if 'inputs sha1 ' in head else None
+
+
+def make_tops(a):
+    for q, path in assembly.generated_tops(a):
+        if top_digest(path) == assembly.top_inputs(a, q):
+            continue
+        if not os.path.exists(VENV):
+            raise SystemExit('the tops need build123d: run zsh Tools/cad/setup.sh once, then make.py again')
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        subprocess.run([VENV, os.path.join(CAD, 'tops.py'), a['_repo'], q.name, q.rev, path], check=True)
+        print(a['_repo'], 'wrote', os.path.relpath(path, repo_dir(a['_repo'])))
+        print(a['_repo'], f'  remake its .lbrn2 in LightBurn from the new SVG')
+
+
 def check(a):
     root = repo_dir(a['_repo'])
     bad = []
@@ -81,6 +104,9 @@ def check(a):
     svg = f'{root}/{BASES}/Plate.svg'
     if os.path.exists(svg) and stl_source(f'{root}/{BASES}/Plate.stl') != hashlib.sha1(open(svg, 'rb').read()).hexdigest():
         bad.append(f"{a['_repo']}: {BASES}/Plate.stl wasn't made from today's Plate.svg: run Tools/cad/make.py")
+    for q, path in assembly.generated_tops(a):
+        if top_digest(path) != assembly.top_inputs(a, q):
+            bad.append(f"{a['_repo']}: {os.path.relpath(path, root)} is out of date: run Tools/cad/make.py")
     return bad
 
 
@@ -116,6 +142,7 @@ if __name__ == '__main__':
             compare_head(a)
         else:
             make(a)
+            make_tops(a)
     assembly.save_cache()
     for b in bad:
         print(b)

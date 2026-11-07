@@ -4,8 +4,8 @@ The base plates, the top panels and the helper enclosures' tops are laser-cut fr
 how a machine is put together from its assembly file, `CAD/Assembly.json`, and place every board on the plate from
 its own PCB, so a plate, its mounting drawing and its tops can be generated and checked instead of drawn by hand.
 
-**Status (2026-11-07).** The KIM's plate, its mounting drawing and its STL are generated from its assembly file
-(`CAD.md` C4). The tops (C5) come next. The other machines get their assembly files when their parts are generated
+**Status (2026-11-07).** The KIM's plate, its mounting drawing, its STL and its boards' tops are generated from its
+assembly file (`CAD.md` C4, C5). The KIM Board's new top is a draft until the owner approves it (C6). The other machines get their assembly files when their parts are generated
 (C7); until then their plates are Fusion's and their mounting drawings come from an older script kept outside the
 repositories.
 
@@ -16,6 +16,7 @@ repositories.
 | `make.py` | Writes `CAD/Bases/Plate.svg`, `Plate Mounting Drawing.svg` and `.png`, and `Plate.stl`. `--check` writes nothing and fails if any is out of date; `derived-check.py` runs it. `--compare` lists how the generated plate differs from the one in git. |
 | `plate.py` | The plate from the assembly file: its outline, its holes and what uses each one in each build, and `Plate.svg`. |
 | `drawing.py` | The mounting drawing: both builds, the numbered holes, the boards, the hardware each build needs, counted from each hole's kind, and how a hole goes together. |
+| `tops.py` | A board's top, from its PCB, its STEP model and the assembly file: the openings below, merged and kept clear of the mounting holes. `--report` lists every opening and why it's there; `--compare OLD.svg` lists how a top differs from another, such as Fusion's. Needs build123d. |
 | `solid.py` | `Plate.stl`, one layer of the plate as a 3D model, from `Plate.svg`. Needs build123d. |
 | `setup.sh` | Makes `Tools/work/venv`, the Python with build123d that `solid.py` (and the tops, to come) needs. Run it once. |
 | `assembly.py` | Reads `CAD/Assembly.json`, places each board from its PCB, and checks it: every board hole on a plate hole or a listed position, every plate hole used, the margin and gaps kept, every listed top present. `-v` lists every plate hole and what uses it. |
@@ -24,15 +25,15 @@ repositories.
 | `fusion.py` | Reads the plates and tops drawn in Fusion 360 and exported with the Shaper Origin add-in, in millimetres. |
 
 ```sh
-zsh Tools/cad/setup.sh                # once: the Python that writes the STL
-python3 Tools/cad/make.py             # write this repository's plate, drawing and STL from CAD/Assembly.json
+zsh Tools/cad/setup.sh                # once: the Python that reads the STEP models and writes the STL
+python3 Tools/cad/make.py             # write this repository's plate, drawing, STL and tops from CAD/Assembly.json
 python3 Tools/cad/make.py --check     # are they current? derived-check.py runs this
 python3 Tools/cad/assembly.py -v      # check the assembly file, and list every plate hole and what uses it
 ```
 
 Add `--all` to any of them for every repository. When `Plate.svg` changes, `make.py` says so: remake `Plate.lbrn2` in
-LightBurn from the new SVG. `Plate.stl`'s header names the `Plate.svg` it was made from, so the check needs no 3D
-tools.
+LightBurn from the new SVG; the same goes for a top. `Plate.stl`'s header names the `Plate.svg` it was made from, and
+a generated top names the sha1 of everything it was made from, so the check needs no 3D tools.
 
 ## The assembly file
 
@@ -46,7 +47,10 @@ computer is used: x to the right and y towards the front, from the plate's back-
   down in KiCad, so they sit at 180: as the computer is used, the reset button and the 6502 graphic face the user,
   the bus connector is on the left, and the card slot is toward the front.
 - **`top`**: the board has a top, at `CAD/Tops/<board>/Rev <rev>/<board> Top.svg` in its own repository.
-  `"generated": true` marks a top these tools draw.
+  `"generated": true` marks a top these tools draw, and `"draft": true` one waiting for the owner's approval, which
+  `make.py` leaves alone. A generated top lists what no rule gives: `openings`, each round parts (`refs`), a named
+  rule area (`zone`) or a block (`block`, at and size from the board's back-left corner in its PCB file), of a kind
+  from `standards.json`; and round `holes` over a part, centred on the round feature at the top of its 3D model.
 - **`gap`, `gap_y`**: a build's own gaps between boards side by side and one behind the other, when it doesn't keep
   the family's 10 mm.
 - **`positions`**: a board hole with no plate hole under it, named as the mounting drawing names it (S1, S2): for each
@@ -128,8 +132,15 @@ every opening has round-number sizes.
 | An LCD window | 1.0 mm | 1.0 mm | KIM Keypad LCD Helper |
 | A keyboard window, round all its keys | 1.9 mm across, 1.6 mm front to back | 1.0 mm | ACE, COB Keyboard Helper (owner: to be tried on the KIM Board) |
 
-**Openings close together become one** (owner): two openings that would leave less than 3 mm of acrylic between them
-are merged.
+**Openings close together become one** (owner): where two openings would leave less than 3 mm of acrylic between
+them, that acrylic is cut away; each keeps its own shape elsewhere. Keys that sit together become one rectangular
+window.
+
+**Mounting holes keep their acrylic:** no opening comes within 3.5 mm of a mounting hole's centre, so the screw head
+and the standoff have something to bear on. The KIM Board's breadboard window steps round hole 19 for this.
+
+**A part at the board's edge** that reaches into the top gets a notch in the outline, as the ACE's DB9s and power jack
+have.
 
 **Round holes:**
 

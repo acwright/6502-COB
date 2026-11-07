@@ -97,10 +97,15 @@ def board_drawing(q):
     d = q.data
     outline = [q.place(x, y) for x, y in d['outlines'][0]] if d['outlines'] else None
     feats = []
+    e = d['edge_box']
     for ft in q.spec.get('features', []):
-        if 'zone' in ft:
-            z = next(z for z in d['zones'] if z['name'] == ft['zone'])
-            (x0, y0), (x1, y1) = q.place(z['box'][0], z['box'][1]), q.place(z['box'][2], z['box'][3])
+        if 'zone' in ft or 'block' in ft:
+            if 'block' in ft:
+                (bx, by), (bw, bh) = ft['block']['at'], ft['block']['size']
+                zb = [e[0] + bx, e[1] + by, e[0] + bx + bw, e[1] + by + bh]
+            else:
+                zb = next(z for z in d['zones'] if z['name'] == ft['zone'])['box']
+            (x0, y0), (x1, y1) = q.place(zb[0], zb[1]), q.place(zb[2], zb[3])
             x0, x1, y0, y1 = min(x0, x1), max(x0, x1), min(y0, y1), max(y0, y1)
             n = ft.get('rows', 1)
             for i in range(n):

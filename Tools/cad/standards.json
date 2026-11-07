@@ -13,7 +13,8 @@
  "standoff": 10,
  "top": {
   "hole": 3.2,
-  "enclosure_grow": 2
+  "enclosure_grow": 2,
+  "keep_round_holes": 3.5
  },
  "openings": {
   "round_to": 0.5,
@@ -41,6 +42,10 @@
   "reset_button": {
    "hole": 3.3,
    "printed_part": "ACE: CAD/Bases/Reset Button"
+  },
+  "window": {
+   "margin": 1.0,
+   "radius": 1.0
   }
  },
  "stacks": {
