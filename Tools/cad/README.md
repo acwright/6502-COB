@@ -119,7 +119,9 @@ the top's outline, and wherever the builder **needs to reach a short part**.
   outline clears them. Two that reach in without an opening, the Backplane Pro 1.1 and 1.2's power jack and the DB9
   under the Joystick Helper's enclosure top, get openings (owner).
 - **Short parts to reach**, on every top: every pin header and JST XH header, so every jumper
-  (`Tools/data/jumpers.json`) and off-board header (`Tools/data/offboard.json`), and the reset button.
+  (`Tools/data/jumpers.json`) and off-board header (`Tools/data/offboard.json`); every box header for a ribbon
+  cable, bus or GPIO, whose plug comes up through the top (owner, 2026-11-07: the Fusion tops of the Keypad Helper
+  and Keypad LCD Helper had none, and needed them); and the reset button.
 - **Short parts never reached:** plain IC sockets, the oscillator can, the power switch at the board's edge.
 - **The owner's own choices**, named in the assembly file because no rule gives them: the sockets of chips a builder
   swaps, LCDs and keyboards.
@@ -132,7 +134,7 @@ every opening has round-number sizes.
 | Kind of opening | Margin round the 3D body | Corner radius | Measured |
 |---|---|---|---|
 | Pin headers, JST XH headers, LCD headers | 1.0 mm | 0.5 mm | 46 openings, each 1.00 on all four sides |
-| Card slots, DIP switches, ZIF and swapped-chip sockets, the bus box header | 1.5 mm | 1.0 mm | 29 openings, each 1.50 on all four sides |
+| Card slots, DIP switches, ZIF and swapped-chip sockets, box headers for ribbon cables | 1.5 mm | 1.0 mm | 29 openings, each 1.50 on all four sides |
 | An HC-49 crystal | 0.5 mm, as a slot with round ends | half the slot's width | 0.35–0.48 on 8 tops; 0.5 was meant (owner) |
 | An LCD window | 1.0 mm | 1.0 mm | KIM Keypad LCD Helper |
 | A keyboard window, round all its keys | 1.9 mm across, 1.6 mm front to back | 1.0 mm | ACE, COB Keyboard Helper (owner: to be tried on the KIM Board) |

@@ -10,8 +10,8 @@ The top is drawn as the board sits on the plate, seen from above, with its back-
   - the board's outline, and a Ø3.2 hole at every M3 mounting hole;
   - an opening round every part that reaches into the top's sheet: its 3D body, cut at the height of the sheet
     (standoff to standoff + sheet), lies inside the outline. The opening goes round the part's whole body;
-  - an opening round every part a builder needs to reach: pin headers and JST XH headers, card slots, bus box headers
-    and DIP switches, by footprint; a Ø3.3 hole over a reset button; and whatever the assembly file names;
+  - an opening round every part a builder needs to reach: pin headers and JST XH headers, card slots, box headers
+    for ribbon cables (bus and GPIO) and DIP switches, by footprint; a Ø3.3 hole over a reset button; and whatever the assembly file names;
   - a crystal gets a slot with round ends, and keys a window round them;
   - a round hole the assembly file names is centred on the round feature at the top of the part's 3D model (a
     trimmer's rotor), or on its body if it has none;
@@ -36,6 +36,7 @@ RULES = [  # (text in the footprint's name, kind)
     ('Card Slot', 'tall'),
     ('Card Connector', 'tall'),
     ('Bus Connector', 'tall'),
+    ('GPIO Connector', 'tall'),   # box headers for ribbon cables: the cable's plug comes up through the top (owner)
     ('SW_DIP', 'tall'),
 ]
 
@@ -316,6 +317,7 @@ class Top:
                  f'L{f(r)},{f(H)} A{f(r)},{f(r)} 0 0,1 0,{f(H - r)} L0,{f(r)} A{f(r)},{f(r)} 0 0,1 {f(r)},0z')
         else:
             shape = outline.difference(unary_union(notched)) if notched else outline
+            shape = self.held(shape)
             d = 'M' + ' L'.join(f'{f(x)},{f(y)}' for x, y in list(shape.exterior.coords)[:-1]) + 'z'
         out.append(f'<path d="{d}" fill="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round" />')
         white = 'fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="0.01" stroke-linecap="round" stroke-linejoin="round"'
@@ -339,8 +341,24 @@ class Top:
         out.append('</svg>')
         return '\n'.join(out) + '\n'
 
+    def held(self, shape):
+        """A piece of the top that holds no mounting hole would fall out, so it is dropped: the opening round it takes it
+        in. Two pieces each with holes would be two tops, which nothing here draws yet."""
+        if shape.geom_type != 'MultiPolygon':
+            return shape
+        kept = [p for p in shape.geoms if any(p.contains(Point(x, y)) for x, y in self.mount)]
+        for p in shape.geoms:
+            if p not in kept:
+                b = p.bounds
+                self.notes.append(f'a piece of acrylic, {b[2] - b[0]:.1f} × {b[3] - b[1]:.1f} mm at ({b[0]:.1f}, {b[1]:.1f}), '
+                                  f'would hold no mounting hole and fall out: dropped into the opening round it')
+        if len(kept) != 1:
+            raise SystemExit(f'{self.q.name} Rev {self.q.rev}: the openings cut its top into {len(kept)} pieces that each hold mounting holes')
+        return kept[0]
+
     def report(self):
         self.geometry()
+        self.svg()
         return {'board': f'{self.q.name} Rev {self.q.rev}', 'size': [round(self.W, 3), round(self.H, 3)],
                 'openings': [{k: (v if k != 'box' else [round(x, 3) for x in v]) for k, v in o.items() if k != 'poly'} for o in self.openings],
                 'holes': [{'at': [round(h['x'], 3), round(h['y'], 3)], 'd': h['d'], 'refs': h['refs'], 'why': h['why']} for h in self.holes],
