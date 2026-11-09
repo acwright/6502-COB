@@ -52,7 +52,8 @@
   "repo": "COB",
   "board": "Clock Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "JP1",
@@ -116,7 +117,8 @@
   "repo": "COB",
   "board": "GPIO Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J2"
@@ -131,7 +133,8 @@
   "repo": "COB",
   "board": "GPIO Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "JP1"
@@ -222,7 +225,8 @@
   "repo": "COB",
   "board": "Memory Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J2",
@@ -239,7 +243,8 @@
   "repo": "COB",
   "board": "Memory Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J3",
@@ -255,7 +260,8 @@
   "repo": "COB",
   "board": "RAM Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J3"
@@ -270,7 +276,8 @@
   "repo": "COB",
   "board": "RAM Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "JP1",
@@ -286,7 +293,8 @@
   "repo": "COB",
   "board": "RTC Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J4"
@@ -301,7 +309,8 @@
   "repo": "COB",
   "board": "RTC Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J3"
@@ -316,7 +325,8 @@
   "repo": "COB",
   "board": "RTC Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "JP1"
@@ -331,7 +341,8 @@
   "repo": "COB",
   "board": "RTC Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "JP3",
@@ -493,7 +504,8 @@
   "repo": "COB",
   "board": "Storage Card",
   "revs": [
-   "1.0"
+   "1.0",
+   "1.1"
   ],
   "refs": [
    "J2"

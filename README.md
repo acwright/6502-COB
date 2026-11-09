@@ -200,11 +200,11 @@ Each revision carries one of three labels:
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
 | CPU Card Pro | 1.0 | **Untested** | Never made. |
-| Clock Card | 1.0 | **Untested** | A new board, ordered and not tested yet. |
+| Clock Card | 1.1 | **Untested** | The bare card edge only, but Rev 1.0 hasn't been tested yet. |
 | Clock Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | DB25 Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | GPIO Breadboard Helper | 1.0 | **Tested** | Built and tested. |
-| GPIO Card | 1.0 | **Tested** | Built and tested. |
+| GPIO Card | 1.1 | **Proven design** | The bare card edge only. |
 | GPIO Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Joystick Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Keyboard Encoder Helper | 1.1 | **Proven design** | Mounting holes, silkscreen. |
@@ -212,15 +212,15 @@ Each revision carries one of three labels:
 | LCD Board | 1.0 | **Tested** | Built and tested. |
 | LCD Card | 1.1 | **Proven design** | JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge. |
 | Mega Helper | 1.0 | **Tested** | Built and tested. |
-| Memory Card | 1.0 | **Tested** | Built and tested. |
+| Memory Card | 1.1 | **Proven design** | The bare card edge only. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
-| Prototype Card | 1.0 | **Tested** | Built and tested. |
-| RAM Card | 1.0 | **Tested** | Built and tested. |
-| RTC Card | 1.0 | **Tested** | Built and tested. |
+| Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
+| RAM Card | 1.1 | **Proven design** | The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe. |
+| RTC Card | 1.1 | **Proven design** | The bare card edge only. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
-| Storage Card | 1.0 | **Tested** | Built and tested. |
+| Storage Card | 1.1 | **Proven design** | The bare card edge only. |
 | Storage Card Pro | 1.1 | **Untested** | Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch. |
 | VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge. |
@@ -369,14 +369,14 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | JP1, J3 | Clock: JP1 is across J3 (`CLOCK ENBL SW`), the header for a switch that stops the clock. | Open. | Bridge JP1, or wire a switch to J3. Until one is done there is no clock on `PHI2`. | To run |
+| 1.0, 1.1 | JP1, J3 | Clock: JP1 is across J3 (`CLOCK ENBL SW`), the header for a switch that stops the clock. | Open. | Bridge JP1, or wire a switch to J3. Until one is done there is no clock on `PHI2`. | To run |
 
 **GPIO Card**
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9400`: IO 6, where the BIOS looks for the GPIO Card. | To run |
-| 1.0 | JP1 | Bridged across D1, the diode in the VIA's interrupt line. | Bridged. | Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low. |  |
+| 1.0, 1.1 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9400`: IO 6, where the BIOS looks for the GPIO Card. | To run |
+| 1.0, 1.1 | JP1 | Bridged across D1, the diode in the VIA's interrupt line. | Bridged. | Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low. |  |
 
 **LCD Board**
 
@@ -397,24 +397,24 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J2, JP1, JP2 | `HRDB`: joins the bus's `EXP1` and `EXP0` to the ROM's High ROM disable, so a cartridge can take `$C000–$FFFF`. | Open, no shunts. | Fit two shunts on J2, or bridge JP1 and JP2, in a COB that takes cartridges. Leave them open to keep `EXP0` and `EXP1` free (see *Extra pins*). |  |
-| 1.0 | J3, JP3 | ROM write: joins the ROM's `/WE` to the bus's write strobe, so a program can write the EEPROM in circuit. | Open, no shunt. | Leave it open: R2 holds `/WE` high, and the ROM can't be overwritten by mistake. Fit a shunt on J3, or bridge JP3, only to write the ROM in circuit. |  |
+| 1.0, 1.1 | J2, JP1, JP2 | `HRDB`: joins the bus's `EXP1` and `EXP0` to the ROM's High ROM disable, so a cartridge can take `$C000–$FFFF`. | Open, no shunts. | Fit two shunts on J2, or bridge JP1 and JP2, in a COB that takes cartridges. Leave them open to keep `EXP0` and `EXP1` free (see *Extra pins*). |  |
+| 1.0, 1.1 | J3, JP3 | ROM write: joins the ROM's `/WE` to the bus's write strobe, so a program can write the EEPROM in circuit. | Open, no shunt. | Leave it open: R2 holds `/WE` high, and the ROM can't be overwritten by mistake. Fit a shunt on J3, or bridge JP3, only to write the ROM in circuit. |  |
 
 **RAM Card**
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
-| 1.0 | JP1, J2 | `LATCH EN`: JP1 holds the bank latch's outputs on; J2 is for a switch in its place. | JP1 bridged. | Leave it. To switch the latch off with J2, cut JP1 first. |  |
+| 1.0, 1.1 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
+| 1.0, 1.1 | JP1, J2 | `LATCH EN`: JP1 holds the bank latch's outputs on; J2 is for a switch in its place. | JP1 bridged. | Leave it. To switch the latch off with J2, cut JP1 first. |  |
 
 **RTC Card**
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
-| 1.0 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8800`: IO 3, where the BIOS looks for the RTC Card. | To run |
-| 1.0 | JP1 | Bridged across D1, the diode in the DS1511Y's interrupt line. | Bridged. | Leave it. The DS1511Y's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low. |  |
-| 1.0 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. |  |
+| 1.0, 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
+| 1.0, 1.1 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8800`: IO 3, where the BIOS looks for the RTC Card. | To run |
+| 1.0, 1.1 | JP1 | Bridged across D1, the diode in the DS1511Y's interrupt line. | Bridged. | Leave it. The DS1511Y's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low. |  |
+| 1.0, 1.1 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. |  |
 
 **Serial Card**
 
@@ -444,7 +444,7 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card. | To run |
+| 1.0, 1.1 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card. | To run |
 
 **Storage Card Pro**
 
@@ -521,9 +521,9 @@ The table lists every off-board header on each board's newest revision, read fro
 |---|---|---|---|---|---|---|
 | Backplane Pro | 1.2 | J5 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
 | Backplane Pro | 1.2 | J6 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW2, the board's own reset button. | SW2, if the case covers it. Both buttons reset the machine if it stays. |
-| Clock Card | 1.0 | J3 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
-| Clock Card | 1.0 | J4 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW1, the board's own reset button. | SW1, if the case covers it. Both buttons reset the machine if it stays. |
-| Storage Card | 1.0 | J4 | `ACT LED` | JST XH, 2 pins | An activity LED on the case: anode to pin 1, cathode to pin 2, which runs through R6, the LED's own resistor. | Nothing. D1, the board's own activity LED, has its own resistor, so both light. |
+| Clock Card | 1.1 | J3 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
+| Clock Card | 1.1 | J4 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW1, the board's own reset button. | SW1, if the case covers it. Both buttons reset the machine if it stays. |
+| Storage Card | 1.1 | J4 | `ACT LED` | JST XH, 2 pins | An activity LED on the case: anode to pin 1, cathode to pin 2, which runs through R6, the LED's own resistor. | Nothing. D1, the board's own activity LED, has its own resistor, so both light. |
 | Storage Card Pro | 1.1 | J1 | `ACT LED` | JST XH, 2 pins | An activity LED on the case: anode to pin 1, cathode to pin 2, which runs through R2, the LED's own resistor. | Nothing. D1, the board's own activity LED, has its own resistor, so both light. |
 
 <!-- End of off-board headers -->

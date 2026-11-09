@@ -162,17 +162,24 @@
   "COB|Blinkenlights Card|1.1",
   "COB|Breadboard Helper|1.1",
   "COB|CPU Card|1.1",
+  "COB|Clock Card|1.1",
   "COB|Clock Helper|1.1",
   "COB|DB25 Helper|1.1",
+  "COB|GPIO Card|1.1",
   "COB|GPIO Helper|1.1",
   "COB|Joystick Helper|1.1",
   "COB|Keyboard Encoder Helper|1.1",
   "COB|LCD Card|1.1",
+  "COB|Memory Card|1.1",
   "COB|PS2 Helper|1.1",
+  "COB|Prototype Card|1.1",
+  "COB|RAM Card|1.1",
+  "COB|RTC Card|1.1",
   "COB|Serial Card Pro|1.1",
   "COB|Serial Card|1.1",
   "COB|Sound Card|1.1",
   "COB|Storage Card Pro|1.1",
+  "COB|Storage Card|1.1",
   "COB|VERA Helper|1.1",
   "COB|VGA Card|1.1",
   "COB|Video Card|1.1"
@@ -250,6 +257,10 @@
    "Untested",
    "A new board, ordered and not tested yet"
   ],
+  "COB|Clock Card|1.1": [
+   "Untested",
+   "The bare card edge only, but Rev 1.0 hasn't been tested yet"
+  ],
   "COB|Clock Helper|1.1": [
    "Proven design",
    "Mounting holes moved to the standard, silkscreen"
@@ -257,6 +268,10 @@
   "COB|DB25 Helper|1.1": [
    "Proven design",
    "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|GPIO Card|1.1": [
+   "Proven design",
+   "The bare card edge only"
   ],
   "COB|GPIO Helper|1.1": [
    "Proven design",
@@ -274,9 +289,25 @@
    "Proven design",
    "JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge"
   ],
+  "COB|Memory Card|1.1": [
+   "Proven design",
+   "The bare card edge only"
+  ],
   "COB|PS2 Helper|1.1": [
    "Proven design",
    "Resistors moved and tracks rerouted, mounting holes, silkscreen"
+  ],
+  "COB|Prototype Card|1.1": [
+   "Proven design",
+   "The bare card edge only"
+  ],
+  "COB|RAM Card|1.1": [
+   "Proven design",
+   "The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe"
+  ],
+  "COB|RTC Card|1.1": [
+   "Proven design",
+   "The bare card edge only"
   ],
   "COB|Serial Card Pro|1.1": [
    "Proven design",
@@ -297,6 +328,10 @@
   "COB|Storage Card Pro|1.1": [
    "Untested",
    "Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested"
+  ],
+  "COB|Storage Card|1.1": [
+   "Proven design",
+   "The bare card edge only"
   ],
   "COB|VERA Helper|1.1": [
    "Proven design",

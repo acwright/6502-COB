@@ -45,7 +45,7 @@ for ext, head in (('kicad_sch', r'\n\t\(symbol\n\t\t\(lib_id'), ('kicad_pcb', r'
                    lambda m: m.group(1) + f'\t\t(date "{DATE}")\n\t\t(rev "{new}")', t)
     assert n == 1, (p, 'title block', n)
     if ext == 'kicad_pcb':
-        t, n = re.subn(r'(gr_text "© \d{4} A\.C\. Wright Design \| acwrightdesign\.com \| Rev )' + re.escape(old) + '"', r'\g<1>' + new + '"', t)
+        t, n = re.subn(r'(gr_text "© \d{4} A\.C\. Wright Design \| acwrightdesign\.com \| Rev )[0-9][0-9.a-z]*"', r'\g<1>' + new + '"', t)  # a made board's silk can lag its rev (ROM Cart 1.0a says 1.0)
         assert n == 1, (p, 'silk rev', n)
     done = collections.Counter(); t = set_values(t, head, done)
     assert set(done) == set(vals) and all(v == 1 for v in done.values()), (p, done)

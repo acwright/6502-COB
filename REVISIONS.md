@@ -33,12 +33,14 @@ Every revision of every board in this repository, and what is known about each. 
 | CPU Card | 1.1 | Drawn | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | CPU Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
 | Clock Card | 1.0 | Ordered | **Untested**: a new board, ordered and not tested yet |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02 |
+| Clock Card | 1.1 | Drawn | **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet |  |  |  | — | 100×57.62 | — | — | — |  |
 | Clock Helper | 1.0 | Made, matches order | **Tested** | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
 | Clock Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
 | DB25 Helper | 1.0 | Made, matches order | **Tested** | Y65 | 2025-10-06 | `013b131` | — | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | DB25 Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | GPIO Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y57 | 2025-10-06 | `0dd90c8` | 4 | 58.83×55 | — | — | — |  |
 | GPIO Card | 1.0 | Made, matches order | **Tested** | Y45 | 2024-06-19 | `390cb17` | 3 | 100×57.62 | — | — | — |  |
+| GPIO Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | GPIO Helper | 1.0 | Made, matches order | **Tested** | Y66 | 2025-10-06 | `013b131` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | GPIO Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Joystick Helper | 1.0 | Made, matches order | **Tested** | Y73 | 2025-11-16 | `4f73288` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
@@ -51,11 +53,15 @@ Every revision of every board in this repository, and what is known about each. 
 | LCD Card | 1.1 | Drawn | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
+| Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | PS2 Helper | 1.0 | Made, matches order | **Tested** | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | PS2 Helper | 1.1 | Drawn | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Prototype Card | 1.0 | Made, matches order | **Tested** | Y22 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
+| Prototype Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | RAM Card | 1.0 | Made, matches order | **Tested** | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
+| RAM Card | 1.1 | Drawn | **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe |  |  |  | — | 100×57.62 | — | — | — |  |
 | RTC Card | 1.0 | Made, matches order | **Tested** | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |
+| RTC Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card | 1.0 | Made, matches order | **Tested** | Y67 | 2025-10-06 | `013b131` | 3 | 100×57.62 | — | — | — |  |
 | Serial Card | 1.1 | Drawn | **Proven design**: silkscreen text and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.0 | Made, matches order | **Tested** | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
@@ -63,6 +69,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Sound Card | 1.0 | Made, matches order | **Tested** | Y84 | 2026-01-13 | `3b4c7bb` | 4 | 100×57.62 | — | — | — |  |
 | Sound Card | 1.1 | Drawn | **Proven design**: silkscreen text and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
+| Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.1 | Drawn | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |  |  |  | — | 100×57.62 | — | — | — |  |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
@@ -153,7 +160,15 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Clock Card
 
-Rev 1.0 has been ordered. No card has been built or tested yet. The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is built first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.11 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
+- Rev 1.1 is labelled **Untested** only because Rev 1.0 hasn't been tested yet. When Rev 1.0 passes, Rev 1.1 becomes **Proven design**.
+
+**Rev 1.0**
+
+- Initial release, ordered. No card has been built or tested yet. The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
 
 ### CPU Card
 
@@ -193,6 +208,11 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card takes a
 - Initial release, and the board on sale. `Hardware/GPIO Breadboard Helper/Rev 1.0/` and `Production/GPIO Breadboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y57). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### GPIO Card
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 
@@ -263,12 +283,22 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card takes a
 
 ### Memory Card
 
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.04 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
+
 **Rev 1.0**
 
 - Initial release, and the board on sale. Built and tested. `Hardware/Memory Card/Rev 1.0/` and `Production/Memory Card/Rev 1.0/` match the boards JLCPCB made (order Y20). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
 ### Prototype Card
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.06 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 
@@ -289,13 +319,22 @@ Rev 1.0 has been ordered. No card has been built or tested yet. The card takes a
 
 ### RAM Card
 
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.04 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
+- Still to be drawn before Rev 1.1 is made: a bank latch for each window, and window selects that read as not selected when a jumper is missing. Until then it keeps Rev 1.0's one latch, which the build notes in `BOM.md` describe.
+
 **Rev 1.0**
 
 - Initial release, and the board on sale. Built and tested. `Hardware/RAM Card/Rev 1.0/` and `Production/RAM Card/Rev 1.0/` match the boards JLCPCB made (order Y69). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
-A Rev 1.1, with a latch per window and window selects that read as not selected when a jumper is missing, is planned.
-
 ### RTC Card
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.06 mm from Rev 1.0's, its corners are 5 mm (Rev 1.0's are 5.011 mm), and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 
@@ -336,6 +375,11 @@ A Rev 1.1, with a latch per window and window selects that read as not selected 
 - Initial release, and the board on sale. `Hardware/Sound Card/Rev 1.0/` and `Production/Sound Card/Rev 1.0/` match the boards JLCPCB made (order Y84). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### Storage Card
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 

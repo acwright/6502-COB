@@ -36,12 +36,14 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |
 | [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet | **Untested**: a new board, ordered and not tested yet |
+| [Clock Card](#clock-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet |
 | [Clock Helper](#clock-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Clock Helper](#clock-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [DB25 Helper](#db25-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DB25 Helper](#db25-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [GPIO Breadboard Helper](#gpio-breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [GPIO Card](#gpio-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [GPIO Card](#gpio-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [GPIO Helper](#gpio-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [GPIO Helper](#gpio-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [Joystick Helper](#joystick-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -54,11 +56,15 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge |
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -68,6 +74,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: made, and not tested yet: the BIOS has no driver for it |
 | [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch |
 | [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
@@ -93,6 +100,7 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | PS2 Helper | 1.0 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | PS2 Helper | 1.1 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | RTC Card | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
+| RTC Card | 1.1 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
 | Serial Card Pro | 1.0 | U4 | The silk says 6551; fit an R6551AP. |
 | Serial Card | 1.0 | U3 | The silk says 6551; fit an R6551AP. |
 | Sound Card | 1.0 | J2 | `VDD` is the supply for a real SID at pin 28: 12 V for a 6581, 9 V for an 8580. The standard build does not provide it, and it has never been tested. Leave it unconnected with an ARMSID. |
@@ -125,16 +133,42 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. Rev 1.1's other changes, its rerouted tracks, its silkscreen and its bare card edge, need nothing on a built board.
 
+**Clock Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
+**GPIO Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
 **Mega Helper**
 
 **Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
 
+**Memory Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
+**Prototype Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
 **RAM Card**
 
-**Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Before fitting one:
+**Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Rev 1.1 as drawn today has the same circuit, so all of this applies to it too; it is to get a bank latch for each window, and window selects that read as not selected when a jumper is missing, before it is made. Before fitting either:
 - **Jumper both windows on J3, and nothing else:** 1–2 for IO 1 (`$8000`) and 3–4 for IO 2 (`$8400`), the setting the BIOS expects. R1 and R2 pull the window selects low, and the selects are active low, so a window left without a jumper is selected at every address: the card then drives the data bus on every read, against the system RAM and ROM. J3's other positions connect the same two windows to other addresses, so a third jumper puts two 74HC138 outputs on one window's select and ties them together.
 - **One bank latch serves both windows.** A write to `$83FF` and a write to `$87FF` load the same 74HC573, so both windows always show the same bank number, each in its own half of the AS6C4008. A program can't point one window at one bank and the other window at another, so copying between banks through the two windows doesn't work on this card.
 - **The data bus reaches the latch bit-reversed** (`D0` drives the latch's `D7`). That only renumbers the banks, and no program can tell.
+
+**Building a Rev 1.0:** as above. Rev 1.1's other change, its bare card edge, needs nothing on a built board: a Rev 1.0's masked edge works in the slot.
+
+**RTC Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
+**Storage Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
 
 **VGA Card**
 
@@ -463,6 +497,34 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ## Clock Card
 
+### Clock Card Rev 1.1
+
+Drawn, not made yet. **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet.
+
+Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Clock%20Card/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| C1, C3 | 2 | 10uF | Panasonic EEA-GA1C100 | [P14482-ND](https://www.digikey.com/en/products/filter?keywords=P14482-ND) | [667-EEA-GA1C100](https://www.mouser.com/ProductDetail/667-EEA-GA1C100) |  |
+| C2, C4, C5 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
+| D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
+| D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
+| J2 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
+| J3 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
+| J4 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
+| Q1 | 1 | 2N3904 | onsemi 2N3904BU | [2N3904FS-ND](https://www.digikey.com/en/products/filter?keywords=2N3904FS-ND) | [512-2N3904BU](https://www.mouser.com/ProductDetail/512-2N3904BU) |  |
+| R1 | 1 | 330 | YAGEO MFR-12FTF52-330R | [13-MFR-12FTF52-330RCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-330RCT-ND) | [603-MFR-12FTF52-330R](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-330R) |  |
+| R2 | 1 | 1M | YAGEO MFR-12FTF52-1M | [13-MFR-12FTF52-1MCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1MCT-ND) | [603-MFR-12FTF52-1M](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1M) |  |
+| R3 | 1 | 47k | YAGEO MFR-12FTF52-47K | [13-MFR-12FTF52-47KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-47KCT-ND) | [603-MFR-12FTF52-47K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-47K) |  |
+| R4 | 1 | 10k | YAGEO MFR-12FTF52-10K | [13-MFR-12FTF52-10KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-10KCT-ND) | [603-MFR-12FTF52-10K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-10K) |  |
+| SW1 | 1 | RESET | Same Sky (Formerly CUI Devices) TS02-66-50-BK-160-LCR-D | [2223-TS02-66-50-BK-160-LCR-D-ND](https://www.digikey.com/en/products/filter?keywords=2223-TS02-66-50-BK-160-LCR-D-ND) | [179-TS026650BK160LCR](https://www.mouser.com/ProductDetail/179-TS026650BK160LCR) |  |
+| U1 | 1 | LM555 | Texas Instruments LM555CN/NOPB | [LM555CNNS/NOPB-ND](https://www.digikey.com/en/products/filter?keywords=LM555CNNS%2FNOPB-ND) | [926-LM555CN/NOPB](https://www.mouser.com/ProductDetail/926-LM555CN%2FNOPB) |  |
+| X1 | 1 | 1 MHz | ECS Inc. ECS-100AX-010 | [X937-ND](https://www.digikey.com/en/products/filter?keywords=X937-ND) | [520-TCF100-X](https://www.mouser.com/ProductDetail/520-TCF100-X) |  |
+| U1 | 1 | Socket | IC socket, 8-pin, 0.3 in | [3M5473-ND](https://www.digikey.com/en/products/filter?keywords=3M5473-ND) | [517-4808-3004-CP](https://www.mouser.com/ProductDetail/517-4808-3004-CP) | |
+
+- **D1:** Green shown. The colour is the builder's choice.
+- **J2:** Replaces GCT DCJ200-10-A-K1-K, now obsolete, which older builds used. Its pads and body match this footprint on the datasheet. No board has been built with it yet.
+
 ### Clock Card Rev 1.0
 
 Ordered, not tested yet. **Untested**: a new board, ordered and not tested yet.
@@ -593,6 +655,28 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## GPIO Card
+
+### GPIO Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only.
+
+Cart files: [digikey.csv](BOM/GPIO%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/GPIO%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/GPIO%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/GPIO%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1, C2 | 2 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
+| J2 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J3 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND | |
+| J4 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND | |
+| U1 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U2 | 1 | 65C22 | Western Design Center (WDC) W65C22N6TPG-14 |  | [955-W65C22N6TPG-14](https://www.mouser.com/ProductDetail/955-W65C22N6TPG-14) |  | |
+| U2 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
+| J2 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **D1:** A 1N914 also works.
 
 ### GPIO Card Rev 1.0
 
@@ -880,6 +964,25 @@ Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ## Memory Card
 
+### Memory Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only.
+
+Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Memory%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Memory%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Memory%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1–C5 | 5 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| J2 | 1 | Conn_02x02_Odd_Even | Pin header 2×2, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J3 | 1 | Conn_02x01 | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| R1, R2 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| U1, U2, U5 | 3 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U3 | 1 | AS6C62256 | Alliance Memory AS6C62256-55PCN | [1450-1033-ND](https://www.digikey.com/en/products/filter?keywords=1450-1033-ND) | [913-AS6C62256-55PCN](https://www.mouser.com/ProductDetail/913-AS6C62256-55PCN) |  | |
+| U4 | 1 | AT28C256 | Microchip Technology AT28C256-15PU | [AT28C256-15PU-ND](https://www.digikey.com/en/products/filter?keywords=AT28C256-15PU-ND) | [556-AT28C25615PU](https://www.mouser.com/ProductDetail/556-AT28C25615PU) |  | |
+| U3, U4 | 2 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
 ### Memory Card Rev 1.0
 
 Made, tested. **Tested**.
@@ -955,6 +1058,22 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.0/digikey.csv), [mouser.csv](
 
 ## Prototype Card
 
+### Prototype Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only.
+
+Cart files: [digikey.csv](BOM/Prototype%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Prototype%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Prototype%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Prototype%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| B1, B2 | 2 | BREADBOARDMINI | SparkFun PRT-12047 |  | [474-PRT-12047](https://www.mouser.com/ProductDetail/474-PRT-12047) | [SparkFun](https://www.sparkfun.com/products/12047) | |
+| C1–C3 | 3 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| J2 | 1 | 6502 Bus | Sullins PPPC202LFBN-RC | [S7123-ND](https://www.digikey.com/en/products/filter?keywords=S7123-ND) |  |  | |
+| J3 | 1 | Conn_02x04_Odd_Even | Pin header 2×4, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| U1 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
 ### Prototype Card Rev 1.0
 
 Made, tested. **Tested**.
@@ -973,6 +1092,30 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## RAM Card
+
+### RAM Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe.
+
+Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RAM%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RAM%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RAM%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1–C7 | 7 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| J2 | 1 | LATCH EN | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| J3 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J4 | 1 | BANK ADDR | Pin header 2×5, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| R1, R2 | 2 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
+| U1 | 1 | AS6C4008 | Alliance Memory AS6C4008-55PCN | [1450-1027-ND](https://www.digikey.com/en/products/filter?keywords=1450-1027-ND) | [913-AS6C4008-55PCN](https://www.mouser.com/ProductDetail/913-AS6C4008-55PCN) |  | |
+| U2 | 1 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
+| U3, U6 | 2 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U4 | 1 | 74HC21 | Texas Instruments SN74HC21DR | [296-14842-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14842-1-ND) | [595-SN74HC21DR](https://www.mouser.com/ProductDetail/595-SN74HC21DR) | LCSC [C75398](https://www.lcsc.com/search?q=C75398) | Yes |
+| U5 | 1 | 74HC30 | Nexperia USA Inc. 74HC30D,653 | [1727-3066-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-3066-1-ND) | [771-74HC30D-T](https://www.mouser.com/ProductDetail/771-74HC30D-T) | LCSC [C19818870](https://www.lcsc.com/search?q=C19818870) | Yes |
+| U7 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U1 | 1 | Socket | IC socket, 32-pin, 0.6 in | [3M5470-ND](https://www.digikey.com/en/products/filter?keywords=3M5470-ND) | [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP) | | |
+| J3 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RAM Card Rev 1.0
 
@@ -1000,6 +1143,31 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## RTC Card
+
+### RTC Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only.
+
+Cart files: [digikey.csv](BOM/RTC%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RTC%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RTC%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RTC%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| BT1 | 1 | CR2032 | TE Connectivity Linx BAT-HLD-001-THM-TR | [343-BAT-HLD-001-THM-TRCT-ND](https://www.digikey.com/en/products/filter?keywords=343-BAT-HLD-001-THM-TRCT-ND) |  |  | |
+| C1–C3 | 3 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
+| J2 | 1 | AUX | Pin header 1×6, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| J3 | 1 | INT Select | Pin header 1×3, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| J4 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| R1 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| U1 | 1 | DS1511Y | Maxim DS1511Y+ | [DS1511Y+-ND](https://www.digikey.com/en/products/filter?keywords=DS1511Y%2B-ND) | [700-DS1511Y](https://www.mouser.com/ProductDetail/700-DS1511Y) |  | |
+| U2, U3 | 2 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
+| J3, J4 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **BT1:** Retainer for a CR2032 cell. BAT-HLD-001-THM, on the tested boards, is obsolete; this is its listed continuation. Digi-Key has none in stock today.
+- **D1:** A 1N914 also works.
 
 ### RTC Card Rev 1.0
 
@@ -1260,6 +1428,27 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## Storage Card
+
+### Storage Card Rev 1.1
+
+Drawn, not made yet. **Proven design**: the bare card edge only.
+
+Cart files: [digikey.csv](BOM/Storage%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card/Rev%201.1/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1, C2 | 2 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| D1 | 1 | ACT | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
+| J2 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J3 | 1 | Compact Flash | CFH-L3C1LBL01MN0 |  |  | LCSC [C444350](https://www.lcsc.com/search?q=C444350) | Yes |
+| J4 | 1 | ACT LED | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
+| R1–R4 | 4 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| R5, R6 | 2 | 330 | YAGEO RC0805FR-07330RL | [311-330CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-330CRCT-ND) | [603-RC0805FR-07330RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07330RL) | LCSC [C17630](https://www.lcsc.com/search?q=C17630) | Yes |
+| U1 | 1 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U2 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| J2 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Rev 1.0
 
