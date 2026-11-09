@@ -7,7 +7,8 @@
 
 Writes Front.png and Back.png (white background) and Front Transparent.png and Back Transparent.png
 to CAD/Images/<Board>/Rev X/. Each render uses a temporary copy of the project: the copy gets a stackup with
-black solder mask and white silk, as every board is made. The real KiCad files aren't touched.
+black solder mask and white silk, as every board is made, over FR4 in its own pale colour, which shows wherever
+there is no mask, such as a card's tab. The real KiCad files aren't touched.
 """
 import argparse,glob,os,re,shutil,subprocess,sys,tempfile
 from PIL import Image
@@ -23,7 +24,7 @@ STACKUP='''(stackup
 \t\t\t(layer "F.Paste" (type "Top Solder Paste"))
 \t\t\t(layer "F.Mask" (type "Top Solder Mask") (color "%s") (thickness 0.01))
 \t\t\t(layer "F.Cu" (type "copper") (thickness 0.035))
-\t\t\t(layer "dielectric 1" (type "core") (thickness 1.51) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
+\t\t\t(layer "dielectric 1" (type "core") (thickness 1.51) (material "FR4") (color "FR4 natural") (epsilon_r 4.5) (loss_tangent 0.02))
 \t\t\t(layer "B.Cu" (type "copper") (thickness 0.035))
 \t\t\t(layer "B.Mask" (type "Bottom Solder Mask") (color "%s") (thickness 0.01))
 \t\t\t(layer "B.Paste" (type "Bottom Solder Paste"))
