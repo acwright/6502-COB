@@ -184,6 +184,10 @@ How to build each board, where it needs more than its parts list.
 
 Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built board: a Rev 1.0's masked edge works in the slot.
 
+**Video Card**
+
+**Building a Rev 1.0: fit D1, or bridge JP7, and fit J1's shunt.** JP7 is open on the board as made, so the TMS9918A's interrupt reaches J1 only through D1, which the BOM lists: a card built without D1 never interrupts. Bridging JP7 with solder, as Rev 1.1 ships it, does the same job without D1, because the TMS9918A's interrupt output is open-drain. Then fit J1's shunt on `IRQB`, where the BIOS expects the interrupt. Rev 1.1's other changes, its sockets, its silkscreen and its bare card edge, need nothing on a built board.
+
 <!-- End of build notes. -->
 
 ## Backplane Helper

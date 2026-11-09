@@ -576,7 +576,7 @@
   ],
   "what": "Across D1, the diode in the VERA module's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it open. The VERA module drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP2 would let it hold the line high against every other interrupt source. Never bridge it.",
+  "do": "Leave it open. The VERA module drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP2 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts.",
   "need": null,
   "shunts": 0
  },
@@ -672,7 +672,7 @@
   ],
   "what": "Across D1, the diode in the pico9918's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it open. The pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it.",
+  "do": "Leave it open. The pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts.",
   "need": null,
   "shunts": 0
  },
@@ -748,7 +748,7 @@
   ],
   "what": "Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives.",
   "shipped": "Open.",
-  "do": "Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it.",
+  "do": "Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts.",
   "need": null,
   "shunts": 0
  },
@@ -831,8 +831,8 @@
   ],
   "what": "Across D1, the diode in the TMS9918A's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it as shipped. The TMS9918A's interrupt output is open-drain, so the card works with JP7 open, its interrupt going through D1, or bridged, as Rev 1.1 ships it.",
-  "need": null,
+  "do": "Fit D1, which the BOM lists, or bridge JP7 with solder. With JP7 open, D1 is the only path from the TMS9918A's interrupt to J1, so a card without D1 never interrupts. The TMS9918A's interrupt output is open-drain, so either way is right for it: Rev 1.1 ships JP7 bridged. Then fit J1's shunt.",
+  "need": "For interrupts",
   "shunts": 0
  },
  {
@@ -891,7 +891,7 @@
   ],
   "what": "Across D1, the diode in the ATmega1284's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it.",
+  "do": "Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts.",
   "need": null,
   "shunts": 0
  }
