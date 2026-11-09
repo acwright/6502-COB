@@ -351,7 +351,7 @@
   ],
   "COB|Video Card|1.1": [
    "Proven design",
-   "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge"
+   "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge"
   ]
  }
 }

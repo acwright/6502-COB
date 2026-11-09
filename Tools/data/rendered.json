@@ -58,6 +58,6 @@
  "COB|VGA Card|1.1": "dd287c6a45f784598b5342af20ad16eca763f2d4",
  "COB|Video Card Pro|1.0": "cdd296292363fe387d95f9715a399d62e5096310",
  "COB|Video Card|1.0": "40f8a310e0837496af47ee7e688ca78853c6b1a0",
- "COB|Video Card|1.1": "d987a06f30c1d8e7823c16ac81a4f9a5720b1e0e",
+ "COB|Video Card|1.1": "19ced201d2969d8be41ea53c6a84059bb7bda87b",
  "_about": "What each revision's PCB looked like when its images were rendered. Tools/board-images/render.py writes it, and derived-check.py compares."
 }

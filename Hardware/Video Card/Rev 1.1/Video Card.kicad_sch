@@ -6197,12 +6197,6 @@
 		(uuid "4785b2e4-f103-4bdb-821d-df10853436f3")
 	)
 	(junction
-		(at 309.88 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4a240bc5-4410-463c-bf6d-35203e453d94")
-	)
-	(junction
 		(at 73.66 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6221,22 +6215,10 @@
 		(uuid "61aedff4-555e-4d2c-a9c2-db6b39634616")
 	)
 	(junction
-		(at 320.04 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6468ba5b-1902-4b72-9660-7bc16c116158")
-	)
-	(junction
 		(at 254 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7130c300-a4de-4641-b5df-cc59736d7dd4")
-	)
-	(junction
-		(at 138.43 128.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "71fecf29-3bf9-4463-ad0b-488ebdc4b1b9")
 	)
 	(junction
 		(at 138.43 167.64)
@@ -6299,12 +6281,6 @@
 		(uuid "bea49ae6-f71a-4592-9a89-d5e42df26d4e")
 	)
 	(junction
-		(at 160.02 102.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c39ef2d6-e4b3-402d-bdf3-3da9c47f8d9a")
-	)
-	(junction
 		(at 234.95 125.73)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6339,12 +6315,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e4c2a197-6705-42ff-8db6-7e52402ee7af")
-	)
-	(junction
-		(at 290.83 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e5468551-2b96-4794-8d8f-d3918a3ea3d3")
 	)
 	(junction
 		(at 213.36 180.34)
@@ -6484,6 +6454,36 @@
 	)
 	(wire
 		(pts
+			(xy 144.78 128.27) (xy 149.86 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51bc19c1-e522-4801-af63-bafc22a3000f")
+	)
+	(wire
+		(pts
+			(xy 307.34 107.95) (xy 314.96 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c885a9f7-0a52-49e5-a30a-0429a530cf21")
+	)
+	(wire
+		(pts
+			(xy 309.88 74.93) (xy 309.88 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87a164a3-cf10-4849-989b-f4afa83cfbca")
+	)
+	(wire
+		(pts
 			(xy 134.62 74.93) (xy 137.16 74.93)
 		)
 		(stroke
@@ -6501,16 +6501,6 @@
 			(type default)
 		)
 		(uuid "0521536b-69ea-4f7c-815c-6adee53bd0fc")
-	)
-	(wire
-		(pts
-			(xy 138.43 123.19) (xy 138.43 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0523011a-8239-49d4-9033-9d1ee8007894")
 	)
 	(wire
 		(pts
@@ -6804,16 +6794,6 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 85.09) (xy 278.13 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1a13aca8-9177-4378-9cc0-305a720e8e5f")
-	)
-	(wire
-		(pts
 			(xy 322.58 143.51) (xy 322.58 153.67)
 		)
 		(stroke
@@ -6844,16 +6824,6 @@
 	)
 	(wire
 		(pts
-			(xy 320.04 74.93) (xy 322.58 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e89e0ed-fd2f-48a0-a9a6-7ee6a665b954")
-	)
-	(wire
-		(pts
 			(xy 86.36 67.31) (xy 88.9 67.31)
 		)
 		(stroke
@@ -6881,16 +6851,6 @@
 			(type default)
 		)
 		(uuid "20404f54-fd36-4507-9ab8-ff65e16c33a8")
-	)
-	(wire
-		(pts
-			(xy 138.43 128.27) (xy 149.86 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20617cea-f97c-4623-8d30-464f9510c896")
 	)
 	(wire
 		(pts
@@ -7274,16 +7234,6 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 85.09) (xy 279.4 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42c2d2c4-898d-44ff-ada7-9bbf47375135")
-	)
-	(wire
-		(pts
 			(xy 134.62 86.36) (xy 149.86 86.36)
 		)
 		(stroke
@@ -7341,16 +7291,6 @@
 			(type default)
 		)
 		(uuid "4627e270-ad6d-4e6d-878a-9caf06569b1b")
-	)
-	(wire
-		(pts
-			(xy 320.04 85.09) (xy 320.04 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46497345-bc15-46f5-8fa3-5bd80495fac9")
 	)
 	(wire
 		(pts
@@ -8164,16 +8104,6 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 102.87) (xy 160.02 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "826f94ff-3f77-440b-8a73-aa3ced390f14")
-	)
-	(wire
-		(pts
 			(xy 27.94 181.61) (xy 30.48 181.61)
 		)
 		(stroke
@@ -8331,16 +8261,6 @@
 			(type default)
 		)
 		(uuid "90e7a09e-79aa-406f-a65a-6109cf2aa466")
-	)
-	(wire
-		(pts
-			(xy 138.43 113.03) (xy 138.43 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9115332c-1da0-49a4-be30-651164627ca6")
 	)
 	(wire
 		(pts
@@ -8554,16 +8474,6 @@
 	)
 	(wire
 		(pts
-			(xy 290.83 85.09) (xy 289.56 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a172c1eb-9b11-426b-8bf0-7bc6734d692c")
-	)
-	(wire
-		(pts
 			(xy 59.69 68.58) (xy 62.23 68.58)
 		)
 		(stroke
@@ -8581,16 +8491,6 @@
 			(type default)
 		)
 		(uuid "a4fbe1d9-1429-4c1b-ac38-c23f9f449e22")
-	)
-	(wire
-		(pts
-			(xy 137.16 128.27) (xy 138.43 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5e630ef-d2cb-441f-8c65-8a112811a605")
 	)
 	(wire
 		(pts
@@ -8861,16 +8761,6 @@
 			(type default)
 		)
 		(uuid "bf35d920-ae7e-4b01-860a-42f897be58f4")
-	)
-	(wire
-		(pts
-			(xy 307.34 107.95) (xy 320.04 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bfc36feb-82dc-49d7-aaa9-6a2aea5ce3ff")
 	)
 	(wire
 		(pts
@@ -9351,16 +9241,6 @@
 			(type default)
 		)
 		(uuid "f777f467-537e-4bde-839c-affd6c98e877")
-	)
-	(wire
-		(pts
-			(xy 125.73 128.27) (xy 127 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f7b7bc54-a6c7-4055-b694-642d4165579b")
 	)
 	(wire
 		(pts
@@ -11429,7 +11309,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 27.94 158.75 180)
 		(effects
 			(font
@@ -11918,7 +11798,7 @@
 	)
 	(global_label "COL"
 		(shape output)
-		(at 322.58 74.93 0)
+		(at 314.96 107.95 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11928,7 +11808,7 @@
 		)
 		(uuid "911d9058-0484-4cd0-9f47-04f44335457e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 329.1938 74.93 0)
+			(at 321.574 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12903,8 +12783,8 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
-		(at 125.73 128.27 180)
+		(shape input)
+		(at 144.78 128.27 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12913,7 +12793,7 @@
 		)
 		(uuid "d9adbd19-e882-4417-8e05-166964fc7f46")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 125.73 128.27 0)
+			(at 144.78 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14473,84 +14353,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 278.13 88.9 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2690cbca-6600-448d-8dea-d7602002c37b")
-		(property "Reference" "#PWR010"
-			(at 278.13 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 278.13 92.71 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 278.13 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 278.13 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 278.13 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "044979bc-8002-41d0-8523-155a15a0fb9f")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "74xx:74HC138")
 		(at 99.06 167.64 0)
 		(unit 1)
@@ -14804,88 +14606,6 @@
 			(project "Video Card"
 				(path "/154a5133-b84f-49cb-b657-9c810539146c"
 					(reference "#FLG01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 320.04 80.01 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "31969b56-00e2-4bd6-938d-0de3fa3fb8f6")
-		(property "Reference" "JP6"
-			(at 322.58 80.0099 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 316.23 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 320.04 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 320.04 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 320.04 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "ea6f54f5-1352-4e86-9183-36ffc0149d41")
-		)
-		(pin "1"
-			(uuid "2c51741a-9d2c-4ceb-9cdc-9ef3066f82f5")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP6")
 					(unit 1)
 				)
 			)
@@ -15715,88 +15435,6 @@
 			(project "Video Card"
 				(path "/154a5133-b84f-49cb-b657-9c810539146c"
 					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 309.88 80.01 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "574becf1-39e3-4348-bc35-3764ae672d6c")
-		(property "Reference" "JP4"
-			(at 312.42 80.0099 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 306.07 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 309.88 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 309.88 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 309.88 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6fecf874-a0e1-4d13-ac70-baae2f62bfbc")
-		)
-		(pin "1"
-			(uuid "4afff652-6d9e-4ce3-b98a-583ebb34136f")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP4")
 					(unit 1)
 				)
 			)
@@ -17777,171 +17415,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 138.43 118.11 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "adccbbf8-82a9-4955-8d8b-04ac5be42a03")
-		(property "Reference" "JP2"
-			(at 140.97 118.1099 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 135.89 116.8401 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 138.43 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 138.43 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 138.43 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f2011d7f-9bcd-44b7-8321-9d86607f3eac")
-		)
-		(pin "1"
-			(uuid "70d1fedf-685a-435d-a417-a6b210f39beb")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 314.96 74.93 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ae5bf1a9-5dba-47d1-b2a3-33bd87c4481a")
-		(property "Reference" "JP5"
-			(at 314.96 71.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 316.2299 72.39 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 314.96 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 314.96 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 314.96 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f18b94de-b24a-4f9c-9213-79ff0b51549c")
-		)
-		(pin "1"
-			(uuid "91165a31-2006-4641-aec6-13bcc6c2d3cd")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "74xx:74HCT04")
 		(at 234.95 139.7 0)
 		(unit 7)
@@ -19101,87 +18574,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 132.08 128.27 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d12b0435-42e4-4449-b7f3-26e81c323f69")
-		(property "Reference" "JP1"
-			(at 132.08 124.46 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 132.08 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 132.08 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 132.08 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 132.08 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8a9d749f-698b-4501-b5df-0bd4983d97b4")
-		)
-		(pin "1"
-			(uuid "12b7edaf-ece6-44ad-9ca8-106178d28414")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Simulation_SPICE:NPN")
 		(at 195.58 154.94 0)
 		(unit 1)
@@ -19316,87 +18708,6 @@
 			(project "Video Card"
 				(path "/154a5133-b84f-49cb-b657-9c810539146c"
 					(reference "Q1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 284.48 85.09 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d661f23a-ca80-4ee0-bc3d-dc90890b9e10")
-		(property "Reference" "JP3"
-			(at 284.48 78.74 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 285.7499 82.55 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 284.48 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 284.48 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 284.48 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6595a9b3-155b-4f5f-9f17-ca9a9df82c05")
-		)
-		(pin "1"
-			(uuid "41aa427d-fec5-4633-b688-014de373d956")
-		)
-		(instances
-			(project "Video Card"
-				(path "/154a5133-b84f-49cb-b657-9c810539146c"
-					(reference "JP3")
 					(unit 1)
 				)
 			)

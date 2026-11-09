@@ -82,7 +82,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |
 | [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge |
+| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |
 
 ## Known issues
 
@@ -186,7 +186,7 @@ Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built boar
 
 **Video Card**
 
-**Building a Rev 1.0: fit D1, or bridge JP7, and fit J1's shunt.** JP7 is open on the board as made, so the TMS9918A's interrupt reaches J1 only through D1, which the BOM lists: a card built without D1 never interrupts. Bridging JP7 with solder, as Rev 1.1 ships it, does the same job without D1, because the TMS9918A's interrupt output is open-drain. Then fit J1's shunt on `IRQB`, where the BIOS expects the interrupt. Rev 1.1's other changes, its sockets, its silkscreen and its bare card edge, need nothing on a built board.
+**Building a Rev 1.0: fit D1, or bridge JP7, and fit J1's shunt.** JP7 is open on the board as made, so the TMS9918A's interrupt reaches J1 only through D1, which the BOM lists: a card built without D1 never interrupts. Bridging JP7 with solder, as Rev 1.1 ships it, does the same job without D1, because the TMS9918A's interrupt output is open-drain. Then fit J1's shunt on `IRQB`, where the BIOS expects the interrupt. Leave JP1–JP6 as shipped: Rev 1.1 drops them and is wired the way they ship. Rev 1.1's other changes, its sockets, its silkscreen and its bare card edge, need nothing on a built board.
 
 <!-- End of build notes. -->
 
@@ -1653,7 +1653,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Video Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge.
+Drawn, not made yet. **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge.
 
 Cart files: [digikey.csv](BOM/Video%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Video%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card/Rev%201.1/mouser-through-hole.csv)
 

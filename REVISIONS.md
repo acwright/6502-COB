@@ -78,7 +78,7 @@ Every revision of every board in this repository, and what is known about each. 
 | VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | VGA Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | symbol has pins the footprint lacks: Pico pins 41-43 |
 | Video Card | 1.0 | Made, matches order | **Tested** | Y53 | 2024-07-09 | `f890f21` | 2 | 100×57.62 | — | — | — |  |
-| Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
+| Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Video Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — |  |
 
 JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Each time this table is written, every PCB is checked again against its production zip, for copper and drill holes. Tindie stock is from the listings as saved on 2026-10-23.
@@ -440,6 +440,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain.
 - U1 and U7 use socket footprints (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
+- `JP1`–`JP6` are removed. They were for testing the first cards: JP1 and JP2 chose whether `PHI2` or VCC enables U4, and JP3–JP6 chose whether the column latch, U6, is clocked by `/CAS` through one of U8's inverters or three. The tested cards run as Rev 1.0 ships them, so Rev 1.1 is wired that way, with nothing for a builder to set: `PHI2` goes straight to U4's enable, and `/CAS` reaches U6 through three inverters. The three jumpers that shipped bridged are short tracks now; the open ones' stubs, and a via that served only JP5, are gone.
 - Adds the OSHW and A.C. Wright logos to the silkscreen.
 - The silkscreen labels `J4` as `VIDEO`. Rev 1.0's says `Video Out`.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.

@@ -225,7 +225,7 @@ Each revision carries one of three labels:
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open. |
 | VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge. |
 | VGA Card Pro | 1.0 | **Untested** | Never made. |
-| Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge. |
+| Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
 | Video Card Pro | 1.0 | **Untested** | Never made. |
 <!-- End of which revision to make -->
 
@@ -495,8 +495,8 @@ Where a header needs a shunt, the board's BOM lists it.
 |---|---|---|---|---|---|
 | 1.0, 1.1 | J1 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J3 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card. | To run |
-| 1.0, 1.1 | JP1, JP2 | JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP1 bridged, JP2 open. | Leave them. |  |
-| 1.0, 1.1 | JP3, JP4, JP5, JP6 | Video RAM timing: which clock the column latch (U6) takes from U8, a 74HCT04. As shipped it is `/CAS` through three inverters; cut JP4 and JP6 and bridge JP3 and JP5 for one inverter, with less delay. | JP4 and JP6 bridged, JP3 and JP5 open. | Leave them. The tested cards run as shipped. |  |
+| 1.0 | JP1, JP2 | JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP1 bridged, JP2 open. | Leave them. |  |
+| 1.0 | JP3, JP4, JP5, JP6 | Video RAM timing: which clock the column latch (U6) takes from U8, a 74HCT04. As shipped it is `/CAS` through three inverters; cut JP4 and JP6 and bridge JP3 and JP5 for one inverter, with less delay. | JP4 and JP6 bridged, JP3 and JP5 open. | Leave them. The tested cards run as shipped. |  |
 | 1.0 | JP7 | Across D1, the diode in the TMS9918A's interrupt line. | Open. | Fit D1, which the BOM lists, or bridge JP7 with solder. With JP7 open, D1 is the only path from the TMS9918A's interrupt to J1, so a card without D1 never interrupts. The TMS9918A's interrupt output is open-drain, so either way is right for it: Rev 1.1 ships JP7 bridged. Then fit J1's shunt. | For interrupts |
 | 1.1 | JP7 | Across D1, the diode in the TMS9918A's interrupt line. | Bridged. | Leave it. The TMS9918A's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP7 so the interrupt goes through D1. |  |
 
