@@ -196,9 +196,9 @@ Each revision carries one of three labels:
 | Backplane | 1.0 | **Tested** | Built and tested. |
 | Backplane Helper | 1.0 | **Tested** | Built and tested. |
 | Backplane Pro | 1.2 | **Untested** | A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed. |
-| Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, with tracks rerouted to reach them. |
+| Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes. |
-| CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen. |
+| CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
 | CPU Card Pro | 1.0 | **Untested** | Never made. |
 | Clock Card | 1.0 | **Untested** | A new board, ordered and not tested yet. |
 | Clock Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
@@ -210,22 +210,22 @@ Each revision carries one of three labels:
 | Keyboard Encoder Helper | 1.1 | **Proven design** | Mounting holes, silkscreen. |
 | Keyboard Helper | 1.0 | **Tested** | Built and tested. |
 | LCD Board | 1.0 | **Tested** | Built and tested. |
-| LCD Card | 1.1 | **Proven design** | JP1, a solder jumper, ships open, where Rev 1.0's is bridged. |
+| LCD Card | 1.1 | **Proven design** | JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge. |
 | Mega Helper | 1.0 | **Tested** | Built and tested. |
 | Memory Card | 1.0 | **Tested** | Built and tested. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.0 | **Tested** | Built and tested. |
 | RAM Card | 1.0 | **Tested** | Built and tested. |
 | RTC Card | 1.0 | **Tested** | Built and tested. |
-| Serial Card | 1.1 | **Proven design** | Silkscreen text only. |
-| Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen. |
-| Sound Card | 1.1 | **Proven design** | Silkscreen text only. |
+| Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
+| Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
+| Sound Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Storage Card | 1.0 | **Tested** | Built and tested. |
-| Storage Card Pro | 1.1 | **Untested** | Silkscreen text only, but Rev 1.0 hasn't been tested. |
+| Storage Card Pro | 1.1 | **Untested** | Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch. |
-| VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1`. |
+| VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge. |
 | VGA Card Pro | 1.0 | **Untested** | Never made. |
-| Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen. |
+| Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge. |
 | Video Card Pro | 1.0 | **Untested** | Never made. |
 <!-- End of which revision to make -->
 

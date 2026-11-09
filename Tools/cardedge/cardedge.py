@@ -74,7 +74,7 @@ def mask_box(board):
 # --- a board as it is -----------------------------------------------------------------------------------------------
 class Board:
     def __init__(self, path):
-        self.path = path
+        self.path = path = os.path.abspath(path)
         p = path.split('/'); self.repo, self.board, self.rev = p[-5].split('-')[-1], p[-3], p[-2][4:]
         self.t = open(path, encoding='utf-8', newline='').read()
         self.root = kpcb.parse(self.t)

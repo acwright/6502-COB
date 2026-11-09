@@ -131,3 +131,9 @@
 	(constraint clearance (min 0.127mm))
 )
 
+# Card edge (KICAD.md K28): one mask opening over the tab's 40 fingers bridges their nets on purpose.
+# Tools/cardedge/cardedge.py checks that it is the only drawing on a mask layer outside a footprint.
+(rule "Card edge: the mask opening over the tab"
+	(constraint bridged_mask)
+	(condition "A.Type == 'Graphic' && (A.Layer == 'F.Mask' || A.Layer == 'B.Mask') && !A.memberOfFootprint('*')")
+	(severity ignore))

@@ -232,7 +232,7 @@
   ],
   "COB|Blinkenlights Card|1.1": [
    "Untested",
-   "Decoupling capacitors added, with tracks rerouted to reach them"
+   "Decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge"
   ],
   "COB|Breadboard Helper|1.1": [
    "Proven design",
@@ -244,7 +244,7 @@
   ],
   "COB|CPU Card|1.1": [
    "Proven design",
-   "10k pull-ups, some tracks rerouted, silkscreen"
+   "10k pull-ups, some tracks rerouted, silkscreen, the bare card edge"
   ],
   "COB|Clock Card|1.0": [
    "Untested",
@@ -272,7 +272,7 @@
   ],
   "COB|LCD Card|1.1": [
    "Proven design",
-   "JP1, a solder jumper, ships open, where Rev 1.0's is bridged"
+   "JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge"
   ],
   "COB|PS2 Helper|1.1": [
    "Proven design",
@@ -280,15 +280,15 @@
   ],
   "COB|Serial Card Pro|1.1": [
    "Proven design",
-   "The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen"
+   "The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge"
   ],
   "COB|Serial Card|1.1": [
    "Proven design",
-   "Silkscreen text only"
+   "Silkscreen text and the bare card edge"
   ],
   "COB|Sound Card|1.1": [
    "Proven design",
-   "Silkscreen text only"
+   "Silkscreen text and the bare card edge"
   ],
   "COB|Storage Card Pro|1.0": [
    "Untested",
@@ -296,7 +296,7 @@
   ],
   "COB|Storage Card Pro|1.1": [
    "Untested",
-   "Silkscreen text only, but Rev 1.0 hasn't been tested"
+   "Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested"
   ],
   "COB|VERA Helper|1.1": [
    "Proven design",
@@ -308,7 +308,7 @@
   ],
   "COB|VGA Card|1.1": [
    "Untested",
-   "The pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1`"
+   "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge"
   ],
   "COB|Video Card Pro|1.0": [
    "Untested",
@@ -316,7 +316,7 @@
   ],
   "COB|Video Card|1.1": [
    "Proven design",
-   "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen"
+   "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge"
   ]
  }
 }

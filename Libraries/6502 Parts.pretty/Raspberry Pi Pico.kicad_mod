@@ -1307,12 +1307,12 @@
 		(uuid "4fd0ed55-5601-4b2a-803c-43aee3698e9b")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../../../Models/Raspberry Pi Pico.wrl"
+	(model "${KICAD10_3DMODEL_DIR}/Module.3dshapes/RaspberryPi_Pico.step"
 		(offset
-			(xyz 16 39 11)
+			(xyz 0 0 11)
 		)
 		(scale
-			(xyz 2.5 2.5 2.5)
+			(xyz 1 1 1)
 		)
 		(rotate
 			(xyz -0 -0 -0)

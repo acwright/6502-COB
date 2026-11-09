@@ -1,24 +1,12 @@
 {
  "_about": "Newest revisions with the 6502 Card Edge footprint that don't meet Tools/cardedge/standard.json yet, each with the KICAD.md item that fixes it. cardedge.py --check reports them without failing, and fails on an entry that is no longer needed.",
  "pending": {
-  "COB|Blinkenlights Card|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|CPU Card Pro|1.0": "K28b: fixed in place, drawn and never made",
-  "COB|CPU Card|1.1": "K28b: fixed in place, drawn and never made",
   "COB|Clock Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
   "COB|GPIO Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
-  "COB|LCD Card|1.1": "K28b: fixed in place, drawn and never made",
   "COB|Memory Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
   "COB|Prototype Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
   "COB|RAM Card|1.0": "K11: made, so the card edge is drawn in RAM Card 1.1",
   "COB|RTC Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
-  "COB|Serial Card Pro|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|Serial Card|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|Sound Card|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|Storage Card Pro|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|Storage Card|1.0": "K28c: made or ordered, so a new Rev 1.1",
-  "COB|VGA Card Pro|1.0": "K28b: fixed in place, drawn and never made",
-  "COB|VGA Card|1.1": "K28b: fixed in place, drawn and never made",
-  "COB|Video Card Pro|1.0": "K28b: fixed in place, drawn and never made",
-  "COB|Video Card|1.1": "K28b: fixed in place, drawn and never made"
+  "COB|Storage Card|1.0": "K28c: made or ordered, so a new Rev 1.1"
  }
 }

@@ -29,12 +29,12 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Backplane Pro](#backplane-pro) | 1.2 | Rev 1.2 | Drawn, not made yet | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, with tracks rerouted to reach them |
+| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes |
 | [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen |
+| [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |
 | [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet | **Untested**: a new board, ordered and not tested yet |
 | [Clock Helper](#clock-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Clock Helper](#clock-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
@@ -51,7 +51,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged |
+| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -60,22 +60,22 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen |
+| [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge |
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
+| [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text only |
+| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: made, and not tested yet: the BIOS has no driver for it |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: silkscreen text only, but Rev 1.0 hasn't been tested |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch |
 | [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1` |
+| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |
 | [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen |
+| [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge |
 
 ## Known issues
 
@@ -123,7 +123,7 @@ How to build each board, where it needs more than its parts list.
 
 **CPU Card**
 
-**Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for.
+**Building a Rev 1.0:** fit 10kΩ (0805) for R1–R6, not the 1kΩ in Rev 1.0's files; Rev 1.1 has 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. Rev 1.1's other changes, its rerouted tracks, its silkscreen and its bare card edge, need nothing on a built board.
 
 **Mega Helper**
 
@@ -139,6 +139,8 @@ How to build each board, where it needs more than its parts list.
 **VGA Card**
 
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
+
+Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built board: a Rev 1.0's masked edge works in the slot.
 
 <!-- End of build notes. -->
 
@@ -280,7 +282,7 @@ Cart files: [digikey.csv](BOM/Backplane/Rev%201.0/digikey.csv), [mouser.csv](BOM
 
 ### Blinkenlights Card Rev 1.1
 
-Drawn, not made yet. **Untested**: decoupling capacitors added, with tracks rerouted to reach them.
+Drawn, not made yet. **Untested**: decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge.
 
 Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -426,7 +428,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### CPU Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen.
+Drawn, not made yet. **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge.
 
 Cart files: [digikey.csv](BOM/CPU%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/CPU%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -808,7 +810,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### LCD Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged.
+Drawn, not made yet. **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge.
 
 Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/LCD%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/LCD%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/LCD%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1029,7 +1031,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Pro Rev 1.1
 
-Drawn, not made yet. **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen.
+Drawn, not made yet. **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge.
 
 Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Serial%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1088,7 +1090,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Serial Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: silkscreen text only.
+Drawn, not made yet. **Proven design**: silkscreen text and the bare card edge.
 
 Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Serial%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Serial%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Serial%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1147,7 +1149,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Sound Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: silkscreen text only.
+Drawn, not made yet. **Proven design**: silkscreen text and the bare card edge.
 
 Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Sound%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Sound%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Sound%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1198,7 +1200,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: silkscreen text only, but Rev 1.0 hasn't been tested.
+Drawn, not made yet. **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1371,7 +1373,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Rev 1.1
 
-Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, and A1 wired to `MODE1`.
+Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge.
 
 Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1450,7 +1452,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Video Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen.
+Drawn, not made yet. **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), sockets, silkscreen, the bare card edge.
 
 Cart files: [digikey.csv](BOM/Video%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Video%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card/Rev%201.1/mouser-through-hole.csv)
 
