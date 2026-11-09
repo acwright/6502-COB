@@ -216,14 +216,14 @@ Each revision carries one of three labels:
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
 | RAM Card | 1.1 | **Proven design** | The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe. |
-| RTC Card | 1.1 | **Proven design** | The bare card edge only. |
+| RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
 | Storage Card Pro | 1.1 | **Untested** | Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested. |
-| VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open. |
-| VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge. |
+| VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
+| VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed. |
 | VGA Card Pro | 1.0 | **Untested** | Never made. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
 | Video Card Pro | 1.0 | **Untested** | Never made. |
@@ -421,7 +421,7 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0, 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8800`: IO 3, where the BIOS looks for the RTC Card. | To run |
 | 1.0, 1.1 | JP1 | Across D1, the diode in the DS1511Y's interrupt line. | Bridged. | Leave it. The DS1511Y's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1. |  |
-| 1.0, 1.1 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. |  |
+| 1.0 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 
 **Serial Card**
 
@@ -466,7 +466,7 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0, 1.1 | J5 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB` or `NMIB`, as your program needs. `IRQB` is the usual choice; the BIOS doesn't use this interrupt. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J6 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board. | To run |
 | 1.0 | JP2 | Across D1, the diode in the VERA module's interrupt line. | Bridged. | Cut JP2 before fitting a shunt on J5. The VERA module drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other interrupt source. Rev 1.1 ships it open. | For interrupts |
-| 1.0, 1.1 | JP3, JP1 | JP3 feeds `PHI2` to an enable of U2, a 74HC138, so the board is selected only while `PHI2` is high. JP1 would tie that enable high instead. | JP3 bridged, JP1 open. | Leave them. |  |
+| 1.0 | JP3, JP1 | JP3 feeds `PHI2` to an enable of U2, a 74HC138, so the board is selected only while `PHI2` is high. JP1 would tie that enable high instead. | JP3 bridged, JP1 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 | 1.1 | JP2 | Across D1, the diode in the VERA module's interrupt line. | Open. | Leave it open. The VERA module drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP2 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
 
 **VGA Card**
@@ -476,7 +476,7 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0, 1.1 | J2 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J3 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card. | To run |
 | 1.0 | JP1 | Across D1, the diode in the pico9918's interrupt line. | Bridged. | Cut JP1. The pico9918 drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other interrupt source. Rev 1.1 ships it open. | For interrupts |
-| 1.0, 1.1 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. |  |
+| 1.0 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 | 1.1 | JP1 | Across D1, the diode in the pico9918's interrupt line. | Open. | Leave it open. The pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
 
 **VGA Card Pro**
@@ -487,7 +487,6 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card Pro. | To run |
 | 1.0 | JP1 | Adds R1, a 1k pull-up, to the 5 V side of the interrupt's level shifter (Q1). | Open. | Leave it open: the CPU board's 10k pull-up on `IRQB` does that job, and two pull-ups would sit in parallel (see *Shared lines*). |  |
 | 1.0 | JP2 | Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives. | Open. | Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
-| 1.0 | JP4, JP3 | JP4 feeds `PHI2` to an enable of U5, a 74LVC138, so the board is selected only while `PHI2` is high. JP3 would tie that enable high instead. | JP4 bridged, JP3 open. | Leave them. |  |
 
 **Video Card**
 
@@ -495,7 +494,7 @@ Where a header needs a shunt, the board's BOM lists it.
 |---|---|---|---|---|---|
 | 1.0, 1.1 | J1 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J3 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card. | To run |
-| 1.0 | JP1, JP2 | JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP1 bridged, JP2 open. | Leave them. |  |
+| 1.0 | JP1, JP2 | JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP1 bridged, JP2 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 | 1.0 | JP3, JP4, JP5, JP6 | Video RAM timing: which clock the column latch (U6) takes from U8, a 74HCT04. As shipped it is `/CAS` through three inverters; cut JP4 and JP6 and bridge JP3 and JP5 for one inverter, with less delay. | JP4 and JP6 bridged, JP3 and JP5 open. | Leave them. The tested cards run as shipped. |  |
 | 1.0 | JP7 | Across D1, the diode in the TMS9918A's interrupt line. | Open. | Fit D1, which the BOM lists, or bridge JP7 with solder. With JP7 open, D1 is the only path from the TMS9918A's interrupt to J1, so a card without D1 never interrupts. The TMS9918A's interrupt output is open-drain, so either way is right for it: Rev 1.1 ships JP7 bridged. Then fit J1's shunt. | For interrupts |
 | 1.1 | JP7 | Across D1, the diode in the TMS9918A's interrupt line. | Bridged. | Leave it. The TMS9918A's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP7 so the interrupt goes through D1. |  |

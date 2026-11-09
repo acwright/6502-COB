@@ -327,8 +327,7 @@
   "repo": "COB",
   "board": "RTC Card",
   "revs": [
-   "1.0",
-   "1.1"
+   "1.0"
   ],
   "refs": [
    "JP3",
@@ -336,7 +335,7 @@
   ],
   "what": "JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
   "shipped": "JP3 bridged, JP2 open.",
-  "do": "Leave them.",
+  "do": "Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable.",
   "need": null,
   "shunts": 0
  },
@@ -584,8 +583,7 @@
   "repo": "COB",
   "board": "VERA Helper",
   "revs": [
-   "1.0",
-   "1.1"
+   "1.0"
   ],
   "refs": [
    "JP3",
@@ -593,7 +591,7 @@
   ],
   "what": "JP3 feeds `PHI2` to an enable of U2, a 74HC138, so the board is selected only while `PHI2` is high. JP1 would tie that enable high instead.",
   "shipped": "JP3 bridged, JP1 open.",
-  "do": "Leave them.",
+  "do": "Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable.",
   "need": null,
   "shunts": 0
  },
@@ -633,8 +631,7 @@
   "repo": "COB",
   "board": "VGA Card",
   "revs": [
-   "1.0",
-   "1.1"
+   "1.0"
   ],
   "refs": [
    "JP3",
@@ -642,7 +639,7 @@
   ],
   "what": "JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
   "shipped": "JP3 bridged, JP2 open.",
-  "do": "Leave them.",
+  "do": "Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable.",
   "need": null,
   "shunts": 0
  },
@@ -705,22 +702,6 @@
   "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
   "need": "For interrupts",
   "shunts": 1
- },
- {
-  "repo": "COB",
-  "board": "VGA Card Pro",
-  "revs": [
-   "1.0"
-  ],
-  "refs": [
-   "JP4",
-   "JP3"
-  ],
-  "what": "JP4 feeds `PHI2` to an enable of U5, a 74LVC138, so the board is selected only while `PHI2` is high. JP3 would tie that enable high instead.",
-  "shipped": "JP4 bridged, JP3 open.",
-  "do": "Leave them.",
-  "need": null,
-  "shunts": 0
  },
  {
   "repo": "COB",
@@ -796,7 +777,7 @@
   ],
   "what": "JP1 feeds `PHI2` to an enable of U4, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead.",
   "shipped": "JP1 bridged, JP2 open.",
-  "do": "Leave them.",
+  "do": "Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable.",
   "need": null,
   "shunts": 0
  },

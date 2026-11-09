@@ -4082,12 +4082,6 @@
 		(uuid "44a19b72-5577-4b5e-a132-9971dc3be6ce")
 	)
 	(junction
-		(at 129.54 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4cf28f7e-94ae-4dd6-b056-a1f1fefabfd3")
-	)
-	(junction
 		(at 92.71 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4128,12 +4122,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e41c4861-267e-4f2a-b420-ae4fabf7de61")
-	)
-	(junction
-		(at 129.54 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e4f827d6-d233-4673-b57f-432248f66fcb")
 	)
 	(junction
 		(at 92.71 129.54)
@@ -4227,6 +4215,16 @@
 	)
 	(wire
 		(pts
+			(xy 135.89 143.51) (xy 140.97 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25bdd171-0a92-404a-a7ed-a5674b5898af")
+	)
+	(wire
+		(pts
 			(xy 161.29 128.27) (xy 163.83 128.27)
 		)
 		(stroke
@@ -4317,16 +4315,6 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 143.51) (xy 129.54 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "267d12e7-4a68-4ab8-b508-102e23aa0d73")
-	)
-	(wire
-		(pts
 			(xy 63.5 137.16) (xy 77.47 137.16)
 		)
 		(stroke
@@ -4357,16 +4345,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 143.51) (xy 140.97 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d4bfb72-77b9-458c-abf9-199547fe29eb")
-	)
-	(wire
-		(pts
 			(xy 92.71 127) (xy 92.71 124.46)
 		)
 		(stroke
@@ -4377,16 +4355,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 118.11) (xy 129.54 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ea7b5af-58c3-408d-8789-f90bf1e5e327")
-	)
-	(wire
-		(pts
 			(xy 22.86 151.13) (xy 22.86 137.16)
 		)
 		(stroke
@@ -4394,16 +4362,6 @@
 			(type default)
 		)
 		(uuid "2f614050-fa60-49b1-8b7c-c0ac7c7ac0d8")
-	)
-	(wire
-		(pts
-			(xy 129.54 138.43) (xy 129.54 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3083eaeb-a8e1-4ef9-be02-08965c5adce9")
 	)
 	(wire
 		(pts
@@ -4484,16 +4442,6 @@
 			(type default)
 		)
 		(uuid "3e4d537a-4da8-4393-8d18-99fb87a3b06b")
-	)
-	(wire
-		(pts
-			(xy 116.84 143.51) (xy 118.11 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e5fd821-f4d9-486d-8def-b00e1091958f")
 	)
 	(wire
 		(pts
@@ -5777,7 +5725,7 @@
 	)
 	(global_label "PHI2"
 		(shape input)
-		(at 116.84 143.51 180)
+		(at 135.89 143.51 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5786,7 +5734,7 @@
 		)
 		(uuid "38434623-0d29-44d5-8d7c-c63bc859fc67")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 116.84 143.51 0)
+			(at 135.89 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8299,89 +8247,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 129.54 133.35 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "97520ad0-93ff-44d2-bb2a-ce8c76870370")
-		(property "Reference" "JP1"
-			(at 132.08 133.3499 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 127 132.0801 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 129.54 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 129.54 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6862601e-5cf4-4a87-b2e0-2e8c8ab2aafd")
-		)
-		(pin "1"
-			(uuid "a201a4f4-dc73-4aeb-a46a-b3b410ff74ba")
-		)
-		(instances
-			(project "VERA Helper"
-				(path "/1eb588e8-a8a6-45d4-8449-ed494748d485"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 151.13 152.4 0)
 		(unit 1)
@@ -8802,87 +8667,6 @@
 			(project "VERA Helper"
 				(path "/1eb588e8-a8a6-45d4-8449-ed494748d485"
 					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 123.19 143.51 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d12b0435-42e4-4449-b7f3-26e81c323f69")
-		(property "Reference" "JP3"
-			(at 123.19 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 123.19 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 123.19 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 123.19 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8a9d749f-698b-4501-b5df-0bd4983d97b4")
-		)
-		(pin "1"
-			(uuid "12b7edaf-ece6-44ad-9ca8-106178d28414")
-		)
-		(instances
-			(project "VERA Helper"
-				(path "/1eb588e8-a8a6-45d4-8449-ed494748d485"
-					(reference "JP3")
 					(unit 1)
 				)
 			)

@@ -61,7 +61,7 @@ Every revision of every board in this repository, and what is known about each. 
 | RAM Card | 1.0 | Made, matches order | **Tested** | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
 | RAM Card | 1.1 | Drawn | **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe |  |  |  | — | 100×57.62 | — | — | — |  |
 | RTC Card | 1.0 | Made, matches order | **Tested** | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |
-| RTC Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
+| RTC Card | 1.1 | Drawn | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card | 1.0 | Made, matches order | **Tested** | Y67 | 2025-10-06 | `013b131` | 3 | 100×57.62 | — | — | — |  |
 | Serial Card | 1.1 | Drawn | **Proven design**: silkscreen text and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.0 | Made, matches order | **Tested** | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
@@ -73,9 +73,9 @@ Every revision of every board in this repository, and what is known about each. 
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.1 | Drawn | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |  |  |  | — | 100×57.62 | — | — | — |  |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
-| VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open |  |  |  | — | 100×80 | 6 mm | — | — |  |
+| VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
-| VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
+| VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |  |  |  | — | 100×57.62 | — | — | — |  |
 | VGA Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | symbol has pins the footprint lacks: Pico pins 41-43 |
 | Video Card | 1.0 | Made, matches order | **Tested** | Y53 | 2024-07-09 | `f890f21` | 2 | 100×57.62 | — | — | — |  |
 | Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
@@ -334,7 +334,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.06 mm from Rev 1.0's, its corners are 5 mm (Rev 1.0's are 5.011 mm), and no track, pad or hole moved. The ground pours are refilled to suit.
-- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
+- The silkscreen's revision reads Rev 1.1.
+- `JP2` and `JP3` are removed. They chose whether `PHI2` or the supply drives E2, an enable of U3, the 74HC138 that makes the card's read and write strobes. With `PHI2` there, as Rev 1.0 ships, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.1 wires `PHI2` straight to E2. JP3's copper strip is a short track now, and JP2 goes with its feed from the supply.
 
 **Rev 1.0**
 
@@ -403,6 +404,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 69 mm to 88 × 68 mm.
 - `C1` and `C2` use the 2.5 mm capacitor footprint in place of Rev 1.0's 5 mm one, matching the family's other through-hole boards. Pad 1 of each stays where it was.
+- `JP1` and `JP3` are removed. They chose whether `PHI2` or the supply drives E2, an enable of U2, the 74HC138 that makes the card's read and write strobes. With `PHI2` there, as Rev 1.0 ships, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.1 wires `PHI2` straight to E2. JP3's copper strip is a short track now, and JP1 goes with its feed from the supply.
 - `JP2` is open as made, so D1 stays in the VERA module's interrupt line. The VERA drives its interrupt high as well as low, so with JP2 bridged, as on Rev 1.0, and a shunt on J5, it holds `IRQB` (or `NMIB`) high against every other interrupt source. D1 lets it only pull the line low.
 
 **Rev 1.0**
@@ -419,6 +421,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - D1 is named in its value field: a BAT85, cathode toward the pico9918.
 - U1, the pico9918, is turned around, and the board's outline around its VGA jack changes. The two mounting holes move, and the tracks are rerouted to suit.
 - U1 uses a socket footprint (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
+- `JP2` and `JP3` are removed. They chose whether `PHI2` or the supply drives E2, an enable of U3, the 74HC138 that makes the card's read and write strobes. With `PHI2` there, as Rev 1.0 ships, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.1 wires `PHI2` straight to E2. JP3's copper strip is a short track now, and JP2 goes with its feed from the supply.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. Only the notch for the VGA jack stays as it was, where the jack needs it. The ground pours are refilled to suit.
 
 **Rev 1.0**
@@ -430,6 +433,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.0**
 
 - Drawn, and never ordered.
+- `JP3` and `JP4` are removed. They chose whether `PHI2` or 3V3 drives E2, an enable of U5, the 74LVC138 that makes the card's read and write strobes. With `PHI2` there, as first drawn, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.0 wires `PHI2` straight to E2. JP4's copper strip is a short track now, and JP3 goes with its feed from the supply.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
 - U3, the Raspberry Pi Pico, shows KiCad's own 3D model of it. The VRML model it had before was left out of the board's STEP file, which can't hold one.
 - `JP2` is open as made, where it was first drawn bridged, so D1 stays in the interrupt line. The Pico drives its side of the level shifter, Q1, high as well as low, and with D1 bridged, Q1's body diode passes that high to `IRQB` whenever another card pulls the line low.

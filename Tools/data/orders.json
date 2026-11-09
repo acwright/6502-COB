@@ -307,7 +307,7 @@
   ],
   "COB|RTC Card|1.1": [
    "Proven design",
-   "The bare card edge only"
+   "The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them"
   ],
   "COB|Serial Card Pro|1.1": [
    "Proven design",
@@ -335,7 +335,7 @@
   ],
   "COB|VERA Helper|1.1": [
    "Proven design",
-   "Mounting holes, capacitor pitch, JP2 ships open"
+   "Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them"
   ],
   "COB|VGA Card Pro|1.0": [
    "Untested",
@@ -343,7 +343,7 @@
   ],
   "COB|VGA Card|1.1": [
    "Untested",
-   "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge"
+   "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed"
   ],
   "COB|Video Card Pro|1.0": [
    "Untested",

@@ -5910,12 +5910,6 @@
 		(uuid "42cadabc-2dd4-49ba-a06e-7ca707f27eb5")
 	)
 	(junction
-		(at 138.43 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52156d0e-2824-4329-a771-1cb1ac3dfd80")
-	)
-	(junction
 		(at 85.09 153.67)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6078,12 +6072,6 @@
 		(uuid "e052c254-a6fb-4181-9939-03fa783e5f95")
 	)
 	(junction
-		(at 116.84 171.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eb3efe43-fad3-4f4a-8fe7-1791e95d7d5b")
-	)
-	(junction
 		(at 215.9 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6238,6 +6226,16 @@
 	(no_connect
 		(at 148.59 171.45)
 		(uuid "fc424df1-7f51-4984-b4d4-a22721903573")
+	)
+	(wire
+		(pts
+			(xy 123.19 171.45) (xy 128.27 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "393b6654-a393-4d7b-90c1-df33cfdbdc68")
 	)
 	(wire
 		(pts
@@ -6591,16 +6589,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 166.37) (xy 116.84 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "259fb25e-5554-4ac8-a876-a4c1ba1bfd24")
-	)
-	(wire
-		(pts
 			(xy 233.68 148.59) (xy 233.68 153.67)
 		)
 		(stroke
@@ -6758,16 +6746,6 @@
 			(type default)
 		)
 		(uuid "376dfdc8-8b15-4b9d-9d16-a3fa5690e770")
-	)
-	(wire
-		(pts
-			(xy 116.84 146.05) (xy 116.84 156.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37742c91-b484-44a1-aeae-84d1dea79c91")
 	)
 	(wire
 		(pts
@@ -7298,16 +7276,6 @@
 			(type default)
 		)
 		(uuid "607a0da4-8b6f-4e5f-ba7c-7002742e5413")
-	)
-	(wire
-		(pts
-			(xy 115.57 171.45) (xy 116.84 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "60b371e3-8d91-4ccd-8899-2ce995ec7963")
 	)
 	(wire
 		(pts
@@ -8421,16 +8389,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 171.45) (xy 128.27 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d62e08de-015e-4086-886b-ed384f9fba1c")
-	)
-	(wire
-		(pts
 			(xy 213.36 45.72) (xy 219.71 45.72)
 		)
 		(stroke
@@ -8668,16 +8626,6 @@
 			(type default)
 		)
 		(uuid "ead8a03f-ef43-4642-935c-9981491ce2a6")
-	)
-	(wire
-		(pts
-			(xy 104.14 171.45) (xy 105.41 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eba423b9-5259-4cd4-acf4-54324acb72e6")
 	)
 	(wire
 		(pts
@@ -8928,16 +8876,6 @@
 			(type default)
 		)
 		(uuid "fbb5825c-70ee-489a-80de-aba109f4eed2")
-	)
-	(wire
-		(pts
-			(xy 116.84 146.05) (xy 138.43 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe33a923-706f-4a2c-85b1-e6c9690922f9")
 	)
 	(wire
 		(pts
@@ -11287,7 +11225,7 @@
 	)
 	(global_label "PHI2"
 		(shape input)
-		(at 104.14 171.45 180)
+		(at 123.19 171.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11296,7 +11234,7 @@
 		)
 		(uuid "d382882b-1e65-449d-90c6-cc36a6560da3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 104.14 171.45 0)
+			(at 123.19 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15716,89 +15654,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 116.84 161.29 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "adccbbf8-82a9-4955-8d8b-04ac5be42a03")
-		(property "Reference" "JP3"
-			(at 119.38 161.2899 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SolderJumper_2_Open"
-			(at 114.3 160.0201 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 116.84 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 116.84 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f2011d7f-9bcd-44b7-8321-9d86607f3eac")
-		)
-		(pin "1"
-			(uuid "70d1fedf-685a-435d-a417-a6b210f39beb")
-		)
-		(instances
-			(project "VGA Card Pro"
-				(path "/0e80058d-06c9-4042-9128-fb5310867aa3"
-					(reference "JP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 194.31 125.73 0)
 		(unit 1)
@@ -16532,87 +16387,6 @@
 			(project "VGA Card Pro"
 				(path "/0e80058d-06c9-4042-9128-fb5310867aa3"
 					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 110.49 171.45 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d12b0435-42e4-4449-b7f3-26e81c323f69")
-		(property "Reference" "JP4"
-			(at 110.49 167.64 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SolderJumper_2_Bridged"
-			(at 110.49 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 110.49 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 110.49 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 110.49 171.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8a9d749f-698b-4501-b5df-0bd4983d97b4")
-		)
-		(pin "1"
-			(uuid "12b7edaf-ece6-44ad-9ca8-106178d28414")
-		)
-		(instances
-			(project "VGA Card Pro"
-				(path "/0e80058d-06c9-4042-9128-fb5310867aa3"
-					(reference "JP4")
 					(unit 1)
 				)
 			)

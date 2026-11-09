@@ -64,7 +64,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
+| [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge |
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -76,10 +76,10 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open |
+| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |
 | [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |
+| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |
 | [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |
@@ -168,7 +168,7 @@ How to build each board, where it needs more than its parts list.
 
 **RTC Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. It also drops JP2 and JP3 and wires `PHI2` to U3 the way they ship, so leave a Rev 1.0's as shipped.
 
 **Storage Card**
 
@@ -176,13 +176,13 @@ How to build each board, where it needs more than its parts list.
 
 **VERA Helper**
 
-**Building a Rev 1.0: cut JP2 before fitting a shunt on J5.** The VERA module drives its interrupt high as well as low. JP2, bridged on the board as made, shorts across D1, so with a shunt on J5 the module holds `IRQB` (or `NMIB`) high against every other interrupt source. Cut the trace between JP2's pads, and check with a meter that they no longer connect; Rev 1.1 ships JP2 open. Without a shunt on J5 the interrupt reaches neither line, and JP2 doesn't matter. Rev 1.1's other changes, its mounting holes and capacitor pitch, need nothing on a built board.
+**Building a Rev 1.0: cut JP2 before fitting a shunt on J5.** The VERA module drives its interrupt high as well as low. JP2, bridged on the board as made, shorts across D1, so with a shunt on J5 the module holds `IRQB` (or `NMIB`) high against every other interrupt source. Cut the trace between JP2's pads, and check with a meter that they no longer connect; Rev 1.1 ships JP2 open. Without a shunt on J5 the interrupt reaches neither line, and JP2 doesn't matter. Leave JP1 and JP3 as shipped: Rev 1.1 drops them and is wired the way they ship. Rev 1.1's other changes, its mounting holes and capacitor pitch, need nothing on a built board.
 
 **VGA Card**
 
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
 
-Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built board: a Rev 1.0's masked edge works in the slot.
+Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built board: a Rev 1.0's masked edge works in the slot. Leave JP2 and JP3 as shipped: Rev 1.1 drops them and is wired the way they ship.
 
 **Video Card**
 
@@ -1158,7 +1158,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RTC Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge only.
+Drawn, not made yet. **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them.
 
 Cart files: [digikey.csv](BOM/RTC%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RTC%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RTC%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RTC%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1488,7 +1488,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VERA Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: mounting holes, capacitor pitch, JP2 ships open.
+Drawn, not made yet. **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them.
 
 Cart files: [digikey.csv](BOM/VERA%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/VERA%20Helper/Rev%201.1/mouser.csv)
 
@@ -1574,7 +1574,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Rev 1.1
 
-Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge.
+Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed.
 
 Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card/Rev%201.1/mouser-through-hole.csv)
 
