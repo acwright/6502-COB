@@ -153,6 +153,16 @@ long as the assembly file says, with 2 mm round it so it can be worked with fing
 **A part at the board's edge** that reaches into the top gets a notch in the outline, as the ACE's DB9s and power jack
 have.
 
+**An opening close to the edge runs out through it** (owner, 2026-11-09): where an opening would leave less than 3 mm
+of acrylic between it and the board's edge (`merge_below`, the same web as between two openings), it becomes a notch
+at its full width, as Fusion's Keypad Helper top had at its box header. The strip stays only where the notch would cut
+into a mounting hole's keep-out, or where the strip is what holds the top together (the Keypad LCD Helper 1.1's frame,
+along its front edge); the top's notes say which.
+
+**Where a notch meets the edge, the acrylic's corner is rounded 1 mm** (`notch_corner`, owner, 2026-11-09), as on
+Fusion's Keypad LCD Helper 1.0 top. Rounding the opening's own corner there instead would leave a sharp point of
+acrylic at the edge.
+
 **Round holes:**
 
 | Hole | Over |

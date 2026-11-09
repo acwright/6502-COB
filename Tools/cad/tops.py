@@ -18,7 +18,9 @@ The top is drawn as the board sits on the plate, seen from above, with its back-
   - each opening is the part's 3D body grown by its kind's margin, then grown again to whole 0.5 mm, centred;
   - openings that would leave less than 3 mm of acrylic between them become one: the narrow acrylic is cut away, and
     each keeps its own shape elsewhere;
-  - no opening comes within keep_round_holes of a mounting hole: the screw head and standoff need the acrylic.
+  - no opening comes within keep_round_holes of a mounting hole: the screw head and standoff need the acrylic;
+  - an opening that would leave less than 3 mm of acrylic at the board's edge runs out through it, as a notch;
+  - where a notch meets the board's edge, the acrylic's corner is rounded notch_corner (1 mm).
 """
 import hashlib, json, math, os, sys
 CAD = os.path.dirname(os.path.abspath(__file__))
@@ -223,6 +225,55 @@ class Top:
             self.holes.append({'refs': [h['ref']], 'x': (c[0] + c[2]) / 2, 'y': (c[1] + c[3]) / 2, 'd': h['d'], 'why': h.get('why', '')})
         self.clear_holes()
         self.merge()
+        self.to_edge()
+
+    def to_edge(self):
+        """An opening that would leave less than merge_below of acrylic between it and the board's edge runs out through
+        the edge instead, as a notch: the strip would be too thin to keep. It runs out at its full width, unless that
+        would cut into a mounting hole's keep-out, which then keeps its strip."""
+        gap = self.std['openings']['merge_below']
+        keep = self.std['top']['keep_round_holes']
+        keepout = unary_union([Point(x, y).buffer(keep, quad_segs=32) for x, y in self.mount])
+        ob = self.outline.bounds
+        far = 5.0
+        for o in self.openings:
+            s = self.shape(o)
+            for side in range(4):
+                b = s.bounds
+                left = side < 2   # sides 0, 1: x0, y0 (towards the back-left); 2, 3: x1, y1
+                axis = side % 2
+                strip = (b[side] - ob[side]) if left else (ob[side] - b[side])
+                if not 0 < strip < gap:
+                    continue
+                # the opening's full width along that edge: what of it lies within 2 mm of its own side, past any
+                # rounded corner it has
+                d = 2.0
+                if axis == 1:
+                    cut = sbox(-1e3, b[1], 1e3, b[1] + d) if left else sbox(-1e3, b[3] - d, 1e3, b[3])
+                else:
+                    cut = sbox(b[0], -1e3, b[0] + d, 1e3) if left else sbox(b[2] - d, -1e3, b[2], 1e3)
+                w = s.intersection(cut).bounds
+                if axis == 1:
+                    sweep = sbox(w[0], ob[1] - far, w[2], b[1] + d) if left else sbox(w[0], b[3] - d, w[2], ob[3] + far)
+                else:
+                    sweep = sbox(ob[0] - far, w[1], b[0] + d, w[3]) if left else sbox(b[2] - d, w[1], ob[2] + far, w[3])
+                if sweep.intersects(keepout):
+                    self.notes.append(f"{'+'.join(o['refs'][:3])}: {strip:.2f} mm of acrylic left at the board's edge, "
+                                      f"kept, because a notch would cut into a mounting hole's keep-out")
+                    continue
+                others = [self.shape(x) for x in self.openings if x is not o]
+                left_over = self.outline.difference(unary_union(others + [s, sweep]))
+                pieces = list(left_over.geoms) if left_over.geom_type == 'MultiPolygon' else [left_over]
+                if sum(1 for p in pieces if any(p.contains(Point(x, y)) for x, y in self.mount)) > 1:
+                    self.notes.append(f"{'+'.join(o['refs'][:3])}: {strip:.2f} mm of acrylic left at the board's edge, "
+                                      f"kept, because it holds the top together")
+                    continue
+                s = unary_union([s, sweep])
+                self.notes.append(f"{'+'.join(o['refs'][:3])}: would have left {strip:.2f} mm of acrylic at the board's "
+                                  f"edge, less than {gap:g} mm, so it runs out through the edge")
+            if not s.equals(self.shape(o)):
+                o['poly'] = s
+                o['box'] = list(s.bounds)
 
     def clear_holes(self):
         """An opening that comes within keep_round_holes of a mounting hole has that side pulled straight back, when
@@ -317,6 +368,7 @@ class Top:
                  f'L{f(r)},{f(H)} A{f(r)},{f(r)} 0 0,1 0,{f(H - r)} L0,{f(r)} A{f(r)},{f(r)} 0 0,1 {f(r)},0z')
         else:
             shape = outline.difference(unary_union(notched)) if notched else outline
+            shape = self.notch_corners(shape, outline, notched)
             shape = self.held(shape)
             d = 'M' + ' L'.join(f'{f(x)},{f(y)}' for x, y in list(shape.exterior.coords)[:-1]) + 'z'
         out.append(f'<path d="{d}" fill="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round" />')
@@ -340,6 +392,24 @@ class Top:
             out.append(f'<path d="M{f(x - rr_)},{f(y)} a{f(rr_)},{f(rr_)} 0 1,1 {f(2 * rr_)},0 a{f(rr_)},{f(rr_)} 0 1,1 {f(-2 * rr_)},0z" {white} />')
         out.append('</svg>')
         return '\n'.join(out) + '\n'
+
+    def notch_corners(self, shape, outline, notched):
+        """Where a notch meets the board's edge, the acrylic's corner is rounded to notch_corner, as Fusion's tops have
+        it, instead of the sharp point an opening's own rounded corner leaves at the edge. Only those corners change:
+        the corners are found by rounding every convex corner of the acrylic, and only the small pieces that lie where a
+        notch crosses the outline are taken off."""
+        if not notched:
+            return shape
+        R = self.std['openings']['notch_corner']
+        crossings = outline.exterior.intersection(unary_union([s.boundary for s in notched]))
+        if crossings.is_empty:
+            return shape
+        near = crossings.buffer(2.5 * R, quad_segs=16)
+        rounded = shape.buffer(-R, quad_segs=32).buffer(R, quad_segs=32)
+        rest = shape.difference(rounded)
+        pieces = list(rest.geoms) if hasattr(rest, 'geoms') else [rest]
+        off = [p for p in pieces if not p.is_empty and p.intersects(near) and p.area < 2 * R * R]
+        return shape.difference(unary_union(off)).simplify(0.001) if off else shape
 
     def held(self, shape):
         """A piece of the top that holds no mounting hole would fall out, so it is dropped: the opening round it takes it

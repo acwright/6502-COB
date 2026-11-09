@@ -39,6 +39,7 @@
    "radius": 1.0
   },
   "merge_below": 3.0,
+  "notch_corner": 1.0,
   "reset_button": {
    "hole": 3.3,
    "printed_part": "ACE: CAD/Bases/Reset Button"
