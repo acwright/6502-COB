@@ -177,4 +177,5 @@ the same holes and openings as the board's own top.
 - **`Plate.stl`** is one layer, in the frame Fusion exported the KIM's in: centred, x to the right, z towards the
   front, y up, from y 6 to 9.
 - **In millimetres**, at 1:1, in the Shaper export's style (a black outline, white holes), so LightBurn imports them
-  as it does today. LightBurn files are the owner's: when a cut file changes, say which `.lbrn2` needs remaking.
+  as it does today. LightBurn files are the owner's, and git doesn't track them (`.lbrn2`, with the slicer's `.3mf`
+  and `.bgcode`, are in `.gitignore`): when a cut file changes, say which `.lbrn2` needs remaking.

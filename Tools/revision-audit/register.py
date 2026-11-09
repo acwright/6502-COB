@@ -93,9 +93,9 @@ for repo in SCOPE:
         elif k in O['made_unchecked']: st='Made, not compared';notes.append(O['made_unchecked'][k])
         else: st='To confirm'
         cnt[st]+=1;newest=x['newest'];ti=tindie(repo,b) if st.startswith(('Made','To')) and x['rev'] in('1.0','1.0a','1.0b') or k=='COB|Backplane Pro|1.1' else None
-        top='yes' if glob.glob(f'CAD/Tops/{b}/{rev}/*') else '—';svgonly=top=='yes' and not glob.glob(f'CAD/Tops/{b}/{rev}/*.lbrn2')
-        if svgonly: top='SVG only'
-        enc='yes' if glob.glob(f'CAD/Enclosures/{b}/{rev}/*') else '—'
+        # Only tracked file types count: LightBurn and slicer files (.lbrn2, .3mf, .bgcode) are the owner's, untracked.
+        top='yes' if glob.glob(f'CAD/Tops/{b}/{rev}/*.svg') else '—'
+        enc='yes' if [f for f in glob.glob(f'CAD/Enclosures/{b}/{rev}/*') if not f.endswith(('.lbrn2','.3mf','.bgcode'))] else '—'
         if x.get('known'): notes.append('symbol has pins the footprint lacks: '+x['known'])
         if x.get('note'): notes.append(x['note'])
         if k in O.get('notes',{}): notes.append(O['notes'][k])

@@ -287,5 +287,5 @@
 <text x="42" y="15" font-size="7.2" text-anchor="start" fill="#16202c" font-weight="bold">COB base plate: mounting drawing</text>
 <text x="42" y="23" font-size="3.6" text-anchor="start" fill="#7b8794" font-weight="normal">Looking down on the plate, as the computer is used. All dimensions in mm.</text>
 <line x1="34" y1="337.2" x2="614" y2="337.2" stroke="#16202c" stroke-width="0.25"/>
-<text x="34" y="342.2" font-size="3" text-anchor="start" fill="#7b8794" font-weight="normal">6502-COB · CAD/Bases/Plate.svg, Plate.lbrn2, Plate.stl · three 3 mm acrylic layers</text>
+<text x="34" y="342.2" font-size="3" text-anchor="start" fill="#7b8794" font-weight="normal">6502-COB · CAD/Bases/Plate.svg, Plate.stl · three 3 mm acrylic layers</text>
 <text x="614" y="342.2" font-size="3" text-anchor="end" fill="#7b8794" font-weight="normal">© 2026 A.C. Wright Design</text></svg>

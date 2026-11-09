@@ -13,3 +13,9 @@ Thumbs.db
 # Tools/: generated files and caches
 Tools/work/
 __pycache__/
+
+# LightBurn and PrusaSlicer files are set up for the owner's machines. The SVG and STL files are what a
+# builder cuts and prints from.
+*.lbrn2
+*.3mf
+*.bgcode
