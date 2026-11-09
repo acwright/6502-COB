@@ -36,7 +36,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | Folder | What it does |
 |---|---|
 | `bom/` | `gen_bom.py` writes `BOM.md` and the carts; `apply.py` writes the parts catalogue (`catalogue.json`) into the KiCad files; `check.py` checks they all agree. `digikey.py` and `mouser.py` look parts up, with API keys from `Tools/.env`, which git ignores. |
-| `revision-audit/` | `audit.py` checks every revision against the family's standard; `register.py` writes `REVISIONS.md`; `labels.py` gives each revision its label; `newrev.py` starts a new revision; `gproof.py` compares two revisions' Gerbers; `cadcheck.py` checks the top panels fit their boards. |
+| `revision-audit/` | `audit.py` checks every revision against the family's standard; `register.py` writes `REVISIONS.md`; `labels.py` gives each revision its label; `newrev.py` starts a new revision; `gproof.py` compares two revisions' Gerbers (`--no-fill` without the pours' fills); `cadcheck.py` checks the top panels fit their boards. |
 | `jumpers/` | Writes the README's *Jumpers* section, and checks every jumper on every revision is in it. |
 | `offboard/` | Writes the README's *Off-board headers* section from the newest PCBs. |
 | `schematic/` | Draws and checks the 6502 bus, cart and card connectors (`busfix.py`, `check.py`), and sets each global label's shape from the signal's flow (`flow.py`). |
@@ -44,6 +44,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `board-images/` | Renders the board images in `CAD/Images/`. |
 | `cad/` | Reads each machine's `CAD/Assembly.json`, which places its boards on the plate, and checks it against the PCBs and today's plate. The family's standards for plates and tops are in its README. |
 | `consistency/` | `table.py --all` prints every board's newest revision against the family's rules. |
+| `cardedge/` | `standard.json` is the one card edge every card and cart shares: the outline, a cart's shell holes, no mask on the tab and no paste on the fingers. `cardedge.py` applies it to a revision not yet made, and checks every newest revision against it; revisions still waiting for their fix are listed in `Tools/data/cardedge.json`. |
 
 ## Data
 
@@ -58,6 +59,7 @@ repositories:
 | `offboard.json` | Exceptions to the off-board header rules. |
 | `rendered.json` | What each PCB looked like when its images were rendered. |
 | `tindie.json` | Stock on each board's Tindie listing, as last read. |
+| `cardedge.json` | Newest revisions that don't meet the card edge standard yet, and the item that fixes each. Only in the repositories with cards or carts. |
 
 A change to one board's records is a commit to this repository only. `Tools/work/` holds generated files, such as
 the audit and the cache, and git ignores it.

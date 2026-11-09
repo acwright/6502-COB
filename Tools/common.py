@@ -56,7 +56,7 @@ def repo_of(path):
 # (orders.json). 'flat': a dict keyed by repository. 'list': a list of entries, each with a "repo". Keys that start
 # with '_' are notes about the file, kept in every copy.
 DATA={'orders.json':'sections','offboard.json':'sections','assignment.json':'flat','rendered.json':'flat',
-      'tindie.json':'flat','jumpers.json':'list','audit.json':'list'}
+      'tindie.json':'flat','jumpers.json':'list','audit.json':'list','cardedge.json':'sections'}
 GENERATED={'audit.json'}   # written by a tool into Tools/work/, never committed
 def _path(r,name): return f'{K}6502-{r}/Tools/{"work" if name in GENERATED else "data"}/{name}'
 def _key_repo(k): return k.split('|',1)[0]

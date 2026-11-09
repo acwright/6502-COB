@@ -1,0 +1,62 @@
+{
+ "_about": "One card edge for every card and cart (KICAD.md K28, the owner's rules of 2026-11-07). Every length is in mm, in the board's own frame: x from its left edge, y down from its top edge. Tools/cardedge/cardedge.py applies it to a board and checks every newest revision against it. The outline is placed by the fingers, never the fingers by the outline.",
+ "footprint": "6502 Card Edge",
+ "fingers": {
+  "_about": "40 pads, 20 a side, 2.54 mm apart. They span 49.53 mm across the tab and are 5.08 mm long, so they sit centred across the 51.8 mm tab and 1.27 mm from each end of the 7.62 mm tab.",
+  "count": 40,
+  "span": 49.53,
+  "length": 5.08,
+  "from_tab_end": 1.27,
+  "paste": false
+ },
+ "outline": {
+  "_about": "A 50 mm body with 5 mm corners, and below it the tab that goes into the connector (TE Connectivity 5-5530843-4), joined to the body by a 1 mm fillet each side and with 1 mm corners at its end. 57.62 mm in all: the owner kept the 7.62 mm (0.3 inch) tab on 2026-11-07. Drawn on Edge.Cuts with a 0.05 mm line, as every card and cart was.",
+  "height": 57.62,
+  "body": 50.0,
+  "corner": 5.0,
+  "tab_width": 51.8,
+  "tab_fillet": 1.0,
+  "tab_corner": 1.0,
+  "line": 0.05
+ },
+ "card": {
+  "_about": "Every board with the footprint that isn't a cart. Its tab is not centred.",
+  "width": 100.0,
+  "tab_left": 15.0
+ },
+ "cart": {
+  "_about": "The carts for the VCS's cartridge slot. The tab is 15 mm from each side, so centred. Four holes hold the cart in its shell: two M3 by the top edge and two M2 just above the tab, each pair centred on the cart. Until K28 they were 0.05 mm left of centre and 0.007 mm low, and the shell's posts were drawn round them.",
+  "boards": ["Flash Cart", "ROM Cart"],
+  "width": 81.8,
+  "tab_left": 15.0,
+  "holes": {
+   "H1": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 4.9, "y": 5.0},
+   "H2": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 76.9, "y": 5.0},
+   "H3": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 12.9, "y": 45.5},
+   "H4": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 68.9, "y": 45.5}
+  },
+  "shell": {
+   "_about": "The cart shell, 6502-VCS CAD/Enclosuers/Cart Enclosure.step, measured on 2026-11-09 against the board inside it: its screw posts' centres, in the board's frame. Each standard hole must be within tolerance of its post: the clearance round an M3 screw in a 3.2 mm hole. When the STEP changes, its sha1 no longer matches: measure the posts again.",
+   "repo": "VCS",
+   "file": "CAD/Enclosuers/Cart Enclosure.step",
+   "sha1": "ed55d5dff3f6413188cd084a0f738a5ccc1c9e1a",
+   "posts": {"H1": [4.849, 5.007], "H2": [76.849, 5.007], "H3": [12.849, 45.506], "H4": [68.849, 45.506]},
+   "tolerance": 0.1
+  }
+ },
+ "mask": {
+  "_about": "No solder mask on the tab, front or back: one filled rectangle on F.Mask and one on B.Mask. Its top edge runs between the fillets' ends, 1 mm below the body, never along the body's whole width. It runs past the tab's sides and end by the overhang, so no sliver of mask is left at the board's edge.",
+  "layers": ["F.Mask", "B.Mask"],
+  "overhang": 0.5,
+  "drc_rule": {
+   "_about": "One opening over 40 fingers bridges their nets, which KiCad's DRC reports as solder_mask_bridge. This rule in the board's .kicad_dru lets a drawing on a mask layer that belongs to no footprint bridge nets. cardedge.py --check makes sure the tab's two rectangles are the only such drawings, so the rule can't hide any other bridge.",
+   "text": "# Card edge (KICAD.md K28): one mask opening over the tab's 40 fingers bridges their nets on purpose.\n# Tools/cardedge/cardedge.py checks that it is the only drawing on a mask layer outside a footprint.\n(rule \"Card edge: the mask opening over the tab\"\n\t(constraint bridged_mask)\n\t(condition \"A.Type == 'Graphic' && (A.Layer == 'F.Mask' || A.Layer == 'B.Mask') && !A.memberOfFootprint('*')\")\n\t(severity ignore))\n"
+  }
+ },
+ "exceptions": {
+  "COB|VGA Card": {
+   "_about": "Rev 1.1 onwards: the card outline with a notch for its VGA jack, which stays where the jack needs it. Inside this box, in the board's frame (x0, y0, x1, y1), the board's own outline is kept as drawn, and the standard's lines are cut and joined to it.",
+   "keep": [88.0, -1.0, 101.0, 37.0]
+  }
+ }
+}
