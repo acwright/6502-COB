@@ -13,7 +13,7 @@ Every revision of every board in this repository, and what is known about each. 
 **Label** says whether a builder can rely on a revision. Make the newest revision of a board, and check its label first:
 
 - **Tested:** This revision was built and tested.
-- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted with DRC and the netlist check passing. A builder can treat it as tested.
+- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
 - **Untested:** The circuit, the power path or the layout changed in a way that only a built board proves, or the board has never been built at all.
 
 **Holes** is how far the corner mounting holes sit from the board's edges. The standard is 6 mm, and 5 mm on the ACE Board, the CF Adapter and the Keyboard Helper. A dash means a card or cart, which has no corner holes.

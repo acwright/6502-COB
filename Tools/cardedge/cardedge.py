@@ -258,8 +258,9 @@ def check(verbose):
         else:
             good += 1
             if verbose: print(f'ok       {bd.tag}')
+    shell = f'{S["cart"]["shell"]["repo"]}|{os.path.splitext(os.path.basename(S["cart"]["shell"]["file"]))[0]}'
     for key in P:
-        if key not in N and key.split('|')[0] in SCOPE:
+        if key not in N and key != shell and key.split('|')[0] in SCOPE:
             E.append(f'{key} in "pending" in Tools/data/cardedge.json is not a newest revision with the footprint: remove it')
     # the library's footprint: no paste on its pads
     for r in SCOPE:
@@ -273,10 +274,13 @@ def check(verbose):
         if not os.path.exists(step): E.append(f'{sh["file"]} is missing: the cart holes can\'t be checked against the shell')
         elif hashlib.sha1(open(step, 'rb').read()).hexdigest() != sh['sha1']:
             E.append(f'{sh["file"]} has changed since its posts were measured: measure them again into Tools/cardedge/standard.json')
-        for ref, h in S['cart']['holes'].items():
-            px, py = sh['posts'][ref]
-            if math.hypot(h['x'] - px, h['y'] - py) > sh['tolerance']:
-                E.append(f'cart {ref}: the standard\'s hole is {math.hypot(h["x"] - px, h["y"] - py):.3f} mm from the shell\'s post')
+        off = [f'{ref} {math.hypot(h["x"] - sh["posts"][ref][0], h["y"] - sh["posts"][ref][1]):.3f} mm' for ref, h in S['cart']['holes'].items()
+               if math.hypot(h['x'] - sh['posts'][ref][0], h['y'] - sh['posts'][ref][1]) > sh['tolerance']]
+        key = f'{sh["repo"]}|{os.path.splitext(os.path.basename(sh["file"]))[0]}'
+        if off and key in P:
+            if verbose: print(f'pending  {key}: {P[key]}')
+        elif off: E.append('the cart shell\'s posts are off the standard\'s holes: ' + ', '.join(off))
+        elif key in P: E.append(f'{key}: its posts meet the holes: remove it from "pending" in Tools/data/cardedge.json')
     for e in E: print(e)
     print(f'card edges: {len(N)} newest revisions, {good} to the standard, {sum(1 for k in N if k in P)} pending, {len(E)} faults')
     return not E

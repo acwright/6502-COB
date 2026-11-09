@@ -25,18 +25,18 @@
   "tab_left": 15.0
  },
  "cart": {
-  "_about": "The carts for the VCS's cartridge slot. The tab is 15 mm from each side, so centred. Four holes hold the cart in its shell: two M3 by the top edge and two M2 just above the tab, each pair centred on the cart. Until K28 they were 0.05 mm left of centre and 0.007 mm low, and the shell's posts were drawn round them.",
+  "_about": "The carts for the VCS's cartridge slot. The tab is 15 mm from each side, so centred. Four holes hold the cart in its shell: two M3 5 mm from the top edge and the sides, and two M2 13 mm from the sides, just above the tab; each pair is centred on the cart (owner, 2026-11-09). Until K28 the M3s were 4.849 and 4.95 mm from the sides and the M2s 12.849 and 12.95, a slip in Fusion 360, and the shell's posts were drawn round them.",
   "boards": ["Flash Cart", "ROM Cart"],
   "width": 81.8,
   "tab_left": 15.0,
   "holes": {
-   "H1": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 4.9, "y": 5.0},
-   "H2": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 76.9, "y": 5.0},
-   "H3": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 12.9, "y": 45.5},
-   "H4": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 68.9, "y": 45.5}
+   "H1": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 5.0, "y": 5.0},
+   "H2": {"footprint": "MountingHole:MountingHole_3.2mm_M3", "x": 76.8, "y": 5.0},
+   "H3": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 13.0, "y": 45.5},
+   "H4": {"footprint": "MountingHole:MountingHole_2.2mm_M2", "x": 68.8, "y": 45.5}
   },
   "shell": {
-   "_about": "The cart shell, 6502-VCS CAD/Enclosuers/Cart Enclosure.step, measured on 2026-11-09 against the board inside it: its screw posts' centres, in the board's frame. Each standard hole must be within tolerance of its post: the clearance round an M3 screw in a 3.2 mm hole. When the STEP changes, its sha1 no longer matches: measure the posts again.",
+   "_about": "The cart shell, 6502-VCS CAD/Enclosuers/Cart Enclosure.step, measured on 2026-11-09 against the board inside it: its screw posts' centres, in the board's frame. Each standard hole must be within tolerance of its post: the clearance round an M3 screw in a 3.2 mm hole. While the posts are still the old holes', VCS|Cart Enclosure is in pending in 6502-VCS Tools/data/cardedge.json. When the STEP changes, its sha1 no longer matches: measure the posts again, with build123d (Tools/cad/setup.sh), against the board inside it.",
    "repo": "VCS",
    "file": "CAD/Enclosuers/Cart Enclosure.step",
    "sha1": "ed55d5dff3f6413188cd084a0f738a5ccc1c9e1a",
