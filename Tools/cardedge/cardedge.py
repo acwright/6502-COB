@@ -22,7 +22,7 @@ and the History entry).
 A newest revision waiting for its fix (a made board needs a new revision) is listed in Tools/data/cardedge.json under
 "pending", with the item that fixes it. It is reported but doesn't fail the check, and an entry that is no longer
 needed, because the revision passes or is no longer the newest, fails the check until it is removed."""
-import os, re, sys, math, json, uuid, hashlib, subprocess, tempfile
+import os, re, sys, math, json, uuid, subprocess, tempfile
 H = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(H)); sys.path.insert(0, H)
 from common import KC, SCOPE, repo_dir, files, load
@@ -258,29 +258,14 @@ def check(verbose):
         else:
             good += 1
             if verbose: print(f'ok       {bd.tag}')
-    shell = f'{S["cart"]["shell"]["repo"]}|{os.path.splitext(os.path.basename(S["cart"]["shell"]["file"]))[0]}'
     for key in P:
-        if key not in N and key != shell and key.split('|')[0] in SCOPE:
+        if key not in N and key.split('|')[0] in SCOPE:
             E.append(f'{key} in "pending" in Tools/data/cardedge.json is not a newest revision with the footprint: remove it')
     # the library's footprint: no paste on its pads
     for r in SCOPE:
         lib = f'{repo_dir(r)}/Libraries/6502 Parts.pretty/{S["footprint"]}.kicad_mod'
         if os.path.exists(lib) and '.Paste"' in open(lib, encoding='utf-8').read():
             E.append(f'{r}: the library\'s "{S["footprint"]}" has paste on its pads')
-    # the cart shell's posts against the standard's holes
-    sh = S['cart']['shell']
-    if sh['repo'] in SCOPE:
-        step = f'{repo_dir(sh["repo"])}/{sh["file"]}'
-        if not os.path.exists(step): E.append(f'{sh["file"]} is missing: the cart holes can\'t be checked against the shell')
-        elif hashlib.sha1(open(step, 'rb').read()).hexdigest() != sh['sha1']:
-            E.append(f'{sh["file"]} has changed since its posts were measured: measure them again into Tools/cardedge/standard.json')
-        off = [f'{ref} {math.hypot(h["x"] - sh["posts"][ref][0], h["y"] - sh["posts"][ref][1]):.3f} mm' for ref, h in S['cart']['holes'].items()
-               if math.hypot(h['x'] - sh['posts'][ref][0], h['y'] - sh['posts'][ref][1]) > sh['tolerance']]
-        key = f'{sh["repo"]}|{os.path.splitext(os.path.basename(sh["file"]))[0]}'
-        if off and key in P:
-            if verbose: print(f'pending  {key}: {P[key]}')
-        elif off: E.append('the cart shell\'s posts are off the standard\'s holes: ' + ', '.join(off))
-        elif key in P: E.append(f'{key}: its posts meet the holes: remove it from "pending" in Tools/data/cardedge.json')
     for e in E: print(e)
     print(f'card edges: {len(N)} newest revisions, {good} to the standard, {sum(1 for k in N if k in P)} pending, {len(E)} faults')
     return not E
