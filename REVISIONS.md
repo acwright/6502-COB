@@ -50,7 +50,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Keyboard Helper | 1.0 | Made, matches order | **Tested** | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
 | LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `2a232e3` | — | 100×100 | 6 mm | yes | — |  |
 | LCD Card | 1.0 | Made, matches order | **Tested** | Y27 | 2024-04-22 | `f77fc20` | 4 | 100×57.62 | — | — | — |  |
-| LCD Card | 1.1 | Drawn | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
+| LCD Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
@@ -73,7 +73,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.1 | Drawn | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |  |  |  | — | 100×57.62 | — | — | — |  |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
-| VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch |  |  |  | — | 100×80 | 6 mm | — | — |  |
+| VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
 | VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | VGA Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | symbol has pins the footprint lacks: Pico pins 41-43 |
@@ -268,7 +268,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- `JP1` is open as made. On Rev 1.0 it is bridged.
+- The silkscreen's revision reads Rev 1.1. The circuit is Rev 1.0's, with `JP1` bridged as made: the W65C22N's interrupt output is open-drain, so the card works as shipped.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**
@@ -403,6 +403,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 69 mm to 88 × 68 mm.
 - `C1` and `C2` use the 2.5 mm capacitor footprint in place of Rev 1.0's 5 mm one, matching the family's other through-hole boards. Pad 1 of each stays where it was.
+- `JP2` is open as made, so D1 stays in the VERA module's interrupt line. The VERA drives its interrupt high as well as low, so with JP2 bridged, as on Rev 1.0, and a shunt on J5, it holds `IRQB` (or `NMIB`) high against every other interrupt source. D1 lets it only pull the line low.
 
 **Rev 1.0**
 
@@ -431,6 +432,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Drawn, and never ordered.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
 - U3, the Raspberry Pi Pico, shows KiCad's own 3D model of it. The VRML model it had before was left out of the board's STEP file, which can't hold one.
+- `JP2` is open as made, where it was first drawn bridged, so D1 stays in the interrupt line. The Pico drives its side of the level shifter, Q1, high as well as low, and with D1 bridged, Q1's body diode passes that high to `IRQB` whenever another card pulls the line low.
 
 ### Video Card
 
@@ -452,3 +454,4 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Drawn, and never ordered.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
+- `JP1` is open as made, where it was first drawn bridged, so D1 stays in the interrupt line. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does; D1 lets it only pull `IRQB` low.

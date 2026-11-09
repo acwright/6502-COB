@@ -287,7 +287,7 @@
   ],
   "COB|LCD Card|1.1": [
    "Proven design",
-   "JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge"
+   "The bare card edge only"
   ],
   "COB|Memory Card|1.1": [
    "Proven design",
@@ -335,7 +335,7 @@
   ],
   "COB|VERA Helper|1.1": [
    "Proven design",
-   "Mounting holes, capacitor pitch"
+   "Mounting holes, capacitor pitch, JP2 ships open"
   ],
   "COB|VGA Card Pro|1.0": [
    "Untested",

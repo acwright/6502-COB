@@ -53,7 +53,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge |
+| [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
@@ -76,7 +76,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch |
+| [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open |
 | [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, and the bare card edge |
@@ -141,6 +141,10 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
 
+**LCD Card**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. Both revisions ship JP1 bridged for the W65C22N.
+
 **Mega Helper**
 
 **Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
@@ -169,6 +173,10 @@ How to build each board, where it needs more than its parts list.
 **Storage Card**
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
+**VERA Helper**
+
+**Building a Rev 1.0: cut JP2 before fitting a shunt on J5.** The VERA module drives its interrupt high as well as low. JP2, bridged on the board as made, shorts across D1, so with a shunt on J5 the module holds `IRQB` (or `NMIB`) high against every other interrupt source. Cut the trace between JP2's pads, and check with a meter that they no longer connect; Rev 1.1 ships JP2 open. Without a shunt on J5 the interrupt reaches neither line, and JP2 doesn't matter. Rev 1.1's other changes, its mounting holes and capacitor pitch, need nothing on a built board.
 
 **VGA Card**
 
@@ -894,7 +902,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### LCD Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: JP1, a solder jumper, ships open, where Rev 1.0's is bridged; the bare card edge.
+Drawn, not made yet. **Proven design**: the bare card edge only.
 
 Cart files: [digikey.csv](BOM/LCD%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/LCD%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/LCD%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/LCD%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1476,7 +1484,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VERA Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: mounting holes, capacitor pitch.
+Drawn, not made yet. **Proven design**: mounting holes, capacitor pitch, JP2 ships open.
 
 Cart files: [digikey.csv](BOM/VERA%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/VERA%20Helper/Rev%201.1/mouser.csv)
 

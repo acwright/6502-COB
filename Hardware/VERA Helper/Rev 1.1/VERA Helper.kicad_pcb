@@ -5085,12 +5085,12 @@
 			)
 		)
 	)
-	(footprint "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+	(footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 		(layer "F.Cu")
 		(uuid "64c87144-bd7b-46c4-831e-cb2bcc33b6fb")
 		(at 141.0011 122.9636 90)
-		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, bridged with 1 copper strip")
-		(tags "net tie solder jumper bridged")
+		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
+		(tags "solder jumper open")
 		(property "Reference" "JP2"
 			(at 0 -1.8 90)
 			(layer "F.SilkS")
@@ -5102,7 +5102,7 @@
 				)
 			)
 		)
-		(property "Value" "SolderJumper_2_Bridged"
+		(property "Value" "SolderJumper_2_Open"
 			(at 30.25 8.2 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -5140,7 +5140,7 @@
 				)
 			)
 		)
-		(property ki_fp_filters "SolderJumper*Bridged*")
+		(property ki_fp_filters "SolderJumper*Open*")
 		(path "/aa8e7792-790d-44f2-9d9b-d83ec73cf678")
 		(sheetname "/")
 		(sheetfile "VERA Helper.kicad_sch")
@@ -5152,20 +5152,7 @@
 		)
 		(zone_connect 1)
 		(attr exclude_from_bom allow_soldermask_bridges)
-		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
-		(fp_poly
-			(pts
-				(xy 0.25 -0.3) (xy -0.25 -0.3) (xy -0.25 0.3) (xy 0.25 0.3)
-			)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-			(fill yes)
-			(layer "F.Cu")
-			(uuid "6a88559e-65c1-4b53-b71d-e312fd2ffe8d")
-		)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)

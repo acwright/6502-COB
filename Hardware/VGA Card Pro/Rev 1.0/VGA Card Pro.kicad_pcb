@@ -13125,12 +13125,12 @@
 			)
 		)
 	)
-	(footprint "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+	(footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 		(layer "F.Cu")
 		(uuid "fcbd6462-b6f7-4096-a64c-3a1c03a5ffda")
 		(at 137.53 105.13 180)
-		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, bridged with 1 copper strip")
-		(tags "net tie solder jumper bridged")
+		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
+		(tags "solder jumper open")
 		(property "Reference" "JP2"
 			(at 0.01 2.2 0)
 			(layer "F.SilkS")
@@ -13142,7 +13142,7 @@
 				)
 			)
 		)
-		(property "Value" "SolderJumper_2_Bridged"
+		(property "Value" "SolderJumper_2_Open"
 			(at 0 1.9 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -13180,7 +13180,7 @@
 				)
 			)
 		)
-		(property ki_fp_filters "SolderJumper*Bridged*")
+		(property ki_fp_filters "SolderJumper*Open*")
 		(path "/aa8e7792-790d-44f2-9d9b-d83ec73cf678")
 		(sheetname "/")
 		(sheetfile "VGA Card Pro.kicad_sch")
@@ -13192,20 +13192,7 @@
 		)
 		(zone_connect 1)
 		(attr exclude_from_bom allow_soldermask_bridges)
-		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
-		(fp_poly
-			(pts
-				(xy 0.25 -0.3) (xy -0.25 -0.3) (xy -0.25 0.3) (xy 0.25 0.3)
-			)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-			(fill yes)
-			(layer "F.Cu")
-			(uuid "ee561d38-3266-4ea8-8894-397dfa1d71b6")
-		)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)

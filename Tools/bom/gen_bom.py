@@ -180,7 +180,7 @@ def gen(repo,readme=False):
     for b,rs in B.items():
         for rev,f in rs:
             a=AUD.get((repo,b,rev),{});sl=a.get('silk_label') or '';m=re.search(r'Rev\s*\S+',sl);say=m.group(0) if m else '—'
-            if b=='ROM Cart': say=f"Rev 1.0. U1's label tells them apart: {'AT27C256 is Rev 1.0b' if rev=='1.0b' else 'AT28C256 is Rev 1.0a'}"
+            if b=='ROM Cart' and rev in ('1.0a','1.0b'): say=f"Rev 1.0. U1's label tells them apart: {'AT27C256 is Rev 1.0b' if rev=='1.0b' else 'AT28C256 is Rev 1.0a'}"
             o.append(f'| [{b}](#{re.sub(r"[^a-z0-9 -]","",b.lower()).replace(" ","-")}) | {rev} | {say} | {stat_text(repo,b,rev)} | {labels.cell(repo,b,rev)} |')
     o.append('\n## Known issues\n\nThese change what you buy or fit. The boards themselves stay as they were made.\n')
     if Iss:

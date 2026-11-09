@@ -1904,12 +1904,12 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
+	(footprint "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
 		(layer "F.Cu")
 		(uuid "69561ae6-d665-4579-953a-15561ce17e1a")
 		(at 123.2 98.05 90)
-		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
-		(tags "solder jumper open")
+		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, bridged with 1 copper strip")
+		(tags "net tie solder jumper bridged")
 		(property "Reference" "JP1"
 			(at 0 -2.4 90)
 			(layer "F.SilkS")
@@ -1972,7 +1972,7 @@
 				)
 			)
 		)
-		(property ki_fp_filters "SolderJumper*Open*")
+		(property ki_fp_filters "SolderJumper*Bridged*")
 		(path "/f488a14f-bae7-4474-b158-995cf505a7f1")
 		(sheetname "/")
 		(sheetfile "LCD Card.kicad_sch")
@@ -1984,7 +1984,20 @@
 		)
 		(zone_connect 1)
 		(attr exclude_from_bom allow_soldermask_bridges)
+		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
+		(fp_poly
+			(pts
+				(xy 0.25 -0.3) (xy -0.25 -0.3) (xy -0.25 0.3) (xy 0.25 0.3)
+			)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill yes)
+			(layer "F.Cu")
+			(uuid "581c8237-ebc5-441b-8996-9029210fad99")
+		)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)

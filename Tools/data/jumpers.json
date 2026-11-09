@@ -139,9 +139,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D1, the diode in the VIA's interrupt line.",
+  "what": "Across D1, the diode in the W65C22N's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -169,9 +169,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D2, the diode in the VIA's interrupt line.",
+  "what": "Across D2, the diode in the W65C22N's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The VIA's interrupt output only pulls low, so D2 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D2 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D2.",
   "need": null,
   "shunts": 0
  },
@@ -195,29 +195,15 @@
   "repo": "COB",
   "board": "LCD Card",
   "revs": [
-   "1.0"
-  ],
-  "refs": [
-   "JP1"
-  ],
-  "what": "Bridged across D1, the diode in the VIA's interrupt line.",
-  "shipped": "Bridged.",
-  "do": "Leave it. The VIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
-  "need": null,
-  "shunts": 0
- },
- {
-  "repo": "COB",
-  "board": "LCD Card",
-  "revs": [
+   "1.0",
    "1.1"
   ],
   "refs": [
    "JP1"
   ],
-  "what": "Across D1, the diode in the VIA's interrupt line.",
-  "shipped": "Open.",
-  "do": "Leave it. The interrupt reaches `IRQB` through D1, which works with or without the jumper.",
+  "what": "Across D1, the diode in the W65C22N's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -331,9 +317,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D1, the diode in the DS1511Y's interrupt line.",
+  "what": "Across D1, the diode in the DS1511Y's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The DS1511Y's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The DS1511Y's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -380,9 +366,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D1, the diode in the ACIA's interrupt line.",
+  "what": "Across D1, the diode in the R6551AP's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The ACIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The R6551AP's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -429,9 +415,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D1, the diode in the ACIA's interrupt line.",
+  "what": "Across D1, the diode in the R6551AP's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The ACIA's interrupt output only pulls low, so D1 isn't needed. Cut JP1 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The R6551AP's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -568,15 +554,29 @@
   "repo": "COB",
   "board": "VERA Helper",
   "revs": [
-   "1.0",
+   "1.0"
+  ],
+  "refs": [
+   "JP2"
+  ],
+  "what": "Across D1, the diode in the VERA module's interrupt line.",
+  "shipped": "Bridged.",
+  "do": "Cut JP2 before fitting a shunt on J5. The VERA module drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other interrupt source. Rev 1.1 ships it open.",
+  "need": "For interrupts",
+  "shunts": 0
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
    "1.1"
   ],
   "refs": [
    "JP2"
   ],
-  "what": "Bridged across D1, the diode in the VERA module's interrupt line.",
-  "shipped": "Bridged.",
-  "do": "Leave it as shipped. Cut JP2 if the module drives its interrupt high as well as low, so D1 stays in the line.",
+  "what": "Across D1, the diode in the VERA module's interrupt line.",
+  "shipped": "Open.",
+  "do": "Leave it open. The VERA module drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP2 would let it hold the line high against every other interrupt source. Never bridge it.",
   "need": null,
   "shunts": 0
  },
@@ -657,7 +657,7 @@
   ],
   "what": "Across D1, the diode in the pico9918's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Cut JP1. The pico9918 drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other card.",
+  "do": "Cut JP1. The pico9918 drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other interrupt source. Rev 1.1 ships it open.",
   "need": "For interrupts",
   "shunts": 0
  },
@@ -672,7 +672,7 @@
   ],
   "what": "Across D1, the diode in the pico9918's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it open: the pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Never bridge it.",
+  "do": "Leave it open. The pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it.",
   "need": null,
   "shunts": 0
  },
@@ -746,9 +746,9 @@
   "refs": [
    "JP2"
   ],
-  "what": "Bridged across D1, the diode in the level shifter's interrupt line.",
-  "shipped": "Bridged.",
-  "do": "Leave it. The level shifter's interrupt output only pulls low, so D1 isn't needed. Cut JP2 only for a part that drives its interrupt high as well as low.",
+  "what": "Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives.",
+  "shipped": "Open.",
+  "do": "Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it.",
   "need": null,
   "shunts": 0
  },
@@ -829,9 +829,9 @@
   "refs": [
    "JP7"
   ],
-  "what": "Bridged across D1, the diode in the TMS9918A's interrupt line.",
+  "what": "Across D1, the diode in the TMS9918A's interrupt line.",
   "shipped": "Open.",
-  "do": "Leave it open, so D1 stays in the line.",
+  "do": "Leave it as shipped. The TMS9918A's interrupt output is open-drain, so the card works with JP7 open, its interrupt going through D1, or bridged, as Rev 1.1 ships it.",
   "need": null,
   "shunts": 0
  },
@@ -844,9 +844,9 @@
   "refs": [
    "JP7"
   ],
-  "what": "Bridged across D1, the diode in the TMS9918A's interrupt line.",
+  "what": "Across D1, the diode in the TMS9918A's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The TMS9918A's interrupt output only pulls low, so D1 isn't needed. Cut JP7 only for a part that drives its interrupt high as well as low.",
+  "do": "Leave it. The TMS9918A's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP7 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },
@@ -889,9 +889,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Bridged across D1, the diode in the ATmega1284's interrupt line.",
-  "shipped": "Bridged.",
-  "do": "Leave it only if the ATmega's firmware drives its interrupt open-drain, low or released. If the firmware drives it high, cut JP1 so D1 stays in the line.",
+  "what": "Across D1, the diode in the ATmega1284's interrupt line.",
+  "shipped": "Open.",
+  "do": "Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it.",
   "need": null,
   "shunts": 0
  }
