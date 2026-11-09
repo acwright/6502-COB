@@ -16,7 +16,8 @@ Each pin's role comes from, in order:
   3. a 6502 bus connector: by the board's side. 'cpu': the board drives the bus, so the addresses, RWB, SYNC, PHI2 and
      RESB flow into the connector (input) and IRQB, NMIB, RDY, BE and HRDB come out of it (output). 'card': the reverse.
   4. a two-pin part the signal passes through (series resistor, diode, LED, solder jumper, switch, capacitor): the pin
-     on the side that has a source is an input, the other an output. A resistor to VCC or GND is a pull-up/down.
+     on the side that has a source is an input, the other an output. A resistor or a jumper to VCC or GND is a
+     pull-up/down: it sets a level and is no source. A switch to a rail (a reset button) drives the line.
   5. any other connector or header: bidirectional if a bidirectional pin shares its net, input if something on the
      board drives the net, output if nothing does (the signal comes from whatever is plugged in);
   6. the library pin type.
@@ -210,9 +211,11 @@ def roles(key, sch):
         part = [n for n in partners(parts.get(ref, ''), pin, mine) if n != net]
         lib = parts.get(ref, '')
         if not part: R[(ref, pin)] = None
-        elif all(POWER.fullmatch(n) for n in part):   # to a rail: a pull-up or -down, a switch or jumper that drives
-            R[(ref, pin)] = ('weak' if lib == 'Device:R' else None if lib == 'Device:C'    # the line, an LED showing it
-                             else 'drv' if re.search(r'Switch:|Jumper:', lib) or ref in jumpers else 'rcv')
+        elif all(POWER.fullmatch(n) for n in part):   # to a rail: a pull-up or -down (a resistor or jumper), a switch that drives
+            # A jumper to a rail only sets a level, as a pull-up does, whether it ships open or bridged: it is no
+            # source. A switch to a rail (a reset button) drives the line.
+            R[(ref, pin)] = ('weak' if lib == 'Device:R' or re.search(r'Jumper:', lib) or ref in jumpers
+                             else None if lib == 'Device:C' else 'drv' if re.search(r'Switch:', lib) else 'rcv')
         else: links.append((ref, pin, net, [n for n in part if not POWER.fullmatch(n)]))
     edges = [(ref, pin, net) for ref, pin, net in hdr if is_bus_conn(parts.get(ref, ''), ref) and cfg['side'] != 'header']
     far = {(ref, pin): b for ref, pin, a, b in links}   # b: the partner nets

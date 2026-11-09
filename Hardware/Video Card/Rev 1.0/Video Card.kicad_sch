@@ -10994,7 +10994,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 27.94 158.75 180)
 		(effects
 			(font
@@ -12342,7 +12342,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 125.73 128.27 180)
 		(effects
 			(font

@@ -6049,7 +6049,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape input)
+		(shape output)
 		(at 36.83 54.61 180)
 		(fields_autoplaced yes)
 		(effects
@@ -6115,7 +6115,7 @@
 		)
 	)
 	(global_label "PHI2"
-		(shape output)
+		(shape input)
 		(at 118.11 166.37 180)
 		(effects
 			(font
