@@ -105,9 +105,10 @@ BOARDS = {
         ('J21', 'RDY', 'drv'),                                   # STORAGE (CF Adapter): RDY reserved for a device
         ('J1', 'PHI2', 'drv'), ('J1', '.*', 'rcv'),             # PHI2 SELECT jumper: the middle pin is PHI2
     ] + keyboard('U6', 'U2', ('J9', 'J10'), 'J22', joysticks=('J6', 'J8'))),
-    ('ACE', 'ACE Board', '1.1'): dict(side='cpu', rules=[
+    ('ACE', 'ACE Board', '1.1'): dict(side='cpu', rules=[      # Rev 1.0's designators (re-annotated back, 2026-11-11)
         ('J21', 'RDY', 'drv'),                                   # STORAGE
-    ] + keyboard('U6', 'U2', ('J8', 'J9'), 'J13', joysticks=('J5', 'J7'))),
+        ('J1', 'PHI2', 'drv'), ('J1', '.*', 'rcv'),             # PHI2 SELECT jumper: the middle pin is PHI2
+    ] + keyboard('U6', 'U2', ('J9', 'J10'), 'J22', joysticks=('J6', 'J8'))),
     ('COB', 'Keyboard Encoder Helper'): dict(side='card', rules=keyboard('U1', None, ('J1', 'J2'), 'J4')),
     ('COB', 'Keyboard Helper'): dict(side='card', rules=keyboard(None, None, ('J5', 'J6'), 'J7', end='keyboard',
                                                                  joysticks=('J1', 'J2', 'J3', 'J4'))),
