@@ -971,7 +971,7 @@
   "mouser_stock": 2332,
   "lcsc": null,
   "other": null,
-  "note": "The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls. The part tested in the ACE's U14.",
+  "note": "The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls. The part tested in the ACE's U14.",
   "review": null,
   "jameco": null
  },
@@ -987,7 +987,7 @@
   "mouser_stock": 736,
   "lcsc": "C6764",
   "other": null,
-  "note": "The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.",
+  "note": "The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.",
   "review": null,
   "jameco": null
  },

@@ -996,7 +996,7 @@ Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv]
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
-- **U5:** The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
+- **U5:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
 
 ### Memory Card Rev 1.0
 
