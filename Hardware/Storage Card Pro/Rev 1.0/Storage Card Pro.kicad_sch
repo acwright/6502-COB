@@ -10087,7 +10087,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-7724-ND"
+		(property "Digikey" "478-4846-ND"
 			(at 50.8 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -10098,7 +10098,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR151A200JAR"
+		(property "Mouser" "581-SR151A220JAR"
 			(at 50.8 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -13892,7 +13892,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-7724-ND"
+		(property "Digikey" "478-4846-ND"
 			(at 50.8 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -13903,7 +13903,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR151A200JAR"
+		(property "Mouser" "581-SR151A220JAR"
 			(at 50.8 101.6 0)
 			(hide yes)
 			(show_name no)

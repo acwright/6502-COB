@@ -125,7 +125,7 @@ def build_notes(repo):
     t=t.replace(BS_OLD,BS)
     if BS not in t: return ''
     return t[t.index(BS)+len(BS):t.index(BE)].strip('\n')
-ISS={'22pF|disc-p2.5':'The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine.','6551|DIP-28_W15.24mm':'The silk says 6551; fit an R6551AP.','65C51|DIP-28_W15.24mm':'The silk says 65C51; fit an R6551AP.','6581|DIP-28_W15.24mm':'The silk says 6581; fit an ARMSID.','6581|DIP_Socket-28_W11.9mm_W12.7mm_W15.24mm_W17.78mm_W18.5mm_3M_228-1277-00-0602J':'The silk says 6581; fit an ARMSID.'}
+ISS={'6551|DIP-28_W15.24mm':'The silk says 6551; fit an R6551AP.','65C51|DIP-28_W15.24mm':'The silk says 65C51; fit an R6551AP.','6581|DIP-28_W15.24mm':'The silk says 6581; fit an ARMSID.','6581|DIP_Socket-28_W11.9mm_W12.7mm_W15.24mm_W17.78mm_W18.5mm_3M_228-1277-00-0602J':'The silk says 6581; fit an ARMSID.'}
 def known(repo):
     Iss=[];S=collections.OrderedDict()
     for f in sorted(glob.glob(f'{K}6502-{repo}/Hardware/*/Rev */*.kicad_pcb')):

@@ -244,7 +244,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
-- The silkscreen says `20pF` at `C2` and `C3`, the value to fit with the 16 MHz crystal, and `ATmega1284` at `U1`. Rev 1.0's say `22pF` and `ATmega1284-P`.
+- The silkscreen says `ATmega1284` at `U1`. Rev 1.0's says `ATmega1284-P`.
+- `C2` and `C3`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 
 **Rev 1.0**
 
@@ -313,7 +314,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Moves the resistors `R2`–`R9` and reroutes the tracks around them.
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
 - Drops the `R2-R9` silkscreen label.
-- The silkscreen says `20pF` at `C4` and `C5`, the value to fit with the 16 MHz crystal. Rev 1.0's says `22pF`.
+- `C4` and `C5`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 
 **Rev 1.0**
 
@@ -393,7 +394,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- The silkscreen says `20pF` at C5 and C6, the value the BOM lists. Rev 1.0's says `22pF`. Nothing else changed: the tracks, pads and holes are Rev 1.0's. No Storage Card Pro has been tested yet, at either revision.
+- C5 and C6 stay 22 pF as on Rev 1.0, the value the family's made boards were built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way. No Storage Card Pro has been tested yet, at either revision.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**

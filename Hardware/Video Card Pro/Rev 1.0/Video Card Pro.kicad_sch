@@ -12168,7 +12168,7 @@
 				)
 			)
 		)
-		(property "Value" "20pF"
+		(property "Value" "22pF"
 			(at 69.85 52.3494 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12211,7 +12211,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-7724-ND"
+		(property "Digikey" "478-4846-ND"
 			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -12222,7 +12222,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR151A200JAR"
+		(property "Mouser" "581-SR151A220JAR"
 			(at 69.85 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -16374,7 +16374,7 @@
 				)
 			)
 		)
-		(property "Value" "20pF"
+		(property "Value" "22pF"
 			(at 69.85 39.6494 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16417,7 +16417,7 @@
 				)
 			)
 		)
-		(property "Digikey" "478-7724-ND"
+		(property "Digikey" "478-4846-ND"
 			(at 69.85 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -16428,7 +16428,7 @@
 				)
 			)
 		)
-		(property "Mouser" "581-SR151A200JAR"
+		(property "Mouser" "581-SR151A220JAR"
 			(at 69.85 35.56 0)
 			(hide yes)
 			(show_name no)

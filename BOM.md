@@ -95,8 +95,6 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | Backplane Pro | 1.1 | R5 | Do not fit this. If your board came with it soldered, remove it. See the build notes. |
 | Breadboard Helper | 1.0 | J1 | Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins. |
 | CPU Card | 1.0 | R1–R6 | Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes. |
-| Keyboard Encoder Helper | 1.0 | C2, C3 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
-| PS2 Helper | 1.0 | C4, C5 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
 | PS2 Helper | 1.0 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | PS2 Helper | 1.1 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | RTC Card | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
@@ -105,7 +103,6 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | Serial Card | 1.0 | U3 | The silk says 6551; fit an R6551AP. |
 | Sound Card | 1.0 | J2 | `VDD` is the supply for a real SID at pin 28: 12 V for a 6581, 9 V for an 8580. The standard build does not provide it, and it has never been tested. Leave it unconnected with an ARMSID. |
 | Sound Card | 1.0 | U1 | The silk says 6581; fit an ARMSID. |
-| Storage Card Pro | 1.0 | C5, C6 | The silk says 22 pF; fit 20 pF. A board built with 22 pF is fine. |
 | Video Card | 1.0 | C1, C2 | Fit 32 or 33 pF. 33 pF is the standard value, and it is what the tested card has. |
 | Video Card | 1.0 | U1 | The TMS9918A is out of production, and eBay is the likely source. The VGA Card is the recommended alternative to this board. |
 | Video Card | 1.1 | C1, C2 | Fit 32 or 33 pF. 33 pF is the standard value, and it is what the tested card has. |
@@ -816,7 +813,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
 |---|---|---|---|---|---|---|
 | C1, C4 | 2 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
-| C2, C3 | 2 | 20pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  |
+| C2, C3 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  |
 | J1 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J2 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J3 | 1 | PS/2 KEYBOARD | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
@@ -825,8 +822,6 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 | U1 | 1 | ATmega1284 | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
 | U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
-
-- **C2, C3:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 
 ### Keyboard Encoder Helper Rev 1.0
 
@@ -837,7 +832,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
 |---|---|---|---|---|---|---|
 | C1, C4 | 2 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
-| C2, C3 | 2 | 22pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  |
+| C2, C3 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  |
 | J1 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J2 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J3 | 1 | PS/2 KEYBOARD | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
@@ -846,8 +841,6 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 | U1 | 1 | ATmega1284-P | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
 | U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
-
-- **C2, C3:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 
 
 ## Keyboard Helper
@@ -1029,7 +1022,7 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
 |---|---|---|---|---|---|---|
 | C1–C3 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
-| C4, C5 | 2 | 20pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  |
+| C4, C5 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  |
 | J1 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J2 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J3 | 1 | PS/2 | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
@@ -1042,7 +1035,6 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](
 | U2 | 1 | Socket | IC socket, 28-pin, 0.3 in | [3M5480-ND](https://www.digikey.com/en/products/filter?keywords=3M5480-ND) | [517-4828-3004-CP](https://www.mouser.com/ProductDetail/517-4828-3004-CP) | |
 | U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | |
 
-- **C4, C5:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 - **U1:** Out of production; eBay is the likely source. Prefer the Keyboard Encoder Helper to the PS2 Helper, which needs this chip. The DIP-28 only: MT8808AP1 is PLCC and does not fit.
 
 ### PS2 Helper Rev 1.0
@@ -1054,7 +1046,7 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.0/digikey.csv), [mouser.csv](
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
 |---|---|---|---|---|---|---|
 | C1–C3 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
-| C4, C5 | 2 | 22pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  |
+| C4, C5 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  |
 | J1 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J2 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | J3 | 1 | PS/2 | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
@@ -1067,7 +1059,6 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.0/digikey.csv), [mouser.csv](
 | U2 | 1 | Socket | IC socket, 28-pin, 0.3 in | [3M5480-ND](https://www.digikey.com/en/products/filter?keywords=3M5480-ND) | [517-4828-3004-CP](https://www.mouser.com/ProductDetail/517-4828-3004-CP) | |
 | U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | |
 
-- **C4, C5:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 - **U1:** Out of production; eBay is the likely source. Prefer the Keyboard Encoder Helper to the PS2 Helper, which needs this chip. The DIP-28 only: MT8808AP1 is PLCC and does not fit.
 
 
@@ -1390,7 +1381,7 @@ Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mous
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
 | C1–C4, C7, C8 | 6 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| C5, C6 | 2 | 20pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  | |
+| C5, C6 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  | |
 | C9, C10 | 2 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
 | D1 | 1 | ACT | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
 | J1 | 1 | ACT LED | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
@@ -1419,7 +1410,7 @@ Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.0/digikey.csv), [mous
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
 | C1–C4, C7, C8 | 6 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| C5, C6 | 2 | 22pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  | |
+| C5, C6 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  | |
 | C9, C10 | 2 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
 | D1 | 1 | ACT | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
 | J1 | 1 | ACT LED | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
@@ -1438,8 +1429,6 @@ Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.0/digikey.csv), [mous
 | J5 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
-
-- **C5, C6:** 16 MHz crystal capacitors: fit 20 pF. Made boards whose silk says 22 pF keep it; a board built with 22 pF is fine. Mouser has none in stock today.
 
 
 ## Storage Card
@@ -1625,7 +1614,7 @@ Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey.csv), [mouser
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
-| C1, C2 | 2 | 20pF | KYOCERA AVX SR151A200JAR | [478-7724-ND](https://www.digikey.com/en/products/filter?keywords=478-7724-ND) | [581-SR151A200JAR](https://www.mouser.com/ProductDetail/581-SR151A200JAR) |  | |
+| C1, C2 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  | |
 | C3–C10 | 8 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
 | D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
 | FB1 | 1 | BLM41PG600SN1L | Murata Electronics BLM41PG600SN1L | [490-1058-1-ND](https://www.digikey.com/en/products/filter?keywords=490-1058-1-ND) | [81-BLM41P600S](https://www.mouser.com/ProductDetail/81-BLM41P600S) | LCSC [C85844](https://www.lcsc.com/search?q=C85844) | Yes |

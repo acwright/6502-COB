@@ -1,6 +1,6 @@
 ﻿Designator,Footprint,Quantity,Value,LCSC Part #
 "C1, C4",C_Disc_D5.0mm_W2.5mm_P2.50mm,2,100nF,
-"C2, C3",C_Disc_D5.0mm_W2.5mm_P2.50mm,2,20pF,
+"C2, C3",C_Disc_D5.0mm_W2.5mm_P2.50mm,2,22pF,
 J1,6502 GPIO Connector,1,PORT B,
 J2,6502 GPIO Connector,1,PORT A,
 J3,PS2 Jack,1,PS/2 KEYBOARD,
