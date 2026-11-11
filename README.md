@@ -212,7 +212,7 @@ Each revision carries one of three labels:
 | LCD Board | 1.0 | **Tested** | Built and tested. |
 | LCD Card | 1.1 | **Proven design** | The bare card edge only. |
 | Mega Helper | 1.0 | **Tested** | Built and tested. |
-| Memory Card | 1.1 | **Proven design** | The bare card edge only. |
+| Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
 | RAM Card | 1.1 | **Proven design** | The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe. |

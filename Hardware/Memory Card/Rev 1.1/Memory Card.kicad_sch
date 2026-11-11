@@ -8970,7 +8970,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC00"
+		(property "Value" "74HCT00"
 			(at 64.77 168.0464 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9013,7 +9013,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5586"
+		(property "LCSC" "C6764"
 			(at 64.77 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -9024,7 +9024,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1727-2773-1-ND"
+		(property "Digikey" "296-14860-1-ND"
 			(at 64.77 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -9035,7 +9035,7 @@
 				)
 			)
 		)
-		(property "Mouser" "771-74HC00D-T"
+		(property "Mouser" "595-SN74HCT00DR"
 			(at 64.77 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -9140,7 +9140,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC00"
+		(property "Value" "74HCT00"
 			(at 64.77 183.2864 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9183,7 +9183,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5586"
+		(property "LCSC" "C6764"
 			(at 64.77 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -9194,7 +9194,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1727-2773-1-ND"
+		(property "Digikey" "296-14860-1-ND"
 			(at 64.77 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -9205,7 +9205,7 @@
 				)
 			)
 		)
-		(property "Mouser" "771-74HC00D-T"
+		(property "Mouser" "595-SN74HCT00DR"
 			(at 64.77 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -9310,7 +9310,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC00"
+		(property "Value" "74HCT00"
 			(at 43.18 185.8264 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9353,7 +9353,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5586"
+		(property "LCSC" "C6764"
 			(at 43.18 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -9364,7 +9364,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1727-2773-1-ND"
+		(property "Digikey" "296-14860-1-ND"
 			(at 43.18 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -9375,7 +9375,7 @@
 				)
 			)
 		)
-		(property "Mouser" "771-74HC00D-T"
+		(property "Mouser" "595-SN74HCT00DR"
 			(at 43.18 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -9651,7 +9651,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "74HC00"
+		(property "Value" "74HCT00"
 			(at 209.55 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9695,7 +9695,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5586"
+		(property "LCSC" "C6764"
 			(at 207.01 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -9706,7 +9706,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1727-2773-1-ND"
+		(property "Digikey" "296-14860-1-ND"
 			(at 207.01 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -9717,7 +9717,7 @@
 				)
 			)
 		)
-		(property "Mouser" "771-74HC00D-T"
+		(property "Mouser" "595-SN74HCT00DR"
 			(at 207.01 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -11416,7 +11416,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC00"
+		(property "Value" "74HCT00"
 			(at 160.02 133.7564 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11459,7 +11459,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5586"
+		(property "LCSC" "C6764"
 			(at 160.02 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -11470,7 +11470,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1727-2773-1-ND"
+		(property "Digikey" "296-14860-1-ND"
 			(at 160.02 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -11481,7 +11481,7 @@
 				)
 			)
 		)
-		(property "Mouser" "771-74HC00D-T"
+		(property "Mouser" "595-SN74HCT00DR"
 			(at 160.02 139.7 0)
 			(hide yes)
 			(show_name no)

@@ -291,7 +291,7 @@
   ],
   "COB|Memory Card|1.1": [
    "Proven design",
-   "The bare card edge only"
+   "The bare card edge, and a 74HCT00 at U5"
   ],
   "COB|PS2 Helper|1.1": [
    "Proven design",

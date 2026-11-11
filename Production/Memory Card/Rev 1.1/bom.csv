@@ -3,6 +3,7 @@
 J2,PinHeader_2x02_P2.54mm_Vertical,1,Conn_02x02_Odd_Even,
 J3,PinHeader_1x02_P2.54mm_Vertical,1,Conn_02x01,
 "R1, R2",0805,2,1k,C17513
-"U1, U2, U5",SOIC-14_3.9x8.7mm_P1.27mm,3,74HC00,C5586
+"U1, U2",SOIC-14_3.9x8.7mm_P1.27mm,2,74HC00,C5586
 U3,DIP-28_W15.24mm_Socket_LongPads,1,AS6C62256,
 U4,DIP-28_W15.24mm_Socket_LongPads,1,AT28C256,
+U5,SOIC-14_3.9x8.7mm_P1.27mm,1,74HCT00,C6764

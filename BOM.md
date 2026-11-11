@@ -56,7 +56,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
+| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and a 74HCT00 at U5 |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -978,7 +978,7 @@ Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### Memory Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge only.
+Drawn, not made yet. **Proven design**: the bare card edge, and a 74HCT00 at U5.
 
 Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Memory%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Memory%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Memory%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -988,12 +988,15 @@ Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv]
 | J2 | 1 | Conn_02x02_Odd_Even | Pin header 2×2, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | J3 | 1 | Conn_02x01 | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
 | R1, R2 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
-| U1, U2, U5 | 3 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U1, U2 | 2 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
 | U3 | 1 | AS6C62256 | Alliance Memory AS6C62256-55PCN | [1450-1033-ND](https://www.digikey.com/en/products/filter?keywords=1450-1033-ND) | [913-AS6C62256-55PCN](https://www.mouser.com/ProductDetail/913-AS6C62256-55PCN) |  | |
 | U4 | 1 | AT28C256 | Microchip Technology AT28C256-15PU | [AT28C256-15PU-ND](https://www.digikey.com/en/products/filter?keywords=AT28C256-15PU-ND) | [556-AT28C25615PU](https://www.mouser.com/ProductDetail/556-AT28C25615PU) |  | |
+| U5 | 1 | 74HCT00 | Texas Instruments SN74HCT00DR | [296-14860-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14860-1-ND) | [595-SN74HCT00DR](https://www.mouser.com/ProductDetail/595-SN74HCT00DR) | LCSC [C6764](https://www.lcsc.com/search?q=C6764) | Yes |
 | U3, U4 | 2 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
+
+- **U5:** The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
 
 ### Memory Card Rev 1.0
 

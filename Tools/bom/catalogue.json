@@ -959,6 +959,38 @@
   "review": null,
   "jameco": null
  },
+ "74HCT00|DIP-14_W7.62mm": {
+  "id": "74HCT00|DIP-14_W7.62mm",
+  "desc": "74HCT00, DIP-14_W7.62mm",
+  "uses": 1,
+  "mpn": "SN74HCT00N",
+  "mfr": "Texas Instruments",
+  "digikey": "296-1603-5-ND",
+  "digikey_stock": 77461,
+  "mouser": "595-SN74HCT00N",
+  "mouser_stock": 2332,
+  "lcsc": null,
+  "other": null,
+  "note": "The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls. The part tested in the ACE's U14.",
+  "review": null,
+  "jameco": null
+ },
+ "74HCT00|SOIC-14_3.9x8.7mm_P1.27mm": {
+  "id": "74HCT00|SOIC-14_3.9x8.7mm_P1.27mm",
+  "desc": "74HCT00, SOIC-14_3.9x8.7mm_P1.27mm",
+  "uses": 2,
+  "mpn": "SN74HCT00DR",
+  "mfr": "Texas Instruments",
+  "digikey": "296-14860-1-ND",
+  "digikey_stock": 8583,
+  "mouser": "595-SN74HCT00DR",
+  "mouser_stock": 736,
+  "lcsc": "C6764",
+  "other": null,
+  "note": "The RAM's RB/WB gate (P11, 2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.",
+  "review": null,
+  "jameco": null
+ },
  "74HC02|DIP-14_W7.62mm": {
   "id": "74HC02|DIP-14_W7.62mm",
   "desc": "74HC02, DIP-14_W7.62mm",

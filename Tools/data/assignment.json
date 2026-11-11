@@ -1001,7 +1001,7 @@
  "COB|Memory Card|1.1|U4": "AT28C256|DIP-28_W15.24mm",
  "COB|Memory Card|1.1|R2": "1k|R_0805_2012Metric",
  "COB|Memory Card|1.1|J3": "pinheader-1x02-2.54-vertical",
- "COB|Memory Card|1.1|U5": "74HC00|SOIC-14_3.9x8.7mm_P1.27mm",
+ "COB|Memory Card|1.1|U5": "74HCT00|SOIC-14_3.9x8.7mm_P1.27mm",
  "COB|Memory Card|1.1|U2": "74HC00|SOIC-14_3.9x8.7mm_P1.27mm",
  "COB|Memory Card|1.1|C3": "100nF|C_0805_2012Metric",
  "COB|Memory Card|1.1|C2": "100nF|C_0805_2012Metric",
