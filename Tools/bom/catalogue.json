@@ -795,7 +795,7 @@
   "mouser_stock": null,
   "lcsc": null,
   "other": null,
-  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51.",
+  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.",
   "review": null,
   "jameco": "43318"
  },
@@ -891,7 +891,7 @@
   "mouser_stock": null,
   "lcsc": null,
   "other": null,
-  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51.",
+  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.",
   "review": null,
   "jameco": "43318"
  },
@@ -2013,7 +2013,7 @@
   "mouser_stock": null,
   "lcsc": null,
   "other": null,
-  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51.",
+  "note": "Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.",
   "review": null,
   "jameco": "43318"
  },

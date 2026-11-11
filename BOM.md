@@ -1229,7 +1229,7 @@ Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.1/digikey.csv), [mouse
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1:** A 1N914 also works.
-- **U4:** Rockwell R6551AP, out of production. Do not substitute a W65C51.
+- **U4:** Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.
 
 ### Serial Card Pro Rev 1.0
 
@@ -1257,7 +1257,7 @@ Cart files: [digikey.csv](BOM/Serial%20Card%20Pro/Rev%201.0/digikey.csv), [mouse
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1:** A 1N914 also works.
-- **U4:** Rockwell R6551AP, out of production. Do not substitute a W65C51.
+- **U4:** Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.
 
 
 ## Serial Card
@@ -1288,7 +1288,7 @@ Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.1/digikey.csv), [mouser.csv]
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1:** A 1N914 also works.
-- **U3:** Rockwell R6551AP, out of production. Do not substitute a W65C51.
+- **U3:** Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.
 
 ### Serial Card Rev 1.0
 
@@ -1316,7 +1316,7 @@ Cart files: [digikey.csv](BOM/Serial%20Card/Rev%201.0/digikey.csv), [mouser.csv]
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1:** A 1N914 also works.
-- **U3:** Rockwell R6551AP, out of production. Do not substitute a W65C51.
+- **U3:** Rockwell R6551AP, out of production. Do not substitute a W65C51. A Rockwell R65C51P1 or R65C51P2 also works, but only where the board has the ACIA's crystal jumpers and they are closed: the Serial Card and Serial Card Pro (JP2, JP3), the ACE Board 1.1 (JP1, JP2) and the KIM Board 1.1 (JP2, JP3). On a bare crystal it gives no serial.
 
 
 ## Sound Card
