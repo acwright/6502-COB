@@ -4867,9 +4867,9 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Close JP2 & JP3 for WDC W65C51"
+	(text "Close JP2 & JP3 for WDC W65C51\nor Rockwell R65C51P1/P2"
 		(exclude_from_sim no)
-		(at 103.886 103.378 0)
+		(at 103.886 102.108 0)
 		(effects
 			(font
 				(size 1.27 1.27)

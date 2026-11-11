@@ -430,7 +430,7 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0, 1.1 | J3 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9000`: IO 5, where the BIOS looks for the Serial Card. | To run |
 | 1.0, 1.1 | J4 | `CTS`: where the ACIA's `CTS` comes from. | No shunt. | Fit the shunt on pins 2 and 3, ground, as the boards are built. On pins 1 and 2 it takes `CTS` from the cable, and a cable that doesn't assert it stops the transmitter. With no shunt the input floats, and serial may not work. | For serial |
 | 1.0, 1.1 | JP1 | Across D1, the diode in the R6551AP's interrupt line. | Bridged. | Leave it. The R6551AP's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1. |  |
-| 1.0, 1.1 | JP2, JP3 | Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C7 (22pF) to ground. | Both open. | Leave them open: the tested cards run without them. |  |
+| 1.0, 1.1 | JP2, JP3 | Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C7 (22pF) to ground. | Both open. | Leave them open for the R6551AP, the part the cards are tested with. Close both for a Rockwell R65C51P1 or R65C51P2, whose oscillator won't start on the bare crystal (an R65C51P2 ran clean this way on 2026-11-11), or for a WDC W65C51. |  |
 
 **Serial Card Pro**
 
@@ -439,7 +439,7 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0, 1.1 | J3 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9000`: IO 5, where the BIOS looks for the Serial Card Pro. | To run |
 | 1.0, 1.1 | J4 | `DCD`: where the ACIA's `DCD` comes from. | No shunt. | Fit the shunt on pins 1 and 2, ground, as the boards are built. On pins 2 and 3 it takes `DCD` from the cable, and a cable that doesn't assert it stops the receiver. With no shunt the input floats, and serial may not work. | For serial |
 | 1.0, 1.1 | JP1 | Across D1, the diode in the R6551AP's interrupt line. | Bridged. | Leave it. The R6551AP's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1. |  |
-| 1.0, 1.1 | JP2, JP3 | Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C12 (22pF) to ground. | Both open. | Leave them open: the tested cards run without them. |  |
+| 1.0, 1.1 | JP2, JP3 | Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C12 (22pF) to ground. | Both open. | Leave them open for the R6551AP, the part the cards are tested with. Close both for a Rockwell R65C51P1 or R65C51P2, whose oscillator won't start on the bare crystal (an R65C51P2 ran clean this way on 2026-11-11), or for a WDC W65C51. |  |
 
 **Sound Card**
 

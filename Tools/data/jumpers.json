@@ -384,7 +384,7 @@
   ],
   "what": "Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C7 (22pF) to ground.",
   "shipped": "Both open.",
-  "do": "Leave them open: the tested cards run without them.",
+  "do": "Leave them open for the R6551AP, the part the cards are tested with. Close both for a Rockwell R65C51P1 or R65C51P2, whose oscillator won't start on the bare crystal (an R65C51P2 ran clean this way on 2026-11-11), or for a WDC W65C51.",
   "need": null,
   "shunts": 0
  },
@@ -433,7 +433,7 @@
   ],
   "what": "Options for the ACIA's crystal: JP2 adds R1 (1M) across it, and JP3 adds C12 (22pF) to ground.",
   "shipped": "Both open.",
-  "do": "Leave them open: the tested cards run without them.",
+  "do": "Leave them open for the R6551AP, the part the cards are tested with. Close both for a Rockwell R65C51P1 or R65C51P2, whose oscillator won't start on the bare crystal (an R65C51P2 ran clean this way on 2026-11-11), or for a WDC W65C51.",
   "need": null,
   "shunts": 0
  },
