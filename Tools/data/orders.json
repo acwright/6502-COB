@@ -165,6 +165,7 @@
   "COB|Clock Card|1.1",
   "COB|Clock Helper|1.1",
   "COB|DB25 Helper|1.1",
+  "COB|GPIO Breadboard Helper|1.1",
   "COB|GPIO Card|1.1",
   "COB|GPIO Helper|1.1",
   "COB|Joystick Helper|1.1",
@@ -268,6 +269,10 @@
   "COB|DB25 Helper|1.1": [
    "Proven design",
    "Mounting holes moved to the standard, silkscreen"
+  ],
+  "COB|GPIO Breadboard Helper|1.1": [
+   "Proven design",
+   "Outline clean-up"
   ],
   "COB|GPIO Card|1.1": [
    "Proven design",

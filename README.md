@@ -203,7 +203,7 @@ Each revision carries one of three labels:
 | Clock Card | 1.1 | **Untested** | The bare card edge only, but Rev 1.0 hasn't been tested yet. |
 | Clock Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | DB25 Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
-| GPIO Breadboard Helper | 1.0 | **Tested** | Built and tested. |
+| GPIO Breadboard Helper | 1.1 | **Proven design** | Outline clean-up. |
 | GPIO Card | 1.1 | **Proven design** | The bare card edge only. |
 | GPIO Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Joystick Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |

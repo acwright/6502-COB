@@ -1081,5 +1081,9 @@
  "COB|RAM Card|1.1|R1": "10k|R_0805_2012Metric",
  "COB|RAM Card|1.1|U7": "74HC138|SOIC-16_3.9x9.9mm_P1.27mm",
  "COB|RAM Card|1.1|C3": "100nF|C_0805_2012Metric",
- "COB|RAM Card|1.1|R2": "10k|R_0805_2012Metric"
+ "COB|RAM Card|1.1|R2": "10k|R_0805_2012Metric",
+ "COB|GPIO Breadboard Helper|1.1|J4": "conn-gpio",
+ "COB|GPIO Breadboard Helper|1.1|J3": "pinheader-1x12-2.54-vertical",
+ "COB|GPIO Breadboard Helper|1.1|J1": "conn-gpio",
+ "COB|GPIO Breadboard Helper|1.1|J2": "pinheader-1x12-2.54-vertical"
 }

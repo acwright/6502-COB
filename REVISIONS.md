@@ -39,6 +39,7 @@ Every revision of every board in this repository, and what is known about each. 
 | DB25 Helper | 1.0 | Made, matches order | **Tested** | Y65 | 2025-10-06 | `013b131` | — | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | DB25 Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | GPIO Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y57 | 2025-10-06 | `0dd90c8` | 4 | 58.83×55 | — | — | — |  |
+| GPIO Breadboard Helper | 1.1 | Drawn | **Proven design**: outline clean-up |  |  |  | — | 59×55 | — | — | — |  |
 | GPIO Card | 1.0 | Made, matches order | **Tested** | Y45 | 2024-06-19 | `390cb17` | 3 | 100×57.62 | — | — | — |  |
 | GPIO Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | GPIO Helper | 1.0 | Made, matches order | **Tested** | Y66 | 2025-10-06 | `013b131` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
@@ -203,6 +204,11 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Initial release, and the board on sale. `Hardware/DB25 Helper/Rev 1.0/` and `Production/DB25 Helper/Rev 1.0/` match the boards JLCPCB made (order Y65). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### GPIO Breadboard Helper
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- The outline is redrawn true: 59 × 55 mm, with a 5 mm radius at every corner, so the board's size and corners are round numbers like the other helpers'. Rev 1.0's outline is 58.83 mm wide, its two right-hand corners have radii of 5.006 mm and 4.996 mm, and a 0.007 mm sliver of edge joins the lower one to the bottom edge. The right edge moves 0.17 mm outward. No track, pad or hole moved, and the ground pour is refilled to the new edge.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 

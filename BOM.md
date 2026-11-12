@@ -42,6 +42,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [DB25 Helper](#db25-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [DB25 Helper](#db25-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [GPIO Breadboard Helper](#gpio-breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [GPIO Breadboard Helper](#gpio-breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: outline clean-up |
 | [GPIO Card](#gpio-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [GPIO Card](#gpio-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [GPIO Helper](#gpio-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -133,6 +134,10 @@ How to build each board, where it needs more than its parts list.
 **Clock Card**
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
+**GPIO Breadboard Helper**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the outline, which is 0.17 mm wider and has true 5 mm corners; a Rev 1.0 is used the same way.
 
 **GPIO Card**
 
@@ -646,6 +651,21 @@ Cart files: [digikey.csv](BOM/DB25%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 
 ## GPIO Breadboard Helper
+
+### GPIO Breadboard Helper Rev 1.1
+
+Drawn, not made yet. **Proven design**: outline clean-up.
+
+Cart files: [digikey.csv](BOM/GPIO%20Breadboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/GPIO%20Breadboard%20Helper/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| J1 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+| J2 | 1 | PORT A | Pin header 1×12, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  |
+| J3 | 1 | PORT B | Pin header 1×12, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  |
+| J4 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+
+Pin headers are cut from strips, and the cart files count whole strips.
 
 ### GPIO Breadboard Helper Rev 1.0
 
