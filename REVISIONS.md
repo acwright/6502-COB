@@ -196,6 +196,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/DB25 Helper/` and `CAD/Tops/DB25 Helper/`.
 - The project's name is `DB25 Helper`. The order's Gerbers carry its old name, `GPIO DB25 Helper`.
+- The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
 
@@ -223,6 +224,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/GPIO Helper/` and `CAD/Tops/GPIO Helper/`.
+- The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, the four corner holes sat 0.071 mm too near the top edge and 0.021 mm too near the left edge, and each moved by that much to sit exactly 6 mm from its two edges. The fifth hole, `H5`, moved 0.07 mm to sit exactly 19 mm from the left edge and 31.5 mm from the top edge; Rev 1.0 has it at 19.004 mm and 31.43 mm, which makes no difference to a screw in a plate hole. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
 
@@ -234,6 +236,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap the courtyard of J2, the DB9 connector. That has been reviewed and is fine, so the project excludes it from DRC.
 - The silkscreen says `JOYSTICK` at `J2`. Rev 1.0's says `DB9 MALE`.
+- The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.084 mm too near the left edge, and each moved by that much to sit exactly 6 mm from its two edges. The DRC exclusions for the holes' courtyards over `J2` are recorded again at the holes' new places. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
 
@@ -246,6 +249,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
 - The silkscreen says `ATmega1284` at `U1`. Rev 1.0's says `ATmega1284-P`.
 - `C2` and `C3`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
+- The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
 
@@ -315,6 +319,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
 - Drops the `R2-R9` silkscreen label.
 - `C4` and `C5`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
+- The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
 
