@@ -31,6 +31,7 @@ KC = '/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
 sys.path.insert(0, os.path.dirname(H)); import common; from common import K, files, load
 K21 = {'ACE': '909629f', 'COB': 'f6838dff', 'DEV': '340cf97', 'KIM': '465d707', 'VCS': 'a12f5eb'}  # the connector redraw
 POWER = re.compile(r'VCC|GND|5V|\+5V|3V3|\+3V3|VDD|VSS')
+BRIDGED = {'Jumper:SolderJumper_2_Bridged': {'1': '2', '2': '1'}, 'Jumper:SolderJumper_3_Bridged12': {'1': '2', '2': '1'}}   # pins joined as the board ships
 SUPPLY = re.compile(r'VBAUX|VBAT|VBATT|VDD|VEE')   # supplies other than the rails: the drawing says
 
 # ---- the 6502 bus, by who drives each signal
@@ -172,6 +173,13 @@ def roles(key, sch):
     def first(table, a, b):
         for pa, pb, r in table:
             if re.fullmatch(pa, a) and re.fullmatch(pb, b): return r
+    def held_by_jumper(net):
+        # /WE reaches a rail through a solder jumper as it ships (the ROM Cart 1.1's JP2, bridged 1-2 for the AT28C256).
+        # Its other setting puts an EPROM's address pin there, so the chip still only drives.
+        for r2, p2, f2, t2 in nets[net]:
+            mate = BRIDGED.get(parts.get(r2, ''), {}).get(p2)
+            if mate and any(POWER.fullmatch(n) for n, ns in nets.items() for r3, p3, f3, t3 in ns if r3 == r2 and p3 == mate): return True
+        return False
     later = []
     for net, nodes in nets.items():
         if POWER.fullmatch(net): continue
@@ -181,7 +189,7 @@ def roles(key, sch):
             if not r: r = first(PARTS, lib, fn)
             if r == 'mem-data':
                 we = [n for n, nodes in nets.items() for r2, p2, f2, t2 in nodes if r2 == ref and re.fullmatch(r'~\{WE\}|WE', f2)]
-                r = 'drv' if all(POWER.fullmatch(n) for n in we) else 'bid'   # /WE on VCC: a ROM that only drives
+                r = 'drv' if all(POWER.fullmatch(n) or held_by_jumper(n) for n in we) else 'bid'   # /WE on VCC: a ROM that only drives
             if r in ('245-A', '245-B'):
                 d = [n for n, nodes in nets.items() for r2, p2, f2, t2 in nodes if r2 == ref and f2 in ('A->B', 'DIR')]
                 d = d[0] if d else ''
