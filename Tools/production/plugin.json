@@ -1,0 +1,17 @@
+{
+ "_about": "The Fabrication Toolkit (bennymeg's JLC plugin) that makes every production file: the copy KiCad 10's window runs. toolkit.py refuses to run, and production.py --check fails, if any of these files differ. A plugin update is a reviewed change: see README.md.",
+ "version": "5.3.0",
+ "folder": "~/Documents/KiCad/10.0/3rdparty/plugins/com_github_bennymeg_JLC-Plugin-for-KiCad",
+ "sha256": {
+  "__init__.py": "2c36006d791703e089e920f4464a3339ec9c6835a75836a92e81a62af439858c",
+  "cli.py": "dfed12557d348fde5cf3e1211a1c1c0e25d2b3d03671913045999d2601b29715",
+  "config.py": "dde5d5cc1fae97d9bf67a4acb89db25efb5da0812cff903723379da7eadbd9c4",
+  "events.py": "943775bdda8355beff6f0e2ca0615fc158e40e4181ca10bbe37d198d0379fa2e",
+  "options.py": "2bff0ee73db9ae472ee6d2509d93ec4903f69e97cbf8d19f2c1e2dcaf2a3cf80",
+  "plugin.py": "156198db0b8f65bbe81a7588c90bfcd465ee1a96fa4c4e77805af18df18be4f2",
+  "process.py": "28265e2b8c460d3e45efdd4c313901de3e982d397cec7faa96e6a28539e7a8d9",
+  "thread.py": "1d0449d1679a2b4d030713d995931161d84c60a9431c136290d834e102c36e12",
+  "transformations.csv": "864817b927f727f24913c3d72caab8c7786805d2023b54b5f798f8b50f05e2d6",
+  "utils.py": "f64282f406dd7f82b715b96fd08e8f825a43b9f06ffa44682adf25b50cc0b253"
+ }
+}
