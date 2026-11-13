@@ -252,9 +252,9 @@
   "refs": [
    "J3"
   ],
-  "what": "I/O windows: two shunts pick the two 1 KB windows the banks answer in.",
+  "what": "I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`.",
   "shipped": "No shunts.",
-  "do": "Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. R1 and R2 pull the selects low, so a window left without its shunt answers at every address.",
+  "do": "Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. R1 and R2 pull the selects low, so a window left without its shunt answers at every address.",
   "need": "To run",
   "shunts": 2
  },
@@ -269,9 +269,9 @@
    "JP1",
    "J2"
   ],
-  "what": "`LATCH EN`: JP1 holds the bank latch's outputs on; J2 is for a switch in its place.",
+  "what": "`LATCH EN`: JP1 grounds the bank latch's output enable, which keeps its outputs on; J2 is a header across JP1.",
   "shipped": "JP1 bridged.",
-  "do": "Leave it. To switch the latch off with J2, cut JP1 first.",
+  "do": "Leave it. Cutting JP1 doesn't turn the latch off: it leaves U2's `OE` floating, and J2 can only ground it. Turning the latch off needs JP1 cut and J2 pin 2 wired to VCC, and is only for the untested J4 experiment in the build notes.",
   "need": null,
   "shunts": 0
  },

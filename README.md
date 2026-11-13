@@ -103,11 +103,11 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/CPU Card/`** — Hosts the 65C02 CPU in a card form factor for backplane-based COB systems. Its `EXP` header, J3, can jumper `EXP0` to VPB and `EXP1` to MLB. Leave those two positions open in a build that takes cartridges, because a cartridge grounds `EXP0` and `EXP1` (see [Extra pins](#extra-pins-exp0exp3-and-hrdb)).
 
-**`Hardware/CPU Card Pro/`** — Hosts a 65816 16-bit CPU (backward-compatible with 65C02). *(Untested)* Its title block credits bahamutkotd, who contributed. Its `EXP` header, J3, can jumper `EXP0` to VPB and `EXP1` to MLB; as on the CPU Card, leave those positions open in a build that takes cartridges.
+**`Hardware/CPU Card Pro/`** — Hosts a 65816 16-bit CPU (backward-compatible with 65C02). *(Untested)* Its title block credits bahamutkotd, who contributed. Its `EXP` header, J3, can jumper `EXP0` to VPB and `EXP1` to MLB; as on the CPU Card, leave those positions open in a build that takes cartridges. J2, `BANK ADDR`, carries the 65816's bank byte (address bits A16–A23), which U4 latches while `PHI2` is low and holds through the rest of the cycle. It is how a 65816 on this card reaches past 64 KB, for a breadboard or a card of your own. Nothing in the family uses it yet, and it is unproven until the card is built. The RAM Card Rev 1.0's J4 has the same pinout; see its build notes before joining the two.
 
 **`Hardware/Memory Card/`** — Provides 32KB SRAM and 32KB EEPROM with address decoding logic for COB systems using the CPU Card. J2 (or the solder jumpers JP1 and JP2) joins the bus's `EXP1` and `EXP0` to the ROM's `HRDB`: fit both in a COB that takes cartridges. See [Extra pins](#extra-pins-exp0exp3-and-hrdb).
 
-**`Hardware/RAM Card/`** — 512KB banked RAM expansion organized as two 256KB banks with 256 × 1KB windows each.
+**`Hardware/RAM Card/`** — 512KB banked RAM expansion organized as two 256KB banks with 256 × 1KB windows each. Rev 1.0's J4, `BANK ADDR`, carries the bank latch's outputs: an untested experiment that nothing in the family uses, which the build notes in [BOM.md](BOM.md#ram-card) explain.
 
 **`Hardware/RTC Card/`** — Real-time clock via Dallas DS1511Y with battery backup and 256 bytes of battery-backed SRAM.
 
@@ -413,8 +413,8 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0, 1.1 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
-| 1.0, 1.1 | JP1, J2 | `LATCH EN`: JP1 holds the bank latch's outputs on; J2 is for a switch in its place. | JP1 bridged. | Leave it. To switch the latch off with J2, cut JP1 first. |  |
+| 1.0, 1.1 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
+| 1.0, 1.1 | JP1, J2 | `LATCH EN`: JP1 grounds the bank latch's output enable, which keeps its outputs on; J2 is a header across JP1. | JP1 bridged. | Leave it. Cutting JP1 doesn't turn the latch off: it leaves U2's `OE` floating, and J2 can only ground it. Turning the latch off needs JP1 cut and J2 pin 2 wired to VCC, and is only for the untested J4 experiment in the build notes. |  |
 
 **RTC Card**
 
