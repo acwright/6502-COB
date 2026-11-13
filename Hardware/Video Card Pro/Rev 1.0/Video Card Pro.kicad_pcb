@@ -13511,17 +13511,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 137.09 95.04 0)
-		(layer "F.SilkS")
-		(uuid "7abb9679-ef45-4b05-a083-96748882efff")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "IRQ"
 		(at 99.28 112.245 0)
 		(layer "F.SilkS")

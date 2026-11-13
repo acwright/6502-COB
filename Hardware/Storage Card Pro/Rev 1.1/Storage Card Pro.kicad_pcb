@@ -12120,17 +12120,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 195.24 95.03 90)
-		(layer "F.SilkS")
-		(uuid "7abb9679-ef45-4b05-a083-96748882efff")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "3V3"
 		(at 148.68 82.36 270)
 		(layer "F.SilkS")

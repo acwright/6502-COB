@@ -152,7 +152,7 @@ def zip_vs_pcb(zp,pcb):
 rows=[]
 for repo in REPOS:
     R=BASE+repo;os.chdir(R)
-    revs=collections.defaultdict(list)
+    revs=collections.defaultdict(list);_o=json.load(open('Tools/data/orders.json'));ORD=set(_o['made'])|set(_o['ordered'])
     for f in glob.glob('Hardware/*/Rev */*.kicad_pcb'):
         n=f.split('/');revs[n[1]].append((n[2],f))
     for board,lst in sorted(revs.items()):
@@ -179,6 +179,8 @@ for repo in REPOS:
             if not lab: I.append('no revision on silk')
             elif not re.search(r'Rev ?'+re.escape(KNOWN_SILK.get((board,v),v))+r'\b',lab[0]): I.append('silk says '+re.search(r'Rev ?[\d.a-z]+',lab[0]).group(0))
             if lab and 'A.C. Wright Design' not in lab[0]: I.append('silk copyright: '+lab[0][:40])
+            # JLCPCB stopped printing order numbers in May 2026 and asks for no JLCJLCJLCJLC on the silk. Made boards keep theirs.
+            if 'JLCJLCJLCJLC' in t and f'{repo[5:]}|{board}|{v}' not in ORD: I.append('JLCPCB order-number marker on the silk')
             W,H,hs=holes(t);r['size']=(round(W,2),round(H,2)) if W else None
             corner=[h for h in hs if h[0]<=9 and h[1]<=9]
             r['corner']=sorted({(round(a,2),round(b,2)) for a,b in corner})

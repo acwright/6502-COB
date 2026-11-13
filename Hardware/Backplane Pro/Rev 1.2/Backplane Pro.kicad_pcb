@@ -15168,17 +15168,6 @@
 		(layer "Edge.Cuts")
 		(uuid "a8d75a06-1440-4242-9bd7-1397a2f067e1")
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 106 132.1 0)
-		(layer "F.SilkS")
-		(uuid "88067903-7154-4079-ac02-e65c03b2efe0")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "VCC"
 		(at 185.3 66.2 0)
 		(layer "F.SilkS")

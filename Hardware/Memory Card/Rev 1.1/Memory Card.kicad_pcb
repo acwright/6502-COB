@@ -9479,17 +9479,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 178.181 100.33 0)
-		(layer "F.SilkS")
-		(uuid "e207cbca-fc67-4c95-8227-39482ea3c077")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "RAM"
 		(at 107.188 93.218 90)
 		(layer "F.SilkS")

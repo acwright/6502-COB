@@ -15,6 +15,7 @@ SHARED={'RESB','IRQB','NMIB','RDY','BE','SOB'};BUS=('RESB','IRQB','NMIB','RDY','
 RESET_PIN={'DIP-28':'1','DIP-40':'9'}  # ATmega328 and ATmega1284 reset pins
 # Differences accepted by name, with the reason: (repo, board, column) -> (the cell's exact text, reason)
 ACCEPT={('ACE','ACE RAM Patch','Footprints'):('DIP without a socket ×4','no IC sockets, on purpose (owner, 2026-11-06)')}
+JLC='JLCJLCJLCJLC'  # JLCPCB's order-number marker: not printed since May 2026, and JLCPCB asks for it not to be there (KICAD.md K30)
 BADV=re.compile(r'^(D_Schottky|OCXO-14|65C21|LM555xM|R|74LS\d+|6551|65C51|Q_NPN_BEC|ATmega1284-P|MAX238xNG\+)$|DB9 (MALE|Male|FEMALE|Female)')
 rows=[];diffs=[];revs=collections.defaultdict(list)
 for f in files('Hardware/*/Rev */*.kicad_pcb'):
@@ -62,6 +63,7 @@ for (repo,b),L in sorted(revs.items()):
     if not os.path.exists(f'{d}/CAD/Images/{b}/{rv}/Front.png'): fl.append('images')
     if not os.path.exists(f'{d}/BOM/{b}/{rv}/digikey.csv'): fl.append('carts')
     au=AUD.get((repo,b,r),{});names='✓' if 'A.C. Wright Design' in (au.get('silk_label') or '') else (au.get('silk_label') or 'no silk label')
+    if st=='drawn' and JLC in t: names=('' if names=='✓' else names+'; ')+'JLCPCB order-number marker'
     op=[i for i in ids if C.get(i,{}).get('review')]
     def cell(x,col=None):
         s='✓' if not x else '; '.join(x);a=ACCEPT.get((repo,b,col))

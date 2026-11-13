@@ -22009,17 +22009,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 162.9761 99.4136 0)
-		(layer "F.SilkS")
-		(uuid "a8d0ddc2-1c80-413f-bc4d-d8ee5c927a0a")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(gr_text "A15"
 		(at 112.8011 79.8136 0)
 		(layer "F.SilkS")

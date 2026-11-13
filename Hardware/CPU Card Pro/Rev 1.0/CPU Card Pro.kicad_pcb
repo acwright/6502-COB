@@ -8182,17 +8182,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC"
-		(at 145.796 100.584 0)
-		(layer "F.SilkS")
-		(uuid "e502d1d5-04b0-4d4b-b5c3-8c52d09668e7")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.15)
-			)
-		)
-	)
 	(segment
 		(start 170.18 107.95)
 		(end 170.18 113.538)
