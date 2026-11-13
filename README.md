@@ -196,7 +196,7 @@ Each revision carries one of three labels:
 | Backplane | 1.0 | **Tested** | Built and tested. |
 | Backplane Helper | 1.0 | **Tested** | Built and tested. |
 | Backplane Pro | 1.2 | **Untested** | A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed. |
-| Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge. |
+| Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
 | CPU Card Pro | 1.0 | **Untested** | Never made. |

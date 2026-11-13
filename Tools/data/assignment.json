@@ -161,7 +161,7 @@
  "COB|Blinkenlights Card|1.0|R24": "330|R_0805_2012Metric",
  "COB|Blinkenlights Card|1.0|R5": "330|R_0805_2012Metric",
  "COB|Blinkenlights Card|1.0|R10": "330|R_0805_2012Metric",
- "COB|Blinkenlights Card|1.1|U3": "74HC04|SOIC-14_3.9x8.7mm_P1.27mm",
+ "COB|Blinkenlights Card|1.1|U3": "74HC3G04|TSSOP-8_3x3mm_P0.65mm",
  "COB|Blinkenlights Card|1.1|R20": "330|R_0805_2012Metric",
  "COB|Blinkenlights Card|1.1|R6": "330|R_0805_2012Metric",
  "COB|Blinkenlights Card|1.1|D2": "led-0805-green",
@@ -1085,5 +1085,9 @@
  "COB|GPIO Breadboard Helper|1.1|J4": "conn-gpio",
  "COB|GPIO Breadboard Helper|1.1|J3": "pinheader-1x12-2.54-vertical",
  "COB|GPIO Breadboard Helper|1.1|J1": "conn-gpio",
- "COB|GPIO Breadboard Helper|1.1|J2": "pinheader-1x12-2.54-vertical"
+ "COB|GPIO Breadboard Helper|1.1|J2": "pinheader-1x12-2.54-vertical",
+ "COB|Blinkenlights Card|1.1|U5": "74HC3G04|TSSOP-8_3x3mm_P0.65mm",
+ "COB|Blinkenlights Card|1.1|U6": "74HC3G04|TSSOP-8_3x3mm_P0.65mm",
+ "COB|Blinkenlights Card|1.1|C5": "100nF|C_0805_2012Metric",
+ "COB|Blinkenlights Card|1.1|C6": "100nF|C_0805_2012Metric"
 }

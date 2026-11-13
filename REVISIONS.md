@@ -26,7 +26,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane Pro | 1.1 | Made, matches order | **Tested** | Y93 | 2026-06-21 | `7486bd6` | 4 | 100×100 | 6 mm | yes | — |  |
 | Backplane Pro | 1.2 | Drawn | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
-| Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
+| Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
 | Breadboard Helper | 1.1 | Drawn | **Proven design**: J1 takes the box header's footprint, with the same holes |  |  |  | — | 75×55 | — | — | — |  |
 | CPU Card | 1.0 | Made, matches order | **Tested** | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
@@ -133,6 +133,10 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Adds `C1`–`C4`, 100nF decoupling capacitors, one beside each chip, with tracks rerouted to reach them. Rev 1.0 has no pads for them.
 - The silkscreen spells out `RESB`. Rev 1.0's says `RSB`.
+- The `RESB`, `IRQB` and `NMIB` LEDs (D25–D27) are driven from inverters, as the `RDY` and `BE` LEDs already are, and light while their line is low. On Rev 1.0 they hang straight on those lines through R25–R27, so whatever pulls a line low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that a W65C22's or W65C21's IRQ output is rated for. Each line now carries only a CMOS input.
+- Every inverter is a 74HC3G04 (U3, U5 and U6), three inverters in an 8-pin TSSOP. Rev 1.0 has one 74HC04 (U3), and all six of its gates are in use, two each for the `RDY` and `BE` LEDs and for the delayed `PHI2` that latches U4. The nine gates are those six, as before, and one each for the three new LED drivers. The smaller packages fit where a second 74HC04 couldn't. C5 and C6 decouple U5 and U6.
+- The schematic is drawn on a US Legal sheet, wider than Rev 1.0's US Letter, to fit the new gates.
+- Routed by the owner: U3, U5 and U6 sit side by side where Rev 1.0's U3 was, each with its decoupling capacitor just below it, and the tracks round them are rerouted. The card edge's opening is unchanged. DRC, the netlist check and connectivity are clean.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**

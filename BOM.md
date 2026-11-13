@@ -29,7 +29,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Backplane Pro](#backplane-pro) | 1.2 | Rev 1.2 | Drawn, not made yet | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge |
+| [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes |
 | [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
@@ -125,7 +125,7 @@ How to build each board, where it needs more than its parts list.
 
 **Blinkenlights Card**
 
-**Both revisions:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit the card to watch the bus, not in a machine that relies on its interrupts. A later revision will buffer those three LEDs through the 74HC04's spare gates, as `RDY` and `BE` already are.
+**Building a Rev 1.0:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit a Rev 1.0 to watch the bus, not in a machine that relies on its interrupts. That can't be fixed on a Rev 1.0: Rev 1.1 drives those three LEDs from inverters, and a Rev 1.0 has neither the gates nor the pads for them. Nor does it have pads for decoupling capacitors, which Rev 1.1 adds beside each chip. Rev 1.1's other changes need nothing on a built board: its silkscreen spells out `RESB`, and its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot.
 
 **CPU Card**
 
@@ -330,13 +330,13 @@ Cart files: [digikey.csv](BOM/Backplane/Rev%201.0/digikey.csv), [mouser.csv](BOM
 
 ### Blinkenlights Card Rev 1.1
 
-Drawn, not made yet. **Untested**: decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge.
+Drawn, not made yet. **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge.
 
 Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Blinkenlights%20Card/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
-| C1–C4 | 4 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| C1–C6 | 6 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
 | D1 | 1 | A15 | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
 | D2 | 1 | A14 | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
 | D3 | 1 | A13 | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
@@ -371,7 +371,7 @@ Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.1/digikey.csv), [mous
 | D32 | 1 | PHI2 | Lite-On Inc. LTST-C170TBKT | [160-1579-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1579-1-ND) | [859-LTST-C170TBKT](https://www.mouser.com/ProductDetail/859-LTST-C170TBKT) | LCSC [C2293](https://www.lcsc.com/search?q=C2293) | Yes |
 | R1–R32 | 32 | 330 | YAGEO RC0805FR-07330RL | [311-330CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-330CRCT-ND) | [603-RC0805FR-07330RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07330RL) | LCSC [C17630](https://www.lcsc.com/search?q=C17630) | Yes |
 | U1, U2, U4 | 3 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
-| U3 | 1 | 74HC04 | Nexperia USA Inc. 74HC04D,653 | [1727-2776-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2776-1-ND) | [771-74HC04D-T](https://www.mouser.com/ProductDetail/771-74HC04D-T) | LCSC [C5590](https://www.lcsc.com/search?q=C5590) | Yes |
+| U3, U5, U6 | 3 | 74HC3G04 | Nexperia USA Inc. 74HC3G04DP,125 | [1727-74HC3G04DP,125CT-ND](https://www.digikey.com/en/products/filter?keywords=1727-74HC3G04DP%2C125CT-ND) | [771-HC3G04DP125](https://www.mouser.com/ProductDetail/771-HC3G04DP125) | LCSC [C503426](https://www.lcsc.com/search?q=C503426) | Yes |
 
 ### Blinkenlights Card Rev 1.0
 

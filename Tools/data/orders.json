@@ -240,7 +240,7 @@
   ],
   "COB|Blinkenlights Card|1.1": [
    "Untested",
-   "Decoupling capacitors added, with tracks rerouted to reach them, and the bare card edge"
+   "Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge"
   ],
   "COB|Breadboard Helper|1.1": [
    "Proven design",
