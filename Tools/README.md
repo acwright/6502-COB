@@ -74,3 +74,20 @@ python3 Tools/sync.py --check   # are all five the same? derived-check.py runs t
 ```
 
 `build-notes/`, in 6502-ACE only, builds that repository's ACE Board build notes PDF.
+
+## Scripting a board with pcbnew
+
+`pcbnew` is only in KiCad's own Python:
+`/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3`. In KiCad 10.0.3 it
+crashes easily, and a crash puts a macOS crash window on the screen. A script that edits a board follows these rules:
+
+- **Read before you remove.** After `board.Remove(item)`, any object read earlier in the same process can dangle
+  (pcbnew prints `detected a memory leak of type 'PCB_TRACK *'`), and the process segfaults, often during Python's
+  shutdown. Read every list and every footprint first, collect what goes, remove it all last, then save.
+- **Skip Python's shutdown.** End with `sys.stdout.flush()` and `os._exit(0)` after `pcbnew.SaveBoard(...)`, on the
+  error path too, so the interpreter's final clean-up never touches a dangling object.
+- **Hold the board.** Keep `LoadBoard()`'s result in a variable for as long as its footprints are used.
+- **Never call `pcbnew.WriteDRCReport`.** It always segfaults outside KiCad. Run `kicad-cli pcb drc` instead.
+
+After any run, `ls ~/Library/Logs/DiagnosticReports/Python-*.ips` shows whether it crashed, even if its output looked
+fine.
