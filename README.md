@@ -322,6 +322,8 @@ The *Jumpers* section below gives each board's interrupt jumper.
 
 The same holds where a board has its own reset circuit. A reset switch, its timer and the transistor that pulls `RESB` low can be on any board, such as the COB Backplane Pro or the Clock Card, but the `RESB` pull-up is only ever on the board with the CPU. Each of those boards draws its pull-ups together, in one group on its schematic.
 
+The DEV Board is the exception on `RESB`. It stands in for a Main Board, so it owns reset: its Reset button goes to the Teensy, and the Teensy drives `RESB` onto the bus through U3, a level shifter that only sends signals out, as it drives `PHI2`. U3 holds `RESB` high or low, so the DEV Board has no `RESB` pull-up, and nothing else on its bus may pull `RESB` low. Connect a DEV only to a passive backplane, never to the COB Backplane Pro, whose reset circuit would pull against U3, and don't fit a card that pulls `RESB` low, such as the COB RTC Card.
+
 `SOB` is a CPU pin that isn't on the bus. It is tied to VCC, directly or through a 10kΩ resistor.
 
 A few chips have a pull-up of their own inside the chip, such as an ATmega's reset pin. Where such a pin is wired to `RESB`, its pull-up of 30–60kΩ sits in parallel with the 10kΩ one. That's harmless, because whatever pulls `RESB` low can sink the extra current many times over.
