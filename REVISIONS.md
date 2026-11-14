@@ -21,9 +21,9 @@ Every revision of every board in this repository, and what is known about each. 
 | Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Backplane | 1.0 | Made, matches order | **Tested** | Y50 | 2024-07-03 | `3e494e3` | 3 | 100×100 | 6 mm | yes | — |  |
-| Backplane | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 100×100 | 6 mm | — | — |  |
+| Backplane | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 100×100 | 6 mm | — | — |  |
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
-| Backplane Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 50×100 | 6 mm | — | — |  |
+| Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | — | — |  |
 | Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
 | Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
@@ -50,12 +50,12 @@ Every revision of every board in this repository, and what is known about each. 
 | Keyboard Encoder Helper | 1.0 | Made, matches order | **Tested** | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | yes | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
 | Keyboard Encoder Helper | 1.1 | Drawn | **Proven design**: mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, matches order | **Tested** | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
-| Keyboard Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 335×125 | 5 mm | — | — |  |
+| Keyboard Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 335×125 | 5 mm | — | — |  |
 | LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `2a232e3` | — | 100×100 | 6 mm | yes | — |  |
 | LCD Card | 1.0 | Made, matches order | **Tested** | Y27 | 2024-04-22 | `f77fc20` | 4 | 100×57.62 | — | — | — |  |
 | LCD Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
-| Mega Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules |  |  |  | — | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
+| Mega Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only |  |  |  | — | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge, and a 74HCT00 at U5 |  |  |  | — | 100×57.62 | — | — | — |  |
 | PS2 Helper | 1.0 | Made, matches order | **Tested** | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |

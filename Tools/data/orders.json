@@ -243,7 +243,7 @@
  "labels": {
   "COB|Backplane Helper|1.1": [
    "Proven design",
-   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
+   "JLCPCB's marker removed and the logo moved; silkscreen only"
   ],
   "COB|Backplane Pro|1.1": [
    "Untested",
@@ -251,7 +251,7 @@
   ],
   "COB|Backplane|1.1": [
    "Proven design",
-   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
+   "JLCPCB's marker removed and the logo moved; silkscreen only"
   ],
   "COB|Blinkenlights Card|1.1": [
    "Untested",
@@ -307,7 +307,7 @@
   ],
   "COB|Keyboard Helper|1.1": [
    "Proven design",
-   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
+   "JLCPCB's marker removed and the logo moved; silkscreen only"
   ],
   "COB|LCD Card|1.1": [
    "Proven design",
@@ -315,7 +315,7 @@
   ],
   "COB|Mega Helper|1.1": [
    "Proven design",
-   "Rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules"
+   "JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only"
   ],
   "COB|Memory Card|1.1": [
    "Proven design",

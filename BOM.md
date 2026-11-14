@@ -24,11 +24,11 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | Board | Revision | What the silk says | Status | Label |
 |---|---|---|---|---|
 | [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Backplane Helper](#backplane-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
+| [Backplane Helper](#backplane-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Backplane](#backplane) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
+| [Backplane](#backplane) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -53,12 +53,12 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, silkscreen |
 | [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Keyboard Helper](#keyboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
+| [Keyboard Helper](#keyboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Mega Helper](#mega-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules |
+| [Mega Helper](#mega-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and a 74HCT00 at U5 |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -220,7 +220,7 @@ Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built boar
 
 ### Backplane Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+Drawn, not made yet. **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only.
 
 Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane%20Helper/Rev%201.1/mouser.csv)
 
@@ -318,7 +318,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Backplane Rev 1.1
 
-Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+Drawn, not made yet. **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only.
 
 Cart files: [digikey.csv](BOM/Backplane/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane/Rev%201.1/mouser.csv)
 
@@ -884,7 +884,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 
 ### Keyboard Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+Drawn, not made yet. **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only.
 
 Cart files: [digikey.csv](BOM/Keyboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Keyboard%20Helper/Rev%201.1/mouser.csv)
 
@@ -1012,7 +1012,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Mega Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules.
+Drawn, not made yet. **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only.
 
 Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Mega%20Helper/Rev%201.1/mouser.csv)
 

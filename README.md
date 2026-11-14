@@ -193,8 +193,8 @@ Each revision carries one of three labels:
 
 | Board | Newest revision | Label | Why |
 |---|---|---|---|
-| Backplane | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
-| Backplane Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
+| Backplane | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
+| Backplane Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
 | Backplane Pro | 1.1 | **Untested** | The made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed. |
 | Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes, and the outline grows to hold it. |
@@ -208,10 +208,10 @@ Each revision carries one of three labels:
 | GPIO Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Joystick Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Keyboard Encoder Helper | 1.1 | **Proven design** | Mounting holes, silkscreen. |
-| Keyboard Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
+| Keyboard Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
 | LCD Board | 1.0 | **Tested** | Built and tested. |
 | LCD Card | 1.1 | **Proven design** | The bare card edge only. |
-| Mega Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules. |
+| Mega Helper | 1.1 | **Proven design** | JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only. |
 | Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
