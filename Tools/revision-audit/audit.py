@@ -17,13 +17,13 @@ OUT=os.path.abspath(_args[0]) if _args else None
 sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))));from cache import Cache,digest
 CACHE=Cache('audit',os.path.abspath(__file__))  # DRC and zip comparisons, reused while their input files are unchanged  # before the chdir below
 KNOWN_SILK={('ROM Cart','1.0a'):'1.0',('ROM Cart','1.0b'):'1.0'}  # as made: these boards say Rev 1.0, and U1's label tells them apart
-KNOWN_TITLE={('CPU Card Pro','1.0'):'A.C. Wright Design / bahamutkotd'}  # a deliberate credit (owner, 2026-11-04)
+KNOWN_TITLE={('CPU Card Pro','1.1'):'A.C. Wright Design / bahamutkotd'}  # a deliberate credit (owner, 2026-11-04)
 KNOWN_UNCONNECTED={}
 # Copper in the order that today's KiCad draws differently from the same file (2026-11-05). Every version in the file's history
 # shows it. Keypad Helper: the zip has thermal spokes on the second row of pads, which KiCad 10 doesn't draw. Storage Card: 18
 # segments differ in every version, and 24 come from the 2025-09-29 footprint refresh that changed pad shapes, accepted in P10.
 KNOWN_COPPER={('Keypad Helper','1.0'):{'gtl':62,'gbl':35},('Storage Card','1.0'):{'gtl':42}}
-KNOWN_NET={('DEV Output Board','1.0'):'Teensy back-side pads',('DEV Output Board','1.1'):'Teensy back-side pads',('VGA Card Pro','1.0'):'Pico pins 41-43',('Mega Helper','1.0'):'Arduino header pins',('Flash Helper','1.0'):'Arduino Mega pads with no symbol pin',('Backplane Pro','1.0'):'J2 shield pin',('DEV Board','1.0'):'J6 shield pads',('DEV Board','1.1'):'J6 shield pads',('Main Board','1.0'):'J3 shield pads'}
+KNOWN_NET={('DEV Output Board','1.0'):'Teensy back-side pads',('DEV Output Board','1.1'):'Teensy back-side pads',('VGA Card Pro','1.1'):'Pico pins 41-43',('Mega Helper','1.0'):'Arduino header pins',('Mega Helper','1.1'):'Arduino header pins',('Flash Helper','1.0'):'Arduino Mega pads with no symbol pin',('Flash Helper','1.1'):'Arduino Mega pads with no symbol pin',('Backplane Pro','1.0'):'J2 shield pin',('DEV Board','1.0'):'J6 shield pads',('DEV Board','1.1'):'J6 shield pads',('Main Board','1.0'):'J3 shield pads'}
 def run(*a): return subprocess.run(a,capture_output=True)
 MODULES={'LCD-16X2','Teensy4.1','Teensy4.0','Waveshare 2.4in LCD Header','Waveshare 2.4in LCD'}   # K36: their outline names them
 def ic_values(t):

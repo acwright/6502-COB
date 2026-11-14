@@ -24,15 +24,17 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | Board | Revision | What the silk says | Status | Label |
 |---|---|---|---|---|
 | [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Backplane Helper](#backplane-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
 | [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Made, tested | **Tested** |
 | [Backplane Pro](#backplane-pro) | 1.2 | Rev 1.2 | Drawn, not made yet | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Backplane](#backplane) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes, and the outline grows to hold it |
-| [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [CPU Card Pro](#cpu-card-pro) | 1.1 | — | Never made | **Untested**: never made |
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |
 | [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet | **Untested**: a new board, ordered and not tested yet |
@@ -52,10 +54,12 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, silkscreen |
 | [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Keyboard Helper](#keyboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |
 | [LCD Board](#lcd-board) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [LCD Card](#lcd-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
+| [Mega Helper](#mega-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and a 74HCT00 at U5 |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -78,10 +82,10 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |
-| [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [VGA Card Pro](#vga-card-pro) | 1.1 | — | Never made | **Untested**: never made |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |
-| [Video Card Pro](#video-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
+| [Video Card Pro](#video-card-pro) | 1.1 | — | Never made | **Untested**: never made |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |
 
@@ -115,6 +119,14 @@ How to build each board, where it needs more than its parts list.
 
 <!-- Build notes: hand-written. Tools/bom/gen_bom.py keeps everything between these two markers. -->
 
+**Backplane**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: JLCPCB's order-number marker is gone, and the logo moves to its place; a Rev 1.0 is built and used the same way.
+
+**Backplane Helper**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: JLCPCB's order-number marker is gone, and the logo moves to its place; a Rev 1.0 is built and used the same way.
+
 **Backplane Pro**
 
 **Building a Rev 1.1:**
@@ -147,6 +159,10 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
 
+**Keyboard Helper**
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: JLCPCB's order-number marker is gone, and the logo moves to its place; a Rev 1.0 is built and used the same way.
+
 **LCD Card**
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. Both revisions ship JP1 bridged for the W65C22N.
@@ -154,6 +170,8 @@ How to build each board, where it needs more than its parts list.
 **Mega Helper**
 
 **Writing firmware for it:** the Mega's D2, D3, D4, D9 and D10 connect straight to `IRQB`, `NMIB`, `RESB`, `RDY` and `BE`, which every other device on the bus shares. Drive those pins open-drain. To assert a line, call `digitalWrite(pin, LOW)` and then `pinMode(pin, OUTPUT)`, in that order: after `INPUT_PULLUP` the pin's output latch is high, so switching to `OUTPUT` first would drive the line high for a moment. To release a line, call `pinMode(pin, INPUT)`. Never drive one of these pins high, because a pin driven high holds its line high against every other device that pulls it low. The pull-ups are on the CPU Card; in a machine without a CPU Card, release `RESB` with `pinMode(pin, INPUT_PULLUP)` so that it rises.
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the silkscreen: JLCPCB's order-number marker is gone, J1's reference is the family's size, and the logo moves to its place; a Rev 1.0 is built and used the same way.
 
 **Memory Card**
 
@@ -200,6 +218,19 @@ Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built boar
 <!-- End of build notes. -->
 
 ## Backplane Helper
+
+### Backplane Helper Rev 1.1
+
+Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+
+Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane%20Helper/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| J1, J2 | 2 | 6502 Card Connector | TE Connectivity 5-5530843-4 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |  |
+| J3 | 1 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+
+- **J3:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Backplane Helper Rev 1.0
 
@@ -318,6 +349,19 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## Backplane
+
+### Backplane Rev 1.1
+
+Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+
+Cart files: [digikey.csv](BOM/Backplane/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| J1–J5 | 5 | 6502 Card Connector | TE Connectivity 5-5530843-4 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |  |
+| J6, J7 | 2 | 6502 Bus | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+
+- **J6, J7:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Backplane Rev 1.0
 
@@ -458,11 +502,11 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ## CPU Card Pro
 
-### CPU Card Pro Rev 1.0
+### CPU Card Pro Rev 1.1
 
 Never made. **Untested**: never made.
 
-Cart files: [digikey.csv](BOM/CPU%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/CPU%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
+Cart files: [digikey.csv](BOM/CPU%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/CPU%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/CPU%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
@@ -872,6 +916,26 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.0/digikey.csv)
 
 ## Keyboard Helper
 
+### Keyboard Helper Rev 1.1
+
+Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place.
+
+Cart files: [digikey.csv](BOM/Keyboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Keyboard%20Helper/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| J1 | 1 | JOYSTICK A | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  |
+| J2 | 1 | JOYSTICK B | Amphenol D09P33E4GX00LF | [609-1481-ND](https://www.digikey.com/en/products/filter?keywords=609-1481-ND) | [649-D09P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D09P33E4GX00LF) |  |
+| J3 | 1 | JOYSTICK A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+| J4 | 1 | JOYSTICK B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+| J5 | 1 | PORT A | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+| J6 | 1 | PORT B | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
+| J7 | 1 | KEYBOARD | Amphenol D25P33E4GX00LF | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) | [649-D25P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D25P33E4GX00LF) |  |
+| R1–R16 | 16 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
+| SW1–SW67 | 67 | Keyswitch | Cherry Americas LLC MX2A-E1NA | [1644-MX2A-E1NA-ND](https://www.digikey.com/en/products/filter?keywords=1644-MX2A-E1NA-ND) | [540-MX2A-E1NA](https://www.mouser.com/ProductDetail/540-MX2A-E1NA) |  |
+
+- **SW1–SW67:** Cherry MX2A RGB Blue, clear housing, as on the owner's Amazon kit. MX1A-E1NN (black housing) is the deeper-stocked alternative; Digi-Key CH196-ND, Mouser 540-MX1A-E1NN.
+
 ### Keyboard Helper Rev 1.0
 
 Made, tested. **Tested**.
@@ -979,6 +1043,19 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 
 ## Mega Helper
+
+### Mega Helper Rev 1.1
+
+Drawn, not made yet. **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules.
+
+Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Mega%20Helper/Rev%201.1/mouser.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other |
+|---|---|---|---|---|---|---|
+| A1 | 1 | Arduino Mega2560 R3 Shield | Arduino A000067 | [1050-1018-ND](https://www.digikey.com/en/products/filter?keywords=1050-1018-ND) | [782-A000067](https://www.mouser.com/ProductDetail/782-A000067) |  |
+| J1 | 1 | 6502 BUS | Würth Elektronik 61204021621 | [732-5401-ND](https://www.digikey.com/en/products/filter?keywords=732-5401-ND) | [710-61204021621](https://www.mouser.com/ProductDetail/710-61204021621) |  |
+
+- **J1:** Male box header with a keying notch, for a 40-way ribbon cable.
 
 ### Mega Helper Rev 1.0
 
@@ -1561,11 +1638,11 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ## VGA Card Pro
 
-### VGA Card Pro Rev 1.0
+### VGA Card Pro Rev 1.1
 
 Never made. **Untested**: never made.
 
-Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
+Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
@@ -1636,11 +1713,11 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ## Video Card Pro
 
-### Video Card Pro Rev 1.0
+### Video Card Pro Rev 1.1
 
 Never made. **Untested**: never made.
 
-Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/Video%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
+Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Video%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|

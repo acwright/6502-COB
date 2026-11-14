@@ -193,13 +193,13 @@ Each revision carries one of three labels:
 
 | Board | Newest revision | Label | Why |
 |---|---|---|---|
-| Backplane | 1.0 | **Tested** | Built and tested. |
-| Backplane Helper | 1.0 | **Tested** | Built and tested. |
+| Backplane | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
+| Backplane Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
 | Backplane Pro | 1.2 | **Untested** | A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed. |
 | Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes, and the outline grows to hold it. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
-| CPU Card Pro | 1.0 | **Untested** | Never made. |
+| CPU Card Pro | 1.1 | **Untested** | Never made. |
 | Clock Card | 1.1 | **Untested** | The bare card edge only, but Rev 1.0 hasn't been tested yet. |
 | Clock Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | DB25 Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
@@ -208,10 +208,10 @@ Each revision carries one of three labels:
 | GPIO Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Joystick Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Keyboard Encoder Helper | 1.1 | **Proven design** | Mounting holes, silkscreen. |
-| Keyboard Helper | 1.0 | **Tested** | Built and tested. |
+| Keyboard Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
 | LCD Board | 1.0 | **Tested** | Built and tested. |
 | LCD Card | 1.1 | **Proven design** | The bare card edge only. |
-| Mega Helper | 1.0 | **Tested** | Built and tested. |
+| Mega Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules. |
 | Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
@@ -224,9 +224,9 @@ Each revision carries one of three labels:
 | Storage Card Pro | 1.1 | **Untested** | Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed. |
-| VGA Card Pro | 1.0 | **Untested** | Never made. |
+| VGA Card Pro | 1.1 | **Untested** | Never made. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
-| Video Card Pro | 1.0 | **Untested** | Never made. |
+| Video Card Pro | 1.1 | **Untested** | Never made. |
 <!-- End of which revision to make -->
 
 ## Firmware
@@ -373,7 +373,7 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J3 | `EXP`: shunts here join 65816 signals (`VPB`, `MLB`, `MX`, `E`) to the bus's extra pins. | No shunts. | Leave it empty unless a project needs one. Never join `EXP0` or `EXP1` in a build that uses cartridges (see *Extra pins*). |  |
+| 1.1 | J3 | `EXP`: shunts here join 65816 signals (`VPB`, `MLB`, `MX`, `E`) to the bus's extra pins. | No shunts. | Leave it empty unless a project needs one. Never join `EXP0` or `EXP1` in a build that uses cartridges (see *Extra pins*). |  |
 
 **Clock Card**
 
@@ -486,10 +486,10 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
-| 1.0 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card Pro. | To run |
-| 1.0 | JP1 | Adds R1, a 1k pull-up, to the 5 V side of the interrupt's level shifter (Q1). | Open. | Leave it open: the CPU board's 10k pull-up on `IRQB` does that job, and two pull-ups would sit in parallel (see *Shared lines*). |  |
-| 1.0 | JP2 | Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives. | Open. | Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
+| 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
+| 1.1 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card Pro. | To run |
+| 1.1 | JP1 | Adds R1, a 1k pull-up, to the 5 V side of the interrupt's level shifter (Q1). | Open. | Leave it open: the CPU board's 10k pull-up on `IRQB` does that job, and two pull-ups would sit in parallel (see *Shared lines*). |  |
+| 1.1 | JP2 | Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives. | Open. | Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
 
 **Video Card**
 
@@ -506,9 +506,9 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
-| 1.0 | J5 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card Pro. | To run |
-| 1.0 | JP1 | Across D1, the diode in the ATmega1284's interrupt line. | Open. | Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
+| 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
+| 1.1 | J5 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card Pro. | To run |
+| 1.1 | JP1 | Across D1, the diode in the ATmega1284's interrupt line. | Open. | Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
 
 <!-- End of jumpers -->
 

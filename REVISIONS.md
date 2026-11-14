@@ -21,7 +21,9 @@ Every revision of every board in this repository, and what is known about each. 
 | Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Backplane | 1.0 | Made, matches order | **Tested** | Y50 | 2024-07-03 | `3e494e3` | 3 | 100×100 | 6 mm | yes | — |  |
+| Backplane | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 100×100 | 6 mm | — | — |  |
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
+| Backplane Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 50×100 | 6 mm | — | — |  |
 | Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
 | Backplane Pro | 1.1 | Made, matches order | **Tested** | Y93 | 2026-06-21 | `7486bd6` | 4 | 100×100 | 6 mm | yes | — |  |
 | Backplane Pro | 1.2 | Drawn | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |  |  |  | — | 100×100 | 6 mm | yes | — |  |
@@ -31,7 +33,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Breadboard Helper | 1.1 | Drawn | **Proven design**: J1 takes the box header's footprint, with the same holes, and the outline grows to hold it |  |  |  | — | 75×60 | — | — | — |  |
 | CPU Card | 1.0 | Made, matches order | **Tested** | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | CPU Card | 1.1 | Drawn | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
-| CPU Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
+| CPU Card Pro | 1.1 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
 | Clock Card | 1.0 | Ordered | **Untested**: a new board, ordered and not tested yet |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02 |
 | Clock Card | 1.1 | Drawn | **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet |  |  |  | — | 100×57.62 | — | — | — |  |
 | Clock Helper | 1.0 | Made, matches order | **Tested** | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
@@ -49,10 +51,12 @@ Every revision of every board in this repository, and what is known about each. 
 | Keyboard Encoder Helper | 1.0 | Made, matches order | **Tested** | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | yes | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
 | Keyboard Encoder Helper | 1.1 | Drawn | **Proven design**: mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, matches order | **Tested** | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
+| Keyboard Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 335×125 | 5 mm | — | — |  |
 | LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `2a232e3` | — | 100×100 | 6 mm | yes | — |  |
 | LCD Card | 1.0 | Made, matches order | **Tested** | Y27 | 2024-04-22 | `f77fc20` | 4 | 100×57.62 | — | — | — |  |
 | LCD Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
+| Mega Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules |  |  |  | — | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge, and a 74HCT00 at U5 |  |  |  | — | 100×57.62 | — | — | — |  |
 | PS2 Helper | 1.0 | Made, matches order | **Tested** | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
@@ -77,10 +81,10 @@ Every revision of every board in this repository, and what is known about each. 
 | VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
 | VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |  |  |  | — | 100×57.62 | — | — | — |  |
-| VGA Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | symbol has pins the footprint lacks: Pico pins 41-43 |
+| VGA Card Pro | 1.1 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | symbol has pins the footprint lacks: Pico pins 41-43 |
 | Video Card | 1.0 | Made, matches order | **Tested** | Y53 | 2024-07-09 | `f890f21` | 2 | 100×57.62 | — | — | — |  |
 | Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
-| Video Card Pro | 1.0 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — |  |
+| Video Card Pro | 1.1 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — |  |
 
 JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Each time this table is written, every PCB is checked again against its production zip, for copper and drill holes. Tindie stock is from the listings as saved on 2026-10-23.
 
@@ -89,6 +93,8 @@ JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, ma
 ## History
 
 What changed in each revision of each board, newest first. The table above has the facts about each one.
+
+**Every board has a Rev 1.1, 2026-11-14.** The family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The Backplane, Backplane Helper, Keyboard Helper and Mega Helper had only a made Rev 1.0, so each gets a Rev 1.1: Rev 1.0's circuit and copper, without JLCPCB's order-number marker, with its logo in its place and, on the Mega Helper, J1's reference at the family's size. Each is **Proven design**, its Rev 1.0 being tested. The CPU Card Pro, VGA Card Pro and Video Card Pro, drawn as Rev 1.0 and never made, are renumbered Rev 1.1 in place; the notes above that name them as 1.0 were written before. `Tools/revision-audit/gproof.py` shows that only the silkscreen differs from Rev 1.0 on each new revision.
 
 **Title blocks, 2026-11-14.** Every schematic's and PCB's title block names the family as it is: `AC6502 <Board>`, not `6502 <Board>`, on all 61 revisions, the made ones included. The title block is drawing-sheet text, which no Gerber layer carries: every PCB plots exactly as before (`Tools/revision-audit/gproof.py`), so no board and no label changed, and the made revisions' production zips are as JLCPCB received them. The schematic PDFs are regenerated. The production zip of each revision not yet made (29) is named from the title, so it is now `AC6502_<Board>_<Rev>.zip`, its contents unchanged. The board logos still read "6502". `Tools/revision-audit/audit.py` checks the titles.
 
@@ -104,11 +110,25 @@ What changed in each revision of each board, newest first. The table above has t
 
 ### Backplane
 
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Drawn so the family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The circuit, parts, copper, holes and outline are Rev 1.0's.
+- JLCPCB's order-number marker, `JLCJLCJLCJLC`, is gone from the silkscreen, as from every revision not yet made: JLCPCB stopped printing order numbers in May 2026 and asks for the text not to be there.
+- The board logo moves 0.39 mm across and 0.12 mm down, to its place on the top corner holes' line, as every logo on a revision not yet made sits.
+- The silkscreen's revision reads Rev 1.1.
+
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Backplane/Rev 1.0/` and `Production/Backplane/Rev 1.0/` match the boards JLCPCB made (order Y50). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### Backplane Helper
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Drawn so the family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The circuit, parts, copper, holes and outline are Rev 1.0's.
+- JLCPCB's order-number marker, `JLCJLCJLCJLC`, is gone from the silkscreen, as from every revision not yet made: JLCPCB stopped printing order numbers in May 2026 and asks for the text not to be there.
+- The board logo moves −0.64 mm across and 0.04 mm down, to its place on the top corner holes' line, as every logo on a revision not yet made sits.
+- The silkscreen's revision reads Rev 1.1.
 
 **Rev 1.0**
 
@@ -202,9 +222,9 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### CPU Card Pro
 
-**Rev 1.0**
+**Rev 1.1**
 
-- Drawn, and never ordered.
+- Drawn, and never ordered. It was drawn as Rev 1.0, and renumbered 1.1 on 2026-11-14, so the family's boards end as one set of Rev 1.1s (owner, 2026-11-13). Nothing but the number changed: its files moved from `Rev 1.0` to `Rev 1.1`, and its title blocks and silkscreen say Rev 1.1.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.1 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 ### DB25 Helper
@@ -281,6 +301,13 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Keyboard Helper
 
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Drawn so the family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The circuit, parts, copper, holes and outline are Rev 1.0's.
+- JLCPCB's order-number marker, `JLCJLCJLCJLC`, is gone from the silkscreen, as from every revision not yet made: JLCPCB stopped printing order numbers in May 2026 and asks for the text not to be there.
+- The board logo moves 0.00 mm across and 3.51 mm down, to its place on the left corner holes' line, 11.5 mm from the corner, as every logo on a revision not yet made sits.
+- The silkscreen's revision reads Rev 1.1.
+
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Keyboard Helper/Rev 1.0/` and `Production/Keyboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y70). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
@@ -304,6 +331,14 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Initial release, and the board on sale. `Hardware/LCD Card/Rev 1.0/` and `Production/LCD Card/Rev 1.0/` match the boards JLCPCB made (order Y27). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 
 ### Mega Helper
+
+**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+
+- Drawn so the family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The circuit, parts, copper, holes and outline are Rev 1.0's.
+- JLCPCB's order-number marker, `JLCJLCJLCJLC`, is gone from the silkscreen, as from every revision not yet made: JLCPCB stopped printing order numbers in May 2026 and asks for the text not to be there.
+- J1's reference is 1.0 mm high, with a 0.15 mm stroke, as every reference on a revision not yet made is. Rev 1.0's is 0.8 mm.
+- The board logo moves 1.00 mm across and 1.13 mm down, to its place 2.5 mm from the left edge and centred on the board's height, the rule for a board with no corner holes by its logo, as every logo on a revision not yet made sits.
+- The silkscreen's revision reads Rev 1.1.
 
 **Rev 1.0**
 
@@ -463,9 +498,9 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### VGA Card Pro
 
-**Rev 1.0**
+**Rev 1.1**
 
-- Drawn, and never ordered.
+- Drawn, and never ordered. It was drawn as Rev 1.0, and renumbered 1.1 on 2026-11-14, so the family's boards end as one set of Rev 1.1s (owner, 2026-11-13). Nothing but the number changed: its files moved from `Rev 1.0` to `Rev 1.1`, and its title blocks and silkscreen say Rev 1.1.
 - `JP3` and `JP4` are removed. They chose whether `PHI2` or 3V3 drives E2, an enable of U5, the 74LVC138 that makes the card's read and write strobes. With `PHI2` there, as first drawn, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.0 wires `PHI2` straight to E2. JP4's copper strip is a short track now, and JP3 goes with its feed from the supply.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
 - U3, the Raspberry Pi Pico, shows KiCad's own 3D model of it. The VRML model it had before was left out of the board's STEP file, which can't hold one.
@@ -488,8 +523,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Video Card Pro
 
-**Rev 1.0**
+**Rev 1.1**
 
-- Drawn, and never ordered.
+- Drawn, and never ordered. It was drawn as Rev 1.0, and renumbered 1.1 on 2026-11-14, so the family's boards end as one set of Rev 1.1s (owner, 2026-11-13). Nothing but the number changed: its files moved from `Rev 1.0` to `Rev 1.1`, and its title blocks and silkscreen say Rev 1.1.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
 - `JP1` is open as made, where it was first drawn bridged, so D1 stays in the interrupt line. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does; D1 lets it only pull `IRQB` low.

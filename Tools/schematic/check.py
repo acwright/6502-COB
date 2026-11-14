@@ -21,7 +21,7 @@ KC='/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
 CACHE=Cache('schematic-check',os.path.abspath(__file__))
 TOOLS=(os.path.join(H,'busfix.py'),os.path.join(H,'sch.py'))  # their bytes are part of every key
 # Wired to something other than a connector or jumper on purpose, with the reason
-ACCEPT_EXP={('COB','Mega Helper','1.0'):'Arduino D5 and D6, for an experimenter; its README says not to drive them with a cartridge fitted'}
+ACCEPT_EXP={(r,'Mega Helper',v):'Arduino D5 and D6, for an experimenter; its README says not to drive them with a cartridge fitted' for r,v in (('COB','1.0'),('COB','1.1'))}
 # Jumpers between EXP0/EXP1 and HRDB: the Memory Card's, for the COB's experimenters (owner, 2026-11-06). Main Board
 # 1.0 was made with them; Rev 1.1 drops them (K23).
 JUMPERS={('COB','Memory Card'),('VCS','Main Board','1.0')}

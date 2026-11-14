@@ -158,7 +158,9 @@
   ]
  },
  "drawn": [
+  "COB|Backplane Helper|1.1",
   "COB|Backplane Pro|1.2",
+  "COB|Backplane|1.1",
   "COB|Blinkenlights Card|1.1",
   "COB|Breadboard Helper|1.1",
   "COB|CPU Card|1.1",
@@ -170,7 +172,9 @@
   "COB|GPIO Helper|1.1",
   "COB|Joystick Helper|1.1",
   "COB|Keyboard Encoder Helper|1.1",
+  "COB|Keyboard Helper|1.1",
   "COB|LCD Card|1.1",
+  "COB|Mega Helper|1.1",
   "COB|Memory Card|1.1",
   "COB|PS2 Helper|1.1",
   "COB|Prototype Card|1.1",
@@ -186,9 +190,9 @@
   "COB|Video Card|1.1"
  ],
  "never": [
-  "COB|CPU Card Pro|1.0",
-  "COB|VGA Card Pro|1.0",
-  "COB|Video Card Pro|1.0"
+  "COB|CPU Card Pro|1.1",
+  "COB|VGA Card Pro|1.1",
+  "COB|Video Card Pro|1.1"
  ],
  "ordered": {
   "COB|Clock Card|1.0": "Order 1, placed 2026-11-02"
@@ -196,7 +200,7 @@
  "made_unchecked": {},
  "notes": {
   "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
-  "COB|CPU Card Pro|1.0": "title block credits bahamutkotd, who contributed",
+  "COB|CPU Card Pro|1.1": "title block credits bahamutkotd, who contributed",
   "COB|Backplane Pro|1.0": "the board's silk says 6502 BACKPLANE, its name when ordered"
  },
  "tested": {
@@ -234,9 +238,17 @@
  },
  "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
  "labels": {
+  "COB|Backplane Helper|1.1": [
+   "Proven design",
+   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
+  ],
   "COB|Backplane Pro|1.2": [
    "Untested",
    "A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed"
+  ],
+  "COB|Backplane|1.1": [
+   "Proven design",
+   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
   ],
   "COB|Blinkenlights Card|1.1": [
    "Untested",
@@ -246,7 +258,7 @@
    "Proven design",
    "J1 takes the box header's footprint, with the same holes, and the outline grows to hold it"
   ],
-  "COB|CPU Card Pro|1.0": [
+  "COB|CPU Card Pro|1.1": [
    "Untested",
    "Never made"
   ],
@@ -290,9 +302,17 @@
    "Proven design",
    "Mounting holes, silkscreen"
   ],
+  "COB|Keyboard Helper|1.1": [
+   "Proven design",
+   "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
+  ],
   "COB|LCD Card|1.1": [
    "Proven design",
    "The bare card edge only"
+  ],
+  "COB|Mega Helper|1.1": [
+   "Proven design",
+   "Rev 1.0's circuit; JLCPCB's marker removed, J1's reference and the logo by the family's rules"
   ],
   "COB|Memory Card|1.1": [
    "Proven design",
@@ -342,7 +362,7 @@
    "Proven design",
    "Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them"
   ],
-  "COB|VGA Card Pro|1.0": [
+  "COB|VGA Card Pro|1.1": [
    "Untested",
    "Never made"
   ],
@@ -350,7 +370,7 @@
    "Untested",
    "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed"
   ],
-  "COB|Video Card Pro|1.0": [
+  "COB|Video Card Pro|1.1": [
    "Untested",
    "Never made"
   ],

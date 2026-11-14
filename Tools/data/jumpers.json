@@ -102,7 +102,7 @@
   "repo": "COB",
   "board": "CPU Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "J3"
@@ -690,7 +690,7 @@
   "repo": "COB",
   "board": "VGA Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "J4"
@@ -705,7 +705,7 @@
   "repo": "COB",
   "board": "VGA Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "J3"
@@ -720,7 +720,7 @@
   "repo": "COB",
   "board": "VGA Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "JP1"
@@ -735,7 +735,7 @@
   "repo": "COB",
   "board": "VGA Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "JP2"
@@ -846,7 +846,7 @@
   "repo": "COB",
   "board": "Video Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "J5"
@@ -861,7 +861,7 @@
   "repo": "COB",
   "board": "Video Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "J3"
@@ -876,7 +876,7 @@
   "repo": "COB",
   "board": "Video Card Pro",
   "revs": [
-   "1.0"
+   "1.1"
   ],
   "refs": [
    "JP1"
