@@ -46,7 +46,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `cad/` | Reads each machine's `CAD/Assembly.json`, which places its boards on the plate, and checks it against the PCBs and today's plate. The family's standards for plates and tops are in its README. |
 | `consistency/` | `table.py --all` prints every board's newest revision against the family's rules. |
 | `cardedge/` | `standard.json` is the one card edge every card and cart shares: the outline, a cart's shell holes, no mask on the tab and no paste on the fingers. `cardedge.py` applies it to a revision not yet made, and checks every newest revision against it; revisions still waiting for their fix are listed in `Tools/data/cardedge.json`. |
-| `logos/` | `standard.json` is where a board's logo goes: on a card or cart, reading bottom to top on the left, 2.5 mm from the edge and centred on the body; on any other board, along an edge on the line of its corner holes. `placement.py` moves the logo of a revision not yet made to its place, and checks every newest revision not yet made; logos still waiting for their move, and the owner's exceptions, are listed in `Tools/data/logos.json`. |
+| `logos/` | `standard.json` is where a board's logo goes: on a card or cart, reading bottom to top on the left, 2.5 mm from the edge and centred on the body; on a breadboard helper, flat under the pin rows and centred on them; on any other board, along an edge on the line of its corner holes. `placement.py` moves the logo of a revision not yet made to its place, and checks every newest revision not yet made; logos still waiting for their move, and the owner's exceptions, are listed in `Tools/data/logos.json`. |
 
 ## Data
 

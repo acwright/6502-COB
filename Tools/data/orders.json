@@ -244,7 +244,7 @@
   ],
   "COB|Breadboard Helper|1.1": [
    "Proven design",
-   "J1 takes the box header's footprint, with the same holes"
+   "J1 takes the box header's footprint, with the same holes, and the outline grows to hold it"
   ],
   "COB|CPU Card Pro|1.0": [
    "Untested",

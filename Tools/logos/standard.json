@@ -8,6 +8,13 @@
   "edge_gap": 2.5,
   "body": 50.0
  },
+ "breadboard": {
+  "_about": "Every board that plugs into a breadboard: two straight 1xN pin headers of the same length, side by side across the breadboard's centre channel (row_pitch apart). The logo lies flat (0°) under the lower row, its printed shapes centred on the rows and their top gap below the lower row's pad centres. Taken from the GPIO Breadboard Helper 1.1, which the Breadboard Helper 1.1 follows (KICAD.md K41, the owner's ruling of 2026-11-13).",
+  "header": "PinHeader_1x",
+  "row_pitch": 12.7,
+  "rotation": 0,
+  "gap": 2.611
+ },
  "board": {
   "_about": "Every other board. Formed from what the boards had on 2026-11-13: on each board with corner mounting holes, the logo runs along an edge with its centre line on the line through that edge's corner holes (6 mm in on the 100 mm boards and the KIM's, 5 mm on the ACE's). Along that edge it is either centred, as on the adapters, or has its end 11.5 mm from the corner, as on the 100 mm boards, the ACE Board and the KIM's boards (they measured 10.6 to 14.0 mm). A board without corner holes on the logo's edge takes the card rule, centred on its whole height.",
   "hole_footprint": "MountingHole",

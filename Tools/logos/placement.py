@@ -12,6 +12,9 @@ board's outline, so they don't depend on where a footprint's origin sits.
 
   A card or cart    (it has the 6502 Card Edge footprint) The logo reads bottom to top, at 90°, its left edge
                     card.edge_gap from the board's left edge, centred on the body (the card.body above the tab).
+  A breadboard      (two straight 1xN pin headers of one length, breadboard.row_pitch apart, side by side) The logo
+  helper            lies flat, at 0°, under the lower row: centred on the rows, its top breadboard.gap below the
+                    lower row's pad centres (K41).
   Any other board   The logo runs along the edge it is nearest. If that edge has corner mounting holes, its centre
                     line is on their line, and along the edge it is centred or has its end board.end_gap from the
                     corner. If not, it takes the card rule, centred on the board's whole height.
@@ -31,7 +34,7 @@ from common import SCOPE, files, load
 import kpcb
 
 S = json.load(open(H + '/standard.json', encoding='utf-8'))
-C, B, TOL = S['card'], S['board'], S['tolerance']
+C, B, BB, TOL = S['card'], S['board'], S['breadboard'], S['tolerance']
 LOGO = re.compile(S['footprint'])
 
 
@@ -71,6 +74,22 @@ def shapes_box(fp):
     return min(p[0] for p in pts), min(p[1] for p in pts), max(p[0] for p in pts), max(p[1] for p in pts)
 
 
+def breadboard_rows(fps):
+    """(x0, x1, upper y, lower y) of the pad centres, if two straight 1xN pin headers of one length lie side by side
+    breadboard.row_pitch apart, as a breadboard helper's do; else None."""
+    rows = []
+    for f in fps:
+        if BB['header'] not in kpcb.lib_id(f): continue
+        pts = [kpcb.to_board(f, *p.get('at').nums()[:2]) for p in f.all('pad')]
+        if len(pts) > 1 and max(p[1] for p in pts) - min(p[1] for p in pts) <= TOL:
+            rows.append((min(p[0] for p in pts), max(p[0] for p in pts), pts[0][1]))
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            if abs(a[0] - b[0]) <= TOL and abs(a[1] - b[1]) <= TOL and abs(abs(a[2] - b[2]) - BB['row_pitch']) <= TOL:
+                return a[0], a[1], min(a[2], b[2]), max(a[2], b[2])
+    return None
+
+
 class Board:
     def __init__(self, path):
         p = path.split('/'); self.path = path
@@ -82,6 +101,7 @@ class Board:
         self.logos = [f for f in fps if LOGO.match(kpcb.lib_id(f))]
         self.holes = [kpcb.at(f)[:2] for f in fps if B['hole_footprint'] in kpcb.lib_id(f)]
         self.box = outline(self.root)
+        self.rows = breadboard_rows(fps)
 
     @property
     def tag(self):
@@ -95,6 +115,10 @@ class Board:
         rot = round(kpcb.at(fp)[2]) % 360
         if self.card:
             return L, self._card(L, w, h, y0 + C['body'] / 2), f'card, {C["edge_gap"]} mm from the left, centred on the body'
+        if self.rows:
+            r0, r1, top, low = self.rows
+            nx, ny = (r0 + r1) / 2 - w / 2, low + BB['gap']
+            return L, (nx, ny, nx + w, ny + h), f'breadboard helper, centred under the pin rows, {BB["gap"]} mm below the lower row'
         upright = rot in (90, 270)   # the logo's long side runs up and down
         cx, cy = (L[0] + L[2]) / 2, (L[1] + L[3]) / 2
         if upright: side, off = ('left', cx - x0) if cx - x0 <= x1 - cx else ('right', x1 - cx)
@@ -142,6 +166,7 @@ def faults(bd):
     rot = round(kpcb.at(bd.logos[0])[2]) % 360
     e = []
     if bd.card and rot != C['rotation']: e.append(f'turned {rot}°, not {C["rotation"]}°')
+    elif bd.rows and not bd.card and rot != BB['rotation']: e.append(f'turned {rot}°, not {BB["rotation"]}°')
     if 'SilkS' not in ''.join(kpcb.layer(n) or '' for n in bd.logos[0].kids if n.name == 'fp_poly'): e.append('not on a silkscreen')
     dx, dy = want[0] - have[0], want[1] - have[1]
     if abs(dx) > TOL or abs(dy) > TOL: e.append(f'{dx:+.2f} mm across, {dy:+.2f} mm down from its place ({rule})')

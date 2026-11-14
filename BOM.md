@@ -31,7 +31,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Blinkenlights Card](#blinkenlights-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |
 | [Breadboard Helper](#breadboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes |
+| [Breadboard Helper](#breadboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: J1 takes the box header's footprint, with the same holes, and the outline grows to hold it |
 | [CPU Card Pro](#cpu-card-pro) | 1.0 | Rev 1.0 | Never made | **Untested**: never made |
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |
@@ -126,6 +126,10 @@ How to build each board, where it needs more than its parts list.
 **Blinkenlights Card**
 
 **Building a Rev 1.0:** the `IRQB`, `NMIB` and `RESB` LEDs (D25–D27, through R25–R27) hang straight on those lines. While a line is asserted, whatever pulls it low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for. The 65C02 may still read the line as low, but nothing guarantees it. Fit a Rev 1.0 to watch the bus, not in a machine that relies on its interrupts. That can't be fixed on a Rev 1.0: Rev 1.1 drives those three LEDs from inverters, and a Rev 1.0 has neither the gates nor the pads for them. Nor does it have pads for decoupling capacitors, which Rev 1.1 adds beside each chip. Rev 1.1's other changes need nothing on a built board: its silkscreen spells out `RESB`, and its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot.
+
+**Breadboard Helper**
+
+**Building a Rev 1.0:** fit a box header for J1, as the parts list says. The silkscreen shows a plain 2×20 header, but the holes are the same. The box header runs 1.3 mm past the top of the board and 1.8 mm past the bottom, which does no harm. Rev 1.1's changes need nothing on a built board: its silkscreen draws the box header, its outline is 5 mm longer so the header fits inside it, and its logo lies under the pin rows.
 
 **CPU Card**
 
@@ -425,7 +429,7 @@ Cart files: [digikey.csv](BOM/Blinkenlights%20Card/Rev%201.0/digikey.csv), [mous
 
 ### Breadboard Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: J1 takes the box header's footprint, with the same holes.
+Drawn, not made yet. **Proven design**: J1 takes the box header's footprint, with the same holes, and the outline grows to hold it.
 
 Cart files: [digikey.csv](BOM/Breadboard%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Breadboard%20Helper/Rev%201.1/mouser.csv)
 
