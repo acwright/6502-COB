@@ -4,7 +4,7 @@ Usage: derived-check.py [--all] [--no-cache]. This repository, or all five with 
 exports, Tools/work/ and the audit it runs. Exit 1 on any fault.
   Revisions not yet made: production zip against the PCB. Every revision: positions.csv, bom.csv and designators against the PCB,
   images older than a visible change, STEP files that lack a part, 3D model paths that lead nowhere, each repo's own tests, the revision audit, the production files' settings and placement rotations (KICAD.md K38), the BOM checker, the library checker, the bus connector schematic check, the label shape check (KICAD.md K25), the off-board headers (K19), REVISIONS.md and the revision labels (K15, K16),
-  each machine's CAD/Assembly.json against its boards and plate and the plate files generated from it (CAD.md C3, C4), every card and cart's card edge against the standard (K28), every board logo's place (K40), and that Tools/ is the same in every repository
+  each machine's CAD/Assembly.json against its boards and plate and the plate files generated from it (CAD.md C3, C4), every card and cart's card edge against the standard (K28), every board logo's place (K40) and that every board not yet made prints the library's logo (K32b), and that Tools/ is the same in every repository
   (sync.py --check)."""
 import os,re,glob,json,subprocess,sys,tempfile,zipfile,shutil,collections,hashlib
 H=os.path.dirname(os.path.abspath(__file__));sys.path.insert(0,H+'/bom');sys.path.insert(0,H);os.chdir(H+'/bom')
@@ -71,7 +71,7 @@ for r in [x for x in ('ACE','COB','KIM') if x in SCOPE]:
     rc=CACHE.get('tests '+digest(f'{K}6502-{r}/Tests/check-schematics.mjs',*sorted(glob.glob(f'{K}6502-{r}/Hardware/*/Rev */*.kicad_sch'))),lambda r=r:subprocess.run(['node','Tests/check-schematics.mjs'],cwd=f'{K}6502-{r}',capture_output=True,text=True).returncode)
     if rc: E.append(f'{r}: Tests/check-schematics.mjs failed')
     n['test suites']+=1
-for name,cmd in (('Tools sync check',['python3',H+'/sync.py','--check']),('BOM check',['python3',H+'/bom/check.py']),('CAD check',['python3',H+'/revision-audit/cadcheck.py']),('library check',['python3',H+'/library/check.py']),('schematic check',['python3',H+'/schematic/check.py']),('label shape check',['python3',H+'/schematic/flow.py','--check']),('CAD assembly check',['python3',H+'/cad/assembly.py']),('CAD files check',['python3',H+'/cad/make.py','--check']),('card edge check',['python3',H+'/cardedge/cardedge.py','--check']),('logo check',['python3',H+'/logos/placement.py','--check']),('production check',['python3',H+'/production/production.py','--check'])):
+for name,cmd in (('Tools sync check',['python3',H+'/sync.py','--check']),('BOM check',['python3',H+'/bom/check.py']),('CAD check',['python3',H+'/revision-audit/cadcheck.py']),('library check',['python3',H+'/library/check.py']),('schematic check',['python3',H+'/schematic/check.py']),('label shape check',['python3',H+'/schematic/flow.py','--check']),('CAD assembly check',['python3',H+'/cad/assembly.py']),('CAD files check',['python3',H+'/cad/make.py','--check']),('card edge check',['python3',H+'/cardedge/cardedge.py','--check']),('logo check',['python3',H+'/logos/placement.py','--check']),('logo footprint check',['python3',H+'/logos/embed.py','--check']),('production check',['python3',H+'/production/production.py','--check'])):
     x=subprocess.run(cmd+ALLFLAG,capture_output=True,text=True,cwd=os.path.dirname(cmd[1]))
     if x.returncode: E.append(f'{name} failed: '+x.stdout[-200:])
     n[name]+=1
