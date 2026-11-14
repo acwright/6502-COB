@@ -25,25 +25,52 @@ const HW = join(ROOT, 'Hardware')
 
 // The RAM Card's two windows are chosen with J3: odd pins are the 74HC138's outputs, one per
 // 1 KB IO slot from $8000, and even pins are the two window selects, CSB0 (pins 2, 6, 10, 14)
-// and CSB1 (4, 8, 12, 16). CSB0 also drives the AS6C4008's A18, so the CSB0 window is the
-// chip's lower 256 KB and the CSB1 window its upper. JP1 enables the bank latch's outputs.
+// and CSB1 (4, 8, 12, 16). So window 0 can be at IO 1, 3, 5 or 7 and window 1 at IO 2, 4, 6
+// or 8. Window 0 is the AS6C4008's lower 256 KB and window 1 its upper. On Rev 1.0, CSB0
+// drives A18 and JP1 enables the one bank latch's outputs.
 const slot = (k) => [`J3.${2 * k + 1}`, `J3.${2 * k + 2}`]   // IO slot k ($8000 + k * $400)
+const inSlot = (a, k) => a >= 0x8000 + k * 0x400 && a < 0x8400 + k * 0x400
+const hex = (k) => (0x8000 + k * 0x400).toString(16).toUpperCase()
+const regWrite = (a, r, p) => (a & 0x3FF) === 0x3FF && !r && p
+
+// Rev 1.1 has the ACE 1.1's circuit (KICAD.md K11): a latch for each window, U2 for window 0
+// and U9 for window 1, each with its outputs on only while its own window is selected, and
+// loaded only by a write to $x3FF of that window with PHI2 high. It has no pull-ups on the
+// window selects, so a card runs with one shunt per window, never none: every one of those
+// 16 settings is checked.
+const REV11 = []
+for (const k0 of [0, 2, 4, 6]) for (const k1 of [1, 3, 5, 7]) {
+  REV11.push({
+    name: `RAM Card Rev 1.1, IO ${k0 + 1} ($${hex(k0)}) and IO ${k1 + 1} ($${hex(k1)})`,
+    board: 'RAM Card/Rev 1.1/RAM Card.kicad_sch',
+    jumpers: [slot(k0), slot(k1)],
+    window: (a) => inSlot(a, k0) ? 0 : inSlot(a, k1) ? 1 : -1,
+    latches: [
+      ['U2', 11, 'window 0 latch LE', (a, r, p, w) => w === 0 && regWrite(a, r, p) ? 1 : 0],
+      ['U9', 11, 'window 1 latch LE', (a, r, p, w) => w === 1 && regWrite(a, r, p) ? 1 : 0],
+      ['U2', 1, 'window 0 latch /OE', (a, r, p, w) => w === 0 ? 0 : 1],
+      ['U9', 1, 'window 1 latch /OE', (a, r, p, w) => w === 1 ? 0 : 1]
+    ],
+    ram: 'U1'
+  })
+}
 
 const CONFIGS = [
   {
     // Rev 1.0 is deprecated, and kept as it was made. It has one bank latch for both windows,
     // and R1 and R2 pull the window selects to GND, so a window with no jumper is selected
-    // everywhere. Both windows must therefore be jumpered, and that is the only setting
-    // checked here. Rev 1.1 (two latches, from the ACE's) adds the one-window settings.
+    // everywhere. Both windows must therefore be jumpered, and the setting the BIOS expects
+    // is the one checked here.
     name: 'RAM Card Rev 1.0, IO 1 and IO 2',
     board: 'RAM Card/Rev 1.0/RAM Card.kicad_sch',
     jumpers: [slot(0), slot(1), ['JP1.1', 'JP1.2']],
     // a = address, r = 1 for a read, p = PHI2. A window is 0 (CSB0, $8000) or 1 (CSB1, $8400).
     window: (a) => a >= 0x8000 && a < 0x8400 ? 0 : a >= 0x8400 && a < 0x8800 ? 1 : -1,
     // One latch: a write to the last byte of either window loads it.
-    latches: [['U2', 11, 'bank latch LE', (a, r, p, w) => w >= 0 && (a & 0x3FF) === 0x3FF && !r && p ? 1 : 0]],
+    latches: [['U2', 11, 'bank latch LE', (a, r, p, w) => w >= 0 && regWrite(a, r, p) ? 1 : 0]],
     ram: 'U1'
-  }
+  },
+  ...REV11
 ]
 
 // The AS6C4008's pins the map checks.
@@ -74,7 +101,12 @@ const kids = (node, key) => node.filter(c => Array.isArray(c) && c[0] === key)
 const kid = (node, key) => kids(node, key)[0]
 
 // The card edge's pins are named (A0, RWB, PHI2), so pins are kept as strings throughout.
+const netlists = new Map()
 function netlist(cli, sch, dir) {
+  if (!netlists.has(sch)) netlists.set(sch, readNetlist(cli, sch, dir))
+  return netlists.get(sch)
+}
+function readNetlist(cli, sch, dir) {
   const out = join(dir, `${Math.random().toString(36).slice(2)}.net`)
   execFileSync(cli, ['sch', 'export', 'netlist', '--format', 'kicadsexpr', '-o', out, join(HW, sch)], { stdio: 'ignore' })
   const root = sexpr(readFileSync(out, 'utf8'))
@@ -106,9 +138,11 @@ function assemble(cli, cfg, dir) {
 const X = 'X'
 const nand = ins => ins.includes(0) ? 1 : ins.every(v => v === 1) ? 0 : X
 const and = ins => ins.includes(0) ? 0 : ins.every(v => v === 1) ? 1 : X
+const nor = ins => ins.includes(1) ? 0 : ins.every(v => v === 0) ? 1 : X
 
 const GATES = {
   '74HC00': { fn: nand, units: [[[1, 2], 3], [[4, 5], 6], [[9, 10], 8], [[12, 13], 11]] },
+  '74HC02': { fn: nor, units: [[[2, 3], 1], [[5, 6], 4], [[8, 9], 10], [[11, 12], 13]] },
   '74HC21': { fn: and, units: [[[1, 2, 4, 5], 6], [[9, 10, 12, 13], 8]] },
   '74HC30': { fn: nand, units: [[[1, 2, 3, 4, 5, 6, 11, 12], 8]] }
 }
@@ -117,7 +151,7 @@ const Y138 = [15, 14, 13, 12, 11, 10, 9, 7]
 function compile(board) {
   const gates = []
   for (const [ref, value] of board.comps) {
-    const g = GATES[value]
+    const g = GATES[value === '74HCT00' ? '74HC00' : value]
     if (g) {
       for (const [ins, out] of g.units) {
         const o = board.net(ref, out)
@@ -139,6 +173,15 @@ function compile(board) {
       })
     }
   }
+  // Schottky diodes, cathode (pin 1) to a select and anode (pin 2) to a pulled-up net: a wired
+  // AND, low when any cathode is low (the ACE's D2 and D3, the RAM Card 1.1's D1 and D2).
+  const anodes = new Map()
+  for (const [ref, value] of board.comps) {
+    if (!/^D\d+$/.test(ref) || !/BAT|schottky/i.test(value)) continue
+    const k = board.net(ref, 1), a = board.net(ref, 2)
+    if (a !== undefined) anodes.set(a, [...(anodes.get(a) ?? []), k])
+  }
+  for (const [a, ks] of anodes) gates.push({ ins: [...ks, board.vcc], out: a, fn: and })
   const counts = new Map()
   for (const g of gates) counts.set(g.out, (counts.get(g.out) ?? 0) + 1)
   for (const [n, k] of counts) if (k > 1) throw new Error(`net ${n} has ${k} gate outputs driving it — two jumpers in one J3 column?`)

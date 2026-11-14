@@ -107,7 +107,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Memory Card/`** — Provides 32KB SRAM and 32KB EEPROM with address decoding logic for COB systems using the CPU Card. J2 (or the solder jumpers JP1 and JP2) joins the bus's `EXP1` and `EXP0` to the ROM's `HRDB`: fit both in a COB that takes cartridges. See [Extra pins](#extra-pins-exp0exp3-and-hrdb).
 
-**`Hardware/RAM Card/`** — 512KB banked RAM expansion organized as two 256KB banks with 256 × 1KB windows each. Rev 1.0's J4, `BANK ADDR`, carries the bank latch's outputs: an untested experiment that nothing in the family uses, which the build notes in [BOM.md](BOM.md#ram-card) explain.
+**`Hardware/RAM Card/`** — 512KB banked RAM expansion organized as two 256KB banks with 256 × 1KB windows each. Rev 1.1 has the ACE Board's circuit, with a bank latch for each window; Rev 1.0 has one latch for both. Rev 1.0's J4, `BANK ADDR`, carries the bank latch's outputs: an untested experiment that nothing in the family uses, which the build notes in [BOM.md](BOM.md#ram-card) explain.
 
 **`Hardware/RTC Card/`** — Real-time clock via Dallas DS1511Y with battery backup and 256 bytes of battery-backed SRAM.
 
@@ -215,7 +215,7 @@ Each revision carries one of three labels:
 | Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
-| RAM Card | 1.1 | **Proven design** | The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe. |
+| RAM Card | 1.1 | **Untested** | The ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header. |
 | RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
@@ -413,8 +413,9 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0, 1.1 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
-| 1.0, 1.1 | JP1, J2 | `LATCH EN`: JP1 grounds the bank latch's output enable, which keeps its outputs on; J2 is a header across JP1. | JP1 bridged. | Leave it. Cutting JP1 doesn't turn the latch off: it leaves U2's `OE` floating, and J2 can only ground it. Turning the latch off needs JP1 cut and J2 pin 2 wired to VCC, and is only for the untested J4 experiment in the build notes. |  |
+| 1.0 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. R1 and R2 pull the selects low, so a window left without its shunt answers at every address. | To run |
+| 1.0 | JP1, J2 | `LATCH EN`: JP1 grounds the bank latch's output enable, which keeps its outputs on; J2 is a header across JP1. | JP1 bridged. | Leave it. Cutting JP1 doesn't turn the latch off: it leaves U2's `OE` floating, and J2 can only ground it. Turning the latch off needs JP1 cut and J2 pin 2 wired to VCC, and is only for the untested J4 experiment in the build notes. |  |
+| 1.1 | J3 | I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`. | No shunts. | Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. The selects have no pull-ups, as on every other card, so a window without its shunt floats and can select the RAM at random. | To run |
 
 **RTC Card**
 
@@ -540,9 +541,9 @@ The table lists every off-board header on each board's newest revision, read fro
 ## Checking the schematics
 `Tests/check-schematics.mjs`
 
-The RAM Card's bank latch decides which kilobyte of its 512 KB each window shows, and a latch that loads on the wrong address corrupts a bank without any sign. The ACE's equivalent latch was wrong twice while its gates looked right on paper, so this script checks the logic instead of reading it. It asks KiCad for the card's netlist, builds the glue logic from the gates it finds there, fits the card's jumpers, and drives every address, as a read and as a write, with PHI2 high and low. That is 262,144 bus states. For each one it compares the RAM's chip select, read and write strobes and A18, and the latch enable, against the memory map, and checks that the card drives the data bus only on a read of its own window. A net that nothing drives counts as a failure, so a missing wire fails too.
+The RAM Card's bank latches decide which kilobyte of its 512 KB each window shows, and a latch that loads on the wrong address corrupts a bank without any sign. The ACE's equivalent latch was wrong twice while its gates looked right on paper, so this script checks the logic instead of reading it. It asks KiCad for the card's netlist, builds the glue logic from the gates it finds there, fits the card's jumpers, and drives every address, as a read and as a write, with PHI2 high and low. That is 262,144 bus states. For each one it compares the RAM's chip select, read and write strobes and A18, and each latch's enable and output enable, against the memory map, and checks that the card drives the data bus only on a read of its own window. A net that nothing drives counts as a failure, so a missing wire fails too.
 
-It checks the RAM Card Rev 1.0 with both windows jumpered, IO 1 (`$8000`) and IO 2 (`$8400`), which is the only setting Rev 1.0 supports: R1 and R2 pull the window selects to ground, so a window left without a jumper is selected at every address.
+It checks the RAM Card Rev 1.0 with both windows jumpered, IO 1 (`$8000`) and IO 2 (`$8400`), the setting the BIOS expects: R1 and R2 pull Rev 1.0's window selects to ground, so a window left without a jumper is selected at every address. It checks Rev 1.1 in all 16 settings of one jumper per window: window 0 at IO 1, 3, 5 or 7, and window 1 at IO 2, 4, 6 or 8. Rev 1.1's selects have no pull-ups, so a window without its jumper floats, and that setting isn't one a card runs in.
 
 Run it after any change to a checked schematic:
 

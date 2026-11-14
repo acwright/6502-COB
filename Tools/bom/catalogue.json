@@ -3250,5 +3250,37 @@
   "note": null,
   "review": null,
   "jameco": null
+ },
+ "74HC02|SOIC-14_3.9x8.7mm_P1.27mm": {
+  "id": "74HC02|SOIC-14_3.9x8.7mm_P1.27mm",
+  "desc": "74HC02, SOIC-14_3.9x8.7mm_P1.27mm",
+  "uses": 1,
+  "mpn": "74HC02D,653",
+  "mfr": "Nexperia USA Inc.",
+  "digikey": "1727-2774-1-ND",
+  "digikey_stock": 23472,
+  "mouser": "771-74HC02D-T",
+  "mouser_stock": 28127,
+  "lcsc": "C5588",
+  "other": null,
+  "note": null,
+  "review": null,
+  "jameco": null
+ },
+ "BAT54|D_SOD-123": {
+  "id": "BAT54|D_SOD-123",
+  "desc": "BAT54, D_SOD-123",
+  "uses": 2,
+  "mpn": "BAT54T1G",
+  "mfr": "onsemi",
+  "digikey": "BAT54T1GOSCT-ND",
+  "digikey_stock": 463489,
+  "mouser": "863-BAT54T1G",
+  "mouser_stock": 4998,
+  "lcsc": "C152458",
+  "other": null,
+  "note": "The RAM Card 1.1's chip-select diodes (K11), in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.",
+  "review": null,
+  "jameco": null
  }
 }

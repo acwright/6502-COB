@@ -63,7 +63,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe |
+| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header. |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -161,13 +161,15 @@ How to build each board, where it needs more than its parts list.
 
 **RAM Card**
 
-**Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Rev 1.1 as drawn today has the same circuit, so all of this applies to it too; it is to get a bank latch for each window, and window selects that read as not selected when a jumper is missing, before it is made. Before fitting either:
+**Rev 1.0 is deprecated, and still works with the BIOS and BASIC.** Before fitting one:
 - **Jumper both windows on J3, and nothing else:** 1–2 for IO 1 (`$8000`) and 3–4 for IO 2 (`$8400`), the setting the BIOS expects. R1 and R2 pull the window selects low, and the selects are active low, so a window left without a jumper is selected at every address: the card then drives the data bus on every read, against the system RAM and ROM. J3's other positions connect the same two windows to other addresses: one jumper per window, never two, because a second jumper for the same window puts two 74HC138 outputs on its select and ties them together.
 - **One bank latch serves both windows.** A write to `$83FF` and a write to `$87FF` load the same 74HC573, so both windows always show the same bank number, each in its own half of the AS6C4008. A program can't point one window at one bank and the other window at another, so copying between banks through the two windows doesn't work on this card.
 - **J4, `BANK ADDR`, is an untested experiment, and nothing in the family uses it.** It carries the latch's outputs, the bank number both windows show, so a logic analyser can watch it. It was meant for a ribbon to the [CPU Card Pro](#cpu-card-pro)'s J2, which has the same pinout: with the latch off, the 65816's bank byte would pick the bank, so `$NN:8000` and `$NN:8400` would reach bank `$NN` of each half without a write to the bank register. That works on paper but isn't offered: the banks are still 1 KB, not 64 KB; a 65816 can already use the bank register as a 65C02 does; and neither the BIOS nor the emulators support it. **Never join the two with JP1 bridged**, as shipped: both 74HC573s would drive the same eight lines. Cutting JP1 doesn't turn the latch off either: it leaves U2's `OE` floating, and J2 can only ground it. To try it, cut JP1 and wire J2 pin 2 to VCC (J4 pin 9).
 - **The data bus reaches the latch bit-reversed** (`D0` drives the latch's `D7`). That only renumbers the banks, and no program can tell.
 
-**Building a Rev 1.0:** as above. Rev 1.1's other change, its bare card edge, needs nothing on a built board: a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** as above. Rev 1.1's circuit can't be added to a Rev 1.0: it needs a second latch, a 74HC02 and two diodes that a Rev 1.0 has no pads for.
+
+**Building a Rev 1.1:** fit one jumper per window on J3, never two and never none: 1–2 for IO 1 (`$8000`) and 3–4 for IO 2 (`$8400`) is the setting the BIOS expects. The window selects have no pull-ups, as on every other card, so a window left without its jumper floats and can select the RAM at random. Each window has its own bank latch: a write to `$83FF` sets window 0's bank and a write to `$87FF` window 1's, so the two windows can show different banks.
 
 **RTC Card**
 
@@ -1122,27 +1124,30 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RAM Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe.
+Drawn, not made yet. **Untested**: the ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header..
 
 Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RAM%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RAM%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RAM%20Card/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
-| C1–C7 | 7 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| J2 | 1 | LATCH EN | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
+| C1–C8 | 8 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| D1, D2 | 2 | BAT54 | onsemi BAT54T1G | [BAT54T1GOSCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT54T1GOSCT-ND) | [863-BAT54T1G](https://www.mouser.com/ProductDetail/863-BAT54T1G) | LCSC [C152458](https://www.lcsc.com/search?q=C152458) | Yes |
 | J3 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
-| J4 | 1 | BANK ADDR | Pin header 2×5, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
-| R1, R2 | 2 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
+| R3 | 1 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
 | U1 | 1 | AS6C4008 | Alliance Memory AS6C4008-55PCN | [1450-1027-ND](https://www.digikey.com/en/products/filter?keywords=1450-1027-ND) | [913-AS6C4008-55PCN](https://www.mouser.com/ProductDetail/913-AS6C4008-55PCN) |  | |
-| U2 | 1 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
-| U3, U6 | 2 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
-| U4 | 1 | 74HC21 | Texas Instruments SN74HC21DR | [296-14842-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14842-1-ND) | [595-SN74HC21DR](https://www.mouser.com/ProductDetail/595-SN74HC21DR) | LCSC [C75398](https://www.lcsc.com/search?q=C75398) | Yes |
+| U2, U9 | 2 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
+| U3 | 1 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
 | U5 | 1 | 74HC30 | Nexperia USA Inc. 74HC30D,653 | [1727-3066-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-3066-1-ND) | [771-74HC30D-T](https://www.mouser.com/ProductDetail/771-74HC30D-T) | LCSC [C19818870](https://www.lcsc.com/search?q=C19818870) | Yes |
+| U6 | 1 | 74HCT00 | Texas Instruments SN74HCT00DR | [296-14860-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14860-1-ND) | [595-SN74HCT00DR](https://www.mouser.com/ProductDetail/595-SN74HCT00DR) | LCSC [C6764](https://www.lcsc.com/search?q=C6764) | Yes |
 | U7 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U8 | 1 | 74HC02 | Nexperia USA Inc. 74HC02D,653 | [1727-2774-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2774-1-ND) | [771-74HC02D-T](https://www.mouser.com/ProductDetail/771-74HC02D-T) | LCSC [C5588](https://www.lcsc.com/search?q=C5588) | Yes |
 | U1 | 1 | Socket | IC socket, 32-pin, 0.6 in | [3M5470-ND](https://www.digikey.com/en/products/filter?keywords=3M5470-ND) | [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP) | | |
 | J3 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
+
+- **D1, D2:** The RAM Card 1.1's chip-select diodes (K11), in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.
+- **U6:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
 
 ### RAM Card Rev 1.0
 

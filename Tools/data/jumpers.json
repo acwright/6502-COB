@@ -246,8 +246,7 @@
   "repo": "COB",
   "board": "RAM Card",
   "revs": [
-   "1.0",
-   "1.1"
+   "1.0"
   ],
   "refs": [
    "J3"
@@ -262,8 +261,22 @@
   "repo": "COB",
   "board": "RAM Card",
   "revs": [
-   "1.0",
    "1.1"
+  ],
+  "refs": [
+   "J3"
+  ],
+  "what": "I/O windows: two shunts pick the two 1 KB windows the banks answer in. Window 1 can be at `$8000`, `$8800`, `$9000` or `$9800`, window 2 at `$8400`, `$8C00`, `$9400` or `$9C00`.",
+  "shipped": "No shunts.",
+  "do": "Fit one shunt beside `$8000` (IO 1) and one beside `$8400` (IO 2), where the BIOS looks for the RAM Card. One shunt per window, never two and never none. A window's four positions share its select, so a second shunt for the same window ties two of U7's outputs together. The selects have no pull-ups, as on every other card, so a window without its shunt floats and can select the RAM at random.",
+  "need": "To run",
+  "shunts": 2
+ },
+ {
+  "repo": "COB",
+  "board": "RAM Card",
+  "revs": [
+   "1.0"
   ],
   "refs": [
    "JP1",

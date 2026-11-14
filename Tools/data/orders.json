@@ -307,8 +307,8 @@
    "The bare card edge only"
   ],
   "COB|RAM Card|1.1": [
-   "Proven design",
-   "The bare card edge only, so far: it keeps Rev 1.0's one bank latch, which the build notes describe"
+   "Untested",
+   "The ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header."
   ],
   "COB|RTC Card|1.1": [
    "Proven design",
