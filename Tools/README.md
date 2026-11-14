@@ -6,8 +6,9 @@ repositories ([6502-ACE](https://github.com/acwright/6502-ACE), [6502-COB](https
 [6502-DEV](https://github.com/acwright/6502-DEV), [6502-KIM](https://github.com/acwright/6502-KIM) and
 [6502-VCS](https://github.com/acwright/6502-VCS)).
 
-They need Python 3, KiCad 10 in `/Applications/KiCad`, Node.js for the repository's `Tests/`, and Pillow for the
-board images. They are written for macOS.
+They need Python 3, KiCad 10 in `/Applications/KiCad`, Node.js for the repository's `Tests/`, Pillow for the
+board images, and fontTools with brotli for the board logos (`pip3 install --user pillow fonttools brotli`). They are
+written for macOS.
 
 ## This repository, or all five
 
@@ -46,7 +47,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `cad/` | Reads each machine's `CAD/Assembly.json`, which places its boards on the plate, and checks it against the PCBs and today's plate. The family's standards for plates and tops are in its README. |
 | `consistency/` | `table.py --all` prints every board's newest revision against the family's rules. |
 | `cardedge/` | `standard.json` is the one card edge every card and cart shares: the outline, a cart's shell holes, no mask on the tab and no paste on the fingers. `cardedge.py` applies it to a revision not yet made, and checks every newest revision against it; revisions still waiting for their fix are listed in `Tools/data/cardedge.json`. |
-| `logos/` | `standard.json` is where a board's logo goes: on a card or cart, reading bottom to top on the left, 2.5 mm from the edge and centred on the body; on a breadboard helper, flat under the pin rows and centred on them; on any other board, along an edge on the line of its corner holes. `placement.py` moves the logo of a revision not yet made to its place, and checks every newest revision not yet made; logos still waiting for their move, and the owner's exceptions, are listed in `Tools/data/logos.json`. |
+| `logos/` | `standard.json` is where a board's logo goes: on a card or cart, reading bottom to top on the left, 2.5 mm from the edge and centred on the body; on a breadboard helper, flat under the pin rows and centred on them; on any other board, along an edge on the line of its corner holes. `placement.py` moves the logo of a revision not yet made to its place, and checks every newest revision not yet made; logos still waiting for their move, and the owner's exceptions, are listed in `Tools/data/logos.json`. `generate.py` draws a logo, "6502" and the board's name in Bebas Neue (`OFL.txt`), from the font's outlines to the design in `design.json`: `generate.py "Board" H --png` writes the footprint `6502 <Board> Logo <H>mm` and its picture in `CAD/Logos/`, and `--check` compares every footprint in the `6502 Logos` libraries with the logo drawn from its name. |
 
 ## Data
 

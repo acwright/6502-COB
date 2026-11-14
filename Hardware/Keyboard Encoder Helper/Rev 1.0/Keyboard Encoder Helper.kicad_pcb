@@ -1866,7 +1866,7 @@
 			)
 		)
 	)
-	(footprint "6502 Logos:6502 Keyboard Encoder Helper 3mm"
+	(footprint "6502 Logos:6502 Keyboard Encoder Helper Logo 3mm"
 		(layer "F.Cu")
 		(uuid "49f9bf8d-e857-48f8-a0fc-202557d35bae")
 		(at 71.3011 107.6336 90)

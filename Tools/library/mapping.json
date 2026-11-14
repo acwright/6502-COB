@@ -75,5 +75,31 @@
    "Compact Flash": "CompactFlash Socket Plated Pegs"
   }
  },
- "_symbols_by_repo_why": "ACE's and COB's 'Compact Flash' were different symbols under one name: COB's has pins for the socket's plated pegs."
+ "_symbols_by_repo_why": "ACE's and COB's 'Compact Flash' were different symbols under one name: COB's has pins for the socket's plated pegs.",
+ "logos": {
+  "6502 Breadboard Helper 2mm": "6502 Breadboard Helper Logo 2mm",
+  "6502 Clock Card 5mm": "6502 Clock Card Logo 5mm",
+  "6502 Clock Helper 5mm": "6502 Clock Helper Logo 5mm",
+  "6502 DB25 Helper 4mm": "6502 DB25 Helper Logo 4mm",
+  "6502 GPIO Breadboard Helper 2mm": "6502 GPIO Breadboard Helper Logo 2mm",
+  "6502 GPIO DB25 Helper 4mm": "6502 GPIO DB25 Helper Logo 4mm",
+  "6502 Joystick Helper 5mm": "6502 Joystick Helper Logo 5mm",
+  "6502 Keyboard Encoder Helper 3mm": "6502 Keyboard Encoder Helper Logo 3mm",
+  "6502 Keyboard Helper 5mm": "6502 Keyboard Helper Logo 5mm",
+  "6502 Mega Helper 5mm": "6502 Mega Helper Logo 5mm",
+  "6502 PS2 Helper 5mm": "6502 PS2 Helper Logo 5mm",
+  "6502 VERA Helper 5mm": "6502 VERA Helper Logo 5mm"
+ },
+ "_logos_why": "The board logos in \"6502 Logos\" are named \"6502 <Board> Logo <H>mm\" (KICAD.md K32, owner 2026-11-13). Eleven helpers and the Clock Card left out \"Logo\". rename.py --logos renames them in the libraries and in every revision's PCB; the footprints themselves are drawn by Tools/logos/generate.py.",
+ "logos_by_repo": {
+  "DEV": {
+   "6502 Dev Board Logo 4mm": "6502 DEV Board Logo 4mm",
+   "6502 Dev Output Board Logo 4mm": "6502 DEV Output Board Logo 4mm"
+  }
+ },
+ "_logos_by_repo_why": "The DEV Board and DEV Output Board PCBs named their logos \"Dev\"; the library has always said \"DEV\".",
+ "delete_logos": [
+  "6502 Clock Card 10mm"
+ ],
+ "_delete_logos_why": "No board used it; generate.py makes any height when one is wanted (owner, 2026-11-14)."
 }

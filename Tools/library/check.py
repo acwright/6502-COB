@@ -6,6 +6,8 @@
 - Every footprint and symbol a board uses from "6502 Parts" is in its repo's library, and every project model a
   footprint points to is in its repo's Models/.
 - No old part-number name from mapping.json is left in a library, a board, or a model's file name.
+- Every board logo a PCB uses is in its repo's "6502 Logos" library, and no old logo name from mapping.json is left
+  (KICAD.md K32). The logos' shapes are checked by Tools/logos/generate.py --check.
 """
 import os,re,sys,glob,json,hashlib,collections
 sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))));import common;from common import K,SCOPE,files,load,save
@@ -58,4 +60,14 @@ for r in SCOPE:
             n['symbols used']+=1
             if x not in S: E.append(f'{tag}: symbol "{x}" is not in the library')
         for x in set(re.findall(r'"6502 Parts:([^"]+)"',t))&(old_fp|old_sym): E.append(f'{tag}: still names "{x}"')
+# the board logos (KICAD.md K32)
+old_logo=set(M.get('logos',{}))|{k for v in M.get('logos_by_repo',{}).values() for k in v}|set(M.get('delete_logos',[]))
+for r in SCOPE:
+    L={os.path.basename(f)[:-10] for f in glob.glob(K+f'6502-{r}/Libraries/6502 Logos.pretty/*.kicad_mod')}
+    for x in L&old_logo: E.append(f'{r}: 6502 Logos still has "{x}"')
+    for f in glob.glob(K+f'6502-{r}/Hardware/*/Rev */*.kicad_pcb'):
+        t=open(f,encoding='utf-8').read();tag=f'{r} '+f.split('Hardware/')[1].rsplit('/',1)[0]
+        for x in set(re.findall(r'\(footprint "6502 Logos:([^"]+)"',t)):
+            n['logos used']+=1
+            if x not in L: E.append(f'{tag}: logo "{x}" is not in 6502 Logos')
 print(dict(n));print('faults',len(E));[print(' ',x) for x in E[:60]];sys.exit(1 if E else 0)

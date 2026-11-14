@@ -2309,7 +2309,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "6502 Logos:6502 Mega Helper 5mm"
+	(footprint "6502 Logos:6502 Mega Helper Logo 5mm"
 		(layer "F.Cu")
 		(uuid "b93b83a1-20c8-442e-a57f-8bb35689ae2b")
 		(at 92.999707 78.918088 90)

@@ -1328,7 +1328,7 @@
 			)
 		)
 	)
-	(footprint "6502 Logos:6502 GPIO DB25 Helper 4mm"
+	(footprint "6502 Logos:6502 GPIO DB25 Helper Logo 4mm"
 		(layer "F.Cu")
 		(uuid "49f9bf8d-e857-48f8-a0fc-202557d35bae")
 		(at 71.3 104.48 90)

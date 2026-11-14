@@ -75,8 +75,13 @@ for name,cmd in (('Tools sync check',['python3',H+'/sync.py','--check']),('BOM c
     x=subprocess.run(cmd+ALLFLAG,capture_output=True,text=True,cwd=os.path.dirname(cmd[1]))
     if x.returncode: E.append(f'{name} failed: '+x.stdout[-200:])
     n[name]+=1
-# jumpers: every jumper documented, the READMEs' tables current (Tools/jumpers/gen.py --check)
 _data=lambda name:[f'{K}6502-{r}/Tools/data/{name}' for r in present()]
+# board logos: every footprint in 6502 Logos is the logo generate.py draws from its name (KICAD.md K32)
+_lin=files('Libraries/6502 Logos.pretty/*.kicad_mod')+_data('logos.json')+[H+'/logos/'+x for x in ('generate.py','kicad_poly.py','design.json','BebasNeue-Regular.woff2')]
+_lr=CACHE.get('logo shapes '+' '.join(SCOPE)+' '+digest(*_lin),lambda:(lambda x:[x.returncode,x.stdout[-400:]])(subprocess.run(['python3',H+'/logos/generate.py','--check',*ALLFLAG],capture_output=True,text=True)))
+if _lr[0]: E.append('logo shapes check failed: '+_lr[1])
+n['logo shapes check']+=1
+# jumpers: every jumper documented, the READMEs' tables current (Tools/jumpers/gen.py --check)
 _jin=files('Hardware/*/Rev */*.kicad_sch')+files('Hardware/*/Rev */*.kicad_pcb')+files('README.md')+_data('jumpers.json')+[H+'/jumpers/gen.py',H+'/jumpers/find.py',H+'/common.py']
 _jr=CACHE.get('jumpers '+' '.join(SCOPE)+' '+digest(*_jin),lambda:(lambda x:[x.returncode,x.stdout[-400:]])(subprocess.run(['python3',H+'/jumpers/gen.py','--check',*ALLFLAG],capture_output=True,text=True)))
 if _jr[0]: E.append('jumpers check failed: '+_jr[1])

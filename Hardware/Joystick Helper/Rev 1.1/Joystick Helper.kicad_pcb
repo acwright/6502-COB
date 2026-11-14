@@ -973,7 +973,7 @@
 			)
 		)
 	)
-	(footprint "6502 Logos:6502 Joystick Helper 5mm"
+	(footprint "6502 Logos:6502 Joystick Helper Logo 5mm"
 		(layer "F.Cu")
 		(uuid "49f9bf8d-e857-48f8-a0fc-202557d35bae")
 		(at 115.805832 95.423023 90)

@@ -1,5 +1,5 @@
 {
- "_about": "Where a board's logo goes (KICAD.md K40, the owner's rule of 2026-11-13). Every length is in mm, measured on the logo's printed shapes (not the footprint's origin) and on the board's outline (the cut's centre line). The logo is the board's footprint from the 6502 Logos library, whatever its name: twelve of them leave out \"Logo\" until K32 renames them. Tools/logos/placement.py checks every newest revision not yet made against it, and moves a logo to its place.",
+ "_about": "Where a board's logo goes (KICAD.md K40, the owner's rule of 2026-11-13). Every length is in mm, measured on the logo's printed shapes (not the footprint's origin) and on the board's outline (the cut's centre line). The logo is the board's footprint from the 6502 Logos library (\"6502 <Board> Logo <H>mm\", drawn by Tools/logos/generate.py). Tools/logos/placement.py checks every newest revision not yet made against it, and moves a logo to its place.",
  "footprint": "^6502 Logos:",
  "tolerance": 0.05,
  "card": {

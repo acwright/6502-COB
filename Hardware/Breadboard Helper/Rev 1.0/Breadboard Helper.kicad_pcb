@@ -879,7 +879,7 @@
 			)
 		)
 	)
-	(footprint "6502 Logos:6502 Breadboard Helper 2mm"
+	(footprint "6502 Logos:6502 Breadboard Helper Logo 2mm"
 		(layer "F.Cu")
 		(uuid "3066a811-a887-4e16-b8ec-ddfed6e41f84")
 		(at 82.8011 101.0636 90)

@@ -3,6 +3,7 @@
 
   python3 rename.py           apply mapping.json to the libraries, models, every revision's schematic and PCB,
                               and the old BOM exports in Hardware/
+  python3 rename.py --logos   apply mapping.json's "logos" to the 6502 Logos libraries and every revision's PCB only
 
 A footprint, symbol or model is named for what it is and its geometry, never for a manufacturer part number,
 so a part with the same footprint and a different supplier number fits without renaming anything (owner,
@@ -22,6 +23,23 @@ REPOS=common.scope(['--all'])   # renames reach every repository at once
 def fpmap(repo):
     m=dict(M['footprints']);m.update(M.get('footprints_by_repo',{}).get(repo,{}));return m
 def git(repo,*a): subprocess.run(['git','-C',K+'6502-'+repo,*a],check=True,capture_output=True)
+def logomap(repo):
+    m=dict(M.get('logos',{}));m.update(M.get('logos_by_repo',{}).get(repo,{}));return m
+if '--logos' in sys.argv:
+    # The board logos only (KICAD.md K32): rename the files in "6502 Logos" and every revision's PCB's reference to
+    # them. The footprints are drawn by Tools/logos/generate.py; this changes no shape, so no Gerber changes.
+    for repo in REPOS:
+        lib=f'Libraries/6502 Logos.pretty';lm=logomap(repo)
+        have=set(os.listdir(K+f'6502-{repo}/{lib}'))   # exact names: macOS's file system ignores case
+        for n in M.get('delete_logos',[]):
+            if f'{n}.kicad_mod' in have: git(repo,'rm','-q',f'{lib}/{n}.kicad_mod');print(repo,'logo deleted',n)
+        for o,n in lm.items():
+            if f'{o}.kicad_mod' in have: git(repo,'mv',f'{lib}/{o}.kicad_mod',f'{lib}/{n}.kicad_mod');print(repo,'logo',o,'->',n)
+        for f in glob.glob(K+f'6502-{repo}/Hardware/*/Rev */*.kicad_pcb'):
+            t=open(f,encoding='utf-8',newline='').read();u=t
+            for o,n in lm.items(): u=u.replace(f'"6502 Logos:{o}"',f'"6502 Logos:{n}"')
+            if u!=t: open(f,'w',encoding='utf-8',newline='').write(u);print(repo,'pcb',f.split('Hardware/')[1])
+    sys.exit(0)
 def model_sub(t):
     for o,n in M['models'].items():
         t=re.sub(r'(Models/)'+re.escape(o)+r'"',lambda m:m.group(1)+n+'"',t,flags=re.I)

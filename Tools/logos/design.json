@@ -1,0 +1,21 @@
+{
+ "_about": "The board logo's design (KICAD.md K32), measured from the 50 footprints KiCad's Image Converter traced from the PNGs in CAD/Logos/, 2026-11-14. generate.py draws every logo from these numbers and the font's outlines, and checks the library's footprints against them.",
+ "font": "BebasNeue-Regular.woff2",
+ "_font": "Bebas Neue 2.000, the copy the DOCS and the KIMulator ship, under the SIL Open Font License (OFL.txt).",
+ "height_units": 720,
+ "_height_units": "The logo's height H is \"6502\" from the top of its 6 and 0 to their bottom, overshoots included: 720 font units (-10 to 710). All 50 footprints measure H to within 0.007 mm of their names.",
+ "centre_units": 350,
+ "_centre_units": "The font height that falls on the logo's centre line, for \"6502\" and for the name alike: the middle of the digits' overshoots, and the middle of the capitals (0 to 700). Measured to 0.003 mm.",
+ "name_scale": 0.5,
+ "_name_scale": "The name is set at half the scale of \"6502\" (measured 0.4993 to 0.4999).",
+ "gap": 0.16,
+ "_gap": "From the end of the 2's advance to the origin of the name's first letter, as a fraction of H. 44 of the 50 footprints measure 0.1600 to 0.1606 (115.1 to 115.6 font units).",
+ "flatten_tolerance": 0.0005,
+ "_flatten_tolerance": "mm: how far a straight segment of the generated outline may be from the font's curve.",
+ "size_tolerance": 0.05,
+ "_size_tolerance": "mm: the printed shapes' width and height must agree this closely with the library's footprint (KICAD.md K32).",
+ "outline_tolerance": 0.004,
+ "_outline_tolerance": "Per mm of H: how far any point of a letter's outline may be from the library footprint's, after the two logos' printed shapes are centred on each other (0.02 mm on a 5 mm logo). The traces were made at 1182 pixels to the logo's height (0.004 mm a pixel at 5 mm) and are 0.02 to 0.08% small; the 44 that follow the design measure 0.0022 to 0.0038 of H.",
+ "png_height": 1182,
+ "_png_height": "The picture written to CAD/Logos/ is this many pixels tall, as every source PNG is, black on white at 300 dpi."
+}

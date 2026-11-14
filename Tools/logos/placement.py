@@ -6,8 +6,8 @@
   placement.py [--all]             the same, and print every newest revision with its measures, made ones included
   placement.py REPO "Board" REV    move the logo of one revision not yet made to its place, in place
 
-The logo is the board's footprint from the 6502 Logos library (named "6502 <Board> Logo <H>mm" on most boards, but
-eleven helpers and the Clock Card leave out "Logo" until K32 renames them). Distances are measured on its printed shapes and on the
+The logo is the board's footprint from the 6502 Logos library, named "6502 <Board> Logo <H>mm" and drawn by
+generate.py (K32). Distances are measured on its printed shapes and on the
 board's outline, so they don't depend on where a footprint's origin sits.
 
   A card or cart    (it has the 6502 Card Edge footprint) The logo reads bottom to top, at 90°, its left edge
