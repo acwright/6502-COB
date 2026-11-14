@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Backplane")
+		(title "AC6502 Backplane")
 		(date "2024-06-19")
 		(rev "1.0")
 		(company "A.C. Wright Design")

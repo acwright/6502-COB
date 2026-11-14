@@ -197,6 +197,12 @@ for repo in REPOS:
                 elif m.group(1)!=v: I.append(f'{lab} title says rev {m.group(1)}')
                 c=re.search(r'\(company "([^"]*)"',tx)
                 if not c or c.group(1)!=KNOWN_TITLE.get((board,v),'A.C. Wright Design'): I.append(f'{lab} company {c.group(1) if c else "missing"!r}')
+                ti=re.search(r'\(title_block\s*\(title "([^"]*)"',tx)   # KICAD.md K35: the family is AC6502
+                if not ti or ti.group(1)!=f'AC6502 {board}': I.append(f'{lab} title {ti.group(1) if ti else "missing"!r}, not {"AC6502 "+board!r}')
+            pro=f[:-4]+'_pro'
+            if os.path.exists(pro):
+                for ws in set(re.findall(r'"page_layout_descr_file": "([^"]+)"',open(pro).read())):
+                    if not os.path.exists(ws.replace('${KIPRJMOD}',os.path.dirname(pro))): I.append(f'project drawing sheet {ws} not found')
             silk=[re.sub(r'\s+',' ',m.group(1)) for b in blocks(t,r'gr_text "') for m in [re.match(r'\(gr_text "([^"]*)"',b)] if m and re.search(r'\(layer "?[FB]\.Silk',b)]
             lab=[x for x in silk if re.search(r'Rev ?\d',x)]
             r['silk_label']=lab[0] if lab else None

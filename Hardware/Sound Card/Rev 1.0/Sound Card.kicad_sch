@@ -5,7 +5,7 @@
 	(uuid "154a5133-b84f-49cb-b657-9c810539146c")
 	(paper "USLetter")
 	(title_block
-		(title "6502 Sound Card")
+		(title "AC6502 Sound Card")
 		(date "2026-01-11")
 		(rev "1.0")
 		(company "A.C. Wright Design")

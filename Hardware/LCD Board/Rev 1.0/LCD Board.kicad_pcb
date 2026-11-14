@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 LCD Board")
+		(title "AC6502 LCD Board")
 		(date "2026-01-12")
 		(rev "1.0")
 		(company "A.C. Wright Design")

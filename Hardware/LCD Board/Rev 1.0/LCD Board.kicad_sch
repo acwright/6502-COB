@@ -5,7 +5,7 @@
 	(uuid "1eb588e8-a8a6-45d4-8449-ed494748d485")
 	(paper "USLetter")
 	(title_block
-		(title "6502 LCD Board")
+		(title "AC6502 LCD Board")
 		(date "2026-01-12")
 		(rev "1.0")
 		(company "A.C. Wright Design")

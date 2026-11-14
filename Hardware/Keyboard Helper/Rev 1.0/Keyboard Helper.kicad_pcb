@@ -8,7 +8,7 @@
 	)
 	(paper "USLedger")
 	(title_block
-		(title "6502 Keyboard Helper")
+		(title "AC6502 Keyboard Helper")
 		(date "2025-09-26")
 		(rev "1.0")
 		(company "A.C. Wright Design")

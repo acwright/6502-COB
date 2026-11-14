@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Blinkenlights Card")
+		(title "AC6502 Blinkenlights Card")
 		(date "2024-06-16")
 		(rev "1.1")
 		(company "A.C. Wright Design")

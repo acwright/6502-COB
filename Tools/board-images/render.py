@@ -76,10 +76,10 @@ def one(repo,board,rev,out=None):
     finally: shutil.rmtree(d,ignore_errors=True)
     if not out: stamp(repo,board,rev)
 def visible(t):
-    """What an image shows: the PCB without UUIDs and supplier fields. derived-check.py compares this with
-    Tools/data/rendered.json."""
+    """What an image shows: the PCB without UUIDs, supplier fields and the title block (drawing-sheet text, which no
+    render shows). derived-check.py compares this with Tools/data/rendered.json."""
     import hashlib
-    return hashlib.sha1(re.sub(r'\(uuid "[^"]*"\)|\(property "(?:Digikey|Mouser|Jameco|LCSC|Other)"[\s\S]*?\n\t\t\)','',t).encode()).hexdigest()
+    return hashlib.sha1(re.sub(r'\(uuid "[^"]*"\)|\(property "(?:Digikey|Mouser|Jameco|LCSC|Other)"[\s\S]*?\n\t\t\)|\n\t\(title_block\n[\s\S]*?\n\t\)','',t).encode()).hexdigest()
 def stamp(repo,board,rev):
     R=load('rendered.json')
     t=open(f'{BASE}6502-{repo}/Hardware/{board}/Rev {rev}/{board}.kicad_pcb',encoding='utf-8',newline='').read()

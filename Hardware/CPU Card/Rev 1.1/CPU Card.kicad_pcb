@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 CPU Card")
+		(title "AC6502 CPU Card")
 		(date "2024-07-03")
 		(rev "1.1")
 		(company "A.C. Wright Design")

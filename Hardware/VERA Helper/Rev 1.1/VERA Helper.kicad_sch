@@ -5,7 +5,7 @@
 	(uuid "1eb588e8-a8a6-45d4-8449-ed494748d485")
 	(paper "USLetter")
 	(title_block
-		(title "6502 VERA Helper")
+		(title "AC6502 VERA Helper")
 		(date "2025-11-04")
 		(rev "1.1")
 		(company "A.C. Wright Design")

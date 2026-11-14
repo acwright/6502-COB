@@ -8,7 +8,7 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "6502 GPIO Card")
+		(title "AC6502 GPIO Card")
 		(date "2024-06-19")
 		(rev "1.0")
 		(company "A.C. Wright Design")

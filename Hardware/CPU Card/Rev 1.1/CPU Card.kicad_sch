@@ -5,7 +5,7 @@
 	(uuid "b93a1794-fe4c-46dd-b3af-a8a2c2dc45ce")
 	(paper "USLetter")
 	(title_block
-		(title "6502 CPU Card")
+		(title "AC6502 CPU Card")
 		(date "2024-07-03")
 		(rev "1.1")
 		(company "A.C. Wright Design")

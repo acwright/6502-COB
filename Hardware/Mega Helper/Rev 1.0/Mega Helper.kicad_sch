@@ -5,7 +5,7 @@
 	(uuid "612b700c-f704-407b-bdad-d1120cfa020c")
 	(paper "USLetter")
 	(title_block
-		(title "6502 Mega Helper")
+		(title "AC6502 Mega Helper")
 		(date "2026-01-10")
 		(rev "1.0")
 		(company "A.C. Wright Design")

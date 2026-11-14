@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Clock Helper")
+		(title "AC6502 Clock Helper")
 		(date "2025-11-16")
 		(rev "1.1")
 		(company "A.C. Wright Design")

@@ -5,7 +5,7 @@
 	(uuid "5d95bc66-f610-41ca-b1ae-73f5b5edc5a7")
 	(paper "USLetter")
 	(title_block
-		(title "6502 Clock Card")
+		(title "AC6502 Clock Card")
 		(date "2026-10-26")
 		(rev "1.0")
 		(company "A.C. Wright Design")

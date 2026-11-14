@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 GPIO Breadboard Helper")
+		(title "AC6502 GPIO Breadboard Helper")
 		(date "2026-11-12")
 		(rev "1.1")
 		(company "A.C. Wright Design")

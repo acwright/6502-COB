@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Video Card")
+		(title "AC6502 Video Card")
 		(date "2024-07-08")
 		(rev "1.1")
 		(company "A.C. Wright Design")

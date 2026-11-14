@@ -5,7 +5,7 @@
 	(uuid "23e72bd4-dcc6-49f5-b48f-f285bfeb6ba5")
 	(paper "USLetter")
 	(title_block
-		(title "6502 Serial Card")
+		(title "AC6502 Serial Card")
 		(date "2025-09-21")
 		(rev "1.0")
 		(company "A.C. Wright Design")

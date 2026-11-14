@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 Clock Card")
+		(title "AC6502 Clock Card")
 		(date "2026-11-09")
 		(rev "1.1")
 		(company "A.C. Wright Design")

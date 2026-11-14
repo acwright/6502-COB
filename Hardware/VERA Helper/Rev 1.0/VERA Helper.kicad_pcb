@@ -8,7 +8,7 @@
 	)
 	(paper "USLetter")
 	(title_block
-		(title "6502 VERA Helper")
+		(title "AC6502 VERA Helper")
 		(date "2025-11-04")
 		(rev "1.0")
 		(company "A.C. Wright Design")

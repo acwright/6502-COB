@@ -5,7 +5,7 @@
 	(uuid "24157f0f-c5f9-4ba2-930b-b501b00d1e61")
 	(paper "USLetter")
 	(title_block
-		(title "6502 RAM Card")
+		(title "AC6502 RAM Card")
 		(date "2025-10-26")
 		(rev "1.0")
 		(company "A.C. Wright Design")

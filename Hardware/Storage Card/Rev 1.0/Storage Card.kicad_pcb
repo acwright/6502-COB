@@ -8,7 +8,7 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "6502 Storage Card")
+		(title "AC6502 Storage Card")
 		(date "2024-06-21")
 		(rev "1.0")
 		(company "A.C. Wright Design")

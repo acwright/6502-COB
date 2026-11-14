@@ -5,7 +5,7 @@
 	(uuid "0e80058d-06c9-4042-9128-fb5310867aa3")
 	(paper "A4")
 	(title_block
-		(title "6502 VGA Card Pro")
+		(title "AC6502 VGA Card Pro")
 		(date "2025-09-22")
 		(rev "1.0")
 		(company "A.C. Wright Design")
