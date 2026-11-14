@@ -1,0 +1,17 @@
+{
+ "_about": "Where a board's logo goes (KICAD.md K40, the owner's rule of 2026-11-13). Every length is in mm, measured on the logo's printed shapes (not the footprint's origin) and on the board's outline (the cut's centre line). The logo is the board's footprint from the 6502 Logos library, whatever its name: twelve of them leave out \"Logo\" until K32 renames them. Tools/logos/placement.py checks every newest revision not yet made against it, and moves a logo to its place.",
+ "footprint": "^6502 Logos:",
+ "tolerance": 0.05,
+ "card": {
+  "_about": "Every board with the 6502 Card Edge footprint: cards and carts. The logo reads bottom to top on the left of the board, its left edge 2.5 mm from the board's left edge, so a 5 mm logo's centre line is 5 mm in, where the ACE's corner holes are. It is centred on the body, the 50 mm above the tab. Measured 2026-11-13, the cards' logos sat 1.6 to 3.4 mm from the edge, most of them within 1 mm of the body's middle.",
+  "rotation": 90,
+  "edge_gap": 2.5,
+  "body": 50.0
+ },
+ "board": {
+  "_about": "Every other board. Formed from what the boards had on 2026-11-13: on each board with corner mounting holes, the logo runs along an edge with its centre line on the line through that edge's corner holes (6 mm in on the 100 mm boards and the KIM's, 5 mm on the ACE's). Along that edge it is either centred, as on the adapters, or has its end 11.5 mm from the corner, as on the 100 mm boards, the ACE Board and the KIM's boards (they measured 10.6 to 14.0 mm). A board without corner holes on the logo's edge takes the card rule, centred on its whole height.",
+  "hole_footprint": "MountingHole",
+  "hole_reach": 10.0,
+  "end_gap": 11.5
+ }
+}

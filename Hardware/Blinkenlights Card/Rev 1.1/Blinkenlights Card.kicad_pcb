@@ -13197,7 +13197,7 @@
 	(footprint "6502 Logos:6502 Blinkenlights Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "98526010-d30a-426c-a65a-aa4f900a94c6")
-		(at 104.4011 98.3136 90)
+		(at 103.51976 100.537324 90)
 		(property "Reference" "G***"
 			(at 0 0 270)
 			(layer "F.SilkS")

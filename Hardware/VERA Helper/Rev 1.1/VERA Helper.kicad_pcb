@@ -3897,7 +3897,7 @@
 	(footprint "6502 Logos:6502 VERA Helper 5mm"
 		(layer "F.Cu")
 		(uuid "49f9bf8d-e857-48f8-a0fc-202557d35bae")
-		(at 82.6011 83.3136 180)
+		(at 82.472531 83.634056 180)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "F.SilkS")

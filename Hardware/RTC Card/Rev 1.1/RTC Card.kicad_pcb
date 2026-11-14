@@ -2531,7 +2531,7 @@
 	(footprint "6502 Logos:6502 RTC Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "71d563c3-c0ba-411b-8672-10f517302dbf")
-		(at 95.549736 85.109425 90)
+		(at 95.637153 86.163425 90)
 		(property "Reference" "G***"
 			(at 0 0 270)
 			(layer "F.SilkS")

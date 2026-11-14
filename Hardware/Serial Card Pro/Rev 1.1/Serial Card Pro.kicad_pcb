@@ -3464,7 +3464,7 @@
 	(footprint "6502 Logos:6502 Serial Card Pro Logo 5mm"
 		(layer "F.Cu")
 		(uuid "1a976f62-f18a-4728-88a1-f31c12ee24a3")
-		(at 103.8011 97.6136 90)
+		(at 103.51974 98.401783 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

@@ -4768,7 +4768,7 @@
 	(footprint "6502 Logos:6502 GPIO Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "cb0632d1-d555-4501-a855-dfd2810737a3")
-		(at 104.999736 85.200749 90)
+		(at 105.629153 86.550748 90)
 		(property "Reference" "G***"
 			(at 0 0 270)
 			(layer "F.SilkS")

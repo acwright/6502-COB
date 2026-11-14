@@ -5091,7 +5091,7 @@
 	(footprint "6502 Logos:6502 Sound Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "f9a2a6e1-4440-4740-aa8d-712f1cc3a83b")
-		(at 105.7 86.8 90)
+		(at 105.630045 87.659128 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

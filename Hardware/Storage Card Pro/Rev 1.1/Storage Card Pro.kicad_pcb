@@ -8288,7 +8288,7 @@
 	(footprint "6502 Logos:6502 Storage Card Pro Logo 5mm"
 		(layer "F.Cu")
 		(uuid "cb0632d1-d555-4501-a855-dfd2810737a3")
-		(at 104.700159 87.589456 90)
+		(at 105.629861 89.928886 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

@@ -1,0 +1,14 @@
+{
+ "_about": "Newest revisions not yet made whose board logo is not where Tools/logos/standard.json puts it, each with the KICAD.md item that moves it. placement.py --check reports them without failing, and fails on an entry that is no longer needed. \"exceptions\" lists the boards whose logo has no other place to go, each ruled by the owner: the logo stays, and the check fails on an entry no longer needed.",
+ "pending": {
+  "COB|RAM Card|1.1": "K11: its logo moved with its placement, which K11 commits with its routing"
+ },
+ "exceptions": {
+  "COB|Breadboard Helper|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; it sits in the strip beside J1, and its place 1 mm further in runs onto J1; K41 moves it under the pin rows, as on the GPIO Breadboard Helper",
+  "COB|GPIO Breadboard Helper|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; J1 and J4 fill the left side, so its logo lies under the pin rows",
+  "COB|GPIO Helper|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; R7 and R8 take its place on the bottom holes' line",
+  "COB|LCD Card|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; the LCD module fills the card's left side, so its logo lies along the bottom",
+  "COB|Memory Card|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; its place touches JP1's reference and the RAM label",
+  "COB|Prototype Card|1.1": "K40: the owner ruled 2026-11-13 that a logo with no other place to go is an exception; its place on the body's middle runs onto the breadboard's outline"
+ }
+}

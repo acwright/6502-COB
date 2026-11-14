@@ -1368,7 +1368,7 @@
 	(footprint "6502 Logos:6502 VGA Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "71d563c3-c0ba-411b-8672-10f517302dbf")
-		(at 95.6 89.8 90)
+		(at 95.637687 91.210226 90)
 		(property "Reference" "G***"
 			(at 0 0 270)
 			(layer "F.SilkS")

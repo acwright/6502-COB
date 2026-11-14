@@ -2366,7 +2366,7 @@
 	(footprint "6502 Logos:6502 CPU Card Pro Logo 5mm"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-000060656266")
-		(at 103.301178 93.407969 90)
+		(at 103.479617 94.284368 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

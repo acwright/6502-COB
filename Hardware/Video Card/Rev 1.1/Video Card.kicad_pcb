@@ -11010,7 +11010,7 @@
 	(footprint "6502 Logos:6502 Video Card Logo 5mm"
 		(layer "F.Cu")
 		(uuid "f9a2a6e1-4440-4740-aa8d-712f1cc3a83b")
-		(at 94.899947 86.750133 90)
+		(at 94.791575 87.146133 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

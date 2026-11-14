@@ -1910,7 +1910,7 @@
 	(footprint "6502 Logos:6502 Keyboard Encoder Helper 3mm"
 		(layer "F.Cu")
 		(uuid "49f9bf8d-e857-48f8-a0fc-202557d35bae")
-		(at 70.8011 107.6336 90)
+		(at 71.0471 107.742932 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

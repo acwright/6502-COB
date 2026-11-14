@@ -46,6 +46,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `cad/` | Reads each machine's `CAD/Assembly.json`, which places its boards on the plate, and checks it against the PCBs and today's plate. The family's standards for plates and tops are in its README. |
 | `consistency/` | `table.py --all` prints every board's newest revision against the family's rules. |
 | `cardedge/` | `standard.json` is the one card edge every card and cart shares: the outline, a cart's shell holes, no mask on the tab and no paste on the fingers. `cardedge.py` applies it to a revision not yet made, and checks every newest revision against it; revisions still waiting for their fix are listed in `Tools/data/cardedge.json`. |
+| `logos/` | `standard.json` is where a board's logo goes: on a card or cart, reading bottom to top on the left, 2.5 mm from the edge and centred on the body; on any other board, along an edge on the line of its corner holes. `placement.py` moves the logo of a revision not yet made to its place, and checks every newest revision not yet made; logos still waiting for their move, and the owner's exceptions, are listed in `Tools/data/logos.json`. |
 
 ## Data
 
@@ -61,6 +62,7 @@ repositories:
 | `rendered.json` | What each PCB looked like when its images were rendered. |
 | `tindie.json` | Stock on each board's Tindie listing, as last read. |
 | `cardedge.json` | Newest revisions that don't meet the card edge standard yet, and the item that fixes each. Only in the repositories with cards or carts. |
+| `logos.json` | Newest revisions not yet made whose logo isn't in its place yet, with the item that moves each (`pending`), and the boards the owner ruled keep their logo where it is, with the reason (`exceptions`). |
 
 A change to one board's records is a commit to this repository only. `Tools/work/` holds generated files, such as
 the audit and the cache, and git ignores it.

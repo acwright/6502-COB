@@ -6435,7 +6435,7 @@
 	(footprint "6502 Logos:6502 Clock Card 5mm"
 		(layer "F.Cu")
 		(uuid "a756860b-1069-45e4-b9ad-cd1fd9e63755")
-		(at 103.30081 90.573239 90)
+		(at 103.480002 91.996595 90)
 		(property "Reference" "G***"
 			(at 0 0 90)
 			(layer "F.SilkS")

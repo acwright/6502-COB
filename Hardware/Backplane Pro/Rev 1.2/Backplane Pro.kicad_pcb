@@ -3360,7 +3360,7 @@
 	(footprint "6502 Logos:6502 Backplane Pro Logo 5mm"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-0000605e1306")
-		(at 159.464096 55.874887 180)
+		(at 158.516151 55.999487 180)
 		(property "Reference" "G***"
 			(at 0 0 180)
 			(layer "F.SilkS")
