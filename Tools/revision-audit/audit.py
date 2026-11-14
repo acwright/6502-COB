@@ -37,6 +37,18 @@ def ic_values(t):
         shown=bool(re.search(r'\(layer "?[FB]\.SilkS',val[0])) and not re.search(r'\(hide yes\)|\bhide\b(?! no)',val[0])
         out.append((ref.group(1),bool(re.search(r'\(attr smd',fp)),shown))
     return out
+REF_SIZE=(1.0,1.0,0.15)   # KICAD.md K37: every reference on the silk is 1.0 mm high and wide, 0.15 mm stroke
+def ref_sizes(t):
+    """(reference, (height, width, stroke)) for every reference printed on the silk (KICAD.md K37)."""
+    out=[]
+    for fp in blocks(t,r'footprint "'):
+        r=blocks(fp,r'property "Reference" "')
+        if not r: continue
+        name=re.match(r'\(property "Reference" "([^"]*)"',r[0]).group(1)
+        if not name or not re.search(r'\(layer "?[FB]\.SilkS',r[0]) or re.search(r'\(hide yes\)|\bhide\b(?! no)',r[0]): continue
+        s=re.search(r'\(size ([\d.]+) ([\d.]+)\)',r[0]);th=re.search(r'\(thickness ([\d.]+)\)',r[0])
+        out.append((name,(float(s.group(1)),float(s.group(2)),float(th.group(1))) if s and th else None))
+    return out
 def blocks(t,head):
     out=[]
     for m in re.finditer(r'\n\s*\('+head,t):
@@ -199,6 +211,8 @@ for repo in REPOS:
                 for k,smd,shown in ic_values(t):
                     if smd and shown: I.append(f'{k}: SMD IC value on the silk')
                     if not smd and not shown: I.append(f'{k}: IC value not on the silk')
+                for k,sz in ref_sizes(t):
+                    if sz!=REF_SIZE: I.append(f'{k}: reference {"/".join(f"{v:g}" for v in sz) if sz else "size unread"} mm, not 1/1/0.15')
             W,H,hs=holes(t);r['size']=(round(W,2),round(H,2)) if W else None
             corner=[h for h in hs if h[0]<=9 and h[1]<=9]
             r['corner']=sorted({(round(a,2),round(b,2)) for a,b in corner})

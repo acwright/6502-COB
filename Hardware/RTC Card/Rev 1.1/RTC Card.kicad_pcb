@@ -460,7 +460,7 @@
 			(uuid "de1bdad6-7b41-44eb-b3dd-e27e4f4bdc02")
 			(effects
 				(font
-					(size 1.4 1.4)
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
