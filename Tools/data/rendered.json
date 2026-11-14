@@ -39,7 +39,7 @@
  "COB|Prototype Card|1.0": "c0b82b5e1f59722a9092d4982f1a026fe945b251",
  "COB|Prototype Card|1.1": "5048fc8049cacdbf083149aaae7c623a63790ad7",
  "COB|RAM Card|1.0": "b009358c01b8fd8edd2f35fcd11e9e54cb1a7569",
- "COB|RAM Card|1.1": "ee0afbab346ec1e5c67189642cee3c2b27e538d1",
+ "COB|RAM Card|1.1": "55558bc7af8a48992594780ab14a243bbfab1eb0",
  "COB|RTC Card|1.0": "280f9da704a17d69094f921701eee0fe4ce5afe3",
  "COB|RTC Card|1.1": "984df46fecb964aec6aeafc274c4b0fb5c800fb5",
  "COB|Serial Card Pro|1.0": "8f77ab6cae00901544225996b0970a64d1156121",
@@ -57,8 +57,8 @@
  "COB|VGA Card Pro|1.0": "4089c967f8c9001392f2536ca7ef571fa7b9ce2f",
  "COB|VGA Card|1.0": "4356acb9bee0dbf27db5823929053e0950bb5a7c",
  "COB|VGA Card|1.1": "ea31ee5e7eca116f8249f3e34bdb1000f17378cf",
- "COB|Video Card Pro|1.0": "cca4f28c4f692154fdf768c0d30e1e8b78bbc3ef",
+ "COB|Video Card Pro|1.0": "580ab90553705efe6757dba641434ae5d0f6e02b",
  "COB|Video Card|1.0": "40f8a310e0837496af47ee7e688ca78853c6b1a0",
- "COB|Video Card|1.1": "5641df8f6353b1aa0740d1813594637979a63173",
+ "COB|Video Card|1.1": "43400eb196aec1814e5efbef962f536813292396",
  "_about": "What each revision's PCB looked like when its images were rendered. Tools/board-images/render.py writes it, and derived-check.py compares."
 }
