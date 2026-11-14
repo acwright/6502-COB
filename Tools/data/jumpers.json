@@ -35,8 +35,7 @@
   "repo": "COB",
   "board": "Backplane Pro",
   "revs": [
-   "1.1",
-   "1.2"
+   "1.1"
   ],
   "refs": [
    "JP1",

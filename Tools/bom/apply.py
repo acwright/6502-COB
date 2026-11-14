@@ -15,7 +15,7 @@ SET_DNP={'R|axial'}
 # Made or drawn boards whose build notes say to fit something else: the BOM has to order what is fitted.
 def _r(repo,b,rev,refs,i): return {f'{repo}|{b}|{rev}|{x}':i for x in refs}
 FIT={**_r('ACE','ACE Board','1.0',['R1','R2','R3','R4','R5','R27'],'10k|axial'),**_r('COB','CPU Card','1.0',['R1','R2','R3','R4','R5','R6'],'10k|R_0805_2012Metric'),**_r('DEV','DEV Board','1.0',['R1','R2','R3','R4'],'10k|R_0805_2012Metric'),**_r('VCS','Main Board','1.0',['R4','R10','R11','R12','R13','R14'],'10k|R_0805_2012Metric')}
-DNP_REF={'COB|Backplane Pro|1.0|R3':'DNP: the RESB pull-up is on the CPU Card','COB|Backplane Pro|1.1|R5':'DNP: the RESB pull-up is on the CPU Card'}
+DNP_REF={'COB|Backplane Pro|1.0|R3':'DNP: the RESB pull-up is on the CPU Card'}
 def block(t,i):
     d=0;j=i
     while True:

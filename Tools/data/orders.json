@@ -146,11 +146,6 @@
    "2024-04-30",
    "305dab8"
   ],
-  "COB|Backplane Pro|1.1": [
-   "Y93",
-   "2026-06-21",
-   "7486bd6"
-  ],
   "COB|Breadboard Helper|1.0": [
    "Y39",
    "2024-06-08",
@@ -159,7 +154,7 @@
  },
  "drawn": [
   "COB|Backplane Helper|1.1",
-  "COB|Backplane Pro|1.2",
+  "COB|Backplane Pro|1.1",
   "COB|Backplane|1.1",
   "COB|Blinkenlights Card|1.1",
   "COB|Breadboard Helper|1.1",
@@ -198,6 +193,15 @@
   "COB|Clock Card|1.0": "Order 1, placed 2026-11-02"
  },
  "made_unchecked": {},
+ "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",
+ "replaced": {
+  "COB|Backplane Pro|1.1": [
+   "Y93",
+   "2026-06-21",
+   "7486bd6",
+   "1b94d135"
+  ]
+ },
  "notes": {
   "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
   "COB|CPU Card Pro|1.1": "title block credits bahamutkotd, who contributed",
@@ -213,7 +217,6 @@
   "COB|VERA Helper|1.0": "Yes",
   "COB|Backplane Pro|1.0": "Yes",
   "COB|Backplane|1.0": "Yes",
-  "COB|Backplane Pro|1.1": "Yes",
   "COB|Blinkenlights Card|1.0": "Yes",
   "COB|CPU Card|1.0": "Yes",
   "COB|Clock Helper|1.0": "Yes",
@@ -242,9 +245,9 @@
    "Proven design",
    "Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place"
   ],
-  "COB|Backplane Pro|1.2": [
+  "COB|Backplane Pro|1.1": [
    "Untested",
-   "A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed"
+   "The made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed"
   ],
   "COB|Backplane|1.1": [
    "Proven design",

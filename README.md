@@ -93,7 +93,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Backplane/`** — Passive backplane providing 5 card slots with full bus interconnect across all slots.
 
-**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input. Rev 1.2 removes the `RESB` pull-up and adds reverse-polarity protection on the barrel jack. Every revision's oscillator can is 1 MHz, and serial is tested at 1 MHz. A faster can is at the builder's risk, because the serial cards haven't been tested with one.
+**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input. Today's Rev 1.1 also removes the `RESB` pull-up and adds reverse-polarity protection on the barrel jack; the boards made as Rev 1.1, which are on sale, have neither change (see the build notes in BOM.md). Every revision's oscillator can is 1 MHz, and serial is tested at 1 MHz. A faster can is at the builder's risk, because the serial cards haven't been tested with one.
 
 **`Hardware/Backplane Helper/`** — Adds additional card slots to expand the total backplane configuration up to 12 slots.
 
@@ -195,7 +195,7 @@ Each revision carries one of three labels:
 |---|---|---|---|
 | Backplane | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
 | Backplane Helper | 1.1 | **Proven design** | Rev 1.0's circuit; JLCPCB's marker removed, the logo in its place. |
-| Backplane Pro | 1.2 | **Untested** | A 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed. |
+| Backplane Pro | 1.1 | **Untested** | The made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed. |
 | Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes, and the outline grows to hold it. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
@@ -360,7 +360,7 @@ Where a header needs a shunt, the board's BOM lists it.
 |---|---|---|---|---|---|
 | 1.0 | JP1, J1 | Power: JP1 is across J1 (`PWR_SW`), the header for a power switch on a case. | Open. | Bridge JP1, or wire a switch to J1. Until one is done the backplane has no power. | To run |
 | 1.0 | JP2, J4 | Clock: JP2 is across J4 (`CLOCK_ENBL_SW`), the header for a switch that stops the clock. | Open. | Bridge JP2, or wire a switch to J4. Until one is done there is no clock on `PHI2`. | To run |
-| 1.1, 1.2 | JP1, J5 | Clock: JP1 is across J5 (`CLOCK ENBL SW`), the header for a switch that stops the clock. | Open. | Bridge JP1, or wire a switch to J5. Until one is done there is no clock on `PHI2`. | To run |
+| 1.1 | JP1, J5 | Clock: JP1 is across J5 (`CLOCK ENBL SW`), the header for a switch that stops the clock. | Open. | Bridge JP1, or wire a switch to J5. Until one is done there is no clock on `PHI2`. | To run |
 
 **CPU Card**
 
@@ -529,8 +529,8 @@ The table lists every off-board header on each board's newest revision, read fro
 
 | Board | Rev | Header | Label | Connector | What it's for | Leave off |
 |---|---|---|---|---|---|---|
-| Backplane Pro | 1.2 | J5 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
-| Backplane Pro | 1.2 | J6 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW2, the board's own reset button. | SW2, if the case covers it. Both buttons reset the machine if it stays. |
+| Backplane Pro | 1.1 | J5 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
+| Backplane Pro | 1.1 | J6 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW2, the board's own reset button. | SW2, if the case covers it. Both buttons reset the machine if it stays. |
 | Clock Card | 1.1 | J3 | `CLOCK ENBL SW` | JST XH, 2 pins | A switch on the case that stops the clock: closed, the oscillator drives `PHI2`; open, the clock stops. The header is wired across JP1, a solder jumper. | Nothing, but leave JP1 open, or the switch can't stop the clock (see [Jumpers](#jumpers)). |
 | Clock Card | 1.1 | J4 | `RESET SW` | JST XH, 2 pins | A reset button on the case. The header is wired across SW1, the board's own reset button. | SW1, if the case covers it. Both buttons reset the machine if it stays. |
 | Storage Card | 1.1 | J4 | `ACT LED` | JST XH, 2 pins | An activity LED on the case: anode to pin 1, cathode to pin 2, which runs through R6, the LED's own resistor. | Nothing. D1, the board's own activity LED, has its own resistor, so both light. |

@@ -25,8 +25,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.1 | Drawn | **Proven design**: rev 1.0's circuit; JLCPCB's marker removed, the logo in its place |  |  |  | — | 50×100 | 6 mm | — | — |  |
 | Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
-| Backplane Pro | 1.1 | Made, matches order | **Tested** | Y93 | 2026-06-21 | `7486bd6` | 4 | 100×100 | 6 mm | yes | — |  |
-| Backplane Pro | 1.2 | Drawn | **Untested**: a 1N5819 in the power path (`VCC` near 4.6 V), and R5 removed |  |  |  | — | 100×100 | 6 mm | yes | — |  |
+| Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
@@ -94,7 +93,7 @@ JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, ma
 
 What changed in each revision of each board, newest first. The table above has the facts about each one.
 
-**Every board has a Rev 1.1, 2026-11-14.** The family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The Backplane, Backplane Helper, Keyboard Helper and Mega Helper had only a made Rev 1.0, so each gets a Rev 1.1: Rev 1.0's circuit and copper, without JLCPCB's order-number marker, with its logo in its place and, on the Mega Helper, J1's reference at the family's size. Each is **Proven design**, its Rev 1.0 being tested. The CPU Card Pro, VGA Card Pro and Video Card Pro, drawn as Rev 1.0 and never made, are renumbered Rev 1.1 in place; the notes above that name them as 1.0 were written before. `Tools/revision-audit/gproof.py` shows that only the silkscreen differs from Rev 1.0 on each new revision.
+**Every board has a Rev 1.1, 2026-11-14.** The family's boards end as one set of Rev 1.1s under one set of rules (owner, 2026-11-13). The Backplane, Backplane Helper, Keyboard Helper and Mega Helper had only a made Rev 1.0, so each gets a Rev 1.1: Rev 1.0's circuit and copper, without JLCPCB's order-number marker, with its logo in its place and, on the Mega Helper, J1's reference at the family's size. Each is **Proven design**, its Rev 1.0 being tested. The CPU Card Pro, VGA Card Pro and Video Card Pro, drawn as Rev 1.0 and never made, are renumbered Rev 1.1 in place; the notes above that name them as 1.0 were written before. The Backplane Pro's drawn Rev 1.2 takes the number 1.1 and replaces the design of the boards made as Rev 1.1, by the owner's ruling; those boards' files are in git at `1b94d135` (see [Backplane Pro](#backplane-pro)). `Tools/revision-audit/gproof.py` shows that only the silkscreen differs from Rev 1.0 on each new revision.
 
 **Title blocks, 2026-11-14.** Every schematic's and PCB's title block names the family as it is: `AC6502 <Board>`, not `6502 <Board>`, on all 61 revisions, the made ones included. The title block is drawing-sheet text, which no Gerber layer carries: every PCB plots exactly as before (`Tools/revision-audit/gproof.py`), so no board and no label changed, and the made revisions' production zips are as JLCPCB received them. The schematic PDFs are regenerated. The production zip of each revision not yet made (29) is named from the title, so it is now `AC6502_<Board>_<Rev>.zip`, its contents unchanged. The board logos still read "6502". `Tools/revision-audit/audit.py` checks the titles.
 
@@ -136,18 +135,16 @@ What changed in each revision of each board, newest first. The table above has t
 
 ### Backplane Pro
 
-#### Rev 1.2
+#### Rev 1.1
 
-Drawn, not yet made. Two changes from Rev 1.1:
+Drawn, not yet made. It replaces the design of the boards made as Rev 1.1 (owner, 2026-11-13). It was drawn as Rev 1.2 and took the number on 2026-11-14, so the family's boards end as one set of Rev 1.1s; a Rev 1.2 opens only when there are meaningful changes. Two changes from the boards made as Rev 1.1:
 
 - **R5 is removed.** It was a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
 - **D2, a 1N5819, is added** in series between the barrel jack (J1) and the power switch (SW1), anode at the jack, so a reversed supply can't reach VCC. It drops about 0.3–0.4 V, so VCC sits near 4.6 V.
 
 The backplane carries no decoupling capacitors, as on the other backplanes: every card that plugs in has 100nF on each of its own chips.
 
-#### Rev 1.1
-
-- Built and tested. `Hardware/Backplane Pro/Rev 1.1/` and `Production/Backplane Pro/Rev 1.1/` match the boards JLCPCB made (order Y93). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+**The boards made as Rev 1.1** (order Y93, 2026-06-21) were built and tested, and are the boards on sale. Their files left `Hardware/Backplane Pro/Rev 1.1/` when the new design took the number: they are in git at commit `1b94d135`, with the production zip that is byte for byte what JLCPCB received (made from `7486bd6`). To build one, follow *Building a board made as Rev 1.1* in [BOM.md](BOM.md#build-notes).
 
 #### Rev 1.0
 

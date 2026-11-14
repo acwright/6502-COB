@@ -87,12 +87,14 @@ for repo in SCOPE:
     for x in sorted([r for r in R if r['repo']==repo],key=lambda r:(r['board'],r['rev'])):
         k=f"{repo}|{x['board']}|{x['rev']}";b=x['board'];rev='Rev '+x['rev'];oi=gd=src='';notes=[]
         if k in O['made']: st='Made, matches order';oi,gd,src=O['made'][k];src='`'+src+'`'
-        elif k in O['drawn']: st='Drawn'
+        elif k in O['drawn']:
+            st='Drawn'
+            if k in O.get('replaced',{}): r_=O['replaced'][k];notes.append(f'replaces the boards made as Rev {x["rev"]} (order {r_[0]}, {r_[1]}, made from `{r_[2]}`; their files are in `{r_[3]}`)')
         elif k in O['never']: st='Never made'
         elif k in O['ordered']: st='Ordered';notes.append(O['ordered'][k])
         elif k in O['made_unchecked']: st='Made, not compared';notes.append(O['made_unchecked'][k])
         else: st='To confirm'
-        cnt[st]+=1;newest=x['newest'];ti=tindie(repo,b) if st.startswith(('Made','To')) and x['rev'] in('1.0','1.0a','1.0b') or k=='COB|Backplane Pro|1.1' else None
+        cnt[st]+=1;newest=x['newest'];ti=tindie(repo,b) if st.startswith(('Made','To')) and x['rev'] in('1.0','1.0a','1.0b') or k in O.get('replaced',{}) else None
         # Only tracked file types count: LightBurn and slicer files (.lbrn2, .3mf, .bgcode) are the owner's, untracked.
         top='yes' if glob.glob(f'CAD/Tops/{b}/{rev}/*.svg') else '—'
         enc='yes' if [f for f in glob.glob(f'CAD/Enclosures/{b}/{rev}/*') if not f.endswith(('.lbrn2','.3mf','.bgcode'))] else '—'
