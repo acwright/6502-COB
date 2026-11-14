@@ -146,36 +146,6 @@
  },
  {
   "repo": "COB",
-  "board": "LCD Board",
-  "revs": [
-   "1.0"
-  ],
-  "refs": [
-   "J2"
-  ],
-  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
-  "shipped": "No shunt.",
-  "do": "Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board.",
-  "need": "To run",
-  "shunts": 1
- },
- {
-  "repo": "COB",
-  "board": "LCD Board",
-  "revs": [
-   "1.0"
-  ],
-  "refs": [
-   "JP1"
-  ],
-  "what": "Across D2, the diode in the W65C22N's interrupt line.",
-  "shipped": "Bridged.",
-  "do": "Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D2 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D2.",
-  "need": null,
-  "shunts": 0
- },
- {
-  "repo": "COB",
   "board": "LCD Card",
   "revs": [
    "1.0",

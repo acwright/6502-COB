@@ -171,7 +171,7 @@ acrylic at the edge.
 | Ø5.5 | an LCD's contrast trimmer |
 | Ø8 | the COB Clock Helper's 5.8 mm push switches, which stand through the top |
 | Ø11 | the COB GPIO Helper's 6 mm push switches, under printed Buttons |
-| Ø3.0 | the COB LCD Board's TFT mounting screws |
+| Ø3.0 | the DEV LCD Board's TFT mounting screws |
 
 ### Enclosure tops
 

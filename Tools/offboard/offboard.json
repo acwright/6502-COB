@@ -124,7 +124,7 @@
   "Conn_01x20": "the Breadboard Helper's breadboard pins",
   "ETHERNET": "the DEV Board's Ethernet module",
   "GPIO": "the LCD Card's display module",
-  "HVSYNC": "the LCD Board's sync output",
+  "HVSYNC": "the DEV LCD Board's sync output",
   "IO": "the Clock Helper's lines to the bus, for wires",
   "PADDLES": "paddle controllers",
   "PORT A": "the GPIO Breadboard Helper's breadboard pins",

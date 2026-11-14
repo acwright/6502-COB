@@ -174,7 +174,7 @@ that reason.
 
 **`Hardware/Mega Helper/`** — Arduino Mega 2560 interface adapter for the AC6502 bus. Arduino pins D6 and D5 are wired to `EXP1` and `EXP0`: with a cartridge on the bus, firmware must leave them as inputs, because the cartridge grounds them (see [Extra pins](#extra-pins-exp0exp3-and-hrdb)).
 
-**`Hardware/LCD Board/`** — 320×240 TFT LCD display (ILI9341) interfaced via 65C22 VIA.
+**LCD Board** — moved to [6502-DEV](https://github.com/acwright/6502-DEV) as the DEV LCD Board on 2026-11-14: it is a DEV board.
 
 **`Hardware/VERA Helper/`** — VERA FPGA video module adapter for the AC6502 bus.
 
@@ -209,7 +209,6 @@ Each revision carries one of three labels:
 | Joystick Helper | 1.1 | **Proven design** | Mounting holes moved to the standard, silkscreen. |
 | Keyboard Encoder Helper | 1.1 | **Proven design** | Mounting holes, silkscreen. |
 | Keyboard Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
-| LCD Board | 1.0 | **Tested** | Built and tested. |
 | LCD Card | 1.1 | **Proven design** | The bare card edge only. |
 | Mega Helper | 1.1 | **Proven design** | JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only. |
 | Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
@@ -387,13 +386,6 @@ Where a header needs a shunt, the board's BOM lists it.
 |---|---|---|---|---|---|
 | 1.0, 1.1 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9400`: IO 6, where the BIOS looks for the GPIO Card. | To run |
 | 1.0, 1.1 | JP1 | Across D1, the diode in the W65C22N's interrupt line. | Bridged. | Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D1. |  |
-
-**LCD Board**
-
-| Rev | Jumper | What it's for | As shipped | What to do | Needed |
-|---|---|---|---|---|---|
-| 1.0 | J2 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside a window no other card uses. The BIOS doesn't look for this board. | To run |
-| 1.0 | JP1 | Across D2, the diode in the W65C22N's interrupt line. | Bridged. | Leave it. The W65C22N's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D2 isn't needed. To fit a part that drives its interrupt high as well as low, such as a W65C22S, cut JP1 so the interrupt goes through D2. |  |
 
 **LCD Card**
 

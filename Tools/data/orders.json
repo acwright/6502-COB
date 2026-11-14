@@ -106,11 +106,6 @@
    "2024-07-09",
    "f890f21"
   ],
-  "COB|LCD Board|1.0": [
-   "Y80",
-   "2026-01-13",
-   "2a232e3"
-  ],
   "COB|VERA Helper|1.0": [
    "Y71",
    "2025-11-04",
@@ -193,15 +188,6 @@
   "COB|Clock Card|1.0": "Order 1, placed 2026-11-02"
  },
  "made_unchecked": {},
- "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",
- "replaced": {
-  "COB|Backplane Pro|1.1": [
-   "Y93",
-   "2026-06-21",
-   "7486bd6",
-   "1b94d135"
-  ]
- },
  "notes": {
   "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
   "COB|CPU Card Pro|1.1": "title block credits bahamutkotd, who contributed",
@@ -209,7 +195,6 @@
  },
  "tested": {
   "COB|Backplane Helper|1.0": "Yes",
-  "COB|LCD Board|1.0": "Yes",
   "COB|Mega Helper|1.0": "Yes",
   "COB|Memory Card|1.0": "Yes",
   "COB|RAM Card|1.0": "Yes",
@@ -380,6 +365,15 @@
   "COB|Video Card|1.1": [
    "Proven design",
    "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge"
+  ]
+ },
+ "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",
+ "replaced": {
+  "COB|Backplane Pro|1.1": [
+   "Y93",
+   "2026-06-21",
+   "7486bd6",
+   "1b94d135"
   ]
  }
 }

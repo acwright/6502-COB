@@ -21,9 +21,9 @@ Every revision of every board in this repository, and what is known about each. 
 | Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Backplane | 1.0 | Made, matches order | **Tested** | Y50 | 2024-07-03 | `3e494e3` | 3 | 100×100 | 6 mm | yes | — |  |
-| Backplane | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 100×100 | 6 mm | — | — |  |
+| Backplane | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
-| Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | — | — |  |
+| Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | yes | — |  |
 | Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
 | Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
@@ -51,7 +51,6 @@ Every revision of every board in this repository, and what is known about each. 
 | Keyboard Encoder Helper | 1.1 | Drawn | **Proven design**: mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, matches order | **Tested** | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
 | Keyboard Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 335×125 | 5 mm | — | — |  |
-| LCD Board | 1.0 | Made, matches order | **Tested** | Y80 | 2026-01-13 | `2a232e3` | — | 100×100 | 6 mm | yes | — |  |
 | LCD Card | 1.0 | Made, matches order | **Tested** | Y27 | 2024-04-22 | `f77fc20` | 4 | 100×57.62 | — | — | — |  |
 | LCD Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
@@ -92,6 +91,8 @@ JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, ma
 ## History
 
 What changed in each revision of each board, newest first. The table above has the facts about each one.
+
+**The LCD Board moved to 6502-DEV, 2026-11-14.** The LCD Board is a DEV board, so it moved to [6502-DEV](https://github.com/acwright/6502-DEV) as the DEV LCD Board, with its made Rev 1.0, its history and a new Rev 1.1. Its files' history in this repository ends at the commit that removed them.
 
 **The generated logos on the boards, 2026-11-14.** Every revision not yet made now prints its logo exactly as `Tools/logos/generate.py` draws it. KiCad keeps a copy of each footprint in the PCB, so when the library's logos were redrawn from Bebas Neue the boards still carried the older traced copies. `Tools/logos/embed.py` put the library's logo into each of the 33 revisions here (Backplane 1.1, Backplane Helper 1.1, Backplane Pro 1.1, Blinkenlights Card 1.1, Breadboard Helper 1.1, CPU Card 1.1, CPU Card Pro 1.1, Clock Card 1.1, Clock Helper 1.1, DB25 Helper 1.1, GPIO Breadboard Helper 1.1, GPIO Card 1.1, GPIO Helper 1.1, Joystick Helper 1.1, Keyboard Encoder Helper 1.1, Keyboard Helper 1.1, LCD Card 1.1, Mega Helper 1.1, Memory Card 1.1, PS2 Helper 1.1, Prototype Card 1.1, RAM Card 1.1, RTC Card 1.1, Serial Card 1.1, Serial Card Pro 1.1, Sound Card 1.1, Storage Card 1.1, Storage Card Pro 1.1, VERA Helper 1.1, VGA Card 1.1, VGA Card Pro 1.1, Video Card 1.1, Video Card Pro 1.1), keeping the centre of the print where it was, and its check in `derived-check.py` keeps them in step. The logos the owner ruled onto the design change visibly: on Backplane 1.1, CPU Card 1.1, Memory Card 1.1, Serial Card 1.1 and Prototype Card 1.1 the name sits up to 0.11 mm closer to "6502" (the Backplane's logo moved 0.07 mm to keep its end in place); on every other board the difference is under 0.02 mm. `Tools/revision-audit/gproof.py` shows only the front silkscreen changed on each. Made revisions keep the logo they were made with.
 
@@ -310,13 +311,6 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Keyboard Helper/Rev 1.0/` and `Production/Keyboard Helper/Rev 1.0/` match the boards JLCPCB made (order Y70). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-### LCD Board
-
-**Rev 1.0**
-
-- Initial release. Built and tested. `Hardware/LCD Board/Rev 1.0/` and `Production/LCD Board/Rev 1.0/` match the boards JLCPCB made (order Y80). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-- The PCB file was restored to that layout on 2026-11-04. Later edits only changed pad shapes, when footprints were refreshed, so they don't make a Rev 1.1. The schematic and BOM are today's, and they match this copper.
 
 ### LCD Card
 
