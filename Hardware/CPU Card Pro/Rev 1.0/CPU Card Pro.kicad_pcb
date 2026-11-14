@@ -1304,7 +1304,7 @@
 		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U1"
-			(at 7.5036 -2.6211 90)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "2a90ebbb-86bf-4283-b83b-0d3726a07c8f")
 			(effects
@@ -1315,7 +1315,7 @@
 			)
 		)
 		(property "Value" "65C816"
-			(at 1.2036 -2.7211 90)
+			(at 7.620001 50.58825 90)
 			(layer "F.SilkS")
 			(uuid "b6d8f765-0484-4c0a-9bb6-3958198068a8")
 			(effects
@@ -6486,7 +6486,7 @@
 		(descr "TSSOP, 20 Pin (JEDEC MO-153 Var AC https://www.jedec.org/document_search?search_api_views_fulltext=MO-153)")
 		(tags "TSSOP SO")
 		(property "Reference" "U3"
-			(at -0.1875 4.175 90)
+			(at 0 4.32325 90)
 			(layer "F.SilkS")
 			(uuid "44176f13-430f-469c-ab76-2f4b13d31d8c")
 			(effects

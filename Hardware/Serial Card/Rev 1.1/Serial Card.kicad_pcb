@@ -2911,7 +2911,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U2"
-			(at -2.794 6.223 90)
+			(at 0 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "374b2041-e9e1-4d03-8164-0df684a73a5d")
 			(effects
@@ -3926,7 +3926,7 @@
 		(descr "28-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U3"
-			(at 7.64 -3.12 270)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "81b107e5-e782-4ee8-af7c-4e060cb1f092")
 			(effects

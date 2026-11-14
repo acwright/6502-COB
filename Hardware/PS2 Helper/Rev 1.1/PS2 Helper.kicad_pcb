@@ -2310,7 +2310,7 @@
 		(descr "28-lead though-hole mounted DIP package, row spacing 7.62mm (300 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket LongPads")
 		(property "Reference" "U2"
-			(at 8.21 -2.3 270)
+			(at 7.995 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "e010081d-21ac-4049-875a-0f1fe802c3d4")
 			(effects
@@ -6944,7 +6944,7 @@
 		(descr "28-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U1"
-			(at 15.82 -2.36 90)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "0b7bd974-5100-45f0-b165-d8a5727cbf1c")
 			(effects

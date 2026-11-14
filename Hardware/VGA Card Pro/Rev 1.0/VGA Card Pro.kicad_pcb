@@ -2778,7 +2778,7 @@
 		(descr "TSSOP, 24 Pin (JEDEC MO-153 variation AD, 1.00mm body thickness, https://www.jedec.org/document_search?search_api_views_fulltext=MO-153)")
 		(tags "TSSOP SO")
 		(property "Reference" "U1"
-			(at -3.05 5.11 90)
+			(at 0 4.97325 90)
 			(layer "F.SilkS")
 			(uuid "10795f76-cd21-4d1c-b6db-0ca4d98c7ec2")
 			(effects
@@ -3524,7 +3524,7 @@
 		(descr "Through hole straight pin header, 2x20, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x20 2.54mm double row")
 		(property "Reference" "U3"
-			(at -10.07 -27.1 90)
+			(at 0 -26.43825 90)
 			(layer "F.SilkS")
 			(uuid "fb9ab975-6e50-485b-825f-71f2ffa753ba")
 			(effects
@@ -3535,7 +3535,7 @@
 			)
 		)
 		(property "Value" "Raspberry Pi Pico"
-			(at 0.09 27.28 90)
+			(at -0.000001 26.43825 90)
 			(layer "F.SilkS")
 			(uuid "d3762d02-60aa-475b-8111-d56bec52e3c5")
 			(effects
@@ -8463,7 +8463,7 @@
 		(descr "TSSOP, 20 Pin (JEDEC MO-153 Var AC https://www.jedec.org/document_search?search_api_views_fulltext=MO-153)")
 		(tags "TSSOP SO")
 		(property "Reference" "U2"
-			(at -3.0325 4.435 90)
+			(at 0 4.32325 90)
 			(layer "F.SilkS")
 			(uuid "b391261a-6679-4afa-a092-897a1d632823")
 			(effects
@@ -8995,7 +8995,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U4"
-			(at 2.855 6.075 90)
+			(at 0 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "5dd2ea49-fc80-4000-aec5-2ae9f93fef7a")
 			(effects
@@ -10903,7 +10903,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U5"
-			(at 2.825 6.045 90)
+			(at 0 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "c641c5a4-8ae0-4fad-8ef3-9dc5ad9fff16")
 			(effects

@@ -355,7 +355,7 @@
 		(descr "SOIC, 20 Pin (JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf)")
 		(tags "SOIC SO")
 		(property "Reference" "U2"
-			(at -3.05 -7.61 0)
+			(at -4.55 -7.68825 0)
 			(layer "F.SilkS")
 			(uuid "0f31abb5-fa52-44ca-b9db-cd8f6e10a01d")
 			(effects
@@ -1268,7 +1268,7 @@
 		(descr "SOIC, 20 Pin (JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf)")
 		(tags "SOIC SO")
 		(property "Reference" "U5"
-			(at -5.05 7.615 0)
+			(at 0 7.44825 0)
 			(layer "F.SilkS")
 			(uuid "0ba48fa1-c500-4839-b1cb-a9bc4b0ba0f9")
 			(effects
@@ -2070,7 +2070,7 @@
 		(descr "28-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U7"
-			(at 15.4 35.52 270)
+			(at 7.62 35.34825 90)
 			(layer "F.SilkS")
 			(uuid "f2671b6e-0ff2-4aec-8af7-75fb978b181a")
 			(effects
@@ -2081,7 +2081,7 @@
 			)
 		)
 		(property "Value" "AS6C62256"
-			(at 2.9 35.52 270)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "3d1ee22f-7172-46a0-a406-bc94b7a3d51f")
 			(effects
@@ -2695,7 +2695,7 @@
 		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U1"
-			(at 15.7 50.7 270)
+			(at 7.62 50.58825 90)
 			(layer "F.SilkS")
 			(uuid "3a7a8a88-c83b-4ac1-846f-98c3f4f9b0d4")
 			(effects
@@ -2706,7 +2706,7 @@
 			)
 		)
 		(property "Value" "TMS9918A"
-			(at 2.4 50.8 270)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "65554698-13be-4ad2-8993-4e4c898ceea7")
 			(effects
@@ -4546,7 +4546,7 @@
 		(descr "SOIC, 20 Pin (JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf)")
 		(tags "SOIC SO")
 		(property "Reference" "U6"
-			(at 6.95 -5.985 90)
+			(at 0 7.44825 0)
 			(layer "F.SilkS")
 			(uuid "4e7a568f-c51d-4a07-8b8b-bb040a549007")
 			(effects
@@ -7644,7 +7644,7 @@
 		(descr "SO, 14 Pin (https://www.st.com/resource/en/datasheet/l6491.pdf)")
 		(tags "SO SO")
 		(property "Reference" "U8"
-			(at 2.825 5.49 90)
+			(at 0 5.37325 90)
 			(layer "F.SilkS")
 			(uuid "9db0a2a8-c31e-4707-9753-5a638754c96f")
 			(effects
@@ -9309,7 +9309,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U4"
-			(at 2.825 6.055 90)
+			(at 0 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "e1aa691e-0156-4a82-a99d-4777e459317a")
 			(effects

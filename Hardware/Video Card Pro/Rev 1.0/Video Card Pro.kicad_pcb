@@ -355,7 +355,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U1"
-			(at -2.915 5.905 90)
+			(at -2.325 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "0f31abb5-fa52-44ca-b9db-cd8f6e10a01d")
 			(effects
@@ -2031,7 +2031,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U4"
-			(at -2.885 5.955 90)
+			(at -2.325 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "02342491-936c-451f-a749-4933cb7ef95d")
 			(effects
@@ -3674,7 +3674,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U2"
-			(at -2.855 5.995 90)
+			(at -2.325 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "3f970f4c-84b4-4fe0-8876-c7ab68f79eed")
 			(effects
@@ -5505,7 +5505,7 @@
 		(descr "SOIC, 16 Pin (JEDEC MS-012, variation AC, https://www.jedec.org/document_search?search_api_views_fulltext=MS-012, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf)")
 		(tags "SOIC SO 16-pin-NSOP R-16 R-16-S D0016A M2B SO16 SOT109-1 751B SOIC_N narrow")
 		(property "Reference" "U5"
-			(at -2.855 5.935 90)
+			(at 0 5.99825 90)
 			(layer "F.SilkS")
 			(uuid "8548e4c1-b84e-4e6b-8196-5232dfc74b58")
 			(effects
@@ -9991,7 +9991,7 @@
 		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U3"
-			(at 7.62 -2.33 90)
+			(at 7.62 50.58825 90)
 			(layer "F.SilkS")
 			(uuid "d27ff259-b151-4132-b3e1-534ee02ba00d")
 			(effects
@@ -10002,7 +10002,7 @@
 			)
 		)
 		(property "Value" "ATmega1284"
-			(at 7.62 50.59 90)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "cffb9a1c-a745-415e-a0ab-03ea0eb32d8f")
 			(effects

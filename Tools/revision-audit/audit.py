@@ -23,8 +23,20 @@ KNOWN_UNCONNECTED={}
 # shows it. Keypad Helper: the zip has thermal spokes on the second row of pads, which KiCad 10 doesn't draw. Storage Card: 18
 # segments differ in every version, and 24 come from the 2025-09-29 footprint refresh that changed pad shapes, accepted in P10.
 KNOWN_COPPER={('Keypad Helper','1.0'):{'gtl':62,'gbl':35},('Storage Card','1.0'):{'gtl':42}}
-KNOWN_NET={('DEV Output Board','1.0'):'Teensy back-side pads',('DEV Output Board','1.1'):'Teensy back-side pads',('VGA Card Pro','1.0'):'Pico pins 41-43',('Mega Helper','1.0'):'Arduino header pins',('Flash Helper','1.0'):'Arduino Mega pads with no symbol pin',('Backplane Pro','1.0'):'J2 shield pin',('DEV Board','1.0'):'J6 shield pads',('Main Board','1.0'):'J3 shield pads'}
+KNOWN_NET={('DEV Output Board','1.0'):'Teensy back-side pads',('DEV Output Board','1.1'):'Teensy back-side pads',('VGA Card Pro','1.0'):'Pico pins 41-43',('Mega Helper','1.0'):'Arduino header pins',('Flash Helper','1.0'):'Arduino Mega pads with no symbol pin',('Backplane Pro','1.0'):'J2 shield pin',('DEV Board','1.0'):'J6 shield pads',('DEV Board','1.1'):'J6 shield pads',('Main Board','1.0'):'J3 shield pads'}
 def run(*a): return subprocess.run(a,capture_output=True)
+MODULES={'LCD-16X2','Teensy4.1','Teensy4.0','Waveshare 2.4in LCD Header','Waveshare 2.4in LCD'}   # K36: their outline names them
+def ic_values(t):
+    """(reference, surface mount, value shown on silk) for every U footprint that isn't a module (KICAD.md K36)."""
+    out=[]
+    for fp in blocks(t,r'footprint "'):
+        ref=re.search(r'\(property "Reference" "(U\d+)"',fp);val=blocks(fp,r'property "Value" "')
+        if not ref or not val: continue
+        name=re.match(r'\(property "Value" "([^"]*)"',val[0]).group(1)
+        if name in MODULES: continue
+        shown=bool(re.search(r'\(layer "?[FB]\.SilkS',val[0])) and not re.search(r'\(hide yes\)|\bhide\b(?! no)',val[0])
+        out.append((ref.group(1),bool(re.search(r'\(attr smd',fp)),shown))
+    return out
 def blocks(t,head):
     out=[]
     for m in re.finditer(r'\n\s*\('+head,t):
@@ -181,6 +193,12 @@ for repo in REPOS:
             if lab and 'A.C. Wright Design' not in lab[0]: I.append('silk copyright: '+lab[0][:40])
             # JLCPCB stopped printing order numbers in May 2026 and asks for no JLCJLCJLCJLC on the silk. Made boards keep theirs.
             if 'JLCJLCJLCJLC' in t and f'{repo[5:]}|{board}|{v}' not in ORD: I.append('JLCPCB order-number marker on the silk')
+            # KICAD.md K36 (owner, 2026-11-13): a through-hole IC shows its value on the silk; a surface-mount IC doesn't,
+            # because a small package leaves no room. Modules whose outline names them are the exception. Made boards stay.
+            if f'{repo[5:]}|{board}|{v}' not in ORD:
+                for k,smd,shown in ic_values(t):
+                    if smd and shown: I.append(f'{k}: SMD IC value on the silk')
+                    if not smd and not shown: I.append(f'{k}: IC value not on the silk')
             W,H,hs=holes(t);r['size']=(round(W,2),round(H,2)) if W else None
             corner=[h for h in hs if h[0]<=9 and h[1]<=9]
             r['corner']=sorted({(round(a,2),round(b,2)) for a,b in corner})

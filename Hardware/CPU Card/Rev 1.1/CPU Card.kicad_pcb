@@ -1252,7 +1252,7 @@
 		(descr "40-lead though-hole mounted DIP package, row spacing 15.24mm (600 mils), Socket, LongPads")
 		(tags "THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket LongPads")
 		(property "Reference" "U1"
-			(at 15.9786 -2.7211 90)
+			(at 7.62 -2.32825 90)
 			(layer "F.SilkS")
 			(uuid "2a90ebbb-86bf-4283-b83b-0d3726a07c8f")
 			(effects
@@ -1263,7 +1263,7 @@
 			)
 		)
 		(property "Value" "65C02"
-			(at 0.7786 -2.7461 90)
+			(at 7.62 50.58825 90)
 			(layer "F.SilkS")
 			(uuid "b6d8f765-0484-4c0a-9bb6-3958198068a8")
 			(effects

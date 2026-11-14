@@ -5417,7 +5417,7 @@
 			)
 		)
 		(property "Value" "DS1511Y"
-			(at 7.475 35.745 90)
+			(at 7.62 35.34825 90)
 			(layer "F.SilkS")
 			(uuid "f7361873-0e9b-4421-a09e-f9b3ce9ef625")
 			(effects
