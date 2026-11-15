@@ -145,6 +145,11 @@
    "Y39",
    "2024-06-08",
    "7d050b0"
+  ],
+  "COB|Clock Card|1.0": [
+   "Y101",
+   "2026-11-02",
+   "ca9de28"
   ]
  },
  "drawn": [
@@ -184,9 +189,7 @@
   "COB|VGA Card Pro|1.1",
   "COB|Video Card Pro|1.1"
  ],
- "ordered": {
-  "COB|Clock Card|1.0": "Order 1, placed 2026-11-02; built and tested 2026-11-15"
- },
+ "ordered": {},
  "made_unchecked": {},
  "notes": {
   "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
