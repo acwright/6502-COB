@@ -185,7 +185,7 @@
   "COB|Video Card Pro|1.1"
  ],
  "ordered": {
-  "COB|Clock Card|1.0": "Order 1, placed 2026-11-02"
+  "COB|Clock Card|1.0": "Order 1, placed 2026-11-02; built and tested 2026-11-15"
  },
  "made_unchecked": {},
  "notes": {
@@ -222,7 +222,8 @@
   "COB|VGA Card|1.0": "Yes",
   "COB|Video Card|1.0": "Yes",
   "COB|Storage Card Pro|1.0": "Not yet",
-  "COB|Breadboard Helper|1.0": "Yes"
+  "COB|Breadboard Helper|1.0": "Yes",
+  "COB|Clock Card|1.0": "Yes"
  },
  "_labels": "Tested, Proven design or Untested, with a one-line reason. A revision whose 'tested' entry starts with Yes is Tested unless it is listed here; every other revision must be listed. Tools/revision-audit/labels.py reads this for REVISIONS.md, BOM.md and the README.",
  "labels": {
@@ -254,13 +255,9 @@
    "Proven design",
    "10k pull-ups, some tracks rerouted, silkscreen, the bare card edge"
   ],
-  "COB|Clock Card|1.0": [
-   "Untested",
-   "A new board, ordered and not tested yet"
-  ],
   "COB|Clock Card|1.1": [
-   "Untested",
-   "The bare card edge only, but Rev 1.0 hasn't been tested yet"
+   "Proven design",
+   "The bare card edge only"
   ],
   "COB|Clock Helper|1.1": [
    "Proven design",

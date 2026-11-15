@@ -36,8 +36,8 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [CPU Card Pro](#cpu-card-pro) | 1.1 | Rev 1.1 | Never made | **Untested**: never made |
 | [CPU Card](#cpu-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [CPU Card](#cpu-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |
-| [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, not tested yet | **Untested**: a new board, ordered and not tested yet |
-| [Clock Card](#clock-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet |
+| [Clock Card](#clock-card) | 1.0 | Rev 1.0 | Ordered, built and tested | **Tested** |
+| [Clock Card](#clock-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [Clock Helper](#clock-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Clock Helper](#clock-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [DB25 Helper](#db25-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -577,7 +577,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Clock Card Rev 1.1
 
-Drawn, not made yet. **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet.
+Drawn, not made yet. **Proven design**: the bare card edge only.
 
 Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Clock%20Card/Rev%201.1/mouser.csv)
 
@@ -605,7 +605,7 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.1/digikey.csv), [mouser.csv](
 
 ### Clock Card Rev 1.0
 
-Ordered, not tested yet. **Untested**: a new board, ordered and not tested yet.
+Ordered, built and tested. **Tested**.
 
 Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](BOM/Clock%20Card/Rev%201.0/mouser.csv)
 

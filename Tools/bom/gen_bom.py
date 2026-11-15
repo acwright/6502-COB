@@ -167,7 +167,7 @@ INTRO="""Every part for every board in this repository, by revision, with suppli
 def stat_text(repo,board,rev):
     k=f'{repo}|{board}|{rev}';st=status(repo,board,rev);t=TEST.get(k)
     if st=='made': return 'Made, tested' if t=='Yes' else ('Made, not tested yet' if t=='Not yet' else (f'Made. {t}' if t else 'Made'))
-    if st=='ordered': return 'Ordered, not tested yet'
+    if st=='ordered': return 'Ordered, built and tested' if t=='Yes' else 'Ordered, not tested yet'
     if k in O.get('never',{}): return 'Never made'
     return 'Drawn, not made yet'
 def gen(repo,readme=False):

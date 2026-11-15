@@ -33,8 +33,8 @@ Every revision of every board in this repository, and what is known about each. 
 | CPU Card | 1.0 | Made, matches order | **Tested** | Y18 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | CPU Card | 1.1 | Drawn | **Proven design**: 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | CPU Card Pro | 1.1 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — | title block credits bahamutkotd, who contributed |
-| Clock Card | 1.0 | Ordered | **Untested**: a new board, ordered and not tested yet |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02 |
-| Clock Card | 1.1 | Drawn | **Untested**: the bare card edge only, but Rev 1.0 hasn't been tested yet |  |  |  | — | 100×57.62 | — | — | — |  |
+| Clock Card | 1.0 | Ordered | **Tested** |  |  |  | — | 100×57.62 | — | — | — | Order 1, placed 2026-11-02; built and tested 2026-11-15 |
+| Clock Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Clock Helper | 1.0 | Made, matches order | **Tested** | Y74 | 2025-11-21 | `65a5e49` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
 | Clock Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
 | DB25 Helper | 1.0 | Made, matches order | **Tested** | Y65 | 2025-10-06 | `013b131` | — | 100×50 | 5.32–6.25 mm | yes | yes |  |
@@ -201,11 +201,12 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.11 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 - The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
-- Rev 1.1 is labelled **Untested** only because Rev 1.0 hasn't been tested yet. When Rev 1.0 passes, Rev 1.1 becomes **Proven design**.
+- Rev 1.1 was labelled **Untested** until Rev 1.0 was tested. It became **Proven design** when Rev 1.0 passed, on 2026-11-15.
 
 **Rev 1.0**
 
-- Initial release, ordered. No card has been built or tested yet. The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+- Initial release, made in Order 1 (placed 2026-11-02). Built and tested on 2026-11-15, in a KIM built on the VCS Main Board: the 1 MHz oscillator can moved from the Main Board to the Clock Card, the card went into the Main Board's slot, and the KIM was powered through the card's barrel jack. The KIM ran on the card's clock and power, and the card's reset button reset it. The card is **Tested**.
+- The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
 
 ### CPU Card
 
