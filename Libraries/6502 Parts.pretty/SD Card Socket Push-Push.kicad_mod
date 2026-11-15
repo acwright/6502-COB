@@ -55,53 +55,13 @@
 	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
 		(start -13.91 -14.61)
-		(end -13.91 -7.47)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "7ba64c6b-4c58-5e10-9270-c483760ee6d3")
-	)
-	(fp_line
-		(start -13.91 -7.47)
-		(end -15.29 -7.47)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "2d550a56-03b4-56a9-b61d-e510c34ea4a2")
-	)
-	(fp_line
-		(start -15.29 -7.47)
-		(end -15.29 0.45)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "2876f79d-1026-5010-a810-09bf8cfba48b")
-	)
-	(fp_line
-		(start -15.29 0.45)
-		(end -13.91 0.45)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "d3cce29a-c0c2-591f-8c79-bc1238d48131")
-	)
-	(fp_line
-		(start -13.91 0.45)
 		(end -13.91 5.75)
 		(stroke
 			(width 0.12)
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "cb7590d6-a2d0-5984-9283-982771b94695")
+		(uuid "7ba64c6b-4c58-5e10-9270-c483760ee6d3")
 	)
 	(fp_line
 		(start -13.91 8.15)
@@ -111,7 +71,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "c45e19aa-66ab-53ec-9518-c2cf1f986e35")
+		(uuid "2d550a56-03b4-56a9-b61d-e510c34ea4a2")
 	)
 	(fp_line
 		(start 14.81 -14.61)
@@ -121,7 +81,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "0b1179cd-1765-57a1-a11c-e9f857b20a51")
+		(uuid "2876f79d-1026-5010-a810-09bf8cfba48b")
 	)
 	(fp_line
 		(start 14.81 6.95)
@@ -131,7 +91,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "d86f72d1-5429-56fc-b343-3edd18d4f632")
+		(uuid "d3cce29a-c0c2-591f-8c79-bc1238d48131")
 	)
 	(fp_line
 		(start 14.81 -14.61)
@@ -141,10 +101,10 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "354e7e7b-3ac5-590f-82bf-a12856f388b6")
+		(uuid "cb7590d6-a2d0-5984-9283-982771b94695")
 	)
 	(fp_rect
-		(start -15.43 -16.25)
+		(start -14.05 -16.25)
 		(end 14.95 14.75)
 		(stroke
 			(width 0.05)
@@ -164,17 +124,6 @@
 		(fill no)
 		(layer "F.Fab")
 		(uuid "4efdc587-aec8-52f5-9566-939dbb9c75b4")
-	)
-	(fp_rect
-		(start -15.18 -7.36)
-		(end -13.8 0.34)
-		(stroke
-			(width 0.1)
-			(type solid)
-		)
-		(fill no)
-		(layer "F.Fab")
-		(uuid "ff076c2e-4e40-5e5d-8661-9a71f83777aa")
 	)
 	(fp_rect
 		(start -12 -12.7)
