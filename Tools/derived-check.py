@@ -86,6 +86,11 @@ _jin=files('Hardware/*/Rev */*.kicad_sch')+files('Hardware/*/Rev */*.kicad_pcb')
 _jr=CACHE.get('jumpers '+' '.join(SCOPE)+' '+digest(*_jin),lambda:(lambda x:[x.returncode,x.stdout[-400:]])(subprocess.run(['python3',H+'/jumpers/gen.py','--check',*ALLFLAG],capture_output=True,text=True)))
 if _jr[0]: E.append('jumpers check failed: '+_jr[1])
 n['jumpers check']+=1
+# stock BIOS: every revision has an entry, the READMEs' sections current (KICAD.md K34; Tools/bios/gen.py --check)
+_bin=files('Hardware/*/Rev */*.kicad_pcb')+files('README.md')+_data('bios.json')+[H+'/bios/gen.py',H+'/common.py']
+_br=CACHE.get('bios '+' '.join(SCOPE)+' '+digest(*_bin),lambda:(lambda x:[x.returncode,x.stdout[-400:]])(subprocess.run(['python3',H+'/bios/gen.py','--check',*ALLFLAG],capture_output=True,text=True)))
+if _br[0]: E.append('stock BIOS check failed: '+_br[1])
+n['stock BIOS check']+=1
 # off-board headers: every header on a newest revision classified, on the right connector, the READMEs' tables current (KICAD.md K19)
 _oin=files('Hardware/*/Rev */*.kicad_pcb')+files('README.md')+files('Tools/work/audit.json')+_data('offboard.json')+_data('jumpers.json')+[H+'/offboard/offboard.json',H+'/offboard/gen.py',H+'/common.py']
 _or=CACHE.get('offboard '+' '.join(SCOPE)+' '+digest(*_oin),lambda:(lambda x:[x.returncode,x.stdout[-400:]])(subprocess.run(['python3',H+'/offboard/gen.py','--check',*ALLFLAG],capture_output=True,text=True)))

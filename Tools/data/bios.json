@@ -1,0 +1,389 @@
+[
+ {
+  "repo": "COB",
+  "board": "Backplane",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Passive card slots: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "Backplane Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Passive card slots: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "Backplane Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Card slots with the clock, reset and power: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "Blinkenlights Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "LEDs that show the bus: no registers. Rev 1.0's interrupt LEDs load `IRQB`, `NMIB` and `RESB`; see its build note.",
+  "source": "Schematic; BOM.md build notes"
+ },
+ {
+  "repo": "COB",
+  "board": "Breadboard Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Brings the bus to a breadboard: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "CPU Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "The 65C02 that runs the BIOS.",
+  "source": "[6502-BIOS](https://github.com/acwright/6502-BIOS)'s README: a WDC 65C02S"
+ },
+ {
+  "repo": "COB",
+  "board": "CPU Card Pro",
+  "revs": [
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Designed for it: the 65816 starts in its 6502 emulation mode, and BIOS 1.x uses no instruction the 65816 lacks (no `RMB`, `SMB`, `BBR` or `BBS`). Never built: its label is **Untested**.",
+  "source": "BIOS 1.x sources, searched 2026-11-15"
+ },
+ {
+  "repo": "COB",
+  "board": "Clock Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "The clock, reset and power on a card: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "Clock Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Single-step and halt for the clock: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "DB25 Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A helper behind the GPIO Card's ports: no registers of its own.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "GPIO Breadboard Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A helper behind the GPIO Card's ports: no registers of its own.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "GPIO Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A helper behind the GPIO Card's ports: no registers of its own.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "GPIO Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its 65C22 VIA answers in IO 6 (`$9400`), where the BIOS looks for the keyboard and joystick VIA.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeGPIO`"
+ },
+ {
+  "repo": "COB",
+  "board": "Joystick Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A helper behind the GPIO Card: BASIC's `JOY()` reads it through the card's VIA.",
+  "source": "Schematic; BIOS 1.x `Kernal.asm`"
+ },
+ {
+  "repo": "COB",
+  "board": "Keyboard Encoder Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A helper behind the GPIO Card: the BIOS reads its keys through the card's VIA. Its ATmega1284 runs the [KEH Controller](#keh-controller) firmware.",
+  "source": "Schematic; BIOS 1.x `Kernal.asm` `InitKBImpl`"
+ },
+ {
+  "repo": "COB",
+  "board": "Keyboard Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A key matrix behind the Keyboard Encoder Helper: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "LCD Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "not used",
+  "reason": "The BIOS doesn't look for it: its 65C22 VIA goes in a window no other card uses, and your own software drives the LCD.",
+  "source": "README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm`"
+ },
+ {
+  "repo": "COB",
+  "board": "Mega Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "An Arduino Mega on the bus, running its own sketch: no registers.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "Memory Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "The RAM, and the ROM that holds the BIOS.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "PS2 Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "Feeds a PS/2 keyboard into the Keyboard Encoder Helper's matrix: no registers.",
+  "source": "Schematic; [PS2 Keyboard Controller](#ps2-keyboard-controller)"
+ },
+ {
+  "repo": "COB",
+  "board": "Prototype Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "nothing to support",
+  "reason": "A blank card for a circuit of your own: no registers until you build one.",
+  "source": "Schematic"
+ },
+ {
+  "repo": "COB",
+  "board": "RAM Card",
+  "revs": [
+   "1.0"
+  ],
+  "category": "out of the box",
+  "reason": "The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), and BASIC's `BANK` sets the first window's bank. Rev 1.0's one latch gives both windows the same bank number, which matters only to a program that uses the second window itself; see its build note.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeRAM` and BASIC's `BANK`; netlist, `Tests/check-schematics.mjs`"
+ },
+ {
+  "repo": "COB",
+  "board": "RAM Card",
+  "revs": [
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is **Untested**.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeRAM`; netlist, `Tests/check-schematics.mjs`"
+ },
+ {
+  "repo": "COB",
+  "board": "RTC Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeRTC`"
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeSerial`"
+ },
+ {
+  "repo": "COB",
+  "board": "Serial Card Pro",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeSerial`"
+ },
+ {
+  "repo": "COB",
+  "board": "Sound Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeSID`"
+ },
+ {
+  "repo": "COB",
+  "board": "Storage Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its CompactFlash card answers in IO 4 (`$8C00`), where the BIOS's storage probe looks, and `LOAD`, `SAVE` and `DIR` use it.",
+  "source": "BIOS 1.x `Kernal.asm` `StInit`"
+ },
+ {
+  "repo": "COB",
+  "board": "Storage Card Pro",
+  "revs": [
+   "1.0"
+  ],
+  "category": "not used",
+  "reason": "Its ATmega328P answers in IO 4 with two SPI registers, not the eight CompactFlash registers the BIOS reads, so the BIOS reports `NO DEVICE`. Your own software drives it, through the [STP Controller](#stp-controller) firmware.",
+  "source": "[STP Controller](#stp-controller); BIOS 1.x `Kernal.asm` `StInit`"
+ },
+ {
+  "repo": "COB",
+  "board": "Storage Card Pro",
+  "revs": [
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is **Untested** until K33's bench test passes.",
+  "source": "Its design (`KICAD.md` K33; owner, 2026-11-15)"
+ },
+ {
+  "repo": "COB",
+  "board": "VERA Helper",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "not used",
+  "reason": "The BIOS doesn't look for it: the VERA module isn't a TMS9918A, and the board goes in a window no other card uses.",
+  "source": "README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm` `ProbeVideo`"
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.0"
+  ],
+  "category": "after a step",
+  "reason": "Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`).",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`; BOM.md build notes"
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card",
+  "revs": [
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`"
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
+   "1.1"
+  ],
+  "category": "not used",
+  "reason": "Not compatible with the BIOS: an experimental card whose Raspberry Pi Pico runs VDP firmware the builder writes, so nothing answers the BIOS's TMS9918A probe. Never built.",
+  "source": "Owner, 2026-11-15"
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card",
+  "revs": [
+   "1.0",
+   "1.1"
+  ],
+  "category": "out of the box",
+  "reason": "Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`"
+ },
+ {
+  "repo": "COB",
+  "board": "Video Card Pro",
+  "revs": [
+   "1.1"
+  ],
+  "category": "not used",
+  "reason": "Not compatible with the BIOS: an experimental card whose ATmega1284 is meant to make an Apple II–style picture, not a TMS9918A's. Its firmware doesn't exist yet. Never built.",
+  "source": "Owner, 2026-11-15"
+ }
+]

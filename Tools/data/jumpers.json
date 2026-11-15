@@ -666,7 +666,7 @@
   ],
   "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
   "shipped": "No shunt.",
-  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the VGA Card Pro.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and the builder writes its firmware.",
   "need": "To run",
   "shunts": 1
  },
@@ -822,7 +822,7 @@
   ],
   "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
   "shipped": "No shunt.",
-  "do": "Fit the shunt beside `$9C00`: IO 8, where the BIOS looks for the Video Card Pro.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and its firmware doesn't exist yet.",
   "need": "To run",
   "shunts": 1
  },

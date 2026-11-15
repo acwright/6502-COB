@@ -41,6 +41,7 @@ cached in `Tools/work/cache.json`, keyed by the bytes of every file they depend 
 | `revision-audit/` | `audit.py` checks every revision against the family's standard, including the IC silk rule (KICAD.md K36: on a revision not yet made, a through-hole IC shows its value and a surface-mount IC hides it; designators and values sit centred at the footprint's short ends) and the reference size (K37: 1.0 mm, 0.15 mm stroke); `register.py` writes `REVISIONS.md`; `labels.py` gives each revision its label; `newrev.py` starts a new revision; `gproof.py` compares two revisions' Gerbers (`--no-fill` without the pours' fills); `jumper.py` sets a solder jumper's default as made (bridged or open) on a revision not yet made; `cadcheck.py` checks the top panels fit their boards. |
 | `jumpers/` | Writes the README's *Jumpers* section, and checks every jumper on every revision is in it. |
 | `offboard/` | Writes the README's *Off-board headers* section from the newest PCBs. |
+| `bios/` | Writes the README's *Works with the stock BIOS* section from `Tools/data/bios.json` (KICAD.md K34), and checks every revision has an entry. `gen.py --all --out PATH` writes the family's chart. |
 | `schematic/` | Draws and checks the 6502 bus, cart and card connectors (`busfix.py`, `check.py`), and sets each global label's shape from the signal's flow (`flow.py`). |
 | `library/` | Checks the KiCad libraries are the same in all five repositories, and renames parts across them. |
 | `board-images/` | Renders the board images in `CAD/Images/`. |
@@ -60,6 +61,7 @@ repositories:
 | `assignment.json` | Which catalogue part each reference on each revision is. |
 | `jumpers.json` | What each jumper is for, how it's shipped and what to do with it. |
 | `offboard.json` | Exceptions to the off-board header rules. |
+| `bios.json` | Whether each revision works with the stock BIOS: its category, a one-line reason and the reason's source. |
 | `rendered.json` | What each PCB looked like when its images were rendered. |
 | `tindie.json` | Stock on each board's Tindie listing, as last read. |
 | `cardedge.json` | Newest revisions that don't meet the card edge standard yet, and the item that fixes each. Only in the repositories with cards or carts. |
