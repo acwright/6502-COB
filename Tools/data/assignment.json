@@ -951,7 +951,7 @@
  "COB|Storage Card Pro|1.1|C24": "100nF|C_0402_1005Metric",
  "COB|Storage Card Pro|1.1|C25": "cap-10uf-0805-samsung",
  "COB|Storage Card Pro|1.1|C26": "100nF|C_0805_2012Metric",
- "COB|Storage Card Pro|1.1|D1": "led-0805-green",
+ "COB|Storage Card Pro|1.1|D1": "led-0805-red",
  "COB|Storage Card Pro|1.1|D2": "led-0805-green",
  "COB|Storage Card Pro|1.1|J1": "jst-xh-2",
  "COB|Storage Card Pro|1.1|J4": "SD Socket|SD Card Socket Push-Push",

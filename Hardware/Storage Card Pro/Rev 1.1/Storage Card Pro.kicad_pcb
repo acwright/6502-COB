@@ -20581,7 +20581,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C2297"
+		(property "LCSC" "C2295"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20594,7 +20594,7 @@
 				)
 			)
 		)
-		(property "Digikey" "160-1414-1-ND"
+		(property "Digikey" "160-1415-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20607,7 +20607,7 @@
 				)
 			)
 		)
-		(property "Mouser" "859-LTST-C170KGKT"
+		(property "Mouser" "859-LTST-C170KRKT"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
