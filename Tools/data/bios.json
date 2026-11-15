@@ -342,7 +342,7 @@
    "1.0"
   ],
   "category": "after a step",
-  "reason": "Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`).",
+  "reason": "Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). For BIOS 2.x, the build note also has an optional wire from the `A1` finger to the pico9918's `MODE1`.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`; BOM.md build notes"
  },
  {

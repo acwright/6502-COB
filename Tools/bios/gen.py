@@ -21,8 +21,8 @@ BIOS={'ACE':'2.x'};BIOS.update({r:'1.x' for r in ALL if r!='ACE'})
 MACHINE={'ACE':'the ACE','COB':'the COB','DEV':'the DEV','KIM':'the KIM','VCS':'the VCS'}
 PRO='a PICO9918 PRO running 6502-PICOVDP, set up as the [ACE\'s video card](https://github.com/acwright/6502-ACE#video-card) is'
 TWO={'ACE':'',
-     'COB':f'A COB can also run BIOS 2.x with a VGA Card 1.1 carrying {PRO}. Today\'s COBs, built with a VGA Card 1.0 or a Video Card, stay on BIOS 1.x. ',
-     'VCS':f'A VCS can also run BIOS 2.x with an Output Board 1.1 carrying {PRO}. Today\'s VCSs, built with an Output Board 1.0, stay on BIOS 1.x. ',
+     'COB':f'A COB can also run BIOS 2.x with a VGA Card 1.1, or a VGA Card 1.0 with the optional wire in its build note, carrying {PRO}. Today\'s COBs, built with a VGA Card 1.0 or a Video Card, stay on BIOS 1.x. ',
+     'VCS':f'A VCS can also run BIOS 2.x with an Output Board 1.1, or an Output Board 1.0 with the optional wire in its build note, carrying {PRO}. Today\'s VCSs, built with an Output Board 1.0, stay on BIOS 1.x. ',
      'KIM':'The KIM also runs BIOS 2.x: it has no video card, and the KC Monitor calls only Kernal routines (`InitSC`, `KernalInit`) that sit at the same addresses in both. ',
      'DEV':'The DEV can\'t run BIOS 2.x yet: its DB Emulator firmware is written for BIOS 1.x. '}
 CATS={'out of the box':'Out of the box','after a step':'After a step','not used':'Not used by the BIOS',
