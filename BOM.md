@@ -231,6 +231,8 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** fit an ARMSID at U1, as the parts list says; the silkscreen says `6581`. Leave J2, the `VDD` header, empty: it is only for a real SID's supply, and the ARMSID needs nothing there. Rev 1.1 changes the silkscreen, to `ARMSID` and `SID VDD`, and the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. Rev 1.1 also adds a second RCA jack, J4, on the same signal as J3, so a Rev 1.0 feeds a stereo amplifier through a Y cable.
 
+**Building a Rev 1.1:** **J3 (AUDIO L) and J4 (AUDIO R), the two RCA jacks, are wired together:** both carry the SID's one output, the same signal, so a stereo amplifier's two inputs each get the sound. Either jack alone gives all of it, so a builder can fit just one and leave the other off to save its cost; each jack's parts-list row is the whole of that part.
+
 **Storage Card**
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
