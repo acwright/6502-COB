@@ -147,15 +147,35 @@ How to build each board, where it needs more than its parts list.
 
 **Clock Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
+
+**Clock Helper**
+
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 38 × 38 mm apart where a Rev 1.0's are 39 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/Clock Helper/Rev 1.0/` and `CAD/Tops/Clock Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. Rev 1.1's silkscreen changes need nothing.
+
+**DB25 Helper**
+
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/DB25 Helper/Rev 1.0/` and `CAD/Tops/DB25 Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. Rev 1.1's silkscreen changes need nothing.
 
 **GPIO Breadboard Helper**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the outline, which is 0.17 mm wider and has true 5 mm corners; a Rev 1.0 is used the same way.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the outline, which is 0.17 mm wider and has true 5 mm corners, and the silkscreen; a Rev 1.0 is used the same way.
 
 **GPIO Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
+
+**GPIO Helper**
+
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 moves the four corner mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/GPIO Helper/Rev 1.0/` and `CAD/Tops/GPIO Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. The fifth hole, H5, moves 0.07 mm, which makes no difference to a screw. Rev 1.1's silkscreen changes need nothing.
+
+**Joystick Helper**
+
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 38 × 38 mm apart where a Rev 1.0's are 39 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/Rev 1.0/` and `CAD/Tops/Joystick Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. Rev 1.1's silkscreen says `JOYSTICK` at J2, where a Rev 1.0's says `DB9 MALE`: it is the same connector.
+
+**Keyboard Encoder Helper**
+
+**Building a Rev 1.0:** fit the parts in Rev 1.0's parts list; the board needs nothing else. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/Rev 1.0/` and `CAD/Tops/Keyboard Encoder Helper/Rev 1.0/`. The COB's base plate is drilled for Rev 1.1, so a Rev 1.0 on it needs two plate holes drilled wider: see [CAD](README.md#cad). Rev 1.1's silkscreen says `ATmega1284` at U1, where a Rev 1.0's says `ATmega1284-P`: fit the ATmega1284 the parts list orders on either. C2 and C3 are 22 pF on both revisions.
 
 **Keyboard Helper**
 
@@ -163,7 +183,7 @@ How to build each board, where it needs more than its parts list.
 
 **LCD Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. Both revisions ship JP1 bridged for the W65C22N.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot. Both revisions ship JP1 bridged for the W65C22N.
 
 **Mega Helper**
 
@@ -173,11 +193,15 @@ How to build each board, where it needs more than its parts list.
 
 **Memory Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do at 1 MHz, the AC6502's standard clock. Rev 1.1 makes U5, the gate that makes the RAM's and ROM's `RB` and `WB`, a 74HCT00 in place of the 74HC00, because a 74HC00 lot there let an Alliance AS6C62256 misread at 2 MHz on the ACE. A Rev 1.0 is built with the 74HC00 in its parts list, the part it was tested with. A builder who runs the COB faster, at their own risk, can fit a 74HCT00 (SN74HCT00DR) at U5 instead: it is the same footprint, and harmless at 1 MHz. Rev 1.1's other changes need nothing on a built board: its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot, and its silkscreen.
 
 **Prototype Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
+
+**PS2 Helper**
+
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 stands R2–R9 upright in a tidier layout, with the same parts and values, and drops their `R2-R9` silkscreen label. It also moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/Rev 1.0/` and `CAD/Tops/PS2 Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. C4 and C5 are 22 pF on both revisions.
 
 **RAM Card**
 
@@ -195,9 +219,25 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. It also drops JP2 and JP3 and wires `PHI2` to U3 the way they ship, so leave a Rev 1.0's as shipped.
 
+**Serial Card**
+
+**Building a Rev 1.0:** fit an R6551AP at U3, as the parts list says; the silkscreen says `6551`. Rev 1.1 changes the silkscreen, to `R6551AP` at U3 and `SERIAL (DCE)` at J2, the family's name for a serial port, and the card edge, which has no solder mask on its tab. A Rev 1.0's masked edge works in the slot, and its J2 is the same connector.
+
+**Serial Card Pro**
+
+**Building a Rev 1.0:** fit an R6551AP at U4, as the parts list says; the silkscreen says `6551`. Rev 1.1's changes need nothing on a built board. J2 uses KiCad's standard DB-9 footprint in place of Rev 1.0's own, with its pads in the same places to within 0.02 mm, so the same connector fits both revisions; on Rev 1.1 its mounting lugs join `GND`, where a Rev 1.0's join nothing. Its silkscreen says `SERIAL (DTE)` and `R6551AP`, where a Rev 1.0's says `DB9 Male (DTE)` and `6551`, and its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot.
+
+**Sound Card**
+
+**Building a Rev 1.0:** fit an ARMSID at U1, as the parts list says; the silkscreen says `6581`. Leave J2, the `VDD` header, empty: it is only for a real SID's supply, and the ARMSID needs nothing there. Rev 1.1 changes the silkscreen, to `ARMSID` and `SID VDD`, and the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+
 **Storage Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes only the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
+
+**Storage Card Pro**
+
+**Building a Rev 1.0:** Rev 1.1 can't be reached from a Rev 1.0. Rev 1.1 is a new design: an RP2350A answers the bus as the Storage Card's CompactFlash card does, so the stock BIOS uses its SD card and built-in drive with no change. A Rev 1.0 has an ATmega328P, a TXS0108E and an external SPI header, none of which Rev 1.1 keeps, and no pads for Rev 1.1's parts. A Rev 1.0 stays the experimental card it was made as: the stock BIOS has no driver for it, so your own software drives it, through the [STP Controller](README.md#stp-controller) firmware. For an SD card the stock BIOS uses, make a Rev 1.1.
 
 **VERA Helper**
 
@@ -207,7 +247,13 @@ How to build each board, where it needs more than its parts list.
 
 **Building a Rev 1.0: cut JP1.** The pico9918 drives its `/INT` (U1 pin 16) high as well as low. D1 is meant to let it only pull `IRQB` (or `NMIB`, through J2) low, but JP1, a solder jumper bridged on the board as made, shorts across D1. With JP1 bridged, the pico9918 holds `IRQB` high against every other interrupt source, and the keyboard and serial input stop working. Cut the trace between JP1's pads, and check with a meter that they no longer connect. The COB Video Card's JP7 is a different case: a real TMS9918A's `/INT` is open-drain, so it doesn't matter whether JP7 is open or bridged.
 
-Rev 1.1's bare card edge, with no mask on its tab, needs nothing on a built board: a Rev 1.0's masked edge works in the slot. Leave JP2 and JP3 as shipped: Rev 1.1 drops them and is wired the way they ship.
+Leave JP2 and JP3 as shipped: Rev 1.1 drops them and is wired the way they ship.
+
+Two of Rev 1.1's changes can't be made on a Rev 1.0:
+- **The pico9918 faces the other way.** On a Rev 1.0, U1's pin 1 faces away from the VGA adapter that comes with the pico9918, so the flat cable (FFC) between them leaves the left side of the pico9918, runs under the card, twists, and reaches the adapter. Use a cable long enough for that route. Rev 1.1 turns U1 round so a shorter cable runs straight to the jack, and moves the two mounting holes to suit the adapter. On a Rev 1.0 the adapter mounts on its own two holes.
+- **`A1` doesn't reach the pico9918's `MODE1`.** On Rev 1.1, `A1` reaches U1 pin 11 (`MODE1`), as on the ACE, which opens the pico9918's extended register ports. A Rev 1.0's U1 pin 11 connects to nothing, and nothing on the card carries `A1`: the card edge's `A1` finger has no track to wire from. A Rev 1.0 has the pico9918's two standard ports only; for the extended ports, make a Rev 1.1.
+
+Rev 1.1's other changes need nothing on a built board: its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot; D1 is a BAT85 on both revisions, Rev 1.1 only naming it in its value; and U1's socket outline is silkscreen, so the same 40-pin sockets fit a Rev 1.0's holes.
 
 **Video Card**
 

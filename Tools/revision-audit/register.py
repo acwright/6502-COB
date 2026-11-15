@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Write REVISIONS.md, and the README's "Which revision to make" section, in each AC6502 KiCad repo from audit.json,
 orders.json and the saved Tindie listings. The labels (KICAD.md K15, K16) come from labels.py.
-Usage: audit.py && register.py [--all]        register.py --check exits 1 if any of those files is out of date."""
+It also checks that every revision is explained (KICAD.md K29): each revision has a History entry in REVISIONS.md, and
+each made revision that a newer one supersedes has a "Building a Rev X" note under its board in BOM.md's build notes
+("Building a board made as Rev X" for boards whose revision's design was replaced). It can't judge the wording.
+Usage: audit.py && register.py [--all]        register.py --check exits 1 if any of those files is out of date,
+or if a revision isn't explained."""
 import json,os,re,glob,hashlib,collections,sys
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)));import labels
 CHECK='--check' in sys.argv;STALE=[]
@@ -81,7 +85,39 @@ def write_readme(repo):
     if new!=t0:
         if CHECK: STALE.append(f'{repo} README "Which revision to make"')
         else: open(p,'w',encoding='utf8').write(new)
+def revkey(r):
+    m=re.match(r'(\d+)\.(\d+)([a-z]?)$',r);return (int(m[1]),int(m[2]),m[3])
+def unexplained(repo):
+    """KICAD.md K29: what's missing from the History in REVISIONS.md and the build notes in BOM.md."""
+    d=f'{BASE}6502-{repo}/';bad=[];revs=collections.defaultdict(list)
+    for x in R:
+        if x['repo']==repo: revs[x['board']].append(x['rev'])
+    bom=open(d+'BOM.md',encoding='utf8').read()
+    bs,be='<!-- Build notes: hand-written.','<!-- End of build notes. -->'
+    notes=bom[bom.index(bs):bom.index(be)] if bs in bom and be in bom else ''
+    hist=open(d+'REVISIONS.md',encoding='utf8').read();hist=hist[hist.find('<!-- History: hand-written.'):]
+    def section(text,start_re,boards):
+        """The text under one board's heading, up to the next board's heading."""
+        heads=[(m.start(),m.end(),m[1]) for m in re.finditer(start_re,text,re.M) if m[1] in boards]
+        return {b:text[e:(heads[i+1][0] if i+1<len(heads) else len(text))] for i,(s,e,b) in enumerate(heads)}
+    nsec=section(notes,r'^\*\*(.+?)\*\*$',revs);hsec=section(hist,r'^### (.+)$',revs)
+    made=lambda k:k in O['made'] or k in O['ordered'] or k in O.get('made_unchecked',{})
+    for b,rs in sorted(revs.items()):
+        rs=sorted(rs,key=revkey);h=hsec.get(b)
+        if h is None: bad.append(f'{repo} {b}: no History section ("### {b}") in REVISIONS.md')
+        for i,r in enumerate(rs):
+            k=f'{repo}|{b}|{r}'
+            if h is not None:
+                m=re.search(r'^(?:\*\*Rev '+re.escape(r)+r'\*\*|#### Rev '+re.escape(r)+r')[^\n]*\n(.*?)(?=^\*\*Rev \d|^#### Rev \d|\Z)',h,re.S|re.M)
+                if not m or not m[1].strip(): bad.append(f'{repo} {b} Rev {r}: no History entry in REVISIONS.md')
+            if made(k) and any(revkey(n)[:2]>revkey(r)[:2] for n in rs) and not re.search(r'\*\*Building an? Rev '+re.escape(r)+r'\b',nsec.get(b,'')):
+                bad.append(f'{repo} {b} Rev {r}: made, and a newer revision supersedes it, but BOM.md has no "Building a Rev {r}" note under **{b}**')
+            if k in O.get('replaced',{}) and not re.search(r'\*\*Building a board made as Rev '+re.escape(r)+r'\b',nsec.get(b,'')):
+                bad.append(f'{repo} {b} Rev {r}: boards made as Rev {r} were replaced, but BOM.md has no "Building a board made as Rev {r}" note under **{b}**')
+    return bad
+UNEXPLAINED=[]
 for repo in SCOPE:
+    UNEXPLAINED+=unexplained(repo)
     os.chdir(BASE+'6502-'+repo);rows=[];cnt=collections.Counter()
     out=INTRO+'| Board | Rev | Status | Label | Order | Ordered | Made from | Tindie stock | Size (mm) | Holes | Top panel | Enclosure | Notes |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n'
     for x in sorted([r for r in R if r['repo']==repo],key=lambda r:(r['board'],r['rev'])):
@@ -116,6 +152,8 @@ for repo in SCOPE:
         else: open('REVISIONS.md','w',encoding='utf8').write(out)
     write_readme(repo)
     if not CHECK: print(repo,dict(cnt))
+for x in UNEXPLAINED: print(x,'(KICAD.md K29)')
 if CHECK:
     for x in STALE: print(x,'is out of date: run Tools/revision-audit/register.py')
-    sys.exit(1 if STALE else 0)
+    sys.exit(1 if STALE or UNEXPLAINED else 0)
+sys.exit(1 if UNEXPLAINED else 0)

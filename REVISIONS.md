@@ -159,7 +159,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Adds `C1`–`C4`, 100nF decoupling capacitors, one beside each chip, with tracks rerouted to reach them. Rev 1.0 has no pads for them.
+- Adds `C1`–`C4`, 100nF decoupling capacitors, one beside each chip, with tracks rerouted to reach them. Every other chip in the family has one: it supplies the current the chip draws as its outputs switch, so the switching doesn't disturb the supply the other chips share. Rev 1.0 has no pads for them.
 - The silkscreen spells out `RESB`. Rev 1.0's says `RSB`.
 - The `RESB`, `IRQB` and `NMIB` LEDs (D25–D27) are driven from inverters, as the `RDY` and `BE` LEDs already are, and light while their line is low. On Rev 1.0 they hang straight on those lines through R25–R27, so whatever pulls a line low also sinks about 9 mA of LED current, nearly three times the 3.2 mA that a W65C22's or W65C21's IRQ output is rated for. Each line now carries only a CMOS input.
 - Every inverter is a 74HC3G04 (U3, U5 and U6), three inverters in an 8-pin TSSOP. Rev 1.0 has one 74HC04 (U3), and all six of its gates are in use, two each for the `RDY` and `BE` LEDs and for the delayed `PHI2` that latches U4. The nine gates are those six, as before, and one each for the three new LED drivers. The smaller packages fit where a second 74HC04 couldn't. C5 and C6 decouple U5 and U6.
@@ -189,7 +189,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Clock Helper/` and `CAD/Tops/Clock Helper/`.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Clock Helper/` and `CAD/Tops/Clock Helper/`.
 
 **Rev 1.0**
 
@@ -211,9 +211,9 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Pull-up resistors changed from 1kΩ to 10kΩ.
-- Some tracks are rerouted.
-- The silkscreen labels U1 `65C02` and J3 `EXP`, and adds a `6502` label. It drops Rev 1.0's "Jumper J2 for original 6502" note.
+- Pull-up resistors R1–R6 changed from 1kΩ to 10kΩ. With a 1kΩ pull-up, a device that pulls `IRQB` low sinks 5 mA, more than the 3.2 mA that the W65C22's and W65C21's IRQ outputs are rated for; every CPU board in the family uses 10kΩ.
+- Some tracks are rerouted, as a tidy-up: no part moved, and the circuit is Rev 1.0's.
+- The silkscreen labels U1 `65C02`, the part fitted, and J3 `EXP`, the bus pins it joins, and adds a `6502` label. It drops Rev 1.0's "Jumper J2 for original 6502" note: J2 stays, and the README's *Jumpers* table says what it is for.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.1 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**
@@ -231,7 +231,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/DB25 Helper/` and `CAD/Tops/DB25 Helper/`.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/DB25 Helper/` and `CAD/Tops/DB25 Helper/`.
 - The project's name is `DB25 Helper`. The order's Gerbers carry its old name, `GPIO DB25 Helper`.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
@@ -266,7 +266,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/GPIO Helper/` and `CAD/Tops/GPIO Helper/`.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/GPIO Helper/` and `CAD/Tops/GPIO Helper/`.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, the four corner holes sat 0.071 mm too near the top edge and 0.021 mm too near the left edge, and each moved by that much to sit exactly 6 mm from its two edges. The fifth hole, `H5`, moved 0.07 mm to sit exactly 19 mm from the left edge and 31.5 mm from the top edge; Rev 1.0 has it at 19.004 mm and 31.43 mm, which makes no difference to a screw in a plate hole. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
@@ -277,8 +277,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap the courtyard of J2, the DB9 connector. That has been reviewed and is fine, so the project excludes it from DRC.
-- The silkscreen says `JOYSTICK` at `J2`. Rev 1.0's says `DB9 MALE`.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 39 × 39 mm to 38 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Joystick Helper/` and `CAD/Tops/Joystick Helper/`. The holes' courtyards now overlap the courtyard of J2, the DB9 connector. That has been reviewed and is fine, so the project excludes it from DRC.
+- The silkscreen says `JOYSTICK` at `J2`, what the connector is for, where Rev 1.0's says `DB9 MALE`, what it is (owner, 2026-11-06).
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.084 mm too near the left edge, and each moved by that much to sit exactly 6 mm from its two edges. The DRC exclusions for the holes' courtyards over `J2` are recorded again at the holes' new places. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
 **Rev 1.0**
@@ -289,8 +289,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
-- The silkscreen says `ATmega1284` at `U1`. Rev 1.0's says `ATmega1284-P`.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
+- The silkscreen says `ATmega1284` at `U1`, the part the parts list orders (ATMEGA1284-PU). Rev 1.0's says `ATmega1284-P`.
 - `C2` and `C3`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
@@ -366,9 +366,9 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the resistors `R2`–`R9` and reroutes the tracks around them.
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
-- Drops the `R2-R9` silkscreen label.
+- Stands the resistors `R2`–`R9` upright and moves them, with the tracks around them rerouted, for a tidier layout. The parts, their values and the circuit are Rev 1.0's.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
+- Drops the `R2-R9` silkscreen label, which the new layout has no place for; each resistor keeps its own reference.
 - `C4` and `C5`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
@@ -406,7 +406,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- The silkscreen says `SERIAL (DCE)` at J2 and `R6551AP` at U3. Rev 1.0's says `DB9 FEMALE (DCE)` and `6551`. Nothing else changed: the tracks, pads and holes are Rev 1.0's.
+- The silkscreen says `SERIAL (DCE)` at J2, the family's name for a serial port with its role, and `R6551AP` at U3, the ACIA the parts list orders and every serial port is tested with. Rev 1.0's says `DB9 FEMALE (DCE)` and `6551`. Nothing else changed: the tracks, pads and holes are Rev 1.0's.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**
@@ -417,8 +417,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- `J2` uses KiCad's standard DB-9 footprint, in a new position, in place of Rev 1.0's own. Its pin spacing and mounting lugs are the same, so the same connector fits both revisions.
-- The silkscreen says `SERIAL (DTE)` and `R6551AP`. Rev 1.0's says `DB9 Male (DTE)` and `6551`.
+- `J2` uses KiCad's standard DB-9 footprint in place of Rev 1.0's own, so the board uses the library's standard part rather than a home-made one. The footprint's origin and rotation differ, but its pads sit where Rev 1.0's do, to within 0.02 mm, so the same connector fits both revisions. Its mounting lugs join `GND`, where Rev 1.0's join nothing.
+- The silkscreen says `SERIAL (DTE)`, the family's name for a serial port with its role, and `R6551AP`, the ACIA the parts list orders and every serial port is tested with. Rev 1.0's says `DB9 Male (DTE)` and `6551`.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**
@@ -463,7 +463,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- Moves the four mounting holes (`H1`–`H4`) to the standard position, 6 mm from each edge. The spacing goes from 88 × 69 mm to 88 × 68 mm.
+- Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its holes follow the same rule as the other boards'. Rev 1.0's were off the standard, at 5.32 to 6.25 mm from the edges. The spacing goes from 88 × 69 mm to 88 × 68 mm.
 - `C1` and `C2` use the 2.5 mm capacitor footprint in place of Rev 1.0's 5 mm one, matching the family's other through-hole boards. Pad 1 of each stays where it was.
 - `JP1` and `JP3` are removed. They chose whether `PHI2` or the supply drives E2, an enable of U2, the 74HC138 that makes the card's read and write strobes. With `PHI2` there, as Rev 1.0 ships, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.1 wires `PHI2` straight to E2. JP3's copper strip is a short track now, and JP1 goes with its feed from the supply.
 - `JP2` is open as made, so D1 stays in the VERA module's interrupt line. The VERA drives its interrupt high as well as low, so with JP2 bridged, as on Rev 1.0, and a shunt on J5, it holds `IRQB` (or `NMIB`) high against every other interrupt source. D1 lets it only pull the line low.
@@ -477,11 +477,11 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- `A1` reaches U1 pin 11, the pico9918's `MODE1`, as on the ACE Rev 1.1. A PICO9918 PRO takes it through a header pin soldered into its `MDE1` pad.
-- JP1 is open as made, so the pico9918's `/INT` reaches `IRQB` (or `NMIB`, through J2) only through D1.
-- D1 is named in its value field: a BAT85, cathode toward the pico9918.
-- U1, the pico9918, is turned around, and the board's outline around its VGA jack changes. The two mounting holes move, and the tracks are rerouted to suit.
-- U1 uses a socket footprint (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
+- `A1` reaches U1 pin 11, the pico9918's `MODE1`, as on the ACE. With `MODE1` on `A1`, the pico9918 answers on its extended register ports as well as its two standard ones. A PICO9918 PRO takes it through a header pin soldered into its `MDE1` pad. On Rev 1.0, pin 11 connects to nothing and no track carries `A1`.
+- JP1 is open as made, so the pico9918's `/INT` reaches `IRQB` (or `NMIB`, through J2) only through D1. The pico9918 drives `/INT` high as well as low, and with JP1 bridged, as on Rev 1.0, it holds `IRQB` high against every other interrupt source.
+- D1 is named in its value field: a BAT85, cathode toward the pico9918, so the schematic says which diode to fit. Rev 1.0's parts list orders the same BAT85.
+- U1, the pico9918, is turned around. On Rev 1.0 its pin 1 faces the wrong way, so the flat cable (FFC) to the VGA adapter that comes with the pico9918 has to leave its left side, run under the card, twist, and come back to the adapter. Turned round, a shorter cable runs straight to the jack with no twist. The outline around the VGA jack changes, the two mounting holes move to fit the VGA adapter better, and the tracks are rerouted to suit.
+- U1 uses a socket footprint (`Socket_LongPads`) in place of Rev 1.0's `LongPads`, so the silkscreen shows the sockets the pico9918 sits in. The holes are the same.
 - `JP2` and `JP3` are removed. They chose whether `PHI2` or the supply drives E2, an enable of U3, the 74HC138 that makes the card's read and write strobes. With `PHI2` there, as Rev 1.0 ships, the strobes last only while `PHI2` is high, when the 6502's address and data are valid; tied high, they would run through the whole cycle and glitch while the address settles. So Rev 1.1 wires `PHI2` straight to E2. JP3's copper strip is a short track now, and JP2 goes with its feed from the supply.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. Only the notch for the VGA jack stays as it was, where the jack needs it. The ground pours are refilled to suit.
 
@@ -503,11 +503,11 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain.
-- U1 and U7 use socket footprints (`Socket_LongPads`) in place of Rev 1.0's `LongPads`.
+- `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain. Rev 1.1 follows the family's interrupt rule (`KICAD.md` K24b): a board whose interrupt source is open-drain ships its diode's jumper bridged, so the card works as shipped even without D1.
+- U1 and U7 use socket footprints (`Socket_LongPads`) in place of Rev 1.0's `LongPads`, so the silkscreen shows the sockets they sit in, as every socketed chip in the family has. The holes are the same.
 - `JP1`–`JP6` are removed. They were for testing the first cards: JP1 and JP2 chose whether `PHI2` or VCC enables U4, and JP3–JP6 chose whether the column latch, U6, is clocked by `/CAS` through one of U8's inverters or three. The tested cards run as Rev 1.0 ships them, so Rev 1.1 is wired that way, with nothing for a builder to set: `PHI2` goes straight to U4's enable, and `/CAS` reaches U6 through three inverters. The three jumpers that shipped bridged are short tracks now; the open ones' stubs, and a via that served only JP5, are gone.
-- Adds the OSHW and A.C. Wright logos to the silkscreen.
-- The silkscreen labels `J4` as `VIDEO`. Rev 1.0's says `Video Out`.
+- Adds the OSHW and A.C. Wright logos to the silkscreen, which the family's other boards carry.
+- The silkscreen labels `J4` as `VIDEO`, in capitals like the family's other connector labels. Rev 1.0's says `Video Out`.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**
