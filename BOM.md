@@ -73,7 +73,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
+| [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: made, and not tested yet: the BIOS has no driver for it |
 | [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -229,7 +229,7 @@ How to build each board, where it needs more than its parts list.
 
 **Sound Card**
 
-**Building a Rev 1.0:** fit an ARMSID at U1, as the parts list says; the silkscreen says `6581`. Leave J2, the `VDD` header, empty: it is only for a real SID's supply, and the ARMSID needs nothing there. Rev 1.1 changes the silkscreen, to `ARMSID` and `SID VDD`, and the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** fit an ARMSID at U1, as the parts list says; the silkscreen says `6581`. Leave J2, the `VDD` header, empty: it is only for a real SID's supply, and the ARMSID needs nothing there. Rev 1.1 changes the silkscreen, to `ARMSID` and `SID VDD`, and the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. Rev 1.1 also adds a second RCA jack, J4, on the same signal as J3, so a Rev 1.0 feeds a stereo amplifier through a Y cable.
 
 **Storage Card**
 
@@ -1412,7 +1412,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Sound Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: silkscreen text and the bare card edge.
+Drawn, not made yet. **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE.
 
 Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Sound%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Sound%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Sound%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1422,7 +1422,8 @@ Cart files: [digikey.csv](BOM/Sound%20Card/Rev%201.1/digikey.csv), [mouser.csv](
 | C3, C5 | 2 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
 | C4 | 1 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
 | J2 | 1 | SID VDD | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
-| J3 | 1 | AUDIO | Switchcraft Inc. PJRAN1X1U02X | [PJRAN1X1U02X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U02X-ND) | [502-PJRAN1X1U02X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U02X) |  | |
+| J3 | 1 | AUDIO L | Switchcraft Inc. PJRAN1X1U02X | [PJRAN1X1U02X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U02X-ND) | [502-PJRAN1X1U02X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U02X) |  | |
+| J4 | 1 | AUDIO R | Switchcraft Inc. PJRAN1X1U03X | [PJRAN1X1U03X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U03X-ND) | [502-PJRAN1X1U03X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U03X) |  | |
 | J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | R1 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
 | U1 | 1 | ARMSID | Retrocomp ARMSID |  |  | [Retrocomp](https://retrocomp.cz/produkt?id=2) | |

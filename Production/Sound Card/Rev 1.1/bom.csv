@@ -3,7 +3,8 @@
 "C3, C5",0805,2,100nF,C49678
 C4,0805,1,1uF,C28323
 J2,JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,1,SID VDD,
-J3,RCA Jack White,1,AUDIO,
+J3,RCA Jack White,1,AUDIO L,
+J4,RCA Jack White,1,AUDIO R,
 J5,PinHeader_2x08_P2.54mm_Vertical,1,Conn_02x08_Odd_Even,
 R1,0805,1,1k,C17513
 U1,DIP-28_W15.24mm_Socket_LongPads,1,ARMSID,

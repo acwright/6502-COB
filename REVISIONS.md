@@ -70,7 +70,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Serial Card Pro | 1.0 | Made, matches order | **Tested** | Y36 | 2024-05-20 | `ffafeba` | 4 | 100×57.62 | — | — | — |  |
 | Serial Card Pro | 1.1 | Drawn | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Sound Card | 1.0 | Made, matches order | **Tested** | Y84 | 2026-01-13 | `3b4c7bb` | 4 | 100×57.62 | — | — | — |  |
-| Sound Card | 1.1 | Drawn | **Proven design**: silkscreen text and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
+| Sound Card | 1.1 | Drawn | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |  |  |  | — | 100×57.62 | — | — | — | 2 unconnected |
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
@@ -429,6 +429,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
+- A second RCA jack, J4 (`AUDIO R`, a red Switchcraft PJRAN1X1U03X), beside J3, now `AUDIO L` (white, PJRAN1X1U02X), as on the ACE and the VCS Output Board 1.1, so a stereo amplifier's two inputs each get the SID's sound (owner, 2026-11-15). Both carry the same signal: `AUDIO_OUT`, from C4. Like J3, J4 has the signal on its tip and ground on its sleeve, which is right: Switchcraft's drawing for the PJRAN1X1U jacks puts the sleeve, ground, on the centred slot nearest the board edge (pad 1 of the `RCA Jack White` footprint) and the tip, the signal, on the two holes behind it (pads 2, the tip and its shunt). Placed below J3 on the card's edge and waiting for the owner to place and route it.
 - The silkscreen says `ARMSID` at U1 and `SID VDD` at J2. Rev 1.0's says `6581` and `VDD`. Every tested build uses an ARMSID, and J2 is only for a real SID's supply, so the labels now say so. J2 stays: the COB is the experimenter's machine. Nothing else changed: the tracks, pads and holes are Rev 1.0's.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 

@@ -915,6 +915,7 @@
  "COB|Serial Card|1.1|C6": "100nF|C_0805_2012Metric",
  "COB|Serial Card|1.1|J4": "pinheader-1x03-2.54-vertical",
  "COB|Sound Card|1.1|J3": "jack-pjran1x1u02x",
+ "COB|Sound Card|1.1|J4": "jack-pjran1x1u03x",
  "COB|Sound Card|1.1|J5": "pinheader-2x08-2.54-vertical",
  "COB|Sound Card|1.1|U2": "74HC138|SOIC-16_3.9x9.9mm_P1.27mm",
  "COB|Sound Card|1.1|C5": "100nF|C_0805_2012Metric",
