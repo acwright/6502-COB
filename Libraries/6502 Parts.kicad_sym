@@ -12792,7 +12792,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(symbol "microSD Socket"
+	(symbol "SD Card Socket"
 		(pin_names
 			(offset 1.016)
 		)
@@ -12808,7 +12808,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "10067847-001RLF"
+		(property "Value" "SD Card Socket"
 			(at -7.62 -27.94 0)
 			(effects
 				(font
@@ -12817,7 +12817,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "10067847-001RLF:AMPHENOL_10067847-001RLF"
+		(property "Footprint" "6502 Parts:SD Card Socket"
 			(at 0 0 0)
 			(effects
 				(font
@@ -12836,7 +12836,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Full-size SD card socket, push-push, with card-detect (CD) and write-protect (WP) switches and two ground tabs (G1, G2)"
 			(at 0 0 0)
 			(effects
 				(font
@@ -12845,7 +12845,7 @@
 				(hide yes)
 			)
 		)
-		(symbol "microSD Socket_0_0"
+		(symbol "SD Card Socket_0_0"
 			(rectangle
 				(start -7.62 -25.4)
 				(end 7.62 17.78)

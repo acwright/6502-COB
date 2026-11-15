@@ -68,8 +68,8 @@ PARTS = [
     (r'74xx:74HC245', r'A\d', '245-A'), (r'74xx:74HC245', r'B\d', '245-B'),   # by DIR: one way when it's tied
     (r'6502 Parts:(LCD-16X2|Adafruit 2.8 TFT LCD)', r'CS|C/D|RD|WR|E|RS|R/W|RST|~\{.*\}', 'rcv'),   # display control
     (r'6502 Parts:(LCD-16X2|Adafruit 2.8 TFT LCD)', r'D\d|DB\d', 'fw'),   # written only, or read too: the drawing says
-    (r'6502 Parts:microSD Socket', r'DAT0|CD|WP', 'drv'),        # SPI mode: DAT0 is MISO; CD, WP are switches
-    (r'6502 Parts:microSD Socket', r'CMD|CLK|DAT3/CD|DAT\d', 'rcv'),
+    (r'6502 Parts:SD Card Socket', r'DAT0|CD|WP', 'drv'),        # SPI mode: DAT0 is MISO; CD, WP are switches
+    (r'6502 Parts:SD Card Socket', r'CMD|CLK|DAT3/CD|DAT\d', 'rcv'),
     (r'Memory_Flash:W25Q\w+', r'DO/.*', 'drv'),
     (r'Memory_Flash:W25Q\w+', r'DI/.*|CLK|~\{CS\}', 'rcv'),
     (r'Logic_LevelTranslator:TXS0108\w*', r'[AB]\d', 'fw'),   # either way electrically; the drawing gives the flow

@@ -11,19 +11,15 @@
 		(company "A.C. Wright Design")
 	)
 	(lib_symbols
-		(symbol "6502 Parts:microSD Socket"
+		(symbol "6502 Parts:SD Card Socket"
 			(pin_names
 				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J"
 				(at -7.62 19.05 0)
-				(show_name no)
-				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -31,10 +27,8 @@
 					(justify left bottom)
 				)
 			)
-			(property "Value" "10067847-001RLF"
+			(property "Value" "SD Card Socket"
 				(at -7.62 -27.94 0)
-				(show_name no)
-				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -42,41 +36,35 @@
 					(justify left bottom)
 				)
 			)
-			(property "Footprint" "10067847-001RLF:AMPHENOL_10067847-001RLF"
+			(property "Footprint" "6502 Parts:SD Card Socket"
 				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 					(justify bottom)
+					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Full-size SD card socket, push-push, with card-detect (CD) and write-protect (WP) switches and two ground tabs (G1, G2)"
 				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(symbol "microSD Socket_0_0"
+			(symbol "SD Card Socket_0_0"
 				(rectangle
 					(start -7.62 -25.4)
 					(end 7.62 17.78)
@@ -86,60 +74,6 @@
 					)
 					(fill
 						(type background)
-					)
-				)
-				(pin bidirectional line
-					(at -12.7 -10.16 0)
-					(length 5.08)
-					(name "DAT3/CD"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -12.7 0 0)
-					(length 5.08)
-					(name "CMD"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -12.7 -15.24 0)
-					(length 5.08)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
 					)
 				)
 				(pin power_in line
@@ -153,6 +87,42 @@
 						)
 					)
 					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 10.16 0)
+					(length 5.08)
+					(name "WP"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "WP"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 7.62 0)
+					(length 5.08)
+					(name "CD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "CD"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -178,17 +148,17 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at -12.7 -17.78 0)
+				(pin bidirectional line
+					(at -12.7 0 0)
 					(length 5.08)
-					(name "VSS__1"
+					(name "CMD"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "6"
+					(number "2"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -250,17 +220,53 @@
 						)
 					)
 				)
-				(pin input line
-					(at -12.7 7.62 0)
+				(pin bidirectional line
+					(at -12.7 -10.16 0)
 					(length 5.08)
-					(name "CD"
+					(name "DAT3/CD"
 						(effects
 							(font
 								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "CD"
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -12.7 -15.24 0)
+					(length 5.08)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -12.7 -17.78 0)
+					(length 5.08)
+					(name "VSS__1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -297,24 +303,6 @@
 						)
 					)
 					(number "G2"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -12.7 10.16 0)
-					(length 5.08)
-					(name "WP"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "WP"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -10788,7 +10776,7 @@
 		)
 	)
 	(symbol
-		(lib_id "6502 Parts:microSD Socket")
+		(lib_id "6502 Parts:SD Card Socket")
 		(at 241.3 130.81 0)
 		(unit 1)
 		(body_style 1)
@@ -10821,7 +10809,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "6502 Parts:microSD Socket"
+		(property "Footprint" "6502 Parts:SD Card Socket"
 			(at 241.3 130.81 0)
 			(hide yes)
 			(show_name no)

@@ -1,7 +1,8 @@
 {
  "_why": "Library parts are named for what they are and their geometry, not a manufacturer part number (owner, 2026-11-05).",
  "footprints": {
-  "10067847-001RLF": "microSD Socket",
+  "10067847-001RLF": "SD Card Socket",
+  "microSD Socket": "SD Card Socket",
   "101DTAABR01": "CompactFlash Socket",
   "SD-SMD_CFH-L3C1LBL01MN0": "CompactFlash Socket Plated Pegs",
   "3386F-1-103LF": "Trimmer 3386F",
@@ -31,7 +32,8 @@
  ],
  "models": {
   "0702461201.step": "6502 GPIO Connector.step",
-  "10067847-001RLF.step": "microSD Socket.step",
+  "10067847-001RLF.step": "SD Card Socket.step",
+  "microSD Socket.step": "SD Card Socket.step",
   "101D-TAAB-R01.step": "CompactFlash Socket.step",
   "CFH-L3C1-1.step": "CompactFlash Socket Plated Pegs.step",
   "228-1277-00-0602J.step": "ZIF Socket 28.step",
@@ -63,7 +65,8 @@
   "PJRAN1X1U02X": "RCA Jack White",
   "PJRAN1X1U04X": "RCA Jack Yellow",
   "BAT-HLD-001-THM": "CR2032 Holder",
-  "10067847-001RLF": "microSD Socket",
+  "10067847-001RLF": "SD Card Socket",
+  "microSD Socket": "SD Card Socket",
   "6502CARDEDGE": "6502 Card Edge",
   "BREADBOARDMINI": "Breadboard Mini"
  },

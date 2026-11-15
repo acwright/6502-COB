@@ -6,7 +6,7 @@ import re,os,sys,json,glob,math,subprocess,tempfile,zipfile,io,shutil,collection
 sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))));import common;from common import K,SCOPE,files,load,save
 BASE=K;REPOS=['6502-'+r for r in SCOPE]
 KC='/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
-HOLD5={'ACE Board','ACE CF Adapter','Keyboard Helper'}
+HOLD5={'ACE Board','ACE CF Adapter','ACE SD Adapter','Keyboard Helper'}
 # Cards and carts have no corner holes: what's near a corner is a connector's lug or a cart standoff.
 NO_CORNERS={'Flash Cart','ROM Cart'}
 # Revisions whose holes are old on purpose, because they are the boards that were made. Each has a Rev 1.1 at standard.
