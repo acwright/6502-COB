@@ -220,7 +220,7 @@ Each revision carries one of three labels:
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
-| Storage Card Pro | 1.1 | **Untested** | Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested. |
+| Storage Card Pro | 1.1 | **Untested** | Redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed. |
 | VGA Card Pro | 1.1 | **Untested** | Never made. |
@@ -548,7 +548,7 @@ It needs Node.js and KiCad's `kicad-cli`, which it finds on the `PATH`, at the m
 ## Libraries
 `Libraries/`
 
-Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects, with their 3D models in `Models/`. A part is named for what it is and its shape, such as `RJ45 Jack LED` or `CR2032 Holder`, never for a manufacturer's part number, so a replacement part with the same footprint fits without renaming anything. The part numbers to buy are in [BOM.md](BOM.md). Every AC6502 repository carries the same copy of each part.
+Shared KiCad symbol and footprint libraries used across all AC6502 hardware projects, with their 3D models in `Models/`. A part is named for what it is and its shape, such as `RJ45 Jack LED` or `CR2032 Holder`, never for a manufacturer's part number, so a replacement part with the same footprint fits without renaming anything. The part numbers to buy are in [BOM.md](BOM.md). Every AC6502 repository carries the same copy of each part. The RP2350A and polarized inductor models come from Raspberry Pi's RP2350 minimal design, under the MIT licence in `Models/Raspberry Pi MIT License.txt`.
 
 ## Bill of Materials
 

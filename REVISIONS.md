@@ -74,7 +74,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
-| Storage Card Pro | 1.1 | Drawn | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |  |  |  | — | 100×57.62 | — | — | — |  |
+| Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 244 unconnected |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
@@ -452,7 +452,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- C5 and C6 stay 22 pF as on Rev 1.0, the value the family's made boards were built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way. No Storage Card Pro has been tested yet, at either revision.
+- Redesigned (K33, 2026-11-15): the stock BIOS sees an SD card in this card as the Storage Card's CompactFlash card at `$8C00`, with no BIOS change. An RP2350A answers the eight CompactFlash registers through a 74LVC4245A (data, at 5 V on the bus) and a 74LVC541 (controls), with a full-size SD socket and a 16 MB built-in drive (W25Q128JVFIQ) that answers when no card is in. The circuit is the ACE SD Adapter 1.1's, part for part. The card adds the Storage Card's front end: the 74HC138 and the window jumper over A10–A15, a 74HCT00 making `RB` and `WB` from `PHI2` and `RWB`, and the off-board ACT header. Rev 1.0's ATmega328P, TXS0108E, external SPI header and 16 MHz crystal are gone. Drawn; the parts are not yet placed or routed.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0**

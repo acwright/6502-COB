@@ -75,7 +75,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Storage Card Pro](#storage-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: made, and not tested yet: the BIOS has no driver for it |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -1417,32 +1417,59 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested.
+Drawn, not made yet. **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
 | Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
 |---|---|---|---|---|---|---|---|
-| C1–C4, C7, C8 | 6 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| C5, C6 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  | |
+| C1–C4, C7, C8, C26 | 7 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| C5, C6 | 2 | 15pF | YAGEO CC0402JRNPO9BN150 | [311-1017-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1017-1-ND) | [603-CC402JRNPO9BN150](https://www.mouser.com/ProductDetail/603-CC402JRNPO9BN150) | LCSC [C1548](https://www.lcsc.com/search?q=C1548) | Yes |
 | C9, C10 | 2 | 1uF | YAGEO CC0805KKX7R8BB105 | [311-1456-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1456-1-ND) | [603-CC805KKX7R8BB105](https://www.mouser.com/ProductDetail/603-CC805KKX7R8BB105) | LCSC [C28323](https://www.lcsc.com/search?q=C28323) | Yes |
+| C11–C13 | 3 | 4.7uF | YAGEO CC0402MRX5R5BB475 | [311-1730-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1730-1-ND) | [603-CC402MRX5R5BB475](https://www.mouser.com/ProductDetail/603-CC402MRX5R5BB475) | LCSC [C23733](https://www.lcsc.com/search?q=C23733) | Yes |
+| C14–C24 | 11 | 100nF | YAGEO CC0402KRX7R7BB104 | [311-1338-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1338-1-ND) | [603-CC402KRX7R7BB104](https://www.mouser.com/ProductDetail/603-CC402KRX7R7BB104) | LCSC [C1525](https://www.lcsc.com/search?q=C1525) | Yes |
+| C25 | 1 | 10uF | Samsung Electro-Mechanics CL21A106KAYNNNE | [1276-CL21A106KAYNNNECT-ND](https://www.digikey.com/en/products/filter?keywords=1276-CL21A106KAYNNNECT-ND) | [187-CL21A106KAYNNNE](https://www.mouser.com/ProductDetail/187-CL21A106KAYNNNE) | LCSC [C15850](https://www.lcsc.com/search?q=C15850) | Yes |
 | D1 | 1 | ACT | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
+| D2 | 1 | SD | Lite-On Inc. LTST-C170KGKT | [160-1414-1-ND](https://www.digikey.com/en/products/filter?keywords=160-1414-1-ND) | [859-LTST-C170KGKT](https://www.mouser.com/ProductDetail/859-LTST-C170KGKT) | LCSC [C2297](https://www.lcsc.com/search?q=C2297) | Yes |
 | J1 | 1 | ACT LED | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  | |
-| J3 | 1 | SPI | Adam Tech PH1RB-06-UA | [2057-PH1RB-06-UA-ND](https://www.digikey.com/en/products/filter?keywords=2057-PH1RB-06-UA-ND) | [737-PH1RB-06-UA](https://www.mouser.com/ProductDetail/737-PH1RB-06-UA) |  | |
-| J4 | 1 | SD CARD | Amphenol 10067847-001RLF | [609-3956-1-ND](https://www.digikey.com/en/products/filter?keywords=609-3956-1-ND) | [649-10067847-001RLF](https://www.mouser.com/ProductDetail/649-10067847-001RLF) | LCSC [C569097](https://www.lcsc.com/search?q=C569097) | Yes |
+| J4 | 1 | SD Socket | XUNPU SD-106M |  |  | LCSC [C266603](https://www.lcsc.com/search?q=C266603) | Yes |
 | J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
-| R1, R2 | 2 | 330 | YAGEO RC0805FR-07330RL | [311-330CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-330CRCT-ND) | [603-RC0805FR-07330RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07330RL) | LCSC [C17630](https://www.lcsc.com/search?q=C17630) | Yes |
-| R3, R4 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
-| U1 | 1 | TXS0108EPW | Texas Instruments TXS0108EPWR | [296-23011-1-ND](https://www.digikey.com/en/products/filter?keywords=296-23011-1-ND) | [595-TXS0108EPWR](https://www.mouser.com/ProductDetail/595-TXS0108EPWR) | LCSC [C17206](https://www.lcsc.com/search?q=C17206) | Yes |
-| U2 | 1 | ATmega328 | Microchip Technology ATMEGA328P-PU | [ATMEGA328P-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA328P-PU-ND) | [556-ATMEGA328P-PU](https://www.mouser.com/ProductDetail/556-ATMEGA328P-PU) |  | |
-| U3 | 1 | W25Q128JVS | Winbond Electronics W25Q128JVSIQ | [W25Q128JVSIQ-ND](https://www.digikey.com/en/products/filter?keywords=W25Q128JVSIQ-ND) | [454-W25Q128JVSIQ](https://www.mouser.com/ProductDetail/454-W25Q128JVSIQ) | LCSC [C97521](https://www.lcsc.com/search?q=C97521) | Yes |
+| J6 | 1 | USB-C | G-Switch GT-USB-7010ASV |  |  | LCSC [C2988369](https://www.lcsc.com/search?q=C2988369) | Yes |
+| L1 | 1 | 3.3uH | Abracon LLC AOTA-B201610S3R3-101-T | [535-AOTA-B201610S3R3-101-TCT-ND](https://www.digikey.com/en/products/filter?keywords=535-AOTA-B201610S3R3-101-TCT-ND) | [815-AB201610S3R3101T](https://www.mouser.com/ProductDetail/815-AB201610S3R3101T) | LCSC [C42411119](https://www.lcsc.com/search?q=C42411119) | Yes |
+| R1, R2, R5 | 3 | 330 | YAGEO RC0805FR-07330RL | [311-330CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-330CRCT-ND) | [603-RC0805FR-07330RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07330RL) | LCSC [C17630](https://www.lcsc.com/search?q=C17630) | Yes |
+| R4, R21, R23–R27 | 7 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
+| R6 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| R7 | 1 | 1k | YAGEO RC0402FR-071KL | [311-1.00KLRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KLRCT-ND) | [603-RC0402FR-071KL](https://www.mouser.com/ProductDetail/603-RC0402FR-071KL) | LCSC [C11702](https://www.lcsc.com/search?q=C11702) | Yes |
+| R8, R9 | 2 | 27 | YAGEO RC0402FR-0727RL | [YAG3086CT-ND](https://www.digikey.com/en/products/filter?keywords=YAG3086CT-ND) | [603-RC0402FR-0727RL](https://www.mouser.com/ProductDetail/603-RC0402FR-0727RL) | LCSC [C138021](https://www.lcsc.com/search?q=C138021) | Yes |
+| R10, R11 | 2 | 5.1k | YAGEO RC0805FR-075K1L | [311-5.10KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-5.10KCRCT-ND) | [603-RC0805FR-075K1L](https://www.mouser.com/ProductDetail/603-RC0805FR-075K1L) | LCSC [C27834](https://www.lcsc.com/search?q=C27834) | Yes |
+| R12 | 1 | 33 | YAGEO RC0402FR-0733RL | [311-33.0LRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-33.0LRCT-ND) | [603-RC0402FR-0733RL](https://www.mouser.com/ProductDetail/603-RC0402FR-0733RL) | LCSC [C25105](https://www.lcsc.com/search?q=C25105) | Yes |
+| R13–R20 | 8 | 4.7k | YAGEO RC0805FR-074K7L | [311-4.70KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-4.70KCRCT-ND) | [603-RC0805FR-074K7L](https://www.mouser.com/ProductDetail/603-RC0805FR-074K7L) | LCSC [C17673](https://www.lcsc.com/search?q=C17673) | Yes |
+| R22 | 1 | 10k | YAGEO RC0402FR-0710KL | [311-10.0KLRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KLRCT-ND) | [603-RC0402FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0402FR-0710KL) | LCSC [C25744](https://www.lcsc.com/search?q=C25744) | Yes |
+| SW1 | 1 | BOOTSEL | TS-1187A-B-A-B |  |  | LCSC [C318884](https://www.lcsc.com/search?q=C318884) | |
+| U1 | 1 | 74LVC4245A | Texas Instruments SN74LVC4245APWR | [296-12183-1-ND](https://www.digikey.com/en/products/filter?keywords=296-12183-1-ND) | [595-SN74LVC4245APWR](https://www.mouser.com/ProductDetail/595-SN74LVC4245APWR) | LCSC [C7859](https://www.lcsc.com/search?q=C7859) | Yes |
+| U2 | 1 | RP2350A | Raspberry Pi SC1509-A4 | [2648-SC1509-A4CT-ND](https://www.digikey.com/en/products/filter?keywords=2648-SC1509-A4CT-ND) | [358-SC1509](https://www.mouser.com/ProductDetail/358-SC1509) | LCSC [C42411118](https://www.lcsc.com/search?q=C42411118) | Yes |
+| U3 | 1 | W25Q128JVFIQ | Winbond Electronics W25Q128JVFIQ | [W25Q128JVFIQ-ND](https://www.digikey.com/en/products/filter?keywords=W25Q128JVFIQ-ND) | [454-W25Q128JVFIQ](https://www.mouser.com/ProductDetail/454-W25Q128JVFIQ) | LCSC [C2456298](https://www.lcsc.com/search?q=C2456298) | Yes |
 | U4 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
-| U5 | 1 | LP2985-3.3 | Texas Instruments LP2985-33DBVR | [296-18476-1-ND](https://www.digikey.com/en/products/filter?keywords=296-18476-1-ND) | [595-LP2985-33DBVR](https://www.mouser.com/ProductDetail/595-LP2985-33DBVR) | LCSC [C95414](https://www.lcsc.com/search?q=C95414) | Yes |
-| Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  | |
-| U2 | 1 | Socket | IC socket, 28-pin, 0.3 in | [3M5480-ND](https://www.digikey.com/en/products/filter?keywords=3M5480-ND) | [517-4828-3004-CP](https://www.mouser.com/ProductDetail/517-4828-3004-CP) | | |
+| U5 | 1 | AP2112K-3.3 | Diodes Incorporated AP2112K-3.3TRG1 | [AP2112K-3.3TRG1DICT-ND](https://www.digikey.com/en/products/filter?keywords=AP2112K-3.3TRG1DICT-ND) | [621-AP2112K-3.3TRG1](https://www.mouser.com/ProductDetail/621-AP2112K-3.3TRG1) | LCSC [C51118](https://www.lcsc.com/search?q=C51118) | Yes |
+| U6 | 1 | 74LVC541 | Nexperia USA Inc. 74LVC541APW,118 | [1727-6370-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-6370-1-ND) | [771-74LVC541APW-T](https://www.mouser.com/ProductDetail/771-74LVC541APW-T) | LCSC [C113281](https://www.lcsc.com/search?q=C113281) | Yes |
+| U7 | 1 | W25Q128JVS | Winbond Electronics W25Q128JVSIQ | [W25Q128JVSIQ-ND](https://www.digikey.com/en/products/filter?keywords=W25Q128JVSIQ-ND) | [454-W25Q128JVSIQ](https://www.mouser.com/ProductDetail/454-W25Q128JVSIQ) | LCSC [C97521](https://www.lcsc.com/search?q=C97521) | Yes |
+| U8 | 1 | 74HCT00 | Texas Instruments SN74HCT00DR | [296-14860-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14860-1-ND) | [595-SN74HCT00DR](https://www.mouser.com/ProductDetail/595-SN74HCT00DR) | LCSC [C6764](https://www.lcsc.com/search?q=C6764) | Yes |
+| Y1 | 1 | 12MHz | Abracon LLC ABM8-272-T3 | [535-ABM8-272-T3CT-ND](https://www.digikey.com/en/products/filter?keywords=535-ABM8-272-T3CT-ND) | [815-ABM8-272-T3](https://www.mouser.com/ProductDetail/815-ABM8-272-T3) | LCSC [C20625731](https://www.lcsc.com/search?q=C20625731) | Yes |
 | J5 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
+
+- **C5, C6:** The 12 MHz crystal's load capacitors, as in Raspberry Pi's design.
+- **C11–C13:** The RP2350A's regulator capacitors, 0402 as in Raspberry Pi's design: X5R, 6.3 V, on 3.3 V and 1.1 V rails.
+- **C25:** Samsung, not YAGEO, on the boards JLCPCB assembles: LCSC has no YAGEO 10 µF 0805 in stock, and C15850 is one of JLCPCB's basic parts.
+- **J4:** Full-size SD, push-push, with card-detect and write-protect switches. LCSC only: the SD Adapter is assembled by JLCPCB, and LCSC stocks this part in thousands where it stocks the Hirose DM1AA in hundreds at eight times the price.
+- **J6:** What LCSC C2988369 is. The footprint is HRO TYPE-C-31-M-12, and JLCPCB placed this part on the made boards.
+- **L1:** The RP2350A's regulator inductor. Do not substitute: Raspberry Pi had it made with a polarity dot, and it must be fitted the right way round (the dot to 1V1, pad 1). LCSC holds few.
+- **U2:** RP2350A, sold under its reel number SC1509.
+- **U3:** The built-in drive (16 MB). Digi-Key and Mouser have none in stock today (36-week lead); LCSC does. Any 16-pin 300 mil W25Q with a /RESET pin fits the same footprint, up to the 128 MB W25Q01JVSFIQ (Digi-Key 256-W25Q01JVSFIQ-ND, Mouser 454-W25Q01JVSFIQ, stocked at both); the firmware fits the disks to the size it finds and mirrors the rest.
+- **U6:** LCSC C113281 is TI's SN74LVC541APWR, the same part. Digi-Key has none of either in stock today; Mouser has.
+- **U8:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
+- **Y1:** The RP2350A's crystal, the one Raspberry Pi's design specifies.
 
 ### Storage Card Pro Rev 1.0
 

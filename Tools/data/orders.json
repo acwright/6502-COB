@@ -340,7 +340,7 @@
   ],
   "COB|Storage Card Pro|1.1": [
    "Untested",
-   "Silkscreen text and the bare card edge, but Rev 1.0 hasn't been tested"
+   "Redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed"
   ],
   "COB|Storage Card|1.1": [
    "Proven design",
