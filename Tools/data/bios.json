@@ -352,8 +352,8 @@
    "1.1"
   ],
   "category": "out of the box",
-  "reason": "The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open.",
-  "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`"
+  "reason": "The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is **Untested**.",
+  "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`; BIOS 2.x `Kernal.asm` `ProbeVideo`"
  },
  {
   "repo": "COB",
