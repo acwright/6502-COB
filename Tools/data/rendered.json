@@ -58,7 +58,6 @@
  "COB|VERA Helper|1.1": "9c054f697ef632a43caf444812832a2f6840af04",
  "COB|VGA Card|1.0": "8ce99703c10f9ce84a4fa1fb27b7e358877d3a8a",
  "COB|VGA Card|1.1": "e2b1b74971ce85fcfafbf6ee75e51a39b31a2abb",
- "COB|Video Card Pro|1.1": "3a12ccf408bd0f5e499db7c00f69e6b3738346e9",
  "COB|Video Card|1.0": "41e74bfec1167cf57c29bcfe881ea334920afec4",
  "COB|Video Card|1.1": "cc5b63745f191b555e8d7a76017292937fc6b076",
  "_about": "What each revision's PCB looked like when its images were rendered. Tools/board-images/render.py writes it, and derived-check.py compares."

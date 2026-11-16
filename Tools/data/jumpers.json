@@ -750,50 +750,5 @@
   "do": "Leave it. The TMS9918A's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP7 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
- },
- {
-  "repo": "COB",
-  "board": "Video Card Pro",
-  "revs": [
-   "1.1"
-  ],
-  "refs": [
-   "J5"
-  ],
-  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
-  "shipped": "No shunt.",
-  "do": "Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and its firmware doesn't exist yet.",
-  "need": "To run",
-  "shunts": 1
- },
- {
-  "repo": "COB",
-  "board": "Video Card Pro",
-  "revs": [
-   "1.1"
-  ],
-  "refs": [
-   "J3"
-  ],
-  "what": "Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`.",
-  "shipped": "No shunt.",
-  "do": "Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither.",
-  "need": "For interrupts",
-  "shunts": 1
- },
- {
-  "repo": "COB",
-  "board": "Video Card Pro",
-  "revs": [
-   "1.1"
-  ],
-  "refs": [
-   "JP1"
-  ],
-  "what": "Across D1, the diode in the ATmega1284's interrupt line.",
-  "shipped": "Open.",
-  "do": "Leave it open. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts.",
-  "need": null,
-  "shunts": 0
  }
 ]

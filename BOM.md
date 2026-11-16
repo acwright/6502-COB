@@ -82,7 +82,6 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |
-| [Video Card Pro](#video-card-pro) | 1.1 | Rev 1.1 | Never made | **Untested**: never made |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |
 
@@ -1685,43 +1684,6 @@ Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.0/digikey.csv), [mouser.csv](BO
 | U1 | 1 | Pico9918A | Pico9918A, DIP-40_W15.24mm |  |  | [Tindie](https://www.tindie.com/products/visrealm/pico9918-pro/) | |
 | U2, U3 | 2 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | J2, J3 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
-
-Pin headers are cut from strips, and the cart files count whole strips.
-
-- **D1:** A 1N914 also works.
-
-
-## Video Card Pro
-
-### Video Card Pro Rev 1.1
-
-Never made. **Untested**: never made.
-
-Cart files: [digikey.csv](BOM/Video%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Video%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Video%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
-
-| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
-|---|---|---|---|---|---|---|---|
-| C1, C2 | 2 | 22pF | KYOCERA AVX SR151A220JAR | [478-4846-ND](https://www.digikey.com/en/products/filter?keywords=478-4846-ND) | [581-SR151A220JAR](https://www.mouser.com/ProductDetail/581-SR151A220JAR) |  | |
-| C3–C10 | 8 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
-| D1 | 1 | BAT85 | Vishay BAT85S-TR | [BAT85SCT-ND](https://www.digikey.com/en/products/filter?keywords=BAT85SCT-ND) | [78-BAT85S](https://www.mouser.com/ProductDetail/78-BAT85S) |  | |
-| FB1 | 1 | BLM41PG600SN1L | Murata Electronics BLM41PG600SN1L | [490-1058-1-ND](https://www.digikey.com/en/products/filter?keywords=490-1058-1-ND) | [81-BLM41P600S](https://www.mouser.com/ProductDetail/81-BLM41P600S) | LCSC [C85844](https://www.lcsc.com/search?q=C85844) | Yes |
-| J1 | 1 | VIDEO | Switchcraft Inc. PJRAN1X1U04X | [PJRAN1X1U04X-ND](https://www.digikey.com/en/products/filter?keywords=PJRAN1X1U04X-ND) | [502-PJRAN1X1U04X](https://www.mouser.com/ProductDetail/502-PJRAN1X1U04X) |  | |
-| J2 | 1 | SERIAL | Pin header 1×4, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
-| J3 | 1 | INT Select | Pin header 1×3, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
-| J5 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
-| Q1 | 1 | 2N4401 | onsemi 2N4401BU | [2N4401-ND](https://www.digikey.com/en/products/filter?keywords=2N4401-ND) | [512-2N4401BU](https://www.mouser.com/ProductDetail/512-2N4401BU) |  | |
-| R1, R2 | 2 | 4.7k | YAGEO MFR-12FTF52-4K7 | [13-MFR-12FTF52-4K7CT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-4K7CT-ND) | [603-MFR-12FTF52-4K7](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-4K7) |  | |
-| R3 | 1 | 470 | YAGEO RC0805FR-07470RL | [311-470CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-470CRCT-ND) | [603-RC0805FR-07470RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07470RL) | LCSC [C17710](https://www.lcsc.com/search?q=C17710) | Yes |
-| R4 | 1 | 75 | YAGEO RC0805FR-0775RL | [311-75.0CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-75.0CRCT-ND) | [603-RC0805FR-0775RL](https://www.mouser.com/ProductDetail/603-RC0805FR-0775RL) | LCSC [C17820](https://www.lcsc.com/search?q=C17820) | Yes |
-| R5 | 1 | 1k | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  | |
-| U1, U4 | 2 | 74HC157 | Texas Instruments SN74HC157DR | [296-14836-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14836-1-ND) | [595-SN74HC157DR](https://www.mouser.com/ProductDetail/595-SN74HC157DR) | LCSC [C6823](https://www.lcsc.com/search?q=C6823) | Yes |
-| U2, U5 | 2 | 74HC166 | Texas Instruments SN74HC166DR | [296-14839-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14839-1-ND) | [595-SN74HC166DR](https://www.mouser.com/ProductDetail/595-SN74HC166DR) | LCSC [C473363](https://www.lcsc.com/search?q=C473363) | Yes |
-| U3 | 1 | ATmega1284 | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  | |
-| U6 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
-| VR1, VR2 | 2 | 10k | Bourns Inc. 3386F-1-103LF | [3386F-103LF-ND](https://www.digikey.com/en/products/filter?keywords=3386F-103LF-ND) | [652-3386F-1-103LF](https://www.mouser.com/ProductDetail/652-3386F-1-103LF) |  | |
-| Y1 | 1 | 14.31818 MHz | ECS Inc. ECS-143-20-4X | [X1081-ND](https://www.digikey.com/en/products/filter?keywords=X1081-ND) | [520-HCU143-20-4X](https://www.mouser.com/ProductDetail/520-HCU143-20-4X) |  | |
-| U3 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | | |
-| J3, J5 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 

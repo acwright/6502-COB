@@ -185,8 +185,7 @@
   "COB|Video Card|1.1"
  ],
  "never": [
-  "COB|CPU Card Pro|1.1",
-  "COB|Video Card Pro|1.1"
+  "COB|CPU Card Pro|1.1"
  ],
  "ordered": {},
  "made_unchecked": {},
@@ -352,10 +351,6 @@
   "COB|VGA Card|1.1": [
    "Untested",
    "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed"
-  ],
-  "COB|Video Card Pro|1.1": [
-   "Untested",
-   "Never made"
   ],
   "COB|Video Card|1.1": [
    "Proven design",

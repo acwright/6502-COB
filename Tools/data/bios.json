@@ -365,15 +365,5 @@
   "category": "out of the box",
   "reason": "Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`"
- },
- {
-  "repo": "COB",
-  "board": "Video Card Pro",
-  "revs": [
-   "1.1"
-  ],
-  "category": "not used",
-  "reason": "Not compatible with the BIOS: an experimental card whose ATmega1284 is meant to make an Apple II–style picture, not a TMS9918A's. Its firmware doesn't exist yet. Never built.",
-  "source": "Owner, 2026-11-15"
  }
 ]

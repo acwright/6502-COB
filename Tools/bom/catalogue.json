@@ -258,7 +258,7 @@
  "14.31818 MHz|Crystal_HC49-U_Vertical": {
   "id": "14.31818 MHz|Crystal_HC49-U_Vertical",
   "desc": "14.31818 MHz, Crystal_HC49-U_Vertical",
-  "uses": 1,
+  "uses": 0,
   "mpn": "ECS-143-20-4X",
   "mfr": "ECS Inc.",
   "digikey": "X1081-ND",
@@ -690,7 +690,7 @@
  "4.7k|axial": {
   "id": "4.7k|axial",
   "desc": "4.7k, axial",
-  "uses": 2,
+  "uses": 0,
   "mpn": "MFR-12FTF52-4K7",
   "mfr": "YAGEO",
   "digikey": "13-MFR-12FTF52-4K7CT-ND",
@@ -1090,7 +1090,7 @@
  "74HC157|SOIC-16_3.9x9.9mm_P1.27mm": {
   "id": "74HC157|SOIC-16_3.9x9.9mm_P1.27mm",
   "desc": "74HC157, SOIC-16_3.9x9.9mm_P1.27mm",
-  "uses": 2,
+  "uses": 0,
   "mpn": "SN74HC157DR",
   "mfr": "Texas Instruments",
   "digikey": "296-14836-1-ND",
@@ -1122,7 +1122,7 @@
  "74HC166|SOIC-16_3.9x9.9mm_P1.27mm": {
   "id": "74HC166|SOIC-16_3.9x9.9mm_P1.27mm",
   "desc": "74HC166, SOIC-16_3.9x9.9mm_P1.27mm",
-  "uses": 2,
+  "uses": 0,
   "mpn": "SN74HC166DR",
   "mfr": "Texas Instruments",
   "digikey": "296-14839-1-ND",

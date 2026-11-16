@@ -81,7 +81,6 @@ Every revision of every board in this repository, and what is known about each. 
 | VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |  |  |  | — | 100×57.62 | — | — | — |  |
 | Video Card | 1.0 | Made, matches order | **Tested** | Y53 | 2024-07-09 | `f890f21` | 2 | 100×57.62 | — | — | — |  |
 | Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
-| Video Card Pro | 1.1 | Never made | **Untested**: never made |  |  |  | — | 100×57.62 | — | — | — |  |
 
 JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, matches order* was compared byte for byte with JLCPCB's copy, and its PCB regenerated to the same copper, mask, outline and holes. Each time this table is written, every PCB is checked again against its production zip, for copper and drill holes. Tindie stock is from the listings as saved on 2026-10-23.
 
@@ -90,6 +89,8 @@ JLCPCB's orders were checked on 2026-11-04: each production zip marked *Made, ma
 ## History
 
 What changed in each revision of each board, newest first. The table above has the facts about each one.
+
+**The Video Card Pro retired, 2026-11-16.** The Video Card Pro is gone from this repository too (owner, 2026-11-16). It was drawn, like the VGA Card Pro, as a possible VDP before the family settled on the pico9918, and was never made. Its video circuit follows the [Amethyst](https://github.com/74hc595/Amethyst), an ATmega1284 home computer whose own program makes the picture through two 74HC157s and two 74HC166s, but its bus interface was new: the ATmega1284 sat straight on the 6502 bus with no latch, and the Amethyst's video code leaves it no time to answer a bus cycle while it draws a line. No firmware was written. Don't build it. Its last files are in git at commit `6bbc0238`.
 
 **The VGA Card Pro retired, 2026-11-16.** The VGA Card Pro is gone from this repository (owner, 2026-11-16). It was an experimental VGA card, a Raspberry Pi Pico with firmware the builder writes, designed as a possible VDP for the COB before the pico9918 became the family's. No firmware was ever written for it, and the stock BIOS never used it. Neither revision is a sound design. Rev 1.0 was made as the "VGA Card" (order Y24, 2024-04-03, its silkscreen says `6502 VGA CARD`), built and never tried: its TXS0108E level shifters are unsuited to the 6502 bus, as they were on the DEV Board. Rev 1.1, a redesign never made, gives the Pico no read strobe, so the card can't answer reads, and feeds the Pico through `VBUS`, which ties its USB port to the machine's 5 V. Don't build either. Its last files, both revisions complete and Rev 1.0 proven against JLCPCB's order, are in git at commit `b2d30214`. Today's [VGA Card](#vga-card) is the pico9918 card, a different board.
 
@@ -507,11 +508,3 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.0**
 
 - Initial release, and the board on sale. `Hardware/Video Card/Rev 1.0/` and `Production/Video Card/Rev 1.0/` match the boards JLCPCB made (order Y53). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
-
-### Video Card Pro
-
-**Rev 1.1**
-
-- Drawn, and never ordered. It was drawn as Rev 1.0, and renumbered 1.1 on 2026-11-14, so the family's boards end as one set of Rev 1.1s (owner, 2026-11-13). Nothing but the number changed: its files moved from `Rev 1.0` to `Rev 1.1`, and its title blocks and silkscreen say Rev 1.1.
-- The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from its outline as first drawn, and no track, pad or hole moved. The ground pours are refilled to suit.
-- `JP1` is open as made, where it was first drawn bridged, so D1 stays in the interrupt line. The ATmega1284's pin can drive its interrupt high as well as low, whatever its firmware does; D1 lets it only pull `IRQB` low.
