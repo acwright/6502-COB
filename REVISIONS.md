@@ -74,7 +74,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
-| Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 244 unconnected |
+| Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 182 unconnected; DRC errors: starved_thermal 4 |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
