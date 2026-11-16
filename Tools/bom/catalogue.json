@@ -3554,5 +3554,21 @@
   "note": "Full-size SD, push-push, with card-detect and write-protect switches. LCSC only: the SD Adapter is assembled by JLCPCB, and LCSC stocks this part in thousands where it stocks the Hirose DM1AA in hundreds at eight times the price.",
   "review": null,
   "jameco": null
+ },
+ "4.7k|R_0402_1005Metric": {
+  "id": "4.7k|R_0402_1005Metric",
+  "desc": "4.7k, R_0402_1005Metric",
+  "uses": 8,
+  "mpn": "AC0402FR-074K7L",
+  "mfr": "YAGEO",
+  "digikey": "YAG3497CT-ND",
+  "digikey_stock": 1019719,
+  "mouser": "603-AC0402FR-074K7L",
+  "mouser_stock": 1773976,
+  "lcsc": "C25900",
+  "other": null,
+  "note": "The ACE SD Adapter's data-line pulls, 0402 for room round the RP2350A. Yageo's AC series: RC0402FR-074K7L has no Digi-Key stock (2026-11-16).",
+  "review": null,
+  "jameco": null
  }
 }
