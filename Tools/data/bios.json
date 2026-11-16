@@ -357,17 +357,6 @@
  },
  {
   "repo": "COB",
-  "board": "VGA Card Pro",
-  "revs": [
-   "1.0",
-   "1.1"
-  ],
-  "category": "not used",
-  "reason": "Not compatible with the BIOS: an experimental card whose Raspberry Pi Pico runs VDP firmware the builder writes, so nothing answers the BIOS's TMS9918A probe. Rev 1.0 was built and never tried; Rev 1.1 was never built.",
-  "source": "Owner, 2026-11-15 and 2026-11-16"
- },
- {
-  "repo": "COB",
   "board": "Video Card",
   "revs": [
    "1.0",

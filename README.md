@@ -135,8 +135,6 @@ that reason.
 
 **`Hardware/VGA Card/`** — VGA 640×480 video output via Raspberry Pi Pico running [Pico9918](https://github.com/visrealm/pico9918) with TMS9918A-compatible graphics modes.
 
-**`Hardware/VGA Card Pro/`** — Fully programmable VGA output using Pi Pico with custom firmware. *(Untested, experimental: no firmware has been written for it, and the stock BIOS doesn't use it.)* Rev 1.0 was made in 2024 as the VGA Card, the name on its silkscreen, before that name passed to the pico9918 card; it was built and never tried. Rev 1.1 is a redesign, not yet made. See [REVISIONS.md](REVISIONS.md#vga-card-pro).
-
 **`Hardware/Video Card/`** — Composite video output via TMS9918A Video Display Processor with 16KB video RAM.
 
 **`Hardware/Video Card Pro/`** — Enhanced composite video card. *(Never made)*
@@ -224,7 +222,6 @@ Each revision carries one of three labels:
 | Storage Card Pro | 1.1 | **Untested** | Redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed. |
-| VGA Card Pro | 1.1 | **Untested** | Redesigned from Rev 1.0 and never made: 74LVC4245A and 74LVC245 translators in place of two TXS0108Es, read and write strobes from a 74LVC138, and an interrupt that only pulls `IRQB` or `NMIB` low. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
 | Video Card Pro | 1.1 | **Untested** | Never made. |
 <!-- End of which revision to make -->
@@ -274,7 +271,6 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 | VERA Helper | 1.0, 1.1 | **Not used by the BIOS** | The BIOS doesn't look for it: the VERA module isn't a TMS9918A, and the board goes in a window no other card uses. | README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm` `ProbeVideo` |
 | VGA Card | 1.0 | **After a step** | Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). For BIOS 2.x, the build note also has an optional wire from the `A1` finger to the pico9918's `MODE1`. | BIOS 1.x `Kernal.asm` `ProbeVideo`; BOM.md build notes |
 | VGA Card | 1.1 | **Out of the box** | The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is **Untested**. | BIOS 1.x `Kernal.asm` `ProbeVideo`; BIOS 2.x `Kernal.asm` `ProbeVideo` |
-| VGA Card Pro | 1.0, 1.1 | **Not used by the BIOS** | Not compatible with the BIOS: an experimental card whose Raspberry Pi Pico runs VDP firmware the builder writes, so nothing answers the BIOS's TMS9918A probe. Rev 1.0 was built and never tried; Rev 1.1 was never built. | Owner, 2026-11-15 and 2026-11-16 |
 | Video Card | 1.0, 1.1 | **Out of the box** | Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video. | BIOS 1.x `Kernal.asm` `ProbeVideo` |
 | Video Card Pro | 1.1 | **Not used by the BIOS** | Not compatible with the BIOS: an experimental card whose ATmega1284 is meant to make an Apple II–style picture, not a TMS9918A's. Its firmware doesn't exist yet. Never built. | Owner, 2026-11-15 |
 
@@ -525,16 +521,6 @@ Where a header needs a shunt, the board's BOM lists it.
 | 1.0 | JP1 | Across D1, the diode in the pico9918's interrupt line. | Bridged. | Cut JP1. The pico9918 drives its interrupt high as well as low, and only D1 stops it holding `IRQB` high against every other interrupt source. Rev 1.1 ships it open. | For interrupts |
 | 1.0 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 | 1.1 | JP1 | Across D1, the diode in the pico9918's interrupt line. | Open. | Leave it open. The pico9918 drives its interrupt high as well as low, and D1 lets it only pull `IRQB` low. Bridged, JP1 would let it hold the line high against every other interrupt source. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
-
-**VGA Card Pro**
-
-| Rev | Jumper | What it's for | As shipped | What to do | Needed |
-|---|---|---|---|---|---|
-| 1.0 | J1 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and the builder writes its firmware. | To run |
-| 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
-| 1.1 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and the builder writes its firmware. | To run |
-| 1.1 | JP1 | Adds R1, a 1k pull-up, to the 5 V side of the interrupt's level shifter (Q1). | Open. | Leave it open: the CPU board's 10k pull-up on `IRQB` does that job, and two pull-ups would sit in parallel (see *Shared lines*). |  |
-| 1.1 | JP2 | Across D1, the diode in the interrupt line from Q1, the level shifter the Pico drives. | Open. | Leave it open. The Pico drives its side of Q1 high as well as low, and Q1's body diode passes that high to `IRQB` whenever another card pulls the line low. D1 lets the card only pull `IRQB` low. Never bridge it. Fit D1, which the BOM lists: with the jumper open it is the only path to the line, so without it the board never interrupts. |  |
 
 **Video Card**
 

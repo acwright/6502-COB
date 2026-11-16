@@ -1346,7 +1346,7 @@
  "74LVC138|SOIC-16_3.9x9.9mm_P1.27mm": {
   "id": "74LVC138|SOIC-16_3.9x9.9mm_P1.27mm",
   "desc": "74LVC138, SOIC-16_3.9x9.9mm_P1.27mm",
-  "uses": 1,
+  "uses": 0,
   "mpn": "74LVC138AD,118",
   "mfr": "Nexperia USA Inc.",
   "digikey": "1727-3093-1-ND",
@@ -1362,7 +1362,7 @@
  "74LVC245|TSSOP-20_4.4x6.5mm_P0.65mm": {
   "id": "74LVC245|TSSOP-20_4.4x6.5mm_P0.65mm",
   "desc": "74LVC245, TSSOP-20_4.4x6.5mm_P0.65mm",
-  "uses": 1,
+  "uses": 0,
   "mpn": "SN74LVC245APWR",
   "mfr": "Texas Instruments",
   "digikey": "296-1233-1-ND",
@@ -2068,7 +2068,7 @@
  "Raspberry Pi Pico|Raspberry Pi Pico": {
   "id": "Raspberry Pi Pico|Raspberry Pi Pico",
   "desc": "Raspberry Pi Pico, Raspberry Pi Pico",
-  "uses": 1,
+  "uses": 0,
   "mpn": "SC0915",
   "mfr": "Raspberry Pi",
   "digikey": "2648-SC0915CT-ND",
@@ -2998,7 +2998,7 @@
  "vga-hd15-ra": {
   "id": "vga-hd15-ra",
   "desc": "VGA HD-15 female, right angle",
-  "uses": 1,
+  "uses": 0,
   "mpn": "ICD15S13E4GX00LF",
   "mfr": "Amphenol ICC (FCI)",
   "digikey": "609-5181-ND",
