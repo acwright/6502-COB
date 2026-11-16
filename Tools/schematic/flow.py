@@ -121,7 +121,6 @@ BOARDS = {
     # A programmer: its microcontroller drives the cartridge's bus, so the connector is read like any header
     ('VCS', 'Flash Helper'): dict(side='header', rules=[]),
     ('DEV', 'DEV Board'): dict(side='card', rules=[('J3', '.*_SW', 'drv')]),   # PANEL: the case's switches
-    ('COB', 'Storage Card Pro'): dict(side='card', rules=[('J3', 'MISO.*', 'drv')]),   # SPI port for another device
     # The Arduino drives the bus and the CPU's control inputs, shares the data bus and reads SYNC (owner's drawing)
     ('COB', 'Mega Helper'): dict(side='cpu', rules=[
         ('A1', 'SYNC', 'rcv'), ('A1', r'D\d|EXP\d', 'bid'), ('A1', '.*', 'drv'),

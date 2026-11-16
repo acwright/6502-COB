@@ -487,7 +487,6 @@
   "repo": "COB",
   "board": "Storage Card Pro",
   "revs": [
-   "1.0",
    "1.1"
   ],
   "refs": [
@@ -495,7 +494,7 @@
   ],
   "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
   "shipped": "No shunt.",
-  "do": "Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card Pro. The BIOS doesn't support this card yet.",
+  "do": "Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for its CompactFlash card, which this card answers as.",
   "need": "To run",
   "shunts": 1
  },

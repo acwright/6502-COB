@@ -1860,7 +1860,7 @@
  "LP2985-3.3|SOT-23-5": {
   "id": "LP2985-3.3|SOT-23-5",
   "desc": "LP2985-3.3, SOT-23-5",
-  "uses": 1,
+  "uses": 0,
   "mpn": "LP2985-33DBVR",
   "mfr": "Texas Instruments",
   "digikey": "296-18476-1-ND",
@@ -2102,7 +2102,7 @@
  "SD CARD|10067847-001RLF": {
   "id": "SD CARD|10067847-001RLF",
   "desc": "SD CARD, 10067847-001RLF",
-  "uses": 1,
+  "uses": 0,
   "mpn": "10067847-001RLF",
   "mfr": "Amphenol ICC (FCI)",
   "digikey": "609-3956-1-ND",
@@ -2166,7 +2166,7 @@
  "TXS0108EPW|TSSOP-20_4.4x6.5mm_P0.65mm": {
   "id": "TXS0108EPW|TSSOP-20_4.4x6.5mm_P0.65mm",
   "desc": "TXS0108EPW, TSSOP-20_4.4x6.5mm_P0.65mm",
-  "uses": 1,
+  "uses": 0,
   "mpn": "TXS0108EPWR",
   "mfr": "Texas Instruments",
   "digikey": "296-23011-1-ND",
@@ -2630,7 +2630,7 @@
  "pinheader-1x06-2.54-horizontal": {
   "id": "pinheader-1x06-2.54-horizontal",
   "desc": "Pin header 1×06, 2.54 mm, horizontal",
-  "uses": 1,
+  "uses": 0,
   "mpn": "PH1RB-06-UA",
   "mfr": "Adam Tech",
   "digikey": "2057-PH1RB-06-UA-ND",

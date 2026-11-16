@@ -91,11 +91,6 @@
    "2026-01-13",
    "3b4c7bb"
   ],
-  "COB|Storage Card Pro|1.0": [
-   "Y78",
-   "2025-12-11",
-   "b89a4a4"
-  ],
   "COB|VGA Card|1.0": [
    "Y64",
    "2025-10-06",
@@ -222,7 +217,6 @@
   "COB|Sound Card|1.0": "Yes",
   "COB|VGA Card|1.0": "Yes",
   "COB|Video Card|1.0": "Yes",
-  "COB|Storage Card Pro|1.0": "Not yet",
   "COB|Breadboard Helper|1.0": "Yes",
   "COB|Clock Card|1.0": "Yes"
  },
@@ -331,10 +325,6 @@
   "COB|Sound Card|1.1": [
    "Proven design",
    "Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE"
-  ],
-  "COB|Storage Card Pro|1.0": [
-   "Untested",
-   "Made, and not tested yet: the BIOS has no driver for it"
   ],
   "COB|Storage Card Pro|1.1": [
    "Untested",

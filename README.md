@@ -27,7 +27,6 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 - [Firmware](#firmware)
   - [KEH Controller](#keh-controller)
   - [PS2 Keyboard Controller](#ps2-keyboard-controller)
-  - [STP Controller](#stp-controller)
 - [CAD](#cad)
 - [Production](#production)
 - [Schematics](#schematics)
@@ -141,7 +140,7 @@ that reason.
 
 **`Hardware/Storage Card/`** — CompactFlash storage interface supporting up to 128GB via IDE-compatible protocol.
 
-**`Hardware/Storage Card Pro/`** — SD card (up to 32GB) and 16MB onboard SPI flash storage interface. *(Untested, experimental — the stock BIOS has no driver for it; see [STP Controller](#stp-controller))*
+**`Hardware/Storage Card Pro/`** — SD card storage that the stock BIOS takes for the Storage Card's CompactFlash card, with no BIOS change, and a 16 MB built-in drive that answers when no card is in. An RP2350A does the work. *(Untested: Rev 1.1 is being drawn.)*
 
 **`Hardware/LCD Card/`** — 16×2 character LCD display via 65C22 VIA in 4-bit or 8-bit mode.
 
@@ -263,7 +262,6 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 | Serial Card Pro | 1.0, 1.1 | **Out of the box** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
 | Sound Card | 1.0, 1.1 | **Out of the box** | Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID. | BIOS 1.x `Kernal.asm` `ProbeSID` |
 | Storage Card | 1.0, 1.1 | **Out of the box** | Its CompactFlash card answers in IO 4 (`$8C00`), where the BIOS's storage probe looks, and `LOAD`, `SAVE` and `DIR` use it. | BIOS 1.x `Kernal.asm` `StInit` |
-| Storage Card Pro | 1.0 | **Not used by the BIOS** | Its ATmega328P answers in IO 4 with two SPI registers, not the eight CompactFlash registers the BIOS reads, so the BIOS reports `NO DEVICE`. Your own software drives it, through the [STP Controller](#stp-controller) firmware. | [STP Controller](#stp-controller); BIOS 1.x `Kernal.asm` `StInit` |
 | Storage Card Pro | 1.1 | **Out of the box** | Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is **Untested** until K33's bench test passes. | Its design (`KICAD.md` K33; owner, 2026-11-15) |
 | VERA Helper | 1.0, 1.1 | **Not used by the BIOS** | The BIOS doesn't look for it: the VERA module isn't a TMS9918A, and the board goes in a window no other card uses. | README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm` `ProbeVideo` |
 | VGA Card | 1.0 | **After a step** | Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). For BIOS 2.x, the build note also has an optional wire from the `A1` finger to the pico9918's `MODE1`. | BIOS 1.x `Kernal.asm` `ProbeVideo`; BOM.md build notes |
@@ -304,25 +302,6 @@ card connects to the **matrix inputs of a Keyboard Encoder Helper**, not to a
 a VIA the card produces nothing, as the BIOS has no matrix-scanning code.
 
 See [Firmware/PS2 Keyboard Controller/README.md](./Firmware/PS2%20Keyboard%20Controller/README.md) for setup and usage instructions.
-
-### STP Controller
-`Firmware/STP Controller/`
-
-Firmware for the ATmega328p on the Storage Card Pro. Provides:
-
-- Memory-mapped SPI controller for 6502 bus access
-- Support for SD card, 16MB SPI flash, and external SPI devices
-- Dual-speed SPI (4 MHz normal operation, 400 kHz initialization)
-- PHI2-synchronized interface for reliable 6502 communication
-
-⚠️ **Experimental.** The Storage Card Pro is not part of the default I/O set the
-BIOS probes for, and no COB machine is built around it today. The BIOS storage
-slot expects eight True IDE CompactFlash registers at `$8C00–$8C07`; this card
-presents two SPI registers instead, so a stock BIOS reports `NO DEVICE` for every
-storage path. Using it needs a modified BIOS or software that drives the two
-registers directly.
-
-See [Firmware/STP Controller/README.md](./Firmware/STP%20Controller/README.md) for setup and usage instructions.
 
 ## CAD
 `CAD/`
@@ -496,7 +475,7 @@ Where a header needs a shunt, the board's BOM lists it.
 
 | Rev | Jumper | What it's for | As shipped | What to do | Needed |
 |---|---|---|---|---|---|
-| 1.0, 1.1 | J5 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for the Storage Card Pro. The BIOS doesn't support this card yet. | To run |
+| 1.1 | J5 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8C00`: IO 4, where the BIOS looks for its CompactFlash card, which this card answers as. | To run |
 
 **VERA Helper**
 
@@ -590,4 +569,4 @@ I have a few PCBs available on Tindie for those interested in building their own
 ## License
 
 Hardware designs are released under the [CERN Open Hardware Licence Version 2 – Permissive](https://ohwr.org/cern_ohl_p_v2.txt).  
-Firmware is released under the MIT License — [KEH Controller](./Firmware/KEH%20Controller/LICENSE), [PS2 Keyboard Controller](./Firmware/PS2%20Keyboard%20Controller/LICENSE), [STP Controller](./Firmware/STP%20Controller/LICENSE).
+Firmware is released under the MIT License — [KEH Controller](./Firmware/KEH%20Controller/LICENSE) and [PS2 Keyboard Controller](./Firmware/PS2%20Keyboard%20Controller/LICENSE).

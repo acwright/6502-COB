@@ -73,7 +73,6 @@ Every revision of every board in this repository, and what is known about each. 
 | Sound Card | 1.1 | Drawn | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
-| Storage Card Pro | 1.0 | Made, matches order | **Untested**: made, and not tested yet: the BIOS has no driver for it | Y78 | 2025-12-11 | `b89a4a4` | — | 100×57.62 | — | — | — |  |
 | Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 182 unconnected; DRC errors: starved_thermal 4 |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
@@ -455,14 +454,14 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 ### Storage Card Pro
 
-**Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
+**Rev 1.1** (drawn, not yet made)
 
 - Redesigned (K33, 2026-11-15): the stock BIOS sees an SD card in this card as the Storage Card's CompactFlash card at `$8C00`, with no BIOS change. An RP2350A answers the eight CompactFlash registers through a 74LVC4245A (data, at 5 V on the bus) and a 74LVC541 (controls), with a full-size SD socket and a 16 MB built-in drive (W25Q128JVFIQ) that answers when no card is in. The circuit is the ACE SD Adapter 1.1's, part for part. The card adds the Storage Card's front end: the 74HC138 and the window jumper over A10–A15, a 74HCT00 making `RB` and `WB` from `PHI2` and `RWB`, and the off-board ACT header. Rev 1.0's ATmega328P, TXS0108E, external SPI header and 16 MHz crystal are gone. Drawn; the parts are not yet placed or routed.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
-**Rev 1.0**
+**Rev 1.0** (retired)
 
-- Initial release, and the board on sale. `Hardware/Storage Card Pro/Rev 1.0/` and `Production/Storage Card Pro/Rev 1.0/` match the boards JLCPCB made (order Y78). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+- Made by JLCPCB (order Y78, 2025-12-11) and never shown to work, then retired on 2026-11-16 (owner): it is not offered, and Rev 1.1 replaces its design. An ATmega328P sat straight on the 6502 bus and answered two SPI registers in IO 4, with a TXS0108E between it and the SD card, a 16 MB SPI flash and an external SPI header. The stock BIOS has no driver for it, and its firmware, the STP Controller, could not serve the bus: it ran from an Arduino interrupt on `PHI2`, on a pin that has no such interrupt, and even attached it would answer microseconds after a cycle that lasts one. Its files and the STP Controller are in git at commit `a300b196`, the last that holds them.
 
 ### VERA Helper
 
