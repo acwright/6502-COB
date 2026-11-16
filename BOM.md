@@ -80,7 +80,8 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |
-| [VGA Card Pro](#vga-card-pro) | 1.1 | Rev 1.1 | Never made | **Untested**: never made |
+| [VGA Card Pro](#vga-card-pro) | 1.0 | Rev 1.0 | Made, not tested yet | **Untested**: built, and never tried |
+| [VGA Card Pro](#vga-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned from Rev 1.0 and never made: 74LVC4245A and 74LVC245 translators in place of two TXS0108Es, read and write strobes from a 74LVC138, and an interrupt that only pulls `IRQB` or `NMIB` low |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |
 | [Video Card Pro](#video-card-pro) | 1.1 | Rev 1.1 | Never made | **Untested**: never made |
@@ -256,6 +257,16 @@ One of Rev 1.1's changes can't be made on a Rev 1.0, and one can, with a wire:
 - **Optional, for BIOS 2.x: wire `A1` to the pico9918's `MODE1`.** On Rev 1.1, `A1` reaches U1 pin 11 (`MODE1`), as on the ACE, which opens the pico9918's second port pair; with a PICO9918 PRO running 6502-PICOVDP, a COB can then run BIOS 2.x. A Rev 1.0's U1 pin 11 connects to nothing, and no track on the card carries `A1`, so take it from its finger. On the back, count the fingers from the `VCC` end: `VCC`, `GND`, `A0` (the one with a track), then `A1`, the fourth. Solder a thin insulated wire to the top end of the `A1` finger, the end nearest the card's body, which the slot doesn't reach; keep the joint small and flat, so the card still plugs in. Run the wire across the back to U1 pin 11 and solder it there. With the power off, check with a meter that the `A1` finger beeps to U1 pin 11, and to neither of its neighbours, `A0` and `A2`. On the PICO9918 PRO, solder a header pin into its `MDE1` pad, as the [ACE's video card](https://github.com/acwright/6502-ACE#video-card) has, so `MODE1` reaches the module. Without the wire, a COB with a Rev 1.0 has the pico9918's two standard ports only and runs BIOS 1.x. This wire hasn't been tried on a card yet.
 
 Rev 1.1's other changes need nothing on a built board: its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot; D1 is a BAT85 on both revisions, Rev 1.1 only naming it in its value; and U1's socket outline is silkscreen, so the same 40-pin sockets fit a Rev 1.0's holes.
+
+
+**VGA Card Pro**
+
+**Building a Rev 1.0:** Rev 1.1 can't be reached from a Rev 1.0. Rev 1.1 replaces every part between the bus and the Pico (see [REVISIONS.md](REVISIONS.md#vga-card-pro)), and a Rev 1.0 has no pads for them. A Rev 1.0 is an experimental card, made as the VGA Card in 2024 and never tried: no firmware has been written for it, and the stock BIOS doesn't use it. For your own firmware:
+- **Fit J1's shunt beside `$9C00`,** IO 8, the video window.
+- **Release the interrupt by making GP14 an input, and assert it by driving GP14 low. Never drive GP14 high.** U3, a TXS0108E, passes GP14 to `IRQB` both ways, so a Pico driving GP14 high holds `IRQB` up against every other card that pulls it low, and the keyboard and serial input stop. Rev 1.1 puts a diode in the line instead; a Rev 1.0 has no place for one. `NMIB` isn't connected.
+- **The data bits arrive reversed:** D0 is on GP13 and D7 on GP6. The address bits are reversed the same way: A0 is on GP3 and A3 on GP0.
+- **A 6502 reset restarts the Pico,** because `RESB` drives its `RUN` pin. The card answers nothing until the Pico's firmware has started again.
+- **The two TXS0108Es each pull their lines up,** `RESB` and `IRQB` among them, where the family has one 10k pull-up per shared line, on the CPU board. That can't be changed on a Rev 1.0.
 
 **Video Card**
 
@@ -1653,7 +1664,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Pro Rev 1.1
 
-Never made. **Untested**: never made.
+Drawn, not made yet. **Untested**: redesigned from Rev 1.0 and never made: 74LVC4245A and 74LVC245 translators in place of two TXS0108Es, read and write strobes from a 74LVC138, and an interrupt that only pulls `IRQB` or `NMIB` low.
 
 Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1680,6 +1691,34 @@ Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.c
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1:** A 1N914 also works.
+
+### VGA Card Pro Rev 1.0
+
+Made, not tested yet. **Untested**: built, and never tried.
+
+Cart files: [digikey.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey.csv), [mouser.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card%20Pro/Rev%201.0/mouser-through-hole.csv)
+
+| Reference | Qty | Value | Part | Digi-Key | Mouser | Other | Pre-soldered |
+|---|---|---|---|---|---|---|---|
+| C1–C5 | 5 | 100nF | YAGEO CC0805KRX7R9BB104 | [311-1140-1-ND](https://www.digikey.com/en/products/filter?keywords=311-1140-1-ND) | [603-CC805KRX7R9BB104](https://www.mouser.com/ProductDetail/603-CC805KRX7R9BB104) | LCSC [C49678](https://www.lcsc.com/search?q=C49678) | Yes |
+| J1 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
+| J3 | 1 | DE15_Receptacle_HighDensity_MountingHoles | Amphenol ICD15S13E4GX00LF | [609-5181-ND](https://www.digikey.com/en/products/filter?keywords=609-5181-ND) | [649-ICD15S13E4GX00LF](https://www.mouser.com/ProductDetail/649-ICD15S13E4GX00LF) |  | |
+| Q1 | 1 | BSS138 | onsemi BSS138 | [BSS138CT-ND](https://www.digikey.com/en/products/filter?keywords=BSS138CT-ND) | [512-BSS138](https://www.mouser.com/ProductDetail/512-BSS138) | LCSC [C78284](https://www.lcsc.com/search?q=C78284) | Yes |
+| R1, R2 | 2 | 10K | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
+| R3, R6 | 2 | 2.2K | YAGEO RC0805FR-072K2L | [311-2.20KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-2.20KCRCT-ND) | [603-RC0805FR-072K2L](https://www.mouser.com/ProductDetail/603-RC0805FR-072K2L) | LCSC [C17520](https://www.lcsc.com/search?q=C17520) | Yes |
+| R4, R7 | 2 | 1K | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
+| R5, R8 | 2 | 470 | YAGEO RC0805FR-07470RL | [311-470CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-470CRCT-ND) | [603-RC0805FR-07470RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07470RL) | LCSC [C17710](https://www.lcsc.com/search?q=C17710) | Yes |
+| R9 | 1 | 820 | YAGEO RC0805FR-07820RL | [311-820CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-820CRCT-ND) | [603-RC0805FR-07820RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07820RL) | LCSC [C17837](https://www.lcsc.com/search?q=C17837) | Yes |
+| R10 | 1 | 390 | YAGEO RC0805FR-07390RL | [311-390CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-390CRCT-ND) | [603-RC0805FR-07390RL](https://www.mouser.com/ProductDetail/603-RC0805FR-07390RL) | LCSC [C17655](https://www.lcsc.com/search?q=C17655) | Yes |
+| R11, R12 | 2 | 22 | YAGEO RC0805FR-0722RL | [311-22.0CRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-22.0CRCT-ND) | [603-RC0805FR-0722RL](https://www.mouser.com/ProductDetail/603-RC0805FR-0722RL) | LCSC [C17561](https://www.lcsc.com/search?q=C17561) | Yes |
+| U1, U3 | 2 | TXS0108EPW | Texas Instruments TXS0108EPWR | [296-23011-1-ND](https://www.digikey.com/en/products/filter?keywords=296-23011-1-ND) | [595-TXS0108EPWR](https://www.mouser.com/ProductDetail/595-TXS0108EPWR) | LCSC [C17206](https://www.lcsc.com/search?q=C17206) | Yes |
+| U2 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| U4 | 1 | Pico | Raspberry Pi SC0915 | [2648-SC0915CT-ND](https://www.digikey.com/en/products/filter?keywords=2648-SC0915CT-ND) | [358-SC0915](https://www.mouser.com/ProductDetail/358-SC0915) |  | |
+| J1 | 1 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
+
+Pin headers are cut from strips, and the cart files count whole strips.
+
+- **U2:** Fit a 74HC138: AC6502 logic is HC, not LS.
 
 
 ## VGA Card

@@ -659,6 +659,21 @@
   "repo": "COB",
   "board": "VGA Card Pro",
   "revs": [
+   "1.0"
+  ],
+  "refs": [
+   "J1"
+  ],
+  "what": "I/O window: one shunt picks the 1 KB window the board answers in.",
+  "shipped": "No shunt.",
+  "do": "Fit the shunt beside `$9C00`: IO 8, the video window. The BIOS doesn't use this card: it's experimental, and the builder writes its firmware.",
+  "need": "To run",
+  "shunts": 1
+ },
+ {
+  "repo": "COB",
+  "board": "VGA Card Pro",
+  "revs": [
    "1.1"
   ],
   "refs": [

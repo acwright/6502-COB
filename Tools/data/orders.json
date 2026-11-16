@@ -101,6 +101,11 @@
    "2025-10-06",
    "0dd90c8"
   ],
+  "COB|VGA Card Pro|1.0": [
+   "Y24",
+   "2024-04-03",
+   "da975a6"
+  ],
   "COB|Video Card|1.0": [
    "Y53",
    "2024-07-09",
@@ -182,11 +187,11 @@
   "COB|Storage Card|1.1",
   "COB|VERA Helper|1.1",
   "COB|VGA Card|1.1",
+  "COB|VGA Card Pro|1.1",
   "COB|Video Card|1.1"
  ],
  "never": [
   "COB|CPU Card Pro|1.1",
-  "COB|VGA Card Pro|1.1",
   "COB|Video Card Pro|1.1"
  ],
  "ordered": {},
@@ -194,7 +199,8 @@
  "notes": {
   "COB|Keyboard Encoder Helper|1.0": "to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README",
   "COB|CPU Card Pro|1.1": "title block credits bahamutkotd, who contributed",
-  "COB|Backplane Pro|1.0": "the board's silk says 6502 BACKPLANE, its name when ordered"
+  "COB|Backplane Pro|1.0": "the board's silk says 6502 BACKPLANE, its name when ordered",
+  "COB|VGA Card Pro|1.0": "the board's silk says 6502 VGA CARD, its name when ordered"
  },
  "tested": {
   "COB|Backplane Helper|1.0": "Yes",
@@ -225,6 +231,7 @@
   "COB|VGA Card|1.0": "Yes",
   "COB|Video Card|1.0": "Yes",
   "COB|Storage Card Pro|1.0": "Not yet",
+  "COB|VGA Card Pro|1.0": "Not yet",
   "COB|Breadboard Helper|1.0": "Yes",
   "COB|Clock Card|1.0": "Yes"
  },
@@ -350,9 +357,13 @@
    "Proven design",
    "Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them"
   ],
+  "COB|VGA Card Pro|1.0": [
+   "Untested",
+   "Built, and never tried"
+  ],
   "COB|VGA Card Pro|1.1": [
    "Untested",
-   "Never made"
+   "Redesigned from Rev 1.0 and never made: 74LVC4245A and 74LVC245 translators in place of two TXS0108Es, read and write strobes from a 74LVC138, and an interrupt that only pulls `IRQB` or `NMIB` low"
   ],
   "COB|VGA Card|1.1": [
    "Untested",
