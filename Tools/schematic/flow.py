@@ -21,6 +21,8 @@ Each pin's role comes from, in order:
   5. any other connector or header: bidirectional if a bidirectional pin shares its net, input if something on the
      board drives the net, output if nothing does (the signal comes from whatever is plugged in);
   6. the library pin type.
+A microcontroller's or a VIA's port pin that lights an LED (on its net, or through one series resistor) drives it:
+an LED is only ever a load, whatever else shares the wire (owner, 2026-11-16).
 A pin none of these decides (a microcontroller's port pin, whose direction is the firmware's) keeps the owner's
 pre-K21 shape, or the present one if the label is newer; the report lists these as 'kept' for review.
 """
@@ -82,6 +84,7 @@ PARTS = [
 ]
 THROUGH = re.compile(r'Device:(R|D_Schottky|LED|C)$|Diode:|Jumper:|Switch:SW_Push|Switch:SW_DIP|BSS138')
 MCU = re.compile(r'MCU_|Teensy|Raspberry Pi Pico|Arduino')
+PORTS = re.compile(r'6502 Parts:(65C22|PIA 6521)$')   # the 6502's port chips
 
 # ---- per board: the bus side and the rules for pins nothing above decides. Keyed (repo, board) or (repo, board, rev).
 def keyboard(mcu=None, via=None, ports=(), keyboard=None, end='encoder', joysticks=(), switches=r'SW\d+'):
@@ -180,6 +183,14 @@ def roles(key, sch):
             mate = BRIDGED.get(parts.get(r2, ''), {}).get(p2)
             if mate and any(POWER.fullmatch(n) for n, ns in nets.items() for r3, p3, f3, t3 in ns if r3 == r2 and p3 == mate): return True
         return False
+    def lights_led(net, hop=True):
+        # an LED on the net, or behind one series resistor (not a pull to a rail)
+        for r2, p2, f2, t2 in nets[net]:
+            if parts.get(r2, '') == 'Device:LED': return True
+            if hop and parts.get(r2, '') == 'Device:R':
+                far = [n for (r3, p3), n in pinnet.items() if r3 == r2 and n != net]
+                if far and not POWER.fullmatch(far[0]) and lights_led(far[0], False): return True
+        return False
     later = []
     for net, nodes in nets.items():
         if POWER.fullmatch(net): continue
@@ -194,6 +205,8 @@ def roles(key, sch):
                 d = [n for n, nodes in nets.items() for r2, p2, f2, t2 in nodes if r2 == ref and f2 in ('A->B', 'DIR')]
                 d = d[0] if d else ''
                 r = 'bid' if not POWER.fullmatch(d) else ('rcv' if (r == '245-A') == (d != 'GND') else 'drv')
+            if (MCU.search(lib) or PORTS.search(lib)) and r in (None, 'fw') and lights_led(net):
+                R[(ref, pin)] = 'drv'; continue      # a port pin that lights an LED drives it (owner, 2026-11-16)
             if r == 'fw': R[(ref, pin)] = None; continue
             if not r and is_bus_conn(lib, ref) and cfg['side'] == 'header': later.append((ref, pin, net)); continue
             if not r and is_bus_conn(lib, ref):
