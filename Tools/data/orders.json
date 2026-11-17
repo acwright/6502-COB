@@ -227,8 +227,8 @@
    "JLCPCB's marker removed and the logo moved; silkscreen only"
   ],
   "COB|Backplane Pro|1.1": [
-   "Untested",
-   "The made Rev 1.1 with R5 removed"
+   "Proven design",
+   "The tested boards made as Rev 1.1, with R5, a second pull-up on `RESB` beside the CPU Card's, left off. Nothing else changed"
   ],
   "COB|Backplane|1.1": [
    "Proven design",
@@ -307,8 +307,8 @@
    "The bare card edge only"
   ],
   "COB|RAM Card|1.1": [
-   "Untested",
-   "The ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header."
+   "Proven design",
+   "The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window"
   ],
   "COB|RTC Card|1.1": [
    "Proven design",
@@ -328,7 +328,7 @@
   ],
   "COB|Storage Card Pro|1.1": [
    "Untested",
-   "Redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed"
+   "Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed"
   ],
   "COB|Storage Card|1.1": [
    "Proven design",
@@ -339,8 +339,8 @@
    "Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them"
   ],
   "COB|VGA Card|1.1": [
-   "Untested",
-   "The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed"
+   "Proven design",
+   "`A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare"
   ],
   "COB|Video Card|1.1": [
    "Proven design",

@@ -182,7 +182,7 @@ that reason.
 Each revision carries one of three labels:
 
 - **Tested:** This revision was built and tested.
-- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
+- **Proven design:** Not built at this revision, but its circuit is proven. Either it is a tested revision's circuit, or each change copies a circuit built and tested on another board or on the bench, or is a textbook circuit that leaves everything the tested revision does as it was. Any other change is silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
 - **Untested:** The circuit, the power path or the layout changed in a way that only a built board proves, or the board has never been built at all.
 
 [BOM.md](BOM.md) has the parts for every revision, and its known issues.
@@ -191,7 +191,7 @@ Each revision carries one of three labels:
 |---|---|---|---|
 | Backplane | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
 | Backplane Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
-| Backplane Pro | 1.1 | **Untested** | The made Rev 1.1 with R5 removed. |
+| Backplane Pro | 1.1 | **Proven design** | The tested boards made as Rev 1.1, with R5, a second pull-up on `RESB` beside the CPU Card's, left off. Nothing else changed. |
 | Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes, and the outline grows to hold it. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |
@@ -210,15 +210,15 @@ Each revision carries one of three labels:
 | Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
-| RAM Card | 1.1 | **Untested** | The ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header. |
+| RAM Card | 1.1 | **Proven design** | The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window. |
 | RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
-| Storage Card Pro | 1.1 | **Untested** | Redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed. |
+| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
-| VGA Card | 1.1 | **Untested** | The pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed. |
+| VGA Card | 1.1 | **Proven design** | `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
 <!-- End of which revision to make -->
 
@@ -227,7 +227,7 @@ Each revision carries one of three labels:
 
 Whether each board works with the stock BIOS, and what it takes if not. The stock BIOS for the COB is **BIOS 1.x**, from the `v1.x` branch of [6502-BIOS](https://github.com/acwright/6502-BIOS). The ACE runs BIOS 2.x, for a 6502-PICOVDP. A COB can also run BIOS 2.x with a VGA Card 1.1, or a VGA Card 1.0 with the optional wire in its build note, carrying a PICO9918 PRO running 6502-PICOVDP, set up as the [ACE's video card](https://github.com/acwright/6502-ACE#video-card) is. Today's COBs, built with a VGA Card 1.0 or a Video Card, stay on BIOS 1.x. The BIOS looks for each card in its own 1 KB window at boot, and uses only what it finds.
 
-- **Out of the box:** the BIOS finds the board and uses it, built from its parts list with the jumpers the [Jumpers](#jumpers) table gives. A card counts only on the window the BIOS expects; on another window it's the builder's experiment.
+- **Compatible:** the BIOS finds the board and uses it, built from its parts list with the jumpers the [Jumpers](#jumpers) table gives. A card counts only on the window the BIOS expects; on another window it's the builder's experiment.
 - **After a step:** it works once the builder does what the entry names, beyond the parts list and the jumpers.
 - **Not used by the BIOS:** safe beside it, but your own software drives it.
 - **Nothing to support:** the board has no registers for the BIOS to find, such as a backplane, a helper behind a card, or a cartridge's programmer.
@@ -239,34 +239,34 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 | Backplane Pro | 1.0, 1.1 | **Nothing to support** | Card slots with the clock, reset and power: no registers. | Schematic |
 | Blinkenlights Card | 1.0, 1.1 | **Nothing to support** | LEDs that show the bus: no registers. Rev 1.0's interrupt LEDs load `IRQB`, `NMIB` and `RESB`; see its build note. | Schematic; BOM.md build notes |
 | Breadboard Helper | 1.0, 1.1 | **Nothing to support** | Brings the bus to a breadboard: no registers. | Schematic |
-| CPU Card | 1.0, 1.1 | **Out of the box** | The 65C02 that runs the BIOS. | [6502-BIOS](https://github.com/acwright/6502-BIOS)'s README: a WDC 65C02S |
-| CPU Card Pro | 1.1 | **Out of the box** | Designed for it: the 65816 starts in its 6502 emulation mode, and BIOS 1.x uses no instruction the 65816 lacks (no `RMB`, `SMB`, `BBR` or `BBS`). Never built: its label is **Untested**. | BIOS 1.x sources, searched 2026-11-15 |
+| CPU Card | 1.0, 1.1 | **Compatible** | The 65C02 that runs the BIOS. | [6502-BIOS](https://github.com/acwright/6502-BIOS)'s README: a WDC 65C02S |
+| CPU Card Pro | 1.1 | **Compatible** | Designed for it: the 65816 starts in its 6502 emulation mode, and BIOS 1.x uses no instruction the 65816 lacks (no `RMB`, `SMB`, `BBR` or `BBS`). Never built: its label is in [Which revision to make](#which-revision-to-make). | BIOS 1.x sources, searched 2026-11-15 |
 | Clock Card | 1.0, 1.1 | **Nothing to support** | The clock, reset and power on a card: no registers. | Schematic |
 | Clock Helper | 1.0, 1.1 | **Nothing to support** | Single-step and halt for the clock: no registers. | Schematic |
 | DB25 Helper | 1.0, 1.1 | **Nothing to support** | A helper behind the GPIO Card's ports: no registers of its own. | Schematic |
 | GPIO Breadboard Helper | 1.0, 1.1 | **Nothing to support** | A helper behind the GPIO Card's ports: no registers of its own. | Schematic |
-| GPIO Card | 1.0, 1.1 | **Out of the box** | Its 65C22 VIA answers in IO 6 (`$9400`), where the BIOS looks for the keyboard and joystick VIA. | BIOS 1.x `Kernal.asm` `ProbeGPIO` |
+| GPIO Card | 1.0, 1.1 | **Compatible** | Its 65C22 VIA answers in IO 6 (`$9400`), where the BIOS looks for the keyboard and joystick VIA. | BIOS 1.x `Kernal.asm` `ProbeGPIO` |
 | GPIO Helper | 1.0, 1.1 | **Nothing to support** | A helper behind the GPIO Card's ports: no registers of its own. | Schematic |
 | Joystick Helper | 1.0, 1.1 | **Nothing to support** | A helper behind the GPIO Card: BASIC's `JOY()` reads it through the card's VIA. | Schematic; BIOS 1.x `Kernal.asm` |
 | Keyboard Encoder Helper | 1.0, 1.1 | **Nothing to support** | A helper behind the GPIO Card: the BIOS reads its keys through the card's VIA. Its ATmega1284 runs the [KEH Controller](#keh-controller) firmware. | Schematic; BIOS 1.x `Kernal.asm` `InitKBImpl` |
 | Keyboard Helper | 1.0, 1.1 | **Nothing to support** | A key matrix behind the Keyboard Encoder Helper: no registers. | Schematic |
 | LCD Card | 1.0, 1.1 | **Not used by the BIOS** | The BIOS doesn't look for it: its 65C22 VIA goes in a window no other card uses, and your own software drives the LCD. | README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm` |
 | Mega Helper | 1.0, 1.1 | **Nothing to support** | An Arduino Mega on the bus, running its own sketch: no registers. | Schematic |
-| Memory Card | 1.0, 1.1 | **Out of the box** | The RAM, and the ROM that holds the BIOS. | Schematic |
+| Memory Card | 1.0, 1.1 | **Compatible** | The RAM, and the ROM that holds the BIOS. | Schematic |
 | PS2 Helper | 1.0, 1.1 | **Nothing to support** | Feeds a PS/2 keyboard into the Keyboard Encoder Helper's matrix: no registers. | Schematic; [PS2 Keyboard Controller](#ps2-keyboard-controller) |
 | Prototype Card | 1.0, 1.1 | **Nothing to support** | A blank card for a circuit of your own: no registers until you build one. | Schematic |
-| RAM Card | 1.0 | **Out of the box** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), and BASIC's `BANK` sets the first window's bank. Rev 1.0's one latch gives both windows the same bank number, which matters only to a program that uses the second window itself; see its build note. | BIOS 1.x `Kernal.asm` `ProbeRAM` and BASIC's `BANK`; netlist, `Tests/check-schematics.mjs` |
-| RAM Card | 1.1 | **Out of the box** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is **Untested**. | BIOS 1.x `Kernal.asm` `ProbeRAM`; netlist, `Tests/check-schematics.mjs` |
-| RTC Card | 1.0, 1.1 | **Out of the box** | Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. | BIOS 1.x `Kernal.asm` `ProbeRTC` |
-| Serial Card | 1.0, 1.1 | **Out of the box** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
-| Serial Card Pro | 1.0, 1.1 | **Out of the box** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
-| Sound Card | 1.0, 1.1 | **Out of the box** | Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID. | BIOS 1.x `Kernal.asm` `ProbeSID` |
-| Storage Card | 1.0, 1.1 | **Out of the box** | Its CompactFlash card answers in IO 4 (`$8C00`), where the BIOS's storage probe looks, and `LOAD`, `SAVE` and `DIR` use it. | BIOS 1.x `Kernal.asm` `StInit` |
-| Storage Card Pro | 1.1 | **Out of the box** | Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is **Untested** until K33's bench test passes. | Its design (`KICAD.md` K33; owner, 2026-11-15) |
+| RAM Card | 1.0 | **Compatible** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), and BASIC's `BANK` sets the first window's bank. Rev 1.0's one latch gives both windows the same bank number, which matters only to a program that uses the second window itself; see its build note. | BIOS 1.x `Kernal.asm` `ProbeRAM` and BASIC's `BANK`; netlist, `Tests/check-schematics.mjs` |
+| RAM Card | 1.1 | **Compatible** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is in [Which revision to make](#which-revision-to-make). | BIOS 1.x `Kernal.asm` `ProbeRAM`; netlist, `Tests/check-schematics.mjs` |
+| RTC Card | 1.0, 1.1 | **Compatible** | Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. | BIOS 1.x `Kernal.asm` `ProbeRTC` |
+| Serial Card | 1.0, 1.1 | **Compatible** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
+| Serial Card Pro | 1.0, 1.1 | **Compatible** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
+| Sound Card | 1.0, 1.1 | **Compatible** | Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID. | BIOS 1.x `Kernal.asm` `ProbeSID` |
+| Storage Card | 1.0, 1.1 | **Compatible** | Its CompactFlash card answers in IO 4 (`$8C00`), where the BIOS's storage probe looks, and `LOAD`, `SAVE` and `DIR` use it. | BIOS 1.x `Kernal.asm` `StInit` |
+| Storage Card Pro | 1.1 | **Compatible** | Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is in [Which revision to make](#which-revision-to-make). | Its design (owner, 2026-11-15) |
 | VERA Helper | 1.0, 1.1 | **Not used by the BIOS** | The BIOS doesn't look for it: the VERA module isn't a TMS9918A, and the board goes in a window no other card uses. | README [Jumpers](#jumpers); BIOS 1.x `Kernal.asm` `ProbeVideo` |
 | VGA Card | 1.0 | **After a step** | Cut JP1, as its build note says: bridged, as made, it lets the pico9918 hold `IRQB` high, and the keyboard and serial input stop working. Then the BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). For BIOS 2.x, the build note also has an optional wire from the `A1` finger to the pico9918's `MODE1`. | BIOS 1.x `Kernal.asm` `ProbeVideo`; BOM.md build notes |
-| VGA Card | 1.1 | **Out of the box** | The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is **Untested**. | BIOS 1.x `Kernal.asm` `ProbeVideo`; BIOS 2.x `Kernal.asm` `ProbeVideo` |
-| Video Card | 1.0, 1.1 | **Out of the box** | Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video. | BIOS 1.x `Kernal.asm` `ProbeVideo` |
+| VGA Card | 1.1 | **Compatible** | The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is in [Which revision to make](#which-revision-to-make). | BIOS 1.x `Kernal.asm` `ProbeVideo`; BIOS 2.x `Kernal.asm` `ProbeVideo` |
+| Video Card | 1.0, 1.1 | **Compatible** | Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video. | BIOS 1.x `Kernal.asm` `ProbeVideo` |
 
 <!-- End of stock BIOS -->
 

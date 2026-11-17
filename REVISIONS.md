@@ -13,7 +13,7 @@ Every revision of every board in this repository, and what is known about each. 
 **Label** says whether a builder can rely on a revision. Make the newest revision of a board, and check its label first:
 
 - **Tested:** This revision was built and tested.
-- **Proven design:** Not built at this revision, but its circuit is a tested revision's. The only changes are silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
+- **Proven design:** Not built at this revision, but its circuit is proven. Either it is a tested revision's circuit, or each change copies a circuit built and tested on another board or on the bench, or is a textbook circuit that leaves everything the tested revision does as it was. Any other change is silkscreen text, part values, mounting holes, outline clean-up, parts moved a fraction of a millimetre onto their grid, capacitor pitch, socket outlines, a footprint swap with the same holes, a solder jumper's default, the solder mask or paste at a card edge, or tracks rerouted or pours refilled with DRC and the netlist check passing. A builder can treat it as tested.
 - **Untested:** The circuit, the power path or the layout changed in a way that only a built board proves, or the board has never been built at all.
 
 **Holes** is how far the corner mounting holes sit from the board's edges. The standard is 6 mm, and 5 mm on the ACE Board, the CF Adapter and the Keyboard Helper. A dash means a card or cart, which has no corner holes.
@@ -25,7 +25,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | yes | — |  |
 | Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
-| Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
+| Backplane Pro | 1.1 | Drawn | **Proven design**: the tested boards made as Rev 1.1, with R5, a second pull-up on `RESB` beside the CPU Card's, left off. Nothing else changed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
@@ -62,7 +62,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Prototype Card | 1.0 | Made, matches order | **Tested** | Y22 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Prototype Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | RAM Card | 1.0 | Made, matches order | **Tested** | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
-| RAM Card | 1.1 | Drawn | **Untested**: the ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header. |  |  |  | — | 100×57.62 | — | — | — |  |
+| RAM Card | 1.1 | Drawn | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |  |  |  | — | 100×57.62 | — | — | — |  |
 | RTC Card | 1.0 | Made, matches order | **Tested** | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |
 | RTC Card | 1.1 | Drawn | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card | 1.0 | Made, matches order | **Tested** | Y67 | 2025-10-06 | `013b131` | 3 | 100×57.62 | — | — | — |  |
@@ -73,11 +73,11 @@ Every revision of every board in this repository, and what is known about each. 
 | Sound Card | 1.1 | Drawn | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |  |  |  | — | 100×57.62 | — | — | — |  |
 | Storage Card | 1.0 | Made, matches order | **Tested** | Y47 | 2024-06-22 | `b8f89eb` | 4 | 100×57.62 | — | — | — | copper drawn differently by today's KiCad, as recorded in audit.py |
 | Storage Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
-| Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 182 unconnected; DRC errors: starved_thermal 4 |
+| Storage Card Pro | 1.1 | Drawn | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |  |  |  | — | 100×57.62 | — | — | — | 182 unconnected; DRC errors: starved_thermal 4 |
 | VERA Helper | 1.0 | Made, matches order | **Tested** | Y71 | 2025-11-04 | `e74f44e` | 4 | 100×80 | 5.32–6.25 mm | — | — |  |
 | VERA Helper | 1.1 | Drawn | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |  |  |  | — | 100×80 | 6 mm | — | — |  |
 | VGA Card | 1.0 | Made, matches order | **Tested** | Y64 | 2025-10-06 | `0dd90c8` | 4 | 100×57.62 | — | — | — |  |
-| VGA Card | 1.1 | Drawn | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |  |  |  | — | 100×57.62 | — | — | — |  |
+| VGA Card | 1.1 | Drawn | **Proven design**: `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare |  |  |  | — | 100×57.62 | — | — | — |  |
 | Video Card | 1.0 | Made, matches order | **Tested** | Y53 | 2024-07-09 | `f890f21` | 2 | 100×57.62 | — | — | — |  |
 | Video Card | 1.1 | Drawn | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 
@@ -459,7 +459,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made)
 
-- Redesigned (K33, 2026-11-15): the stock BIOS sees an SD card in this card as the Storage Card's CompactFlash card at `$8C00`, with no BIOS change. An RP2350A answers the eight CompactFlash registers through a 74LVC4245A (data, at 5 V on the bus) and a 74LVC541 (controls), with a full-size SD socket and a 16 MB built-in drive (W25Q128JVFIQ) that answers when no card is in. The circuit is the ACE SD Adapter 1.1's, part for part. The card adds the Storage Card's front end: the 74HC138 and the window jumper over A10–A15, a 74HCT00 making `RB` and `WB` from `PHI2` and `RWB`, and the off-board ACT header. Rev 1.0's ATmega328P, TXS0108E, external SPI header and 16 MHz crystal are gone. Drawn; the parts are not yet placed or routed.
+- Redesigned (2026-11-15): the stock BIOS sees an SD card in this card as the Storage Card's CompactFlash card at `$8C00`, with no BIOS change. An RP2350A answers the eight CompactFlash registers through a 74LVC4245A (data, at 5 V on the bus) and a 74LVC541 (controls), with a full-size SD socket and a 16 MB built-in drive (W25Q128JVFIQ) that answers when no card is in. The circuit is the ACE SD Adapter 1.1's, part for part. The card adds the Storage Card's front end: the 74HC138 and the window jumper over A10–A15, a 74HCT00 making `RB` and `WB` from `PHI2` and `RWB`, and the off-board ACT header. Rev 1.0's ATmega328P, TXS0108E, external SPI header and 16 MHz crystal are gone. Drawn; the parts are not yet placed or routed.
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved up to 0.05 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 
 **Rev 1.0** (retired)
@@ -500,7 +500,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is sold first)
 
-- `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain. Rev 1.1 follows the family's interrupt rule (`KICAD.md` K24b): a board whose interrupt source is open-drain ships its diode's jumper bridged, so the card works as shipped even without D1.
+- `JP7` is bridged as made, which shorts across D1. On Rev 1.0 it is open, so `/INT` reaches `IRQB` or `NMIB` through D1. Both work, because a real TMS9918A's `/INT` is open-drain. Rev 1.1 follows the family's interrupt rule: a board whose interrupt source is open-drain ships its diode's jumper bridged, so the card works as shipped even without D1.
 - U1 and U7 use socket footprints (`Socket_LongPads`) in place of Rev 1.0's `LongPads`, so the silkscreen shows the sockets they sit in, as every socketed chip in the family has. The holes are the same.
 - `JP1`–`JP6` are removed. They were for testing the first cards: JP1 and JP2 chose whether `PHI2` or VCC enables U4, and JP3–JP6 chose whether the column latch, U6, is clocked by `/CAS` through one of U8's inverters or three. The tested cards run as Rev 1.0 ships them, so Rev 1.1 is wired that way, with nothing for a builder to set: `PHI2` goes straight to U4's enable, and `/CAS` reaches U6 through three inverters. The three jumpers that shipped bridged are short tracks now; the open ones' stubs, and a via that served only JP5, are gone.
 - Adds the OSHW and A.C. Wright logos to the silkscreen, which the family's other boards carry.

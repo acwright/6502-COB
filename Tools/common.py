@@ -16,7 +16,10 @@ entry's "repo"), so a change to one board's records commits only that repository
 checked out beside this one; save() writes each repository's share back, touching only files whose content changed.
 Generated files go to Tools/work/, which git ignores.
 """
-import os,sys,json,glob
+import os,sys,json,glob,re
+# The owner's plans (KICAD.md, CAD.md, PLAN.md and their item numbers such as K33) live outside the repositories, so
+# text a tool writes into a README, REVISIONS.md or BOM.md must never cite them.
+PLAN_REF=re.compile(r'\b(?:KICAD|CAD|PLAN)\.md\b|\bK\d{1,2}[a-z]?\b')
 TOOLS=os.path.dirname(os.path.abspath(__file__))
 ROOT=os.path.dirname(TOOLS)
 K=os.path.dirname(ROOT)+'/'

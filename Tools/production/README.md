@@ -12,7 +12,7 @@ KiCad), with one set of settings. They're made in one of two ways, and both must
 revision's `fabrication-toolkit-options.json`, and `toolkit.py` reads it directly. `plugin.json` pins the plugin
 itself. `production.py --check`, run by `derived-check.py`, fails if any of them drift.
 
-Why it matters: until 2026-11-13 (`KICAD.md` K38) the headless runner hard-coded **AUTO TRANSLATE** off while the
+Why it matters: until 2026-11-13 the headless runner hard-coded **AUTO TRANSLATE** off while the
 window had it on. The placement files of 22 unmade revisions came out with their surface-mount chips rotated 90° to
 180° from what JLCPCB's assembly needs. No board was made from them.
 
@@ -27,7 +27,7 @@ window had it on. The placement files of 22 unmade revisions came out with their
 | `EXTRA_LAYERS` | `""` | No extra layers. |
 | `EXTEND_EDGE_CUT` | `false` | Would send User.1 as a V-cut layer. No board is panelised. |
 | `ALTERNATIVE_EDGE_CUT` | `false` | Would send User.2 as the outline instead of Edge.Cuts. The outline is Edge.Cuts. |
-| `ARCHIVE_NAME` | `""` | Empty: the plugin names the zip `<title>_<rev>.zip` from the title block, with spaces as `_`, and the CSVs plainly. This is the name the window and `regen.py` both give. When the title changes (`KICAD.md` K35: `AC6502 <Board>`), a regenerated revision's zip takes the new name, and `regen.py` removes the old one. A made revision's zip is never regenerated. |
+| `ARCHIVE_NAME` | `""` | Empty: the plugin names the zip `<title>_<rev>.zip` from the title block, with spaces as `_`, and the CSVs plainly. This is the name the window and `regen.py` both give. When the title changes (to `AC6502 <Board>`, for example), a regenerated revision's zip takes the new name, and `regen.py` removes the old one. A made revision's zip is never regenerated. |
 | `BACKUP_OPT` | `true` | In plugin 5.3.0 the logic is inverted: it makes a timestamped backup zip when this is **false** (`thread.py`, `if not self.options[BACKUP_OPT]`). `true` means no backups. The git history keeps every version. |
 | `OPEN BROWSER` | `true` | Opens the output folder after a run from the window. It changes no file, and `toolkit.py` never opens one. |
 

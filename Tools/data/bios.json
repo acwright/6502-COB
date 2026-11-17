@@ -61,7 +61,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "The 65C02 that runs the BIOS.",
   "source": "[6502-BIOS](https://github.com/acwright/6502-BIOS)'s README: a WDC 65C02S"
  },
@@ -71,8 +71,8 @@
   "revs": [
    "1.1"
   ],
-  "category": "out of the box",
-  "reason": "Designed for it: the 65816 starts in its 6502 emulation mode, and BIOS 1.x uses no instruction the 65816 lacks (no `RMB`, `SMB`, `BBR` or `BBS`). Never built: its label is **Untested**.",
+  "category": "compatible",
+  "reason": "Designed for it: the 65816 starts in its 6502 emulation mode, and BIOS 1.x uses no instruction the 65816 lacks (no `RMB`, `SMB`, `BBR` or `BBS`). Never built: its label is in [Which revision to make](#which-revision-to-make).",
   "source": "BIOS 1.x sources, searched 2026-11-15"
  },
  {
@@ -137,7 +137,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its 65C22 VIA answers in IO 6 (`$9400`), where the BIOS looks for the keyboard and joystick VIA.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeGPIO`"
  },
@@ -203,7 +203,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "The RAM, and the ROM that holds the BIOS.",
   "source": "Schematic"
  },
@@ -235,7 +235,7 @@
   "revs": [
    "1.0"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), and BASIC's `BANK` sets the first window's bank. Rev 1.0's one latch gives both windows the same bank number, which matters only to a program that uses the second window itself; see its build note.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeRAM` and BASIC's `BANK`; netlist, `Tests/check-schematics.mjs`"
  },
@@ -245,8 +245,8 @@
   "revs": [
    "1.1"
   ],
-  "category": "out of the box",
-  "reason": "The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is **Untested**.",
+  "category": "compatible",
+  "reason": "The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is in [Which revision to make](#which-revision-to-make).",
   "source": "BIOS 1.x `Kernal.asm` `ProbeRAM`; netlist, `Tests/check-schematics.mjs`"
  },
  {
@@ -256,7 +256,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeRTC`"
  },
@@ -267,7 +267,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeSerial`"
  },
@@ -278,7 +278,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeSerial`"
  },
@@ -289,7 +289,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeSID`"
  },
@@ -300,7 +300,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its CompactFlash card answers in IO 4 (`$8C00`), where the BIOS's storage probe looks, and `LOAD`, `SAVE` and `DIR` use it.",
   "source": "BIOS 1.x `Kernal.asm` `StInit`"
  },
@@ -310,9 +310,9 @@
   "revs": [
    "1.1"
   ],
-  "category": "out of the box",
-  "reason": "Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is **Untested** until K33's bench test passes.",
-  "source": "Its design (`KICAD.md` K33; owner, 2026-11-15)"
+  "category": "compatible",
+  "reason": "Designed for it: the card answers in IO 4 (`$8C00`) as the Storage Card's CompactFlash card does, so the BIOS uses its SD card, or its built-in drive, with no change. Not yet built: its label is in [Which revision to make](#which-revision-to-make).",
+  "source": "Its design (owner, 2026-11-15)"
  },
  {
   "repo": "COB",
@@ -341,8 +341,8 @@
   "revs": [
    "1.1"
   ],
-  "category": "out of the box",
-  "reason": "The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is **Untested**.",
+  "category": "compatible",
+  "reason": "The BIOS finds the pico9918, a TMS9918A to BIOS 1.x, in IO 8 (`$9C00`). JP1 ships open. Rev 1.1 also lets a COB run BIOS 2.x: `A1` reaches the pico9918's `MODE1`, so a PICO9918 PRO running 6502-PICOVDP answers on both its port pairs, as on the ACE. Not yet built: its label is in [Which revision to make](#which-revision-to-make).",
   "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`; BIOS 2.x `Kernal.asm` `ProbeVideo`"
  },
  {
@@ -352,7 +352,7 @@
    "1.0",
    "1.1"
   ],
-  "category": "out of the box",
+  "category": "compatible",
   "reason": "Its TMS9918A answers in IO 8 (`$9C00`), where BIOS 1.x looks for video.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeVideo`"
  }

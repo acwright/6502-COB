@@ -117,16 +117,14 @@ for one stick to corrupt on the other's behalf — **both sticks read correctly
 even when held at the same time.** An earlier design had the encoder push
 joystick state to the 6502 as control bytes over the keyboard channel instead;
 that could not report a held button on the port it was reporting over, and was
-abandoned. See
-[BIOS `PLAN.md` §2](https://github.com/acwright/6502-BIOS/blob/main/PLAN.md)
-for the full account.
+abandoned.
 
 **Measured release latency: to be measured later.** This is the figure the
 BIOS's `KBDisable` settle wait is sized against. Cycle-counting the compiled
 firmware puts the worst-case code path at ~17 µs against a 100 µs budget, but
 that excludes a PS/2 interrupt landing in the window and says nothing about how
 long the bus takes to charge through a pull-up, so the published number comes
-from a scope. See [PLAN.md](../../PLAN.md).
+from a scope.
 
 ## Keyboard Matrix Layout
 

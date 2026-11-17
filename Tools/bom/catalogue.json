@@ -3295,7 +3295,7 @@
   "mouser_stock": 4998,
   "lcsc": "C152458",
   "other": null,
-  "note": "The RAM Card 1.1's chip-select diodes (K11), in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.",
+  "note": "The RAM Card 1.1's chip-select diodes, in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.",
   "review": null,
   "jameco": null
  },

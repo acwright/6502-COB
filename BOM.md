@@ -26,7 +26,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane Helper](#backplane-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the made Rev 1.1 with R5 removed |
+| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the tested boards made as Rev 1.1, with R5, a second pull-up on `RESB` beside the CPU Card's, left off. Nothing else changed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane](#backplane) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -65,7 +65,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header. |
+| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -74,13 +74,13 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [VERA Helper](#vera-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them |
 | [VGA Card](#vga-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed |
+| [VGA Card](#vga-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare |
 | [Video Card](#video-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Video Card](#video-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge |
 
@@ -292,7 +292,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.0/digikey.csv), [mouser
 
 ### Backplane Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: the made Rev 1.1 with R5 removed.
+Drawn, not made yet. **Proven design**: the tested boards made as Rev 1.1, with R5, a second pull-up on `RESB` beside the CPU Card's, left off. Nothing else changed.
 
 Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane%20Pro/Rev%201.1/mouser.csv)
 
@@ -1184,7 +1184,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RAM Card Rev 1.1
 
-Drawn, not made yet. **Untested**: the ACE 1.1's banked-RAM circuit: a bank latch for each window, a diode chip select, a 74HCT00 for `RB` and `WB`, and no `LATCH EN` or `BANK ADDR` header..
+Drawn, not made yet. **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window.
 
 Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RAM%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RAM%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RAM%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1206,7 +1206,7 @@ Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
-- **D1, D2:** The RAM Card 1.1's chip-select diodes (K11), in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.
+- **D1, D2:** The RAM Card 1.1's chip-select diodes, in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.
 - **U6:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
 
 ### RAM Card Rev 1.0
@@ -1461,7 +1461,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: redesigned in K33: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed.
+Drawn, not made yet. **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 
@@ -1619,7 +1619,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### VGA Card Rev 1.1
 
-Drawn, not made yet. **Untested**: the pico9918 turned around, a new outline and jack mount, A1 wired to `MODE1`, the bare card edge, and JP2 and JP3 removed.
+Drawn, not made yet. **Proven design**: `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare.
 
 Cart files: [digikey.csv](BOM/VGA%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/VGA%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/VGA%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/VGA%20Card/Rev%201.1/mouser-through-hole.csv)
 
