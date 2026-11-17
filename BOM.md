@@ -74,7 +74,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -1461,7 +1461,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed.
+Drawn, not made yet. **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 

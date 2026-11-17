@@ -216,7 +216,7 @@ Each revision carries one of three labels:
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
-| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Being drawn; parts not yet placed or routed. |
+| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Proven design** | `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
