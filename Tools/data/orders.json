@@ -228,7 +228,7 @@
   ],
   "COB|Backplane Pro|1.1": [
    "Untested",
-   "The made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed"
+   "The made Rev 1.1 with R5 removed"
   ],
   "COB|Backplane|1.1": [
    "Proven design",

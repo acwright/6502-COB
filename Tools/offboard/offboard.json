@@ -58,14 +58,9 @@
      "board",
      "SW",
      "^POWER$"
-    ],
-    "D": [
-     "board",
-     "D",
-     "1N5819"
     ]
    },
-   "what": "Power from a jack and a switch on the case: 5 V on pin 1, ground on pin 2. The header is on `VCC` itself, past {D}, the reverse-polarity diode, and {SW}, the power switch.",
+   "what": "Power from a jack and a switch on the case: 5 V on pin 1, ground on pin 2. The header is on `VCC` itself, past {SW}, the power switch.",
    "leave": "{JACK}, the barrel jack, and {SW}, the power switch. Nothing on the board protects this header, so the case's supply must be a regulated 5 V, wired the right way around."
   },
   "AUDIO": {

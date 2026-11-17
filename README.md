@@ -93,13 +93,13 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/Backplane/`** — Passive backplane providing 5 card slots with full bus interconnect across all slots.
 
-**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input. Today's Rev 1.1 also removes the `RESB` pull-up and adds reverse-polarity protection on the barrel jack; the boards made as Rev 1.1, which are on sale, have neither change (see the build notes in BOM.md). Every revision's oscillator can is 1 MHz, and serial is tested at 1 MHz. A faster can is at the builder's risk, because the serial cards haven't been tested with one.
+**`Hardware/Backplane Pro/`** — Enhanced backplane with integrated clock generation, reset circuitry, and power distribution plus 5 card slots. Rev 1.1 moves to entirely through-hole components and adds an onboard power switch and DC barrel jack input. Today's Rev 1.1 also removes the `RESB` pull-up, which the boards made as Rev 1.1, on sale now, still have (see the build notes in BOM.md). Use a centre-positive 5 V supply: nothing on the board protects it from a reversed one. Every revision's oscillator can is 1 MHz, and serial is tested at 1 MHz. A faster can is at the builder's risk, because the serial cards haven't been tested with one.
 
 **`Hardware/Backplane Helper/`** — Adds additional card slots to expand the total backplane configuration up to 12 slots.
 
 ### Cards
 
-**`Hardware/Clock Card/`** — The Backplane Pro's clock, reset and power on a card, so a COB can be built on the passive Backplane: a 1 MHz DIP-14 can oscillator to `PHI2` through a clock-enable header (so the Clock Helper's single-step and halt still work), the 555 power-on and push-button reset pulling `RESB` low through an NPN, and a 5 V barrel jack with reverse-polarity protection. Serial is tested at 1 MHz, so a faster oscillator can is at the builder's risk, as on the Backplane Pro.
+**`Hardware/Clock Card/`** — The Backplane Pro's clock, reset and power on a card, so a COB can be built on the passive Backplane: a 1 MHz DIP-14 can oscillator to `PHI2` through a clock-enable header (so the Clock Helper's single-step and halt still work), the 555 power-on and push-button reset pulling `RESB` low through an NPN, and a 5 V barrel jack straight to `VCC`, for a centre-positive supply only (a Rev 1.0 takes a wire link in place of D2; see the build notes in BOM.md). Serial is tested at 1 MHz, so a faster oscillator can is at the builder's risk, as on the Backplane Pro.
 
 **`Hardware/CPU Card/`** — Hosts the 65C02 CPU in a card form factor for backplane-based COB systems. Its `EXP` header, J3, can jumper `EXP0` to VPB and `EXP1` to MLB. Leave those two positions open in a build that takes cartridges, because a cartridge grounds `EXP0` and `EXP1` (see [Extra pins](#extra-pins-exp0exp3-and-hrdb)).
 
@@ -191,7 +191,7 @@ Each revision carries one of three labels:
 |---|---|---|---|
 | Backplane | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
 | Backplane Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
-| Backplane Pro | 1.1 | **Untested** | The made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed. |
+| Backplane Pro | 1.1 | **Untested** | The made Rev 1.1 with R5 removed. |
 | Blinkenlights Card | 1.1 | **Untested** | Decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge. |
 | Breadboard Helper | 1.1 | **Proven design** | J1 takes the box header's footprint, with the same holes, and the outline grows to hold it. |
 | CPU Card | 1.1 | **Proven design** | 10k pull-ups, some tracks rerouted, silkscreen, the bare card edge. |

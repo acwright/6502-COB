@@ -24,8 +24,8 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | yes | — |  |
-| Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
-| Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
+| Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | the board's silk says 6502 BACKPLANE, its name when ordered; parity: net conflict 5, mismatch 1 |
+| Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
 | Breadboard Helper | 1.0 | Made, matches order | **Tested** | Y39 | 2024-06-08 | `7d050b0` | 3 | 75×55 | — | — | — |  |
@@ -141,10 +141,11 @@ What changed in each revision of each board, newest first. The table above has t
 
 #### Rev 1.1
 
-Drawn, not yet made. It replaces the design of the boards made as Rev 1.1 (owner, 2026-11-13). It was drawn as Rev 1.2 and took the number on 2026-11-14, so the family's boards end as one set of Rev 1.1s; a Rev 1.2 opens only when there are meaningful changes. Two changes from the boards made as Rev 1.1:
+Drawn, not yet made. It replaces the design of the boards made as Rev 1.1 (owner, 2026-11-13). It was drawn as Rev 1.2 and took the number on 2026-11-14, so the family's boards end as one set of Rev 1.1s; a Rev 1.2 opens only when there are meaningful changes. One change from the boards made as Rev 1.1:
 
 - **R5 is removed.** It was a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
-- **D2, a 1N5819, is added** in series between the barrel jack (J1) and the power switch (SW1), anode at the jack, so a reversed supply can't reach VCC. It drops about 0.3–0.4 V, so VCC sits near 4.6 V.
+
+The barrel jack (J1) goes straight to the power switch (SW1), as on the boards made as Rev 1.1, so `VCC` gets the supply's full 5 V. This revision was drawn with a 1N5819 (D2) between them, against a reversed supply, but it dropped `VCC` to about 4.6 V, and it came out on 2026-11-16 (owner). Use a centre-positive 5 V supply.
 
 The backplane carries no decoupling capacitors, as on the other backplanes: every card that plugs in has 100nF on each of its own chips.
 
@@ -201,7 +202,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.1** (drawn, not yet made; Rev 1.0 is built first)
 
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.11 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
-- The silkscreen's revision reads Rev 1.1. Nothing else changed: the circuit, parts, tracks and pads are Rev 1.0's.
+- D2, Rev 1.0's 1N5819 between the barrel jack (J2) and `VCC`, is gone (owner, 2026-11-16): the jack goes straight to `VCC`, by one new track, so the card gives the supply's full 5 V. The diode guarded against a reversed supply but dropped `VCC` to about 4.6 V. Use a centre-positive 5 V supply.
+- The silkscreen's revision reads Rev 1.1. Nothing else changed: the rest of the circuit, parts, tracks and pads are Rev 1.0's.
 - Rev 1.1 was labelled **Untested** until Rev 1.0 was tested. It became **Proven design** when Rev 1.0 passed, on 2026-11-15.
 
 **Rev 1.0**
@@ -209,6 +211,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Initial release, ordered on 2026-11-02 with the KIM Board Rev 1.0. `Hardware/Clock Card/Rev 1.0/` and `Production/Clock Card/Rev 1.0/` match the boards JLCPCB made (order Y101). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
 - Built and tested on 2026-11-15, in a KIM built on the VCS Main Board: the 1 MHz oscillator can moved from the Main Board to the Clock Card, the card went into the Main Board's slot, and the KIM was powered through the card's barrel jack. The KIM ran on the card's clock and power, and the card's reset button reset it. The card is **Tested**.
 - The card takes a 1 MHz DIP-14 can, the AC6502's standard `PHI2`. It has no power switch, and no `RESB` pull-up: the CPU Card's is the only one a COB needs. JP1 is open as made, so the clock reaches `PHI2` only through J3: fit a switch or a jumper there, or bridge JP1 if the clock never needs to stop.
+- D2 is marked do-not-fit in Rev 1.0's files, with a note on the schematic to fit a wire link in its place (owner, 2026-11-16). The board as made has its pads; the 1N5819 there dropped `VCC` to about 4.6 V.
 
 ### CPU Card
 

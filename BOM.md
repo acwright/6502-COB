@@ -26,7 +26,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Backplane Helper](#backplane-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane Helper](#backplane-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Backplane Pro](#backplane-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed |
+| [Backplane Pro](#backplane-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: the made Rev 1.1 with R5 removed |
 | [Backplane](#backplane) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Backplane](#backplane) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [Blinkenlights Card](#blinkenlights-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -123,12 +123,14 @@ How to build each board, where it needs more than its parts list.
 
 **Backplane Pro**
 
-**Building a board made as Rev 1.1** (order Y93, the boards on sale; today's Rev 1.1 has neither of these issues):
+**Building a board made as Rev 1.1** (order Y93, the boards on sale):
 - **Leave R5 unfitted.** R5 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's. The CPU Card's pull-up is the only one a COB needs, and the Backplane Pro's reset circuit only pulls `RESB` low, through Q1. Without a CPU Card on the bus, `RESB` then has no pull-up, so whatever drives the bus instead (a [Mega Helper](#mega-helper), for example) must hold `RESB` high itself.
-- **Use a centre-positive 5 V supply only.** A board made as Rev 1.1 has no reverse-polarity protection on the barrel jack; today's Rev 1.1 adds D2, a 1N5819, for it.
-- **Parts:** today's Rev 1.1 parts list, less D2, which a board made as Rev 1.1 has no pads for. R5 isn't on it, so there's nothing to leave out.
+- **Use a centre-positive 5 V supply only.** Nothing on the board protects it from a reversed supply; today's Rev 1.1 is the same.
+- **Parts:** today's Rev 1.1 parts list. R5 isn't on it, so there's nothing to leave out.
 
-**Building a Rev 1.0:** leave R3 unfitted, or remove it from a built board. R3 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's, and the CPU Card's pull-up is the only one a COB needs. The Rev 1.1 notes above explain what that means for a machine without a CPU Card.
+**Building a Rev 1.0:**
+- **R3:** leave it unfitted, or remove it from a built board. R3 is a 1kΩ pull-up on `RESB`, in parallel with the CPU Card's, and the CPU Card's pull-up is the only one a COB needs. The Rev 1.1 notes above explain what that means for a machine without a CPU Card.
+- **D1, if the machine needs a full 5 V:** remove D1 and bridge its two pads with solder. D1 is the 1N5819 that JLCPCB fits between the USB-C port and `VCC`, and it drops `VCC` to about 4.6 V. With D1 bridged, power the machine from one USB port at a time: a board that feeds `VCC` from its own USB, such as a [Mega Helper](#mega-helper)'s Arduino, would otherwise feed back into the backplane's USB supply.
 
 **Blinkenlights Card**
 
@@ -144,7 +146,7 @@ How to build each board, where it needs more than its parts list.
 
 **Clock Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab, and the silkscreen; a Rev 1.0's masked edge works in the slot.
+**Building a Rev 1.0:** fit a wire link in D2's place, from one pad to the other, not a 1N5819: the diode dropped `VCC` to about 4.6 V, and Rev 1.1 has none. On a card already built with the diode, remove it and fit the link. Use a centre-positive 5 V supply: nothing on the card protects it from a reversed one. Rev 1.1's other changes, its card edge, which has no solder mask on its tab, and its silkscreen, need nothing; a Rev 1.0's masked edge works in the slot.
 
 **Clock Helper**
 
@@ -290,7 +292,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Helper/Rev%201.0/digikey.csv), [mouser
 
 ### Backplane Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: the made Rev 1.1 with a 1N5819 in the power path (`VCC` near 4.6 V) and R5 removed.
+Drawn, not made yet. **Untested**: the made Rev 1.1 with R5 removed.
 
 Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Backplane%20Pro/Rev%201.1/mouser.csv)
 
@@ -299,7 +301,6 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.1/digikey.csv), [mouser.cs
 | C1, C3 | 2 | 10uF | Panasonic EEA-GA1C100 | [P14482-ND](https://www.digikey.com/en/products/filter?keywords=P14482-ND) | [667-EEA-GA1C100](https://www.mouser.com/ProductDetail/667-EEA-GA1C100) |  |
 | C2 | 1 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
-| D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
 | J1 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J2–J4, J7, J8 | 5 | 6502 Card Connector | TE Connectivity 5-5530843-4 | [A31723-ND](https://www.digikey.com/en/products/filter?keywords=A31723-ND) | [571-5-5530843-4](https://www.mouser.com/ProductDetail/571-5-5530843-4) |  |
 | J5 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
@@ -580,7 +581,6 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.1/digikey.csv), [mouser.csv](
 | C1, C3 | 2 | 10uF | Panasonic EEA-GA1C100 | [P14482-ND](https://www.digikey.com/en/products/filter?keywords=P14482-ND) | [667-EEA-GA1C100](https://www.mouser.com/ProductDetail/667-EEA-GA1C100) |  |
 | C2, C4, C5 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
-| D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
 | J2 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J3 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | J4 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
@@ -608,7 +608,6 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 | C1, C3 | 2 | 10uF | Panasonic EEA-GA1C100 | [P14482-ND](https://www.digikey.com/en/products/filter?keywords=P14482-ND) | [667-EEA-GA1C100](https://www.mouser.com/ProductDetail/667-EEA-GA1C100) |  |
 | C2, C4, C5 | 3 | 100nF | KYOCERA AVX SR205C104KAR | [478-3187-ND](https://www.digikey.com/en/products/filter?keywords=478-3187-ND) | [581-SR205C104KAR](https://www.mouser.com/ProductDetail/581-SR205C104KAR) |  |
 | D1 | 1 | POWER LED | Würth Elektronik 151031VS06000 | [732-5008-ND](https://www.digikey.com/en/products/filter?keywords=732-5008-ND) | [710-151031VS06000](https://www.mouser.com/ProductDetail/710-151031VS06000) |  |
-| D2 | 1 | 1N5819 | Vishay 1N5819-E3/54 | [1N5819-E3/54GICT-ND](https://www.digikey.com/en/products/filter?keywords=1N5819-E3%2F54GICT-ND) | [625-1N5819-E3](https://www.mouser.com/ProductDetail/625-1N5819-E3) |  |
 | J2 | 1 | 5V DC | Same Sky PJ-102AH | [CP-102AH-ND](https://www.digikey.com/en/products/filter?keywords=CP-102AH-ND) | [490-PJ-102AH](https://www.mouser.com/ProductDetail/490-PJ-102AH) |  |
 | J3 | 1 | CLOCK ENBL SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
 | J4 | 1 | RESET SW | JST Sales America Inc. B2B-XH-A | [455-B2B-XH-A-ND](https://www.digikey.com/en/products/filter?keywords=455-B2B-XH-A-ND) |  |  |
@@ -621,6 +620,8 @@ Cart files: [digikey.csv](BOM/Clock%20Card/Rev%201.0/digikey.csv), [mouser.csv](
 | U1 | 1 | LM555 | Texas Instruments LM555CN/NOPB | [LM555CNNS/NOPB-ND](https://www.digikey.com/en/products/filter?keywords=LM555CNNS%2FNOPB-ND) | [926-LM555CN/NOPB](https://www.mouser.com/ProductDetail/926-LM555CN%2FNOPB) |  |
 | X1 | 1 | 1 MHz | ECS Inc. ECS-100AX-010 | [X937-ND](https://www.digikey.com/en/products/filter?keywords=X937-ND) | [520-TCF100-X](https://www.mouser.com/ProductDetail/520-TCF100-X) |  |
 | U1 | 1 | Socket | IC socket, 8-pin, 0.3 in | [3M5473-ND](https://www.digikey.com/en/products/filter?keywords=3M5473-ND) | [517-4808-3004-CP](https://www.mouser.com/ProductDetail/517-4808-3004-CP) | |
+
+**Do not fit** D2: see the build notes.
 
 - **D1:** Green shown. The colour is the builder's choice.
 - **J2:** Replaces GCT DCJ200-10-A-K1-K, now obsolete, which older builds used. Its pads and body match this footprint on the datasheet. No board has been built with it yet.

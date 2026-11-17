@@ -2,7 +2,6 @@
 "C1, C3",CP_Radial_D4.0mm_P1.50mm,2,10uF,
 "C2, C4, C5",C_Disc_D5.0mm_W2.5mm_P2.50mm,3,100nF,
 D1,LED_D3.0mm,1,POWER LED,
-D2,D_DO-41_SOD81_P10.16mm_Horizontal,1,1N5819,
 J2,BarrelJack_Horizontal,1,5V DC,
 J3,JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,1,CLOCK ENBL SW,
 J4,JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,1,RESET SW,

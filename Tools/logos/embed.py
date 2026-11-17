@@ -59,7 +59,7 @@ def state(path):
     if lt is None: return repo, board, rev, name, f'no footprint "{name}" in {LIB}'
     if kpcb.layer(fp) != kpcb.layer(lroot): return repo, board, rev, name, f'on {kpcb.layer(fp)}, the library\'s on {kpcb.layer(lroot)}'
     a = [norm(k.text(t)) for k in polys(fp, t)]; b = [norm(k.text(lt)) for k in polys(lroot, lt)]
-    return repo, board, rev, name, 'same' if a == b else 'differs'
+    return repo, board, rev, name, 'same' if sorted(a) == sorted(b) else 'differs'   # KiCad may reorder a footprint's polygons when it saves
 
 
 def indent(block, by):

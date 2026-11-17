@@ -43,8 +43,8 @@ for (repo,b),L in sorted(revs.items()):
             if hit and any(n in('VCC','+5V','5V') for n in N): pu[hit[0]].append(('10k' if f'{repo}|{b}|{r}|{ref}' in FIT else v,ref))
     power=[]
     bj=any(i.startswith('5V DC|Barrel') for i in ids)
+    if any(i.startswith('1N5819') for i in ids): power.append('a 1N5819 in the power path')   # removed from every board 2026-11-16: it dropped VCC to about 4.6 V
     if bj:
-        if not any(i.startswith('1N5819') for i in ids): power.append('no 1N5819')
         if not any(i.startswith('POWER|') for i in ids) and b!='Clock Card': power.append('no power switch')
     pul=[]
     if pu:
