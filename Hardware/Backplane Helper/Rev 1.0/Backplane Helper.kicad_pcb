@@ -86,7 +86,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../Production/Backplane/Backplane/")
+			(outputdirectory "")
 		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"

@@ -87,7 +87,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../Production/Serial Card/Serial Card/")
+			(outputdirectory "")
 		)
 	)
 	(footprint "Capacitor_SMD:C_0805_2012Metric"

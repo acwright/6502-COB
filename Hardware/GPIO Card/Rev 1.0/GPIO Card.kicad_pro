@@ -544,7 +544,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../Assets/PCB Models/GPIO Card/Rev 1.0/GPIO Card.step",
+      "step": "../../../CAD/Models/GPIO Card/Rev 1.0/GPIO Card.step",
       "svg": "",
       "vrml": ""
     },

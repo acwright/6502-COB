@@ -87,7 +87,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../Production/Prototype Card/Rev 1.1/")
+			(outputdirectory "")
 		)
 	)
 	(footprint "Symbol:OSHW-Logo2_7.3x6mm_SilkScreen"

@@ -715,11 +715,11 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "Prototype Card.net",
+      "netlist": "",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/VERA Helper/Rev 1.0/VERA Helper.step",
+      "step": "../../../CAD/Models/VERA Helper/Rev 1.0/VERA Helper.step",
       "svg": "",
       "vrml": ""
     },

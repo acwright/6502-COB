@@ -782,11 +782,11 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "Backplane.net",
+      "netlist": "",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/Backplane Helper/Rev 1.0/Backplane Helper.step",
+      "step": "../../../CAD/Models/Backplane Helper/Rev 1.0/Backplane Helper.step",
       "svg": "",
       "vrml": ""
     },

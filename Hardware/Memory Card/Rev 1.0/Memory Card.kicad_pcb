@@ -116,7 +116,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../Production/Memory Card/Memory Card/")
+			(outputdirectory "")
 		)
 	)
 	(net 0 "")

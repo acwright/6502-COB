@@ -87,7 +87,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../../Production/CPU Card/Rev 1.1/CPU Card Rev 1.1/")
+			(outputdirectory "")
 		)
 	)
 	(footprint "6502 Parts:6502 Card Edge"

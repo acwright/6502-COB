@@ -955,11 +955,11 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "Serial Card.net",
+      "netlist": "",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/Serial Card Pro/Rev 1.0/Serial Card Pro.step",
+      "step": "../../../CAD/Models/Serial Card Pro/Rev 1.0/Serial Card Pro.step",
       "svg": "",
       "vrml": ""
     },

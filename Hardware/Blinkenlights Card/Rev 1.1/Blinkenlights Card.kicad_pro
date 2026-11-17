@@ -715,11 +715,11 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "Prototype Card.net",
+      "netlist": "",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../Assets/PCB Models/Blinkenlights Card/Rev 1.1/Blinkenlights Card.step",
+      "step": "../../../CAD/Models/Blinkenlights Card/Rev 1.1/Blinkenlights Card.step",
       "svg": "",
       "vrml": ""
     },
@@ -851,7 +851,7 @@
     },
     "net_format_name": "Pcbnew",
     "page_layout_descr_file": "",
-    "plot_directory": "../../../../Schematics/Blinkenlights Card/Rev 1.1/",
+    "plot_directory": "../../../Schematics/Blinkenlights Card/Rev 1.1/",
     "reuse_designators": true,
     "space_save_all_events": true,
     "spice_adjust_passive_values": false,

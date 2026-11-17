@@ -536,7 +536,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/VGA Card/Rev 1.0/VGA Card.step",
+      "step": "../../../CAD/Models/VGA Card/Rev 1.0/VGA Card.step",
       "svg": "",
       "vrml": ""
     },

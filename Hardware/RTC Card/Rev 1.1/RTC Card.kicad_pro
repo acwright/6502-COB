@@ -531,7 +531,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/RTC Card/Rev 1.0/RTC Card.step",
+      "step": "../../../CAD/Models/RTC Card/Rev 1.1/RTC Card.step",
       "svg": "",
       "vrml": ""
     },
@@ -669,7 +669,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "../../../Schematics/RTC Card/Rev 1.0/",
+    "plot_directory": "../../../Schematics/RTC Card/Rev 1.1/",
     "reuse_designators": true,
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,

@@ -519,11 +519,11 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "CPU Card.net",
+      "netlist": "",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../Assets/PCB Models/CPU Card/Rev 1.0/CPU Card.step",
+      "step": "../../../CAD/Models/CPU Card/Rev 1.0/CPU Card.step",
       "svg": "",
       "vrml": ""
     },
