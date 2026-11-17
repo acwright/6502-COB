@@ -17512,7 +17512,7 @@
 				)
 			)
 		)
-		(property "Value" "DNP: the RESB pull-up is on the CPU Card"
+		(property "Value" "DNP"
 			(at 0.6625 2.35 360)
 			(layer "F.Fab")
 			(hide yes)

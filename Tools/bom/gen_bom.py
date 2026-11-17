@@ -225,7 +225,7 @@ def gen(repo,readme=False):
             if (repo,b,rev) in EXTRA_NOTE: o.append(EXTRA_NOTE[(repo,b,rev)]+'\n')
             real=[x for x in dnp if x[1]!='SKIP']
             if real:
-                why=real[0][1].replace('DNP: ','') if real[0][1].startswith('DNP') else 'see the build notes'
+                why=real[0][1][5:] if real[0][1].startswith('DNP: ') else 'see the build notes'
                 o.append('**Do not fit** '+ranges([x[0] for x in real])+': '+why+'.\n')
             for n,refs in notes.items():
                 if n.startswith('Do not fit'): continue

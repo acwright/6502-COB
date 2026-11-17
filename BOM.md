@@ -351,7 +351,7 @@ Cart files: [digikey.csv](BOM/Backplane%20Pro/Rev%201.0/digikey.csv), [mouser.cs
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
-**Do not fit** R3: the RESB pull-up is on the CPU Card.
+**Do not fit** R3: see the build notes.
 
 - **J2:** What LCSC C2988369 is. The footprint is HRO TYPE-C-31-M-12, and JLCPCB placed this part on the made boards.
 

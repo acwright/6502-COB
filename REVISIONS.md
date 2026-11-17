@@ -24,7 +24,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Backplane | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 100×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.0 | Made, matches order | **Tested** | Y77 | 2025-12-02 | `4115600` | 3 | 50×100 | 6 mm | yes | — |  |
 | Backplane Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 50×100 | 6 mm | yes | — |  |
-| Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | the board's silk says 6502 BACKPLANE, its name when ordered; parity: net conflict 5, mismatch 1 |
+| Backplane Pro | 1.0 | Made, matches order | **Tested** | Y30 | 2024-04-30 | `305dab8` | 4 | 100×100 | 6 mm | yes | — | symbol has pins the footprint lacks: J2 shield pin; the board's silk says 6502 BACKPLANE, its name when ordered |
 | Backplane Pro | 1.1 | Drawn | **Untested**: the made Rev 1.1 with R5 removed |  |  |  | 4 | 100×100 | 6 mm | yes | — | replaces the boards made as Rev 1.1 (order Y93, 2026-06-21, made from `7486bd6`; their files are in `1b94d135`) |
 | Blinkenlights Card | 1.0 | Made, matches order | **Tested** | Y40 | 2024-06-08 | `7d050b0` | 4 | 100×57.62 | — | — | — |  |
 | Blinkenlights Card | 1.1 | Drawn | **Untested**: decoupling capacitors added, the RESB, IRQB and NMIB LEDs driven through inverters, every inverter a 74HC3G04, tracks rerouted, and the bare card edge |  |  |  | — | 100×57.62 | — | — | — |  |
