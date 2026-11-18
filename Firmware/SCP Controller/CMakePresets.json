@@ -1,0 +1,66 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "name": "host",
+      "displayName": "Mac: the core and its unit tests",
+      "inherits": "base",
+      "cacheVariables": { "FW_PLATFORM": "host", "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "host-asan",
+      "displayName": "Mac: the unit tests under AddressSanitizer and UBSan",
+      "inherits": "host",
+      "cacheVariables": { "FW_SANITIZE": "ON" }
+    },
+    {
+      "name": "rp2350",
+      "hidden": true,
+      "inherits": "base",
+      "cacheVariables": { "FW_PLATFORM": "rp2350", "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "board",
+      "displayName": "Storage Card Pro 1.1 and ACE SD Adapter 1.1",
+      "inherits": "rp2350",
+      "cacheVariables": { "FW_BOARD": "ac6502_sd" }
+    },
+    {
+      "name": "pico2-loopback",
+      "displayName": "Pico 2: bus loopback rig",
+      "inherits": "rp2350",
+      "cacheVariables": { "FW_BOARD": "pico2_loopback" }
+    },
+    {
+      "name": "pico2-media",
+      "displayName": "Pico 2: SD card and flash rig",
+      "inherits": "rp2350",
+      "cacheVariables": { "FW_BOARD": "pico2_media" }
+    },
+    {
+      "name": "pico2-breadboard",
+      "displayName": "Pico 2: breadboard copy on the ACE",
+      "inherits": "rp2350",
+      "cacheVariables": { "FW_BOARD": "pico2_breadboard" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "host", "configurePreset": "host" },
+    { "name": "host-asan", "configurePreset": "host-asan" },
+    { "name": "board", "configurePreset": "board" },
+    { "name": "pico2-loopback", "configurePreset": "pico2-loopback" },
+    { "name": "pico2-media", "configurePreset": "pico2-media" },
+    { "name": "pico2-breadboard", "configurePreset": "pico2-breadboard" }
+  ],
+  "testPresets": [
+    { "name": "host", "configurePreset": "host", "output": { "outputOnFailure": true } },
+    { "name": "host-asan", "configurePreset": "host-asan", "output": { "outputOnFailure": true } }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "_note": "Firmware kept as copies in more than one repository. Each copy must be the same as the others, file for file, except the files in 'differ' and its own .uf2. A .uf2, where there is one, must carry the source hash of the copy it sits in. 'uf2_required' is true once a release's .uf2 is tracked.",
+  "pairs": [
+    {
+      "name": "SD controller (Storage Card Pro 1.1, ACE SD Adapter 1.1)",
+      "copies": {
+        "COB": "Firmware/SCP Controller",
+        "ACE": "Firmware/ASDA Controller"
+      },
+      "differ": ["product.h", "README.md"],
+      "uf2": {
+        "COB": "SCP Controller.uf2",
+        "ACE": "ASDA Controller.uf2"
+      },
+      "uf2_required": false
+    }
+  ]
+}

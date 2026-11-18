@@ -1,0 +1,2 @@
+# Every preset builds into build/<preset>; the Pico SDK is cloned into build/ too.
+build/

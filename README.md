@@ -27,6 +27,7 @@ An **AC6502** retro-style 8-bit computer based on the **65C02** microprocessor.
 - [Firmware](#firmware)
   - [KEH Controller](#keh-controller)
   - [PS2 Keyboard Controller](#ps2-keyboard-controller)
+  - [SCP Controller](#scp-controller)
 - [CAD](#cad)
 - [Production](#production)
 - [Schematics](#schematics)
@@ -272,7 +273,7 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 
 ## Firmware
 
-This repository contains [PlatformIO](https://platformio.org/)-based firmware for the COB system's microcontroller helpers.
+This repository contains firmware for the COB system's microcontrollers: [PlatformIO](https://platformio.org/)-based for the helpers' ATmega parts, and built with the [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk) for the Storage Card Pro's RP2350.
 
 ### KEH Controller
 `Firmware/KEH Controller/`
@@ -302,6 +303,15 @@ card connects to the **matrix inputs of a Keyboard Encoder Helper**, not to a
 a VIA the card produces nothing, as the BIOS has no matrix-scanning code.
 
 See [Firmware/PS2 Keyboard Controller/README.md](./Firmware/PS2%20Keyboard%20Controller/README.md) for setup and usage instructions.
+
+### SCP Controller
+`Firmware/SCP Controller/`
+
+Firmware for the RP2350A on the Storage Card Pro 1.1. The card is to answer on the bus as the Storage Card's CompactFlash card does, so the stock BIOS can use an SD card, or the card's built-in flash drive when no SD card is in.
+
+**Not finished.** It builds, and it doesn't answer on the bus yet. No Rev 1.1 card has been made. The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit, and its ASDA Controller is a copy of this firmware.
+
+See [Firmware/SCP Controller/README.md](./Firmware/SCP%20Controller/README.md) for building it.
 
 ## CAD
 `CAD/`
@@ -569,4 +579,4 @@ I have a few PCBs available on Tindie for those interested in building their own
 ## License
 
 Hardware designs are released under the [CERN Open Hardware Licence Version 2 – Permissive](https://ohwr.org/cern_ohl_p_v2.txt).  
-Firmware is released under the MIT License — [KEH Controller](./Firmware/KEH%20Controller/LICENSE) and [PS2 Keyboard Controller](./Firmware/PS2%20Keyboard%20Controller/LICENSE).
+Firmware is released under the MIT License — [KEH Controller](./Firmware/KEH%20Controller/LICENSE), [PS2 Keyboard Controller](./Firmware/PS2%20Keyboard%20Controller/LICENSE) and [SCP Controller](./Firmware/SCP%20Controller/LICENSE).
