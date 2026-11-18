@@ -31,7 +31,7 @@ typedef struct {
     uint8_t *data;
     bool in, started, fail;
     fake_clock_t *clock;
-    uint32_t write_us;          // what a sector write costs on the clock
+    uint32_t read_us, write_us; // what a sector read and write cost on the clock
     void (*on_access)(void *);  // called from inside each read and write, to model the bus side acting meanwhile
     void *on_access_ctx;
 } ram_medium_t;
@@ -46,6 +46,7 @@ static inline medium_result_t ram_read(medium_t *m, uint32_t s, uint8_t *buf)
     if (!r->in) return MEDIUM_GONE;
     if (r->fail || s >= r->count) return MEDIUM_FAILED;
     memcpy(buf, r->data + (size_t)s * 512, 512);
+    if (r->clock) r->clock->us += r->read_us;
     return MEDIUM_OK;
 }
 
@@ -82,6 +83,8 @@ typedef struct {
     uint32_t violations;        // a program that crossed a page, or tried to set a bit
     bool program_ignores;       // a stuck chip: programs do nothing
     fake_clock_t *clock;
+    uint32_t program_us, erase_us;      // the costs on the clock: NOR_PROGRAM_US and NOR_ERASE_US unless changed
+    uint32_t read_byte_us_x100;         // reading, per byte, in hundredths of a microsecond: 0 unless changed
     void (*on_erase)(void *);   // called from inside each erase
     void *on_erase_ctx;
 } fake_nor_t;
@@ -91,6 +94,7 @@ static inline bool fnor_read(nor_t *n, uint32_t addr, uint8_t *buf, uint32_t len
     fake_nor_t *f = n->ctx;
     if (addr + len > n->size) return false;
     f->reads++;
+    if (f->clock) f->clock->us += (len * f->read_byte_us_x100 + 99) / 100;
     memcpy(buf, f->data + addr, len);
     return true;
 }
@@ -100,7 +104,7 @@ static inline bool fnor_program(nor_t *n, uint32_t addr, const uint8_t *buf, uin
     fake_nor_t *f = n->ctx;
     if (addr + len > n->size) return false;
     f->programs++;
-    if (f->clock) f->clock->us += NOR_PROGRAM_US;
+    if (f->clock) f->clock->us += f->program_us;
     if ((addr / NOR_PAGE) != ((addr + len - 1) / NOR_PAGE)) f->violations++;
     if (f->program_ignores) return true;
     for (uint32_t i = 0; i < len; i++) {
@@ -116,7 +120,7 @@ static inline bool fnor_erase(nor_t *n, uint32_t addr)
     if (addr % NOR_SECTOR || addr >= n->size) return false;
     f->erases++;
     if (f->on_erase) f->on_erase(f->on_erase_ctx);
-    if (f->clock) f->clock->us += NOR_ERASE_US;
+    if (f->clock) f->clock->us += f->erase_us;
     memset(f->data + addr, 0xFF, NOR_SECTOR);
     return true;
 }
@@ -126,6 +130,8 @@ static inline void fnor_init(fake_nor_t *f, uint32_t size)
     memset(f, 0, sizeof *f);
     f->data = malloc(size);
     memset(f->data, 0xFF, size);
+    f->program_us = NOR_PROGRAM_US;
+    f->erase_us = NOR_ERASE_US;
     f->nor = (nor_t){ size, fnor_read, fnor_program, fnor_erase, f };
 }
 

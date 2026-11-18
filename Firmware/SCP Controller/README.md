@@ -32,7 +32,7 @@ cmake --preset host && cmake --build --preset host && ctest --preset host
 | Preset | What it builds |
 |---|---|
 | `board` | The firmware for the Storage Card Pro 1.1 and the ACE SD Adapter 1.1 |
-| `host`, `host-asan` | The controller's core and its unit tests, on the Mac; `host-asan` adds AddressSanitizer and UBSan |
+| `host`, `host-asan` | The controller's core, its unit tests and the BIOS tests, on the Mac; `host-asan` adds AddressSanitizer and UBSan |
 | `pico2-loopback` | A Pico 2 that times its own bus: GPIO15–21 wired to GPIO8–14 |
 | `pico2-media` | A Pico 2 with an SD card breakout and a W25Q flash breakout, driven over USB |
 | `pico2-breadboard` | A Pico 2 on a breadboard copy of the board, on the ACE's `STORAGE` header |
@@ -47,9 +47,12 @@ The Pico 2 builds are for testing the firmware before a board exists. Each one's
 | `core/` | The controller's logic in plain C, with no Pico SDK, so the unit tests run it on the Mac |
 | `rp2350/` | The RP2350 side: start-up, and the header for each build's pins in `boards/` |
 | `tests/unit/` | The unit tests |
+| `tests/bios/` | The stock BIOS 1.7 and 2.1.0 running against the core in a 65C02 emulator, with `cffs` checking the disk format; see its README |
 | `cmake/` | The SDK's fetch, and the source hash the build stamps into the firmware |
 
 ## License
 
 MIT; see [LICENSE](LICENSE). The board's header, `rp2350/boards/ac6502_sd.h`, is derived from the Pico SDK's
-`pico2.h`, under the SDK's BSD-3-Clause licence, as it says.
+`pico2.h`, under the SDK's BSD-3-Clause licence, as it says. The tests carry two things from elsewhere, both MIT:
+Troy Schrapel's vrEmu6502 in `tests/bios/vrEmu6502/`, with its licence, and the BIOS ROMs from 6502-BIOS in
+`tests/bios/roms/`.
