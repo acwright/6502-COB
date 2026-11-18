@@ -35,6 +35,8 @@
 #define FW_HAS_SD       0
 #define FW_HAS_FLASH    0
 
+#define FW_BUS_INTERNAL_PULLS 1 // no 4.7k resistors: the pads' pulls give $80 undriven
+
 #define FW_PIN_LED_SD   25      // the Pico 2's own LED
 #define FW_PIN_LED_ACT  22
 

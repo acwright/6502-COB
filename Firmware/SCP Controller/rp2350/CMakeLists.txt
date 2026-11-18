@@ -11,7 +11,13 @@ add_custom_target(fw_source_hash
 
 add_executable(firmware
     main.c
+    bus.c
+    exerciser.c
+    loopback.c
+    patterndisk.c
 )
+pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/bus.pio)
+pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/exerciser.pio)
 add_dependencies(firmware fw_source_hash)
 set_target_properties(firmware PROPERTIES OUTPUT_NAME ${FW_NAME})
 target_compile_definitions(firmware PRIVATE "PICO_PROGRAM_NAME=\"${FW_NAME}\"")
@@ -20,7 +26,12 @@ target_link_libraries(firmware PRIVATE
     fw_core
     fw_warnings
     pico_stdlib
+    pico_multicore
+    pico_unique_id
+    hardware_clocks
+    hardware_dma
     hardware_gpio
+    hardware_pio
 )
 
 # The whole program runs from SRAM, so the bus loop never waits on the program flash.

@@ -42,6 +42,7 @@
 #define FW_PIN_A2       12
 #define FW_PIN_A1       13
 #define FW_PIN_A0       14
+#define FW_BUS_INTERNAL_PULLS 0 // R13-R20, 4.7k: D7 up, D0-D6 down
 
 // The SD card on SPI0.
 #define FW_HAS_SD       1

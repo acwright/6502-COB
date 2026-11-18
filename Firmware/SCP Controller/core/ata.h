@@ -104,12 +104,33 @@ void ata_set_present(ata_t *a, bool present);
 // bus program serves reads from a copy of these values.
 uint8_t ata_peek(const ata_t *a, unsigned reg);
 
+// All eight registers as ata_peek() gives them, in one pass: what the RP2350's
+// bus program is given after every access, so it must be quick.
+void ata_registers(const ata_t *a, uint8_t regs[8]);
+
+// Whether an access to the data register in the middle of a sector changed
+// nothing the 6502 can see but the data register itself: no BSY, DRQ still set.
+// Then the RP2350 updates just the data register (a read) or nothing (a write).
+static inline bool ata_mid_sector(const ata_t *a)
+{
+    return a->drq && !a->starting && !a->resb && !a->resetting && !a->waiting;
+}
+
+// Registers 0 and 1 (data, error) as one word, low byte first: what the RP2350
+// rewrites after a data read in the middle of a sector.
+static inline uint16_t ata_data_word(const ata_t *a)
+{
+    uint8_t data = a->xfer == ATA_XFER_READ || a->xfer == ATA_XFER_IDENTIFY ? a->buffer[a->index] : 0x00;
+    return (uint16_t)(data | (a->error << 8));
+}
+
 // A read of a register by the 6502: ata_peek()'s value, and its side effects
 // (the data register moves on to the next byte).
 uint8_t ata_read(ata_t *a, unsigned reg);
 
 // A write of a register by the 6502. Ignored while BSY.
 void ata_write(ata_t *a, unsigned reg, uint8_t value);
+
 
 // RESB's level: true while it is held low. A reset aborts the command and keeps
 // BSY until any job in progress is finished, then puts the registers back.
@@ -122,6 +143,19 @@ void ata_poll(ata_t *a);
 static inline bool ata_busy(const ata_t *a)
 {
     return a->starting || a->resb || a->resetting || a->waiting;
+}
+
+// Whether this write may leave the controller busy: a command, or the last byte
+// of a sector being written. The RP2350 shows BSY the moment it takes such a
+// write, before it does the rest, so a status read right behind it (lda after
+// sta, four cycles) can't see the old status.
+static inline bool ata_write_may_busy(const ata_t *a, unsigned reg)
+{
+    if (ata_busy(a))
+        return false;                   // ignored anyway
+    if ((reg & 7) == ATA_REG_STATUS)
+        return a->present;
+    return (reg & 7) == ATA_REG_DATA && a->drq && a->xfer == ATA_XFER_WRITE && a->index == ATA_SECTOR - 1;
 }
 
 // Worker side: the posted job, now taken, or NULL if there is none. The worker

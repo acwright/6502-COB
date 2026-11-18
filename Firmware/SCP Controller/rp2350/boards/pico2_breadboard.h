@@ -24,6 +24,8 @@
 #define FW_PIN_A1       13
 #define FW_PIN_A0       14
 
+#define FW_BUS_INTERNAL_PULLS 0 // the breadboard has the board's 4.7k resistors
+
 #define FW_HAS_SD       1
 #define FW_SD_SPI       spi0
 #define FW_PIN_SD_MISO  16

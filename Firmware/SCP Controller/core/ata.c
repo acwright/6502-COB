@@ -77,6 +77,24 @@ uint8_t ata_peek(const ata_t *a, unsigned reg)
     }
 }
 
+void ata_registers(const ata_t *a, uint8_t regs[8])
+{
+    if (ata_busy(a)) {
+        for (unsigned r = 0; r < 8; r++)
+            regs[r] = ATA_SR_BSY;
+        return;
+    }
+    regs[ATA_REG_DATA] = a->drq && (a->xfer == ATA_XFER_READ || a->xfer == ATA_XFER_IDENTIFY) ? a->buffer[a->index] : 0x00;
+    regs[ATA_REG_ERROR] = a->error;
+    regs[ATA_REG_COUNT] = a->count;
+    regs[ATA_REG_LBA0] = a->lba[0];
+    regs[ATA_REG_LBA1] = a->lba[1];
+    regs[ATA_REG_LBA2] = a->lba[2];
+    regs[ATA_REG_LBA3] = a->lba[3];
+    regs[ATA_REG_STATUS] = !a->present ? 0x00
+                         : (uint8_t)(ATA_SR_RDY | ATA_SR_DSC | (a->drq ? ATA_SR_DRQ : 0) | (a->err ? ATA_SR_ERR : 0));
+}
+
 uint8_t ata_read(ata_t *a, unsigned reg)
 {
     uint8_t value = ata_peek(a, reg);

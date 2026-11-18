@@ -1,0 +1,66 @@
+; The 6502 bus. GPIO0-7 are D0-D7, through the 74LVC4245A; GPIO8-14 are RESB,
+; RB, WB, CS, A2, A1 and A0, through the 74LVC541. The pin numbers are written
+; into the programs; bus.c checks every target's header agrees.
+;
+; RB and WB are the bus's own read and write strobes: they fall in every cycle,
+; whoever it is for. CS is this board's select. The 74LVC4245A drives the bus
+; only while CS and RB are both low, so the RP2350 may drive its side of D0-D7
+; at any time but a write of ours, when the translator drives it.
+
+.pio_version 1
+
+; bus_read: serves reads. When CS falls it picks the register's byte out of the
+; four RX FIFO words the core keeps up to date (FJOIN_RX_GET): word A1:A2, byte A0.
+; When RB falls it drives D0-D7, and when RB rises it lets go. The byte is ready
+; before RB falls, so a read costs one instruction after RB is seen.
+;   IN base GPIO12, IN count 2:   Y = A1:A2
+;   JMP pin GPIO14:               A0
+;   OUT base GPIO0, OUT count 8;  OSR shifts right
+.program bus_read
+.fifo txget
+.wrap_target
+    wait 0 gpio 11          ; CS low
+    mov y, pins             ; A1:A2
+    mov osr, rxfifo[y]
+    jmp pin upper           ; A0 set: the word's upper byte
+    jmp latch
+upper:
+    out null, 8
+latch:
+    mov pins, osr           ; latched, not driven yet
+    wait 0 gpio 9           ; RB low: a read of ours
+    mov pindirs, ~null      ; drive D0-D7
+    wait 1 gpio 9           ; RB high: PHI2 has fallen
+    mov pindirs, null
+    wait 1 gpio 11          ; CS high: the cycle is over
+.wrap
+
+; bus_note: tells the core which register each read of ours was, so it can do
+; the read's side effects: the data register moves on to its next byte.
+;   JMP pin GPIO11 (CS); IN base GPIO12; IN shifts left
+;   pushes A2, A1, A0 in bits 0-2
+.program bus_note
+.fifo rx
+.wrap_target
+    wait 0 gpio 9           ; RB low: a read, ours or another card's
+    jmp pin skip            ; CS high: not ours
+    in pins, 3
+    push
+skip:
+    wait 1 gpio 9
+.wrap
+
+; bus_write: takes each write of ours 80 ns after WB falls: D0-D7, and A2, A1, A0.
+;   JMP pin GPIO11 (CS); IN base GPIO0; IN shifts left
+;   pushes GPIO0-14: D0-D7 in bits 0-7, A2, A1, A0 in bits 12-14
+.program bus_write
+.fifo rx
+.wrap_target
+    wait 0 gpio 10          ; WB low: a write, ours or another card's
+    jmp pin skip            ; CS high: not ours
+    nop [10]                ; 12 clocks, 80 ns, after WB was seen
+    in pins, 15
+    push
+skip:
+    wait 1 gpio 10
+.wrap

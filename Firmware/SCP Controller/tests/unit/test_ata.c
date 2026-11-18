@@ -5,6 +5,47 @@
 
 static ata_t a;
 
+// Every write that leaves the controller busy must have been foretold by
+// ata_write_may_busy(), or the RP2350 would show the old status for a moment.
+static int busy_not_foretold;
+static int fast_path_wrong;      // the RP2350's fast path disagreed with the full registers
+static void checked_write(ata_t *x, unsigned reg, uint8_t value)
+{
+    bool foretold = ata_write_may_busy(x, reg);
+    bool was = ata_busy(x);
+    uint8_t before[8], after[8];
+    ata_registers(x, before);
+    ata_write(x, reg, value);
+    busy_not_foretold += !was && ata_busy(x) && !foretold;
+    // The fast path: a data write mid-sector changes nothing the 6502 can read.
+    if ((reg & 7) == ATA_REG_DATA && ata_mid_sector(x)) {
+        ata_registers(x, after);
+        fast_path_wrong += memcmp(before, after, 8) != 0;
+    }
+}
+#define ata_write checked_write
+
+// ata_registers() must agree with ata_peek() everywhere: checked at every read.
+static int registers_disagree;
+static uint8_t checked_read(ata_t *x, unsigned reg)
+{
+    uint8_t all[8], before[8];
+    ata_registers(x, all);
+    for (unsigned r = 0; r < 8; r++)
+        registers_disagree += all[r] != ata_peek(x, r);
+    memcpy(before, all, 8);
+    uint8_t v = ata_read(x, reg);
+    // The RP2350's fast path: mid-sector, only the data word may have changed.
+    if ((reg & 7) == ATA_REG_DATA && ata_mid_sector(x)) {
+        ata_registers(x, all);
+        fast_path_wrong += ata_data_word(x) != (all[0] | (all[1] << 8));
+        for (unsigned r = 1; r < 8; r++)
+            fast_path_wrong += all[r] != before[r];
+    }
+    return v;
+}
+#define ata_read checked_read
+
 static void ready(void)
 {
     ata_init(&a);
@@ -347,5 +388,8 @@ int main(void)
     RUN(reset_while_the_worker_is_busy);
     RUN(a_failed_job_after_a_reset_leaves_no_error);
     RUN(reset_held_low);
+    CHECK_EQ(0, registers_disagree);
+    CHECK_EQ(0, busy_not_foretold);
+    CHECK_EQ(0, fast_path_wrong);
     return TEST_RESULT();
 }

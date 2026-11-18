@@ -1,0 +1,45 @@
+; The loopback rig's bus exerciser, on PIO1: it plays a 6502's side of the bus
+; into the controller's pins through seven jumper wires, GPIO15-21 to GPIO8-14
+; (RESB, RB, WB, CS, A2, A1, A0), and reads D0-D7 straight off GPIO0-7.
+
+.pio_version 1
+
+; player: plays phases from the TX FIFO, one 32-bit word each:
+;   bits 0-6   the seven pins, GPIO15-21
+;   bit 7      sample: read D0-D7 at the end of the phase and push it
+;   bits 8-31  a delay
+; A phase lasts delay + 5 clocks, or delay + 7 if it samples; the sample is
+; taken delay + 5 clocks after the pins change.
+;   OUT base GPIO15, OUT count 7; OSR shifts right, autopull at 32
+;   IN base GPIO0; IN shifts left
+.program player
+.wrap_target
+top:
+    out pins, 7
+    out y, 1
+    out x, 24
+hold:
+    jmp x-- hold
+    jmp !y top              ; no sample: the next phase
+    in pins, 8
+    push
+.wrap
+
+; sampler: reads D0-D7 a set delay after RB falls in a cycle of ours (CS low),
+; for timing when the controller's data arrives. The delay, in clocks, comes
+; first from the TX FIFO. The read is taken delay + 3 clocks after RB is seen.
+;   JMP pin GPIO11 (CS); IN base GPIO0; IN shifts left
+.program sampler
+    pull
+    mov y, osr
+.wrap_target
+    wait 0 gpio 9           ; RB low
+    jmp pin skip            ; CS high: not a read of ours
+    mov x, y
+delay:
+    jmp x-- delay
+    in pins, 8
+    push
+skip:
+    wait 1 gpio 9
+.wrap

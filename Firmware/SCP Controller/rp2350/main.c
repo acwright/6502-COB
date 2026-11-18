@@ -8,6 +8,7 @@
 #include "pico/stdlib.h"
 
 #include "fw_info.h"
+#include "loopback.h"
 #include "product.h"
 #include "source_hash.h"
 #include "version.h"
@@ -53,6 +54,9 @@ int main(void)
     gpio_put(FW_PIN_LED_SD, 0);
     gpio_put(FW_PIN_LED_ACT, 0);
 
+#if FW_HAS_EXERCISER
+    loopback_main(banner);
+#endif
     bool told = false;
     for (;;) {
         bool connected = stdio_usb_connected();
