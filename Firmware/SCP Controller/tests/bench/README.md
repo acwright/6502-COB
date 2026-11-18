@@ -42,7 +42,7 @@ Firmware 0.1.0 at 150 MHz, measured on 18 November 2026. Each result held at bot
 
 | What | Measured | Needed |
 |---|---|---|
-| Read data on D0–D7 after the controller sees RB fall | Right in 2,048 of 2,048 samples from 4 clocks (26.7 ns); wrong at 3 | By the 6502's latch: H − 40 ns after RB, 185 ns at 2 MHz |
+| Read data on D0–D7 after the controller sees RB fall | Right in 1,000,064 of 1,000,064 samples at each delay from 4 clocks (26.7 ns); wrong at 3 (`sweep MHZ 7813`) | By the 6502's latch: H − 40 ns after RB, 185 ns at 2 MHz |
 | BSY in status, read 4 cycles after a command or after a sector's last byte is written | `$80` | `$80` |
 | DRQ clear in status, read 4 cycles after a sector's last byte is read | `$50` | `$50` |
 | Data reads 4 cycles apart, as an unrolled `lda` loop makes them | 284,160 bytes, none wrong | None wrong |

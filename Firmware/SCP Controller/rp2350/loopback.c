@@ -4,7 +4,8 @@
 // over the USB serial port, one a line; each answer ends with a line "END".
 //
 //   info                     the build, and the counts so far (core 1's handling times)
-//   sweep MHZ                when D0-D7 are ready after RB falls, by delay
+//   sweep MHZ [RUNS]         when D0-D7 are ready after RB falls, by delay: RUNS of 128
+//                            samples at each delay (16; 7813 makes a million)
 //   bsy MHZ                  BSY and DRQ in time for the tightest status reads
 //   soak MHZ SECONDS         sectors written and read back in the BIOS's own loop timing
 //   spacing MHZ CYCLES       the same for 10 s, data reads CYCLES apart (the BIOS's are 15)
@@ -252,7 +253,7 @@ static void cmd_info(void)
            (unsigned long)drive.stats.longest_busy_us);
 }
 
-static void cmd_sweep(double mhz)
+static void cmd_sweep(double mhz, uint32_t runs)
 {
     reg_write(ATA_REG_LBA0, 0x55, mhz);
     reg_write(ATA_REG_LBA1, 0xAA, mhz);
@@ -268,7 +269,7 @@ static void cmd_sweep(double mhz)
     printf("delay + 3 clocks after it sees RB fall (%.2f ns a clock)\r\n", s.ns_per_clock);
     for (uint32_t d = 0; d <= 16; d++) {
         uint32_t right = 0, total = 0, wrong_value = 0x100;
-        for (int rep = 0; rep < 16; rep++) {
+        for (uint32_t rep = 0; rep < runs; rep++) {
             size_t n = exerciser_sample_play(&s, d, samples, 128, idle);
             for (size_t i = 0; i < n; i++) {
                 uint8_t want = (i & 1) ? 0xAA : 0x55;
@@ -279,7 +280,7 @@ static void cmd_sweep(double mhz)
                     wrong_value = samples[i];
             }
         }
-        printf("  %2lu clocks (%5.1f ns): %4lu of %4lu right", (unsigned long)(d + 3), (d + 3) * s.ns_per_clock,
+        printf("  %2lu clocks (%5.1f ns): %7lu of %7lu right", (unsigned long)(d + 3), (d + 3) * s.ns_per_clock,
                (unsigned long)right, (unsigned long)total);
         if (wrong_value != 0x100)
             printf(", e.g. $%02lX", (unsigned long)wrong_value);
@@ -526,7 +527,7 @@ static void dispatch(char *line)
     if (!strcmp(argv[0], "info"))
         cmd_info();
     else if (!strcmp(argv[0], "sweep"))
-        cmd_sweep(mhz);
+        cmd_sweep(mhz, argc > 2 && atoi(argv[2]) > 0 ? (uint32_t)atoi(argv[2]) : 16);
     else if (!strcmp(argv[0], "bsy"))
         cmd_bsy(mhz);
     else if (!strcmp(argv[0], "soak"))
