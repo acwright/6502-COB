@@ -99,7 +99,8 @@ void ata_init(ata_t *a);
 // status reads $00, so the BIOS's boot probe finds an empty socket).
 void ata_set_present(ata_t *a, bool present);
 
-// What a read of a register returns now, with no side effects. The RP2350's
+// What a read of a register returns now, with no side effects: while BSY is
+// set, every register reads as the status, $80, as on a CF card. The RP2350's
 // bus program serves reads from a copy of these values.
 uint8_t ata_peek(const ata_t *a, unsigned reg);
 

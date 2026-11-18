@@ -69,6 +69,22 @@ TEST(registers_read_back)
     CHECK_EQ(0x00, ata_read(&a, ATA_REG_DATA));         // no transfer: data reads $00
 }
 
+TEST(every_register_reads_as_status_while_busy)
+{
+    ready();
+    set_lba(0x0123456, 1);
+    ata_write(&a, ATA_REG_STATUS, ATA_CMD_READ);
+    for (unsigned r = 0; r < 8; r++)
+        CHECK_EQ(0x80, ata_read(&a, r));
+    take();
+    for (unsigned r = 0; r < 8; r++)
+        CHECK_EQ(0x80, ata_read(&a, r));
+    end(0);
+    CHECK_EQ(0x56, ata_read(&a, ATA_REG_LBA0));         // and the registers again once BSY clears
+    CHECK_EQ(0xE0, ata_read(&a, ATA_REG_LBA3));
+    CHECK_EQ(0x58, ata_read(&a, ATA_REG_STATUS));
+}
+
 TEST(set_features_and_unknown_commands)
 {
     ready();
@@ -178,11 +194,11 @@ TEST(writes_ignored_while_busy)
     ata_write(&a, ATA_REG_STATUS, ATA_CMD_READ);
     ata_write(&a, ATA_REG_LBA0, 0x99);
     ata_write(&a, ATA_REG_STATUS, ATA_CMD_WRITE);
-    CHECK_EQ(1, ata_read(&a, ATA_REG_LBA0));
     ata_job_t *j = take();
     CHECK(j && j->op == ATA_JOB_READ);
     end(0);
     CHECK_EQ(0x58, ata_read(&a, ATA_REG_STATUS));
+    CHECK_EQ(1, ata_read(&a, ATA_REG_LBA0));
 }
 
 TEST(a_failed_job_ends_the_command)
@@ -317,6 +333,7 @@ int main(void)
 {
     RUN(power_on_answers_busy_then_ready_or_empty);
     RUN(registers_read_back);
+    RUN(every_register_reads_as_status_while_busy);
     RUN(set_features_and_unknown_commands);
     RUN(read_one_sector);
     RUN(read_several_sectors_and_a_count_of_zero);

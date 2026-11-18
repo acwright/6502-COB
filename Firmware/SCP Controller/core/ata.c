@@ -59,6 +59,8 @@ static void finish(ata_t *a)
 
 uint8_t ata_peek(const ata_t *a, unsigned reg)
 {
+    if (ata_busy(a))                    // ATA: while BSY is set, every register reads as the status
+        return ATA_SR_BSY;
     switch (reg & 7) {
     case ATA_REG_DATA:
         return a->drq && (a->xfer == ATA_XFER_READ || a->xfer == ATA_XFER_IDENTIFY) ? a->buffer[a->index] : 0x00;
@@ -69,8 +71,6 @@ uint8_t ata_peek(const ata_t *a, unsigned reg)
     case ATA_REG_LBA2: return a->lba[2];
     case ATA_REG_LBA3: return a->lba[3];
     default:
-        if (ata_busy(a))
-            return ATA_SR_BSY;
         if (!a->present)
             return 0x00;
         return (uint8_t)(ATA_SR_RDY | ATA_SR_DSC | (a->drq ? ATA_SR_DRQ : 0) | (a->err ? ATA_SR_ERR : 0));
