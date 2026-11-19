@@ -1,7 +1,7 @@
 # Bench tests on a Pico 2
 
 The firmware can be tested on a Raspberry Pi Pico 2 before a board exists. Each rig has its own build (a preset), and
-`loopback.py` talks to the firmware's test console over the Pico 2's USB serial port.
+`rig.py` talks to the firmware's test console over the Pico 2's USB serial port.
 
 ## The loopback rig
 
@@ -30,10 +30,10 @@ on core 0, here with a pattern disk in place of the SD card and flash.
 ```sh
 cmake --preset pico2-loopback && cmake --build --preset pico2-loopback
 picotool load -f -x build/pico2-loopback/rp2350/*.uf2
-python3 tests/bench/loopback.py wires "sweep 2" "bsy 2" "soak 2 3600"
+python3 tests/bench/rig.py wires "sweep 2" "bsy 2" "soak 2 3600"
 ```
 
-`loopback.py` sends each command and prints the answer; its exit status is 1 if any answer reports a failure. The
+`rig.py` sends each command and prints the answer; its exit status is 1 if any answer reports a failure. The
 commands are listed at the top of `rp2350/loopback.c`. `wires` first: it checks each jumper both ways.
 
 ### Measured on the loopback rig
@@ -59,5 +59,59 @@ a status read that soon still sees BSY: that's the BSY row above.
 
 ## The media rig
 
-The `pico2-media` build takes an SD card breakout and a W25Q flash breakout. Its wiring is at the top of
-`rp2350/boards/pico2_media.h`.
+The `pico2-media` build tests the SD card and the flash chip on breakouts, with no bus. The SD card is on the
+board's own pins. The flash can't be: a Pico 2 doesn't bring out GPIO24 and 25. Pin numbers are the Pico 2's header.
+
+| Breakout pin | Pico 2 | Pin | Board signal |
+|---|---|---|---|
+| microSD 5V | VBUS | 40 | (5 V from USB; the breakout makes its own 3.3 V) |
+| microSD GND | GND | 23 | |
+| microSD DO | GP16 | 21 | SD DAT0 |
+| microSD CS | GP17 | 22 | SD DAT3 |
+| microSD CLK | GP18 | 24 | SD CLK |
+| microSD DI | GP19 | 25 | SD CMD |
+| microSD CD | GP20 | 26 | SD_CD |
+| flash VCC | 3V3(OUT) | 36 | |
+| flash GND | GND | 38 | |
+| flash CS | GP15 | 20 | |
+| flash CLK | GP14 | 19 | |
+| flash DI | GP27 | 32 | |
+| flash DO | GP28 | 34 | |
+| green LED, through 330 Ω to GND | GP21 | 27 | LED_SD |
+| red LED, through 330 Ω to GND | GP22 | 29 | LED_ACT |
+
+The microSD breakout is Adafruit's "5V ready" one. Leave its 3v pin unconnected: it's the output of its own
+regulator. Its CD is the other way up from the board's: the socket's switch grounds it with no card in, so the rig
+reads a card as high, with the pad's pull-up (`FW_SD_CD_CARD_IN`). The flash breakout is a W25Q64JVSIQ; its pins
+are labelled D0 (the chip's DO) and D1 (its DI). The flash clock is on GP14, not the SPI1 clock on GP26, because the
+first rig's Pico 2 has a GP26 that can't drive low.
+
+```sh
+cmake --preset pico2-media && cmake --build --preset pico2-media
+picotool load -f -x build/pico2-media/rp2350/*.uf2
+python3 tests/bench/rig.py pins info "test flash" "test sd"
+```
+
+Run `pins` first, on any Pico 2 not used on a rig before. It drives each pad both ways and reads it back, and reads
+each pin against the pad's pull-up and pull-down. A pad that can't drive is a fault in the Pico 2, and nothing on
+that pin will work. `adc` measures GP26 to GP28 in volts; `flashprobe` and `flashwires` find a flash wire that's
+swapped or doesn't reach. The commands are listed at the top of `rp2350/mediarig.c`.
+
+`test flash` and `test sd` write every sector of each disk the medium holds, up to the 256 the BIOS can reach, read
+them back, and compare them byte by byte and by checksum. Then they read one sector of each disk above the medium's
+N, to check the mirroring. On the flash, the same data is written a second time, and every sector should be
+skipped as unchanged.
+
+### Measured on the media rig
+
+Firmware 0.1.0, measured on 19 November 2026.
+
+| What | Measured | Needed |
+|---|---|---|
+| W25Q64JVSIQ: JEDEC ID, at 25 MHz | `EF 40 17`: 8 MB, N = 8 | |
+| Flash: all 16,384 sectors written, read back and compared, twice | 0 wrong, checksums equal | None wrong |
+| Flash: disks 8–255, one sector each | All mirror disks 0–7 | All |
+| Flash: the same data written again | 16,384 of 16,384 skipped as unchanged | All |
+| Flash: longest write of a sector, erasing its 4 KB (16,384 writes) | 50.4 ms; the chip's longest erase 41.0 ms, longest page program 373 µs | Inside the BIOS's wait: 426 ms at 2 MHz |
+| Flash: a sector written into blank space, with no erase | 2.8 ms | |
+| Flash: a sector read | 217 µs (2.40 MB/s) | |

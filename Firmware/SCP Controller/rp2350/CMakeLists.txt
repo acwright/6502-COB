@@ -13,8 +13,11 @@ add_executable(firmware
     main.c
     bus.c
     exerciser.c
+    flash.c
     loopback.c
+    mediarig.c
     patterndisk.c
+    sd.c
 )
 pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/bus.pio)
 pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/exerciser.pio)
@@ -28,10 +31,12 @@ target_link_libraries(firmware PRIVATE
     pico_stdlib
     pico_multicore
     pico_unique_id
+    hardware_adc
     hardware_clocks
     hardware_dma
     hardware_gpio
     hardware_pio
+    hardware_spi
 )
 
 # The whole program runs from SRAM, so the bus loop never waits on the program flash.

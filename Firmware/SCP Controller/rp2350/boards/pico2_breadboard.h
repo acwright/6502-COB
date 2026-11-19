@@ -34,6 +34,7 @@
 #define FW_PIN_SD_MOSI  19
 #define FW_PIN_SD_CD    20
 #define FW_SD_CD_PULLUP 1
+#define FW_SD_CD_CARD_IN 1      // the Adafruit breakout grounds CD with no card in, so a card reads high
 
 #define FW_HAS_FLASH    1
 #define FW_FLASH_SPI    spi1
@@ -44,5 +45,9 @@
 
 #define FW_PIN_LED_SD   21
 #define FW_PIN_LED_ACT  22
+
+// The SPI clocks after start-up: SD's default-speed limit, and the same for the flash.
+#define FW_SD_HZ        25000000
+#define FW_FLASH_HZ     25000000
 
 #endif

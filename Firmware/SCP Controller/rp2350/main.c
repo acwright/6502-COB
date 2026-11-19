@@ -9,6 +9,7 @@
 
 #include "fw_info.h"
 #include "loopback.h"
+#include "mediarig.h"
 #include "product.h"
 #include "source_hash.h"
 #include "version.h"
@@ -56,6 +57,9 @@ int main(void)
 
 #if FW_HAS_EXERCISER
     loopback_main(banner);
+#endif
+#if FW_HAS_MEDIA_CONSOLE
+    mediarig_main(banner);
 #endif
     bool told = false;
     for (;;) {

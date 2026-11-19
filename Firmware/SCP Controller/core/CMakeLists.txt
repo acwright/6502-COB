@@ -8,6 +8,7 @@ add_library(fw_core STATIC
     identify.c
     media.c
     nor.c
+    sdcard.c
 )
 target_include_directories(fw_core PUBLIC ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_SOURCE_DIR})
 target_link_libraries(fw_core PRIVATE fw_warnings)

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Talks to the pico2-loopback build's test console over its USB serial port.
+"""Talks to a rig build's test console (pico2-loopback, pico2-media) over its USB
+serial port.
 
-  loopback.py [--port /dev/cu.usbmodemNNNN] COMMAND [COMMAND ...]
+  rig.py [--port /dev/cu.usbmodemNNNN] COMMAND [COMMAND ...]
 
 Each COMMAND (quote it if it has spaces: "soak 2 3600") is sent as a line, and
 everything the console answers is printed, up to its "END" line. The exit
@@ -56,7 +57,7 @@ def main():
     a = ap.parse_args()
     port = a.port or (sorted(glob.glob('/dev/cu.usbmodem*')) or [None])[0]
     if not port:
-        sys.exit('no /dev/cu.usbmodem* port: is the Pico 2 plugged in and running the loopback build?')
+        sys.exit('no /dev/cu.usbmodem* port: is the Pico 2 plugged in and running a rig build?')
     fd = open_port(port)
     time.sleep(0.3)
     # The banner on connecting, then a blank line to clear any half line.

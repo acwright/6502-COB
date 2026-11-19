@@ -52,6 +52,7 @@
 #define FW_PIN_SD_SCK   18      // CLK
 #define FW_PIN_SD_MOSI  19      // CMD
 #define FW_PIN_SD_CD    20      // low with a card in; R4 pulls it up
+#define FW_SD_CD_CARD_IN 0      // the level CD reads with a card in
 
 // The built-in drive, a W25Q flash, on SPI1.
 #define FW_HAS_FLASH    1
@@ -64,5 +65,9 @@
 // The LEDs, lit high. LED_ACT lights D1 and, on the card, the off-board LED on J1.
 #define FW_PIN_LED_SD   21      // D2, green: the SD card is the medium answering
 #define FW_PIN_LED_ACT  22      // D1, red: a medium is busy
+
+// The SPI clocks after start-up: SD's default-speed limit, and the same for the flash.
+#define FW_SD_HZ        25000000
+#define FW_FLASH_HZ     25000000
 
 #endif

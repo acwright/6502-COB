@@ -49,7 +49,7 @@ The Pico 2 builds are for testing the firmware before a board exists. Each one's
 | `core/` | The controller's logic in plain C, with no Pico SDK, so the unit tests run it on the Mac |
 | `rp2350/` | The RP2350 side: start-up, and the header for each build's pins in `boards/` |
 | `tests/unit/` | The unit tests |
-| `tests/bench/` | The Pico 2 test rigs: the wiring, and `loopback.py`, which drives the loopback build's test console |
+| `tests/bench/` | The Pico 2 test rigs: the wiring, and `rig.py`, which drives the rig builds' test consoles |
 | `tests/bios/` | The stock BIOS 1.7 and 2.1.0 running against the core in a 65C02 emulator, with `cffs` checking the disk format; see its README |
 | `cmake/` | The SDK's fetch, and the source hash the build stamps into the firmware |
 
