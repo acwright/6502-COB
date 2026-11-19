@@ -1,5 +1,6 @@
 // The loopback rig's medium: 16 MB, every sector a pattern made from its
-// number, with the last eight sectors written kept in RAM so they read back.
+// number, with the last 64 sectors written kept in RAM so they read back: enough
+// for the BIOS's tests (serve), which write a few directories and files.
 // It takes `read_us` and `write_us` to answer, so the controller shows BSY.
 #pragma once
 
@@ -7,7 +8,7 @@
 
 #include "media.h"
 
-#define PATTERNDISK_SLOTS 8
+#define PATTERNDISK_SLOTS 64
 
 typedef struct {
     medium_t medium;        // first, so a medium_t * is a patterndisk_t *

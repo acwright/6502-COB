@@ -10,6 +10,13 @@
 //     --flash-out FILE   write the built-in drive's sectors, as the 6502 sees them, to FILE
 //     --sd-timing T      typical, sdhc-worst or sdxc-worst
 //     --flash-timing T   typical or worst
+//     --rig PORT         the controller on a rig instead (rig.h; "auto": the first /dev/cu.usbmodem*),
+//                        with its card shown
+//     --no-card          ... and its card hidden, so the built-in drive answers
+//     --put FILE         before booting, write FILE onto the rig's medium through the controller:
+//                        each sector that isn't all zeros, and the first of each disk
+//     --get FILE         at the end, read the rig's medium through the controller into FILE ...
+//     --get-mb N         ... N MB of it (default 1: disk 0)
 //
 // Each LINE is typed and the BASIC prompt waited for. The exit status is 1 if
 // the machine never reached the prompt, or a line never got one back.
@@ -61,7 +68,9 @@ int main(int argc, char **argv)
         return 2;
     }
     machine_config_t cfg = { .mhz = 1, .rom = rom, .flash_bytes = 16u << 20, .boot_us = 250000 };
-    const char *sd_out = NULL, *flash_out = NULL;
+    const char *sd_out = NULL, *flash_out = NULL, *rig_port = NULL, *put = NULL, *get = NULL;
+    bool card = true;
+    uint32_t get_mb = 1;
     uint8_t *image = NULL;
     int i = 2;
     for (; i < argc && strncmp(argv[i], "--", 2) == 0; i += 2) {
@@ -79,10 +88,44 @@ int main(int argc, char **argv)
             cfg.sd_timing = !strcmp(val, "sdhc-worst") ? &SD_SDHC_WORST : !strcmp(val, "sdxc-worst") ? &SD_SDXC_WORST : &SD_TYPICAL;
         else if (!strcmp(opt, "--flash-timing"))
             cfg.flash_timing = !strcmp(val, "worst") ? &FLASH_WORST : &FLASH_TYPICAL;
+        else if (!strcmp(opt, "--rig")) rig_port = val;
+        else if (!strcmp(opt, "--no-card")) { card = false; i--; }
+        else if (!strcmp(opt, "--put")) put = val;
+        else if (!strcmp(opt, "--get")) get = val;
+        else if (!strcmp(opt, "--get-mb")) get_mb = (uint32_t)atoi(val);
         else {
             fprintf(stderr, "unknown option %s\n", opt);
             return 2;
         }
+    }
+
+    if (rig_port) {
+        cfg.rig = rig_open(strcmp(rig_port, "auto") ? rig_port : NULL, 1);
+        if (!cfg.rig)
+            return 2;
+        cfg.sd_sectors = card;              // the rig's card shown or hidden
+    }
+    if (cfg.rig && put) {
+        size_t len;
+        uint8_t *img = slurp(put, &len);
+        rig_power_on(cfg.rig, card);
+        if (!rig_wait_ready(cfg.rig)) {
+            fprintf(stderr, "bios_cli: the rig has no medium to put %s on\n", put);
+            return 1;
+        }
+        uint32_t written = 0;
+        for (size_t s = 0; s < len / 512; s++) {
+            static const uint8_t zero[512];
+            if (s % 2048 && !memcmp(img + s * 512, zero, 512))
+                continue;
+            if (!rig_sector_write(cfg.rig, (uint32_t)s, img + s * 512)) {
+                fprintf(stderr, "bios_cli: writing sector %zu of %s failed\n", s, put);
+                return 1;
+            }
+            written++;
+        }
+        fprintf(stderr, "bios_cli: put %u sectors of %s\n", written, put);
+        free(img);
     }
 
     machine_t *m = machine_new(&cfg, image);
@@ -127,8 +170,31 @@ int main(int argc, char **argv)
         if (f)
             fclose(f);
     }
-    fprintf(stderr, "bios_cli: %.3f s of machine time, %zu jobs, longest busy %u us\n",
-            machine_us(m) / 1e6, m->job_count, machine_longest(m, 0, 0));
+    if (cfg.rig && get) {
+        FILE *f = fopen(get, "wb");
+        uint8_t sector[512];
+        for (uint32_t s = 0; f && s < get_mb * 2048u; s++) {
+            if (!rig_sector_read(cfg.rig, s, sector)) {
+                fprintf(stderr, "bios_cli: reading sector %u failed\n", s);
+                status = 1;
+                break;
+            }
+            fwrite(sector, 1, 512, f);
+        }
+        if (f)
+            fclose(f);
+    }
+    if (cfg.rig) {
+        machine_controller_t c;
+        machine_controller(m, &c);
+        fprintf(stderr, "bios_cli: the rig: %u SD writes, %u flash writes, %u errors, longest busy %u us; "
+                "%llu round trips, %u stray bytes\n", c.drive.sd.writes, c.drive.flash.writes, c.drive.errors,
+                c.drive.longest_busy_us, (unsigned long long)rig_round_trips(cfg.rig), m->rig_strays);
+        rig_close(cfg.rig);
+    } else {
+        fprintf(stderr, "bios_cli: %.3f s of machine time, %zu jobs, longest busy %u us\n",
+                machine_us(m) / 1e6, m->job_count, machine_longest(m, 0, 0));
+    }
     machine_free(m);
     free(image);
     free(rom);

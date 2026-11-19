@@ -61,6 +61,40 @@ static void storage_tick(machine_t *m)
     }
 }
 
+// --- A rig's controller ---------------------------------------------------------
+//
+// A data register read fetches the rest of the sector in one round trip, and the
+// 6502's next reads of it are handed out from that. Any other access with bytes
+// still unread would be the 6502 leaving a sector part read, which the BIOS
+// never does: they're counted as strays, and thrown away.
+
+static void rig_drop_data(machine_t *m)
+{
+    m->rig_strays += (uint32_t)(m->rig_data_len - m->rig_data_pos);
+    m->rig_data_len = m->rig_data_pos = 0;
+}
+
+static uint8_t rig_storage_read(machine_t *m, unsigned reg)
+{
+    if (reg == ATA_REG_DATA) {
+        if (m->rig_data_pos == m->rig_data_len) {
+            m->rig_data_len = rig_data(m->cfg.rig, m->rig_data, sizeof m->rig_data);
+            m->rig_data_pos = 0;
+            if (!m->rig_data_len)
+                return 0;
+        }
+        return m->rig_data[m->rig_data_pos++];
+    }
+    rig_drop_data(m);
+    return rig_read(m->cfg.rig, reg);
+}
+
+static void rig_storage_write(machine_t *m, unsigned reg, uint8_t v)
+{
+    rig_drop_data(m);
+    rig_write(m->cfg.rig, reg, v);
+}
+
 // --- The serial card ---------------------------------------------------------
 
 #define SC_CMD_DTR  0x01
@@ -109,6 +143,10 @@ static void serial_write(machine_t *m, uint16_t reg, uint8_t v)
 {
     switch (reg & 3) {
     case 0:
+        // A terminal shows nothing for $00, and here it would end the string the
+        // tests search: a DIR of a directory holding junk prints names with $00 in them.
+        if (v == 0)
+            break;
         if (m->out_len < sizeof m->out - 1) {
             m->out[m->out_len++] = (char)v;
             m->out[m->out_len] = 0;
@@ -130,7 +168,11 @@ static uint8_t mem_read(uint16_t addr, bool dbg)
         v = m->ram[addr];
     } else if (addr < 0xA000) {
         unsigned slot = (addr - 0x8000) >> 10;
-        if (slot == 3) {
+        if (slot == 3 && m->cfg.rig) {
+            if (dbg)
+                return 0;
+            v = rig_storage_read(m, addr & 7);
+        } else if (slot == 3) {
             if (dbg)
                 return ata_peek(&m->ata, addr & 7);
             storage_tick(m);
@@ -156,7 +198,9 @@ static void mem_write(uint16_t addr, uint8_t v)
         m->ram[addr] = v;
     } else if (addr < 0xA000) {
         unsigned slot = (addr - 0x8000) >> 10;
-        if (slot == 3) {
+        if (slot == 3 && m->cfg.rig) {
+            rig_storage_write(m, addr & 7, v);
+        } else if (slot == 3) {
             storage_tick(m);
             ata_write(&m->ata, addr & 7, v);
         } else if (slot == 4) {
@@ -185,6 +229,11 @@ machine_t *machine_new(const machine_config_t *cfg, const uint8_t *sd_image)
     M = m;
     m->cpu = vrEmu6502New(CPU_W65C02, mem_read, mem_write);
 
+    if (cfg->rig) {
+        rig_power_on(cfg->rig, cfg->sd_sectors != 0);
+        m->cfg.sd_sectors = 0;              // the rig's media, not these models
+    }
+    cfg = &m->cfg;
     ram_init(&m->sd, cfg->sd_sectors ? cfg->sd_sectors : 1);
     m->sd.in = m->sd.started = cfg->sd_sectors != 0;
     m->sd.clock = &m->clock;
@@ -299,6 +348,46 @@ bool machine_command(machine_t *m, const char *line, char *buf, size_t size, dou
 uint8_t machine_peek(const machine_t *m, uint16_t addr)
 {
     return addr < 0x8000 ? m->ram[addr] : (addr >= 0xA000 ? m->cfg.rom[addr - 0x8000] : 0);
+}
+
+void machine_controller(machine_t *m, machine_controller_t *c)
+{
+    memset(c, 0, sizeof *c);
+    if (m->cfg.rig) {
+        uint32_t w[SERVE_STAT_COUNT];
+        rig_stats(m->cfg.rig, w);
+        c->drive.sd = (drive_medium_stats_t){ w[SERVE_STAT_SD_READS], w[SERVE_STAT_SD_WRITES], w[SERVE_STAT_SD_ERRORS],
+                                              w[SERVE_STAT_SD_LONGEST_READ_US], w[SERVE_STAT_SD_LONGEST_WRITE_US] };
+        c->drive.flash = (drive_medium_stats_t){ w[SERVE_STAT_FLASH_READS], w[SERVE_STAT_FLASH_WRITES],
+                                                 w[SERVE_STAT_FLASH_ERRORS], w[SERVE_STAT_FLASH_LONGEST_READ_US],
+                                                 w[SERVE_STAT_FLASH_LONGEST_WRITE_US] };
+        c->drive.longest_busy_us = w[SERVE_STAT_LONGEST_BUSY_US];
+        c->drive.errors = w[SERVE_STAT_ERRORS];
+        c->settle_ms = w[SERVE_STAT_SETTLE_MS];
+        c->sd_disks = w[SERVE_STAT_SD_DISKS];
+        c->flash_disks = w[SERVE_STAT_FLASH_DISKS];
+        c->sd_led = w[SERVE_STAT_SD_LED] != 0;
+        c->has_sd = w[SERVE_STAT_HAS_SD] != 0;
+        c->late = w[SERVE_STAT_LATE];
+        return;
+    }
+    c->drive = m->drive.stats;
+    c->settle_ms = (uint32_t)(m->present_at / (uint64_t)(m->cfg.mhz * 1000));
+    c->sd_disks = m->sd.medium.ready(&m->sd.medium) ? media_disks(m->sd.medium.sectors(&m->sd.medium)) : 0;
+    c->flash_disks = media_disks(m->flash.medium.sectors(&m->flash.medium));
+    c->sd_led = drive_leds(&m->drive, (uint32_t)machine_us(m)).sd;
+    c->has_sd = true;
+}
+
+void machine_set_card(machine_t *m, bool in)
+{
+    if (m->cfg.rig) {
+        rig_card(m->cfg.rig, in);
+        return;
+    }
+    if (in && !m->sd.in)
+        m->sd.medium.generation++;
+    m->sd.in = m->sd.started = in;
 }
 
 uint32_t machine_longest(const machine_t *m, size_t from, uint8_t op)

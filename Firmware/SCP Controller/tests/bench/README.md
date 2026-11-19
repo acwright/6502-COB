@@ -102,6 +102,9 @@ each pin against the pad's pull-up and pull-down. A pad that can't drive is a fa
 that pin will work. `adc` measures GP26 to GP28 in volts; `flashprobe` and `flashwires` find a flash wire that's
 swapped or doesn't reach. The commands are listed at the top of `rp2350/mediarig.c`.
 
+`serve` hands the core to the Mac's BIOS harness: the stock BIOS, in a 65C02 emulator, on these real media
+(`tests/bios/README.md`).
+
 `test flash` and `test sd` write every sector of each disk the medium holds, up to the 256 the BIOS can reach, read
 them back, and compare them byte by byte and by checksum. Then they read one sector of each disk above the medium's
 N, to check the mirroring. On the flash, the same data is written a second time, and every sector should be
@@ -133,3 +136,7 @@ Firmware 0.1.0, measured on 19 November 2026.
 | SDXC: longest write of a sector | 89 ms (1.9 ms on average) | Inside the BIOS's wait: 426 ms at 2 MHz |
 | SDXC: longest read of a sector | 8.5 ms (0.73 ms on average) | |
 | A card swapped mid-test, where card detect wasn't watched | The failed write started the card again; the new card came up with its own ID and size | The new card known |
+| BIOS 1.7 and 2.1.0 through `serve`, on the SanDisk SDHC and the W25Q64 | Every case on real media passes (188 checks a ROM): files on both media, `DISK N` mirroring, a card pulled between commands | All |
+| The same: the longest busy times seen | SD card: read 1.3 ms, write 21.1 ms. Flash: read 0.2 ms, write 39.5 ms | Inside 426 ms |
+| cffs both ways through `serve` | An image cffs made, put on the card, loads in the BIOS; what the BIOS saves on each medium lists and extracts with cffs | All |
+| Disk 0 read through the controller, and in a Mac card reader | The same 1 MB, byte for byte | The same |

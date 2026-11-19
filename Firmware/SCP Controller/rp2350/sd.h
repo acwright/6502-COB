@@ -59,6 +59,10 @@ void sd_init(uint32_t hz);
 // Card detect and start-up. Call it often from core 0.
 void sd_poll(void);
 
+// As at power-on: reads card detect and, with a card in, starts it in the
+// background, as sd_poll() goes on. The rigs' power-on (serve mode) uses it.
+void sd_power_on(void);
+
 // Forgets the card and starts it again (the console's "sd"), printing each step
 // if verbose.
 void sd_restart(bool verbose);

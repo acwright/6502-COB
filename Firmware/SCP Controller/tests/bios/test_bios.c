@@ -2,13 +2,22 @@
 // storage commands on both media, mirroring, a card pulled between commands,
 // and the media's busy times against the BIOS's own timeouts, at 1 and 2 MHz.
 //
-//   test_bios ROM
+//   test_bios ROM [--rig PORT|auto [--bus-mhz N] [--for SECONDS]]
 //
 // It ends with a table of every timing case: the longest the controller kept
 // BSY set, the BIOS's limit at that clock, and what the BIOS made of it.
+//
+// With --rig, the controller is the core on the media rig's Pico 2 (serve
+// mode), on its real SD card and flash: the cases that don't depend on the
+// models' timing run there, and the table is the real media's busy times. The
+// card must be in the rig's slot; the cases hide it to test the built-in drive.
+// On the loopback rig (a RAM disk, no slot) the SD card's cases are left out,
+// and each access is a bus cycle through the PIO bus at --bus-mhz timing.
+// --for repeats the rig's cases until that long has passed.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "machine.h"
 
@@ -17,11 +26,22 @@
 static uint8_t rom[0x8000];
 static const char *rom_name;
 static char out[1 << 15];
+static rig_t *rig;
+
+static void note_busy(const machine_controller_t *c);
+
+static machine_controller_t ctl(machine_t *m)
+{
+    machine_controller_t c;
+    machine_controller(m, &c);
+    return c;
+}
 
 static machine_t *boot(machine_config_t cfg, double mhz)
 {
     cfg.rom = rom;
     cfg.mhz = mhz;
+    cfg.rig = rig;
     if (!cfg.boot_us)
         cfg.boot_us = 250000;
     machine_t *m = machine_new(&cfg, NULL);
@@ -63,8 +83,8 @@ TEST(the_probe_finds_the_built_in_drive_with_no_card)
         CHECK(m != NULL);
         if (!m) continue;
         CHECK(machine_peek(m, 0x030D) & 0x08);              // HW_PRESENT's HW_CF
-        CHECK(run(m, "DIR", "DISK 0"));
-        CHECK(!has("?"));
+        CHECK(run(m, "DIR", "DISK 0"));                     // whatever the disk holds: on a rig, maybe junk
+        CHECK(!has("ERROR"));
         machine_free(m);
     }
 }
@@ -76,10 +96,12 @@ TEST(the_probe_finds_a_card_in_the_slot)
         CHECK(m != NULL);
         if (!m) continue;
         CHECK(machine_peek(m, 0x030D) & 0x08);
+        CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
         CHECK(run(m, "10 PRINT 1", NULL));
         CHECK(run(m, "SAVE \"ONSD\"", NULL));
-        CHECK(m->drive.stats.sd.writes > 0);
-        CHECK_EQ(0, m->drive.stats.flash.writes);
+        CHECK(!has("?SAVE ERROR"));
+        CHECK(ctl(m).drive.sd.writes > 0);
+        CHECK_EQ(0, ctl(m).drive.flash.writes);
         machine_free(m);
     }
 }
@@ -96,7 +118,7 @@ TEST(the_probe_outlasts_the_longest_power_on)
         CHECK(machine_peek(m, 0x030D) & 0x08);
         CHECK(run(m, "10 PRINT 1", NULL));
         CHECK(run(m, "SAVE \"FALLBACK\"", NULL));            // the card never started: the built-in drive answers
-        CHECK(m->drive.stats.flash.writes > 0);
+        CHECK(ctl(m).drive.flash.writes > 0);
         machine_free(m);
     }
 }
@@ -128,6 +150,8 @@ TEST(a_card_that_fails_to_start)
 
 static void files_on(machine_t *m)
 {
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));                  // the disk may hold anything until then
+    CHECK(run(m, "DIR", "DISK 0\r\n\r\n"));
     CHECK(run(m, "10 PRINT \"HELLO\"", NULL));
     CHECK(run(m, "20 FOR I=1 TO 3:PRINT I:NEXT", NULL));
     CHECK(run(m, "SAVE \"PROG\"", NULL));
@@ -163,8 +187,11 @@ TEST(files_on_the_built_in_drive)
         CHECK(m != NULL);
         if (!m) continue;
         files_on(m);
-        CHECK(m->drive.stats.flash.writes > 0);
-        CHECK_EQ(0, m->drive.stats.errors);
+        machine_controller_t c = ctl(m);
+        CHECK(c.drive.flash.writes > 0);
+        CHECK_EQ(0, c.drive.sd.writes);
+        CHECK_EQ(0, c.drive.errors);
+        note_busy(&c);
         machine_free(m);
     }
 }
@@ -176,28 +203,47 @@ TEST(files_on_the_sd_card)
         CHECK(m != NULL);
         if (!m) continue;
         files_on(m);
-        CHECK(m->drive.stats.sd.writes > 0);
-        CHECK_EQ(0, m->drive.stats.flash.writes);
-        CHECK_EQ(0, m->drive.stats.errors);
+        machine_controller_t c = ctl(m);
+        CHECK(c.drive.sd.writes > 0);
+        CHECK_EQ(0, c.drive.flash.writes);
+        CHECK_EQ(0, c.drive.errors);
+        note_busy(&c);
         machine_free(m);
     }
 }
 
-TEST(disk_16_is_disk_0_on_the_16_mb_chip)
+// DISK N is DISK 0 on a chip of N disks: 16 on the board's 16 MB chip, 8 on the media rig's.
+TEST(disk_n_is_disk_0_on_the_built_in_drive)
 {
     machine_t *m = boot((machine_config_t){ .flash_bytes = 16u << 20 }, 1);
     CHECK(m != NULL);
     if (!m) return;
+    unsigned n = ctl(m).flash_disks;
+    CHECK(n == 8 || n == 16);
+    if (n < 5) { machine_free(m); return; }
+    char line[64], want[64];
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
     CHECK(run(m, "10 PRINT 1", NULL));
     CHECK(run(m, "SAVE \"ZERO\"", NULL));
-    CHECK(run(m, "DISK 16", NULL));
-    CHECK(run(m, "DIR", "DISK 16\r\nZERO"));
-    CHECK(run(m, "DISK 20", NULL));
-    CHECK(run(m, "SAVE \"TWENTY\"", NULL));
+    snprintf(line, sizeof line, "DISK %u", n);
+    CHECK(run(m, line, NULL));
+    snprintf(want, sizeof want, "DISK %u\r\nZERO", n);
+    CHECK(run(m, "DIR", want));                              // DISK N is DISK 0
+    snprintf(line, sizeof line, "DISK %u", n + 4);
+    CHECK(run(m, line, NULL));
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
+    CHECK(run(m, "SAVE \"FOUR\"", NULL));
     CHECK(run(m, "DISK 4", NULL));
-    CHECK(run(m, "DIR", "TWENTY"));
-    CHECK(run(m, "DISK 255", NULL));                        // 255 mod 16: DISK 15, empty
-    CHECK(run(m, "DIR", "DISK 255\r\n\r\n"));
+    CHECK(run(m, "DIR", "FOUR"));                            // DISK N+4 is DISK 4
+    CHECK(run(m, "DISK 255", NULL));
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
+    CHECK(run(m, "SAVE \"TOP\"", NULL));
+    snprintf(line, sizeof line, "DISK %u", 255 % n);
+    CHECK(run(m, line, NULL));
+    CHECK(run(m, "DIR", "TOP"));                             // DISK 255 is DISK 255 mod N
+    CHECK(run(m, "DISK 0", NULL));
+    CHECK(run(m, "DIR", "ZERO"));
+    CHECK(!has("TOP") && !has("FOUR"));
     machine_free(m);
 }
 
@@ -206,10 +252,15 @@ TEST(no_mirroring_on_a_256_mb_card)
     machine_t *m = boot((machine_config_t){ .flash_bytes = 16u << 20, .sd_sectors = 256u * 2048, .sd_start_us = 300000 }, 1);
     CHECK(m != NULL);
     if (!m) return;
+    CHECK(ctl(m).sd_disks >= 256);
+    CHECK(run(m, "DISK 16", NULL));
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
+    CHECK(run(m, "DISK 0", NULL));
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
     CHECK(run(m, "10 PRINT 1", NULL));
     CHECK(run(m, "SAVE \"ZERO\"", NULL));
     CHECK(run(m, "DISK 16", NULL));
-    CHECK(run(m, "DIR", "DISK 16\r\n\r\n"));
+    CHECK(run(m, "DIR", "DISK 16\r\n\r\n"));               // its own disk, empty: no ZERO
     machine_free(m);
 }
 
@@ -218,24 +269,62 @@ TEST(load_from_one_medium_save_to_the_other)
     machine_t *m = boot((machine_config_t){ .flash_bytes = 16u << 20, .sd_sectors = 256u * 2048, .sd_start_us = 300000 }, 1);
     CHECK(m != NULL);
     if (!m) return;
+    machine_set_card(m, false);                             // the built-in drive's disk 0 emptied first
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
+    machine_set_card(m, true);
+    CHECK(run(m, "FORMAT\rY", "(Y/N) Y"));
     CHECK(run(m, "10 PRINT \"FROM SD\"", NULL));
     CHECK(run(m, "SAVE \"MOVE\"", NULL));
     CHECK(run(m, "NEW", NULL));
     CHECK(run(m, "LOAD \"MOVE\"", NULL));
-    CHECK(drive_leds(&m->drive, (uint32_t)machine_us(m)).sd);
-    m->sd.in = m->sd.started = false;                       // pulled between commands
-    CHECK(!drive_leds(&m->drive, (uint32_t)machine_us(m)).sd);
+    CHECK(ctl(m).sd_led);
+    machine_set_card(m, false);                             // pulled between commands
+    CHECK(!ctl(m).sd_led);
     CHECK(run(m, "DIR", NULL));
     CHECK(!has("MOVE"));                                    // the built-in drive's disks now
     CHECK(run(m, "SAVE \"MOVE\"", NULL));
     CHECK(run(m, "DIR", "MOVE"));
-    CHECK(m->drive.stats.flash.writes > 0);
-    m->sd.in = m->sd.started = true;                        // and back in
-    m->sd.medium.generation++;
+    CHECK(ctl(m).drive.flash.writes > 0);
+    machine_set_card(m, true);                              // and back in
     CHECK(run(m, "NEW", NULL));
     CHECK(run(m, "LOAD \"MOVE\"", NULL));
     CHECK(run(m, "RUN", "FROM SD"));
+    machine_controller_t c = ctl(m);
+    CHECK_EQ(0, c.drive.errors);
+    note_busy(&c);
     machine_free(m);
+}
+
+// The longest busy times seen on a rig, over every case: the real media's.
+static drive_medium_stats_t rig_sd, rig_flash;
+static uint32_t rig_longest_busy;
+
+static void note_busy(const machine_controller_t *c)
+{
+    if (c->drive.sd.longest_read_us > rig_sd.longest_read_us) rig_sd.longest_read_us = c->drive.sd.longest_read_us;
+    if (c->drive.sd.longest_write_us > rig_sd.longest_write_us) rig_sd.longest_write_us = c->drive.sd.longest_write_us;
+    if (c->drive.flash.longest_read_us > rig_flash.longest_read_us) rig_flash.longest_read_us = c->drive.flash.longest_read_us;
+    if (c->drive.flash.longest_write_us > rig_flash.longest_write_us) rig_flash.longest_write_us = c->drive.flash.longest_write_us;
+    rig_sd.reads += c->drive.sd.reads;
+    rig_sd.writes += c->drive.sd.writes;
+    rig_flash.reads += c->drive.flash.reads;
+    rig_flash.writes += c->drive.flash.writes;
+    if (c->drive.longest_busy_us > rig_longest_busy) rig_longest_busy = c->drive.longest_busy_us;
+}
+
+static void rig_table(void)
+{
+    double w1 = BIOS_WAIT_CYCLES / 1.0 / 1000.0, w2 = BIOS_WAIT_CYCLES / 2.0 / 1000.0;
+    printf("\n%s on the media rig: the real media's longest busy times, against the BIOS's wait\n", rom_name);
+    printf("  %-26s %8s %8s %12s %12s\n", "medium", "reads", "writes", "longest ms", "1 / 2 MHz");
+    printf("  %-26s %8u %8u %12.1f %5.0f / %.0f ms\n", "SD card: a read", rig_sd.reads, rig_sd.writes,
+           rig_sd.longest_read_us / 1000.0, w1, w2);
+    printf("  %-26s %8s %8s %12.1f %5.0f / %.0f ms\n", "SD card: a write", "", "", rig_sd.longest_write_us / 1000.0, w1, w2);
+    printf("  %-26s %8u %8u %12.1f %5.0f / %.0f ms\n", "built-in drive: a read", rig_flash.reads, rig_flash.writes,
+           rig_flash.longest_read_us / 1000.0, w1, w2);
+    printf("  %-26s %8s %8s %12.1f %5.0f / %.0f ms\n", "built-in drive: a write", "", "",
+           rig_flash.longest_write_us / 1000.0, w1, w2);
+    printf("  round trips on the link: %llu\n", (unsigned long long)rig_round_trips(rig));
 }
 
 // --- Busy times against the BIOS's waits -----------------------------------------------
@@ -329,9 +418,26 @@ static void table(void)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2) {
-        fprintf(stderr, "usage: test_bios ROM\n");
-        return 2;
+    double bus_mhz = 1, run_for = 0;
+    const char *port = NULL;
+    bool use_rig = false;
+    for (int i = 2; i < argc; i++) {
+        if (!strcmp(argv[i], "--rig") && i + 1 < argc) {
+            use_rig = true;
+            port = strcmp(argv[++i], "auto") ? argv[i] : NULL;
+        } else if (!strcmp(argv[i], "--bus-mhz") && i + 1 < argc) {
+            bus_mhz = atof(argv[++i]);
+        } else if (!strcmp(argv[i], "--for") && i + 1 < argc) {
+            run_for = atof(argv[++i]);
+        } else {
+            fprintf(stderr, "usage: test_bios ROM [--rig PORT|auto [--bus-mhz N] [--for SECONDS]]\n");
+            return 2;
+        }
+    }
+    if (use_rig) {
+        rig = rig_open(port, bus_mhz);
+        if (!rig)
+            return 2;
     }
     FILE *f = fopen(argv[1], "rb");
     if (!f || fread(rom, 1, sizeof rom, f) != sizeof rom) {
@@ -342,6 +448,38 @@ int main(int argc, char **argv)
     rom_name = strrchr(argv[1], '/') ? strrchr(argv[1], '/') + 1 : argv[1];
     printf("%s\n", rom_name);
 
+    if (rig) {
+        // The cases that hold on real media; the others set the models' timing.
+        uint32_t w[SERVE_STAT_COUNT];
+        rig_stats(rig, w);
+        bool has_sd = w[SERVE_STAT_HAS_SD] != 0;
+        time_t start = time(NULL);
+        unsigned rounds = 0;
+        uint32_t late = 0;
+        do {
+            RUN(the_probe_finds_the_built_in_drive_with_no_card);
+            RUN(files_on_the_built_in_drive);
+            RUN(disk_n_is_disk_0_on_the_built_in_drive);
+            if (has_sd) {
+                RUN(the_probe_finds_a_card_in_the_slot);
+                RUN(files_on_the_sd_card);
+                RUN(no_mirroring_on_a_256_mb_card);
+                RUN(load_from_one_medium_save_to_the_other);
+            }
+            rig_stats(rig, w);
+            late = w[SERVE_STAT_LATE];
+            rounds++;
+            if (run_for > 0)
+                printf("  round %u: %.0f s, %d checks failed so far\n", rounds, difftime(time(NULL), start),
+                       test_failures);
+        } while (difftime(time(NULL), start) < run_for);
+        rig_table();
+        printf("  %u rounds in %.0f s%s", rounds, difftime(time(NULL), start), has_sd ? "\n" : "");
+        if (!has_sd)
+            printf("; the bus at %g MHz timing, %u cycles played late\n", bus_mhz, late);
+        rig_close(rig);
+        return TEST_RESULT();
+    }
     RUN(the_probe_finds_the_built_in_drive_with_no_card);
     RUN(the_probe_finds_a_card_in_the_slot);
     RUN(the_probe_outlasts_the_longest_power_on);
@@ -349,7 +487,7 @@ int main(int argc, char **argv)
     RUN(a_card_that_fails_to_start);
     RUN(files_on_the_built_in_drive);
     RUN(files_on_the_sd_card);
-    RUN(disk_16_is_disk_0_on_the_16_mb_chip);
+    RUN(disk_n_is_disk_0_on_the_built_in_drive);
     RUN(no_mirroring_on_a_256_mb_card);
     RUN(load_from_one_medium_save_to_the_other);
     RUN(busy_times_against_the_bios_waits);

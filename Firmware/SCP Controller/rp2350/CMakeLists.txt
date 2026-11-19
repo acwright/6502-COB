@@ -18,6 +18,7 @@ add_executable(firmware
     mediarig.c
     patterndisk.c
     sd.c
+    serve.c
 )
 pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/bus.pio)
 pico_generate_pio_header(firmware ${CMAKE_CURRENT_LIST_DIR}/exerciser.pio)

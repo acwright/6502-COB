@@ -54,6 +54,34 @@ firmware's 1.2 s wait.
   build/host/tests/bios/bios_cli tests/bios/roms/BIOS-2.1.0.bin '10 PRINT "HI"' 'SAVE "HI"' 'DIR'
   ```
 
+## On a rig: the real media, the real bus
+
+With `--rig`, the controller is the core on a Pico 2 instead (`rig.c`, over the USB serial port). The rig's console
+command `serve` takes the 6502's register reads and writes from the Mac, in the binary protocol of
+`rp2350/serve_protocol.h`. Writes stream without waiting, and a read of the data register fetches the rest of the
+sector in one round trip, so a run of both ROMs takes seconds.
+
+- On the **media rig** (`pico2-media`), the core answers from the real SD card and flash, the worker on core 1 as
+  on the board. A test hook hides the card, as if it were pulled. The tests that don't depend on the models'
+  timing run there, and end with the real media's longest busy times:
+
+  ```sh
+  build/host/tests/bios/test_bios tests/bios/roms/BIOS-2.1.0.bin --rig auto
+  python3 tests/bios/cffs_interop.py --cli build/host/tests/bios/bios_cli --rom tests/bios/roms/BIOS-2.1.0.bin --rig auto
+  ```
+
+  `bios_cli` takes `--rig`, `--no-card`, `--put FILE` (an image onto the medium, through the controller) and
+  `--get FILE` (the medium back into a file).
+- On the **loopback rig** (`pico2-loopback`), each access is played as a bus cycle through the PIO bus, at
+  `--bus-mhz` 1 or 2 timing, on its RAM disk. It has no card slot, so the SD card's cases are left out.
+  `--for SECONDS` repeats the cases for that long.
+
+Each status read waits on the link, so the BIOS's own timeouts, counted in cycles, run far longer on a rig than on
+a machine. The busy times are the controller's measurements, compared with the waits above by hand.
+
+Leave an SD card in the media rig's slot. The tests format each disk they use first, since the media may hold
+anything.
+
 ## The ROMs
 
 The two BIOS versions the boards run, copied from [6502-BIOS](https://github.com/acwright/6502-BIOS) (MIT). Each

@@ -9,6 +9,7 @@
 //   bsy MHZ                  BSY and DRQ in time for the tightest status reads
 //   soak MHZ SECONDS         sectors written and read back in the BIOS's own loop timing
 //   spacing MHZ CYCLES       the same for 10 s, data reads CYCLES apart (the BIOS's are 15)
+//   serve MHZ                the Mac's BIOS harness, each access a bus cycle at MHZ (serve_protocol.h)
 // and, for finding faults on the rig:
 //   wires                    each jumper wire, both ways
 //   pads                     each control pad: GPIO15-21 driven, GPIO8-14 against their pulls
@@ -36,6 +37,8 @@
 #include "exerciser.h"
 #include "patterndisk.h"
 #include "product.h"
+#include "serve.h"
+#include "serve_protocol.h"
 #include "version.h"
 
 static ata_t ata;
@@ -513,6 +516,89 @@ static void cmd_raw(double mhz, uint32_t delay)
     printf("\r\n");
 }
 
+// --- serve: the Mac's BIOS harness, through the bus --------------------------------
+//
+// Each register access the Mac sends is played as a bus cycle through the
+// exerciser and the PIO bus, at 1 or 2 MHz timing; the controller runs as on the
+// board, on the pattern disk. Power-on is a reset (RESB), since the bus side
+// owns the registers.
+
+static double serve_mhz = 1;
+static uint32_t serve_late;
+
+static uint8_t lb_read(unsigned reg)
+{
+    late = false;
+    uint8_t v = reg_read(reg, serve_mhz);
+    serve_late += late;
+    return v;
+}
+
+static void lb_write(unsigned reg, uint8_t v)
+{
+    late = false;
+    reg_write(reg, v, serve_mhz);
+    serve_late += late;
+}
+
+static bool lb_transferring(void)
+{
+    busy_wait_us(3);                        // core 1 takes an access within 2 us (measured on F3)
+    return ata.drq;
+}
+
+static void lb_resb(bool low)
+{
+    stream_t s;
+    stream_init(&s, small_words, 1024, serve_mhz);
+    stream_resb(&s, low, 2000);
+    exerciser_play(&s, NULL, idle);
+}
+
+static void lb_power_on(bool card)
+{
+    (void)card;                             // no card slot here
+    lb_resb(true);
+    lb_resb(false);
+    memset(&drive.stats, 0, sizeof drive.stats);
+}
+
+static void lb_card(bool in)
+{
+    (void)in;
+}
+
+static void lb_stats(uint32_t *w)
+{
+    const drive_medium_stats_t *f = &drive.stats.flash;
+    w[SERVE_STAT_FLASH_READS] = f->reads;
+    w[SERVE_STAT_FLASH_WRITES] = f->writes;
+    w[SERVE_STAT_FLASH_ERRORS] = f->errors;
+    w[SERVE_STAT_FLASH_LONGEST_READ_US] = f->longest_read_us;
+    w[SERVE_STAT_FLASH_LONGEST_WRITE_US] = f->longest_write_us;
+    w[SERVE_STAT_LONGEST_BUSY_US] = drive.stats.longest_busy_us;
+    w[SERVE_STAT_ERRORS] = drive.stats.errors;
+    w[SERVE_STAT_FLASH_DISKS] = media_disks(disk.medium.sectors(&disk.medium));
+    w[SERVE_STAT_LATE] = serve_late;
+}
+
+static void lb_quit(void)
+{
+}
+
+static void cmd_serve(double mhz)
+{
+    static const serve_ops_t ops = {
+        .read = lb_read, .write = lb_write, .transferring = lb_transferring,
+        .power_on = lb_power_on, .card = lb_card, .resb = lb_resb,
+        .stats = lb_stats, .idle = idle, .quit = lb_quit,
+    };
+    serve_mhz = mhz;
+    serve_late = 0;                         // counted from here, across power-ons
+    lb_power_on(false);
+    serve_run(&ops);
+}
+
 static void dispatch(char *line)
 {
     char *argv[4] = { 0 };
@@ -548,7 +634,10 @@ static void dispatch(char *line)
         cmd_peek(mhz);
     else if (!strcmp(argv[0], "raw"))
         cmd_raw(mhz, argc > 2 ? (uint32_t)atoi(argv[2]) : 10);
-    else if (!strcmp(argv[0], "spacing"))
+    else if (!strcmp(argv[0], "serve")) {
+        cmd_serve(mhz);
+        return;                             // no "END": serve answers in bytes
+    } else if (!strcmp(argv[0], "spacing"))
         cmd_soak(mhz, 10, argc > 2 ? atoi(argv[2]) : 15);
     else
         printf("unknown: %s\r\n", argv[0]);

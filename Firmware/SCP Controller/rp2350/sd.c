@@ -478,6 +478,16 @@ void sd_init(uint32_t hz)
         begin_start();
 }
 
+void sd_power_on(void)
+{
+    last_raw = info.card_in = sd_card_detect_raw();
+    raw_since_ms = now_ms();
+    if (info.card_in)
+        begin_start();
+    else
+        info.state = SD_EMPTY;
+}
+
 void sd_restart(bool verbose_)
 {
     verbose = verbose_;

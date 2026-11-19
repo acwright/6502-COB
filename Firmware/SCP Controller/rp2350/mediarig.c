@@ -12,6 +12,8 @@
 //   dump sd|flash SECTOR     one sector, as the BIOS would read it
 //   watch SECONDS            card detect, the medium chosen and the LEDs, as they change
 //   pins                     each SD and flash pin against the pad's pull-up and pull-down
+//   serve                    the core on these media, its registers played from the Mac's BIOS harness
+//                            (rp2350/serve_protocol.h) until it says quit
 //   adc                      the voltage on GPIO26-28, undriven, pulled and driven
 //   flashprobe               the flash chip's ID with its four wires taken every way round
 //   flashwires               with the module out and the four wires' far ends joined: each carries
@@ -27,6 +29,7 @@
 
 #include "hardware/adc.h"
 #include "hardware/gpio.h"
+#include "pico/multicore.h"
 #include "pico/stdlib.h"
 #include "pico/unique_id.h"
 
@@ -37,6 +40,8 @@
 #include "media.h"
 #include "product.h"
 #include "sd.h"
+#include "serve.h"
+#include "serve_protocol.h"
 #include "version.h"
 
 #define BIOS_DISKS 256u     // what the BIOS's LBA reaches: 256 disks of 1 MB
@@ -632,6 +637,168 @@ static void cmd_flashprobe(void)
 
 // --- The console ----------------------------------------------------------------------------
 
+// --- serve: the core on the real media, its registers played from the Mac ---------
+//
+// As on the board, the worker (the media, the drive, the LEDs) runs on core 1
+// and the bus side on core 0, here fed by the Mac over USB instead of the PIO
+// bus. The SD card reaches the drive through a wrapper the Mac can hide, as if
+// the card were pulled.
+
+static volatile bool sd_hidden;
+static volatile uint32_t sd_unhides;
+static medium_t sd_shown;
+
+static bool shown_ready(medium_t *m)
+{
+    (void)m;
+    return !sd_hidden && sd_medium()->ready(sd_medium());
+}
+
+static uint32_t shown_sectors(medium_t *m)
+{
+    (void)m;
+    return sd_medium()->sectors(sd_medium());
+}
+
+static medium_result_t shown_read(medium_t *m, uint32_t sector, uint8_t *buf)
+{
+    (void)m;
+    return sd_hidden ? MEDIUM_GONE : sd_medium()->read(sd_medium(), sector, buf);
+}
+
+static medium_result_t shown_write(medium_t *m, uint32_t sector, const uint8_t *buf)
+{
+    (void)m;
+    return sd_hidden ? MEDIUM_GONE : sd_medium()->write(sd_medium(), sector, buf);
+}
+
+static uint32_t worker_stack[2048];         // 8 KB: a flash write keeps a sector on the stack
+static uint32_t boot_ms;
+static volatile uint32_t settle_ms;
+static volatile int boot_result;            // 0 settling, 1 a medium answers, 2 none does
+static bool boot_applied;
+
+static void worker(void)
+{
+    bool settled = false;
+    for (;;) {
+        sd_poll();
+        sd_shown.generation = sd_medium()->generation + sd_unhides;
+        if (!settled) {
+            const sd_info_t *s = sd_info();
+            uint32_t ms = to_ms_since_boot(get_absolute_time()) - boot_ms;
+            if (drive_boot_settled(s->card_in && !sd_hidden, shown_ready(&sd_shown), s->state == SD_FAILED, ms)) {
+                settle_ms = ms;
+                boot_result = drive_choose(&drive) ? 1 : 2;
+                settled = true;
+            }
+        } else {
+            drive_service(&drive);
+        }
+        leds();
+    }
+}
+
+static void stop_worker(void)
+{
+    multicore_reset_core1();
+    gpio_put(FW_PIN_SD_CS, 1);              // it may have stopped mid-command
+    gpio_put(FW_PIN_FLASH_CS, 1);
+}
+
+static uint8_t serve_read(unsigned reg)
+{
+    ata_poll(&ata);
+    return ata_read(&ata, reg);
+}
+
+static void serve_write(unsigned reg, uint8_t v)
+{
+    ata_poll(&ata);
+    ata_write(&ata, reg, v);
+}
+
+static bool serve_transferring(void)
+{
+    return ata.drq;
+}
+
+static void serve_power_on(bool card)
+{
+    stop_worker();
+    sd_hidden = !card;
+    ata_init(&ata);                         // BSY until the worker says a medium is ready
+    drive_init(&drive, &ata, &sd_shown, &fdisk.medium, now_us, NULL, PRODUCT_MODEL, serial, FW_VERSION);
+    boot_result = 0;
+    boot_applied = false;
+    settle_ms = 0;
+    boot_ms = to_ms_since_boot(get_absolute_time());
+    sd_power_on();
+    multicore_launch_core1_with_stack(worker, worker_stack, sizeof worker_stack);
+}
+
+static void serve_card(bool in)
+{
+    if (in && sd_hidden)
+        sd_unhides++;                       // put back: a new card, as far as the drive knows
+    sd_hidden = !in;
+}
+
+static void serve_resb(bool low)
+{
+    ata_resb(&ata, low);
+}
+
+static void serve_idle(void)
+{
+    if (!boot_applied && boot_result) {
+        ata_set_present(&ata, boot_result == 1);
+        boot_applied = true;
+    }
+    ata_poll(&ata);
+}
+
+static void serve_stats(uint32_t *w)
+{
+    const drive_stats_t *s = &drive.stats;
+    w[SERVE_STAT_SD_READS] = s->sd.reads;
+    w[SERVE_STAT_SD_WRITES] = s->sd.writes;
+    w[SERVE_STAT_SD_ERRORS] = s->sd.errors;
+    w[SERVE_STAT_SD_LONGEST_READ_US] = s->sd.longest_read_us;
+    w[SERVE_STAT_SD_LONGEST_WRITE_US] = s->sd.longest_write_us;
+    w[SERVE_STAT_FLASH_READS] = s->flash.reads;
+    w[SERVE_STAT_FLASH_WRITES] = s->flash.writes;
+    w[SERVE_STAT_FLASH_ERRORS] = s->flash.errors;
+    w[SERVE_STAT_FLASH_LONGEST_READ_US] = s->flash.longest_read_us;
+    w[SERVE_STAT_FLASH_LONGEST_WRITE_US] = s->flash.longest_write_us;
+    w[SERVE_STAT_LONGEST_BUSY_US] = s->longest_busy_us;
+    w[SERVE_STAT_ERRORS] = s->errors;
+    w[SERVE_STAT_SETTLE_MS] = settle_ms;
+    w[SERVE_STAT_SD_DISKS] = shown_ready(&sd_shown) ? media_disks(shown_sectors(&sd_shown)) : 0;
+    w[SERVE_STAT_FLASH_DISKS] = media_disks(fdisk.medium.sectors(&fdisk.medium));
+    w[SERVE_STAT_SD_LED] = drive_leds(&drive, time_us_32()).sd;
+    w[SERVE_STAT_HAS_SD] = 1;
+}
+
+static void serve_quit(void)
+{
+    stop_worker();
+    drive_init(&drive, &ata, sd_medium(), &fdisk.medium, now_us, NULL, PRODUCT_MODEL, serial, FW_VERSION);
+}
+
+static void cmd_serve(void)
+{
+    sd_shown = (medium_t){ .name = "SD card", .ready = shown_ready, .sectors = shown_sectors,
+                           .read = shown_read, .write = shown_write };
+    static const serve_ops_t ops = {
+        .read = serve_read, .write = serve_write, .transferring = serve_transferring,
+        .power_on = serve_power_on, .card = serve_card, .resb = serve_resb,
+        .stats = serve_stats, .idle = serve_idle, .quit = serve_quit,
+    };
+    serve_power_on(true);
+    serve_run(&ops);
+}
+
 static void start_flash(uint32_t hz)
 {
     flashdisk_init(&fdisk, flash_init(hz));
@@ -672,7 +839,10 @@ static void dispatch(char *line)
         cmd_flashprobe();
     else if (!strcmp(argv[0], "pins"))
         cmd_pins();
-    else if (!strcmp(argv[0], "watch"))
+    else if (!strcmp(argv[0], "serve")) {
+        cmd_serve();
+        return;                             // no "END": serve answers in bytes
+    } else if (!strcmp(argv[0], "watch"))
         cmd_watch(argc > 1 ? (uint32_t)atoi(argv[1]) : 30);
     else
         printf("unknown: %s\r\n", argv[0]);

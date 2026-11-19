@@ -6,7 +6,7 @@ add_library(vrEmu6502 STATIC vrEmu6502/vrEmu6502.c)
 target_include_directories(vrEmu6502 PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_compile_definitions(vrEmu6502 PUBLIC VR_EMU_6502_STATIC)
 
-add_library(bios_machine STATIC machine.c)
+add_library(bios_machine STATIC machine.c rig.c)
 target_include_directories(bios_machine PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(bios_machine PUBLIC fw_core vrEmu6502 PRIVATE fw_warnings)
 

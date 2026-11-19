@@ -8,6 +8,11 @@
 // models of its media: a RAM SD card and a NOR chip. Their busy times are taken
 // in microseconds and turned into 6502 cycles at the machine's clock, so the
 // BIOS's own timeouts, counted in cycles, are the real ones.
+//
+// Or, with a rig (rig.h), the controller is the core on a Pico 2, reached over
+// USB: on the media rig, the real SD card and flash. Then each status read waits
+// on the link, so the BIOS's timeouts run long: a rig tests what the BIOS does
+// with the real media, and the busy times are the rig's own measurements.
 #pragma once
 
 #include <stdbool.h>
@@ -15,6 +20,7 @@
 #include <stdint.h>
 
 #include "../unit/fakes.h"
+#include "rig.h"
 #include "vrEmu6502/vrEmu6502.h"
 
 // What a medium costs, in microseconds.
@@ -45,6 +51,7 @@ typedef struct {
     uint32_t boot_us;                       // the RP2350's start, before the controller answers
     uint32_t sd_start_us;                   // starting a card already in at power-on
     bool sd_start_fails;
+    rig_t *rig;                             // the controller on a rig instead: sd_sectors != 0 shows its card
 } machine_config_t;
 
 typedef struct {
@@ -76,7 +83,26 @@ typedef struct {
     uint64_t job_ready;                     // the cycle the bus side may see it
     job_log_t jobs[4096];
     size_t job_count;
+
+    // A rig's data register: a sector's bytes fetched in one round trip, handed out a read at a time.
+    uint8_t rig_data[512];
+    size_t rig_data_len, rig_data_pos;
+    uint32_t rig_strays;                    // data fetched that the 6502 never read: should stay 0
 } machine_t;
+
+// What the controller says about itself, from the core here or from the rig.
+typedef struct {
+    drive_stats_t drive;
+    uint32_t sd_disks, flash_disks;         // N of each medium; 0 for an SD card not started or not in
+    uint32_t settle_ms;                     // power-on, until the controller answered
+    bool sd_led;
+    bool has_sd;                            // a card slot: not the loopback rig's RAM disk
+    uint32_t late;                          // loopback: bus cycles played late
+} machine_controller_t;
+void machine_controller(machine_t *m, machine_controller_t *c);
+
+// A card pulled (false) or put back (true), between commands.
+void machine_set_card(machine_t *m, bool in);
 
 // Powers the machine on. The SD card's image, if any, starts as sd_image (sd_sectors x 512 bytes) or blank.
 machine_t *machine_new(const machine_config_t *cfg, const uint8_t *sd_image);
