@@ -31,11 +31,25 @@ typedef struct {
     uint8_t csd[16], cid[16];
     uint32_t ocr;
     const char *failed_at;  // the step a start failed at, for the console
-    uint32_t start_ms;      // how long the last start took
+    uint32_t start_ms;      // how long the last start took, from card detect settling
+    unsigned cmd0_tries;    // the CMD0s it took to answer, and the ACMD41s to be ready
+    unsigned acmd41_tries;
+    uint8_t cmd0_last_r1;   // the last answer to CMD0: $01 when it went idle, $FF for none
+    uint8_t cmd8_last_r1;   // ... and to CMD8
+    unsigned restarts;      // starts gone back to CMD0 after a bad CMD8, inside the wake window
     uint32_t hz;            // the clock after start-up, as set
     uint32_t reads, writes;
     uint32_t crc_retries;   // blocks sent or read again after a CRC error
     uint32_t failures;      // reads and writes that failed after every try
+    struct {                // each try of a write that went wrong, by the step it went wrong at
+        uint32_t command;   // CMD24 refused: R1 not $00
+        uint32_t response;  // the data response not "accepted" ($x5) nor "CRC error" ($xB)
+        uint32_t busy;      // still busy after WRITE_MS
+        uint32_t status;    // CMD13 after the write: R1 or R2 not $00
+        uint8_t last_r1, last_response;
+        uint16_t last_status;
+        uint32_t last_sector;
+    } write_faults;
 } sd_info_t;
 
 // Sets up the pins and SPI0 and reads card detect. hz is the clock after start-up.

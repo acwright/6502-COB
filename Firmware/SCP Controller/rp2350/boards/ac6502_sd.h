@@ -66,8 +66,11 @@
 #define FW_PIN_LED_SD   21      // D2, green: the SD card is the medium answering
 #define FW_PIN_LED_ACT  22      // D1, red: a medium is busy
 
-// The SPI clocks after start-up: SD's default-speed limit, and the same for the flash.
-#define FW_SD_HZ        25000000
+// The SPI clocks after start-up. The SD card's is half its 25 MHz limit: at 25 MHz
+// the card's replies have about 20 ns to come back, and the card alone may take
+// 14 ns. A sector costs 0.2 ms more, against the 6502's 3.8 ms to move it at
+// 2 MHz. To be tried again at 25 MHz on the first boards made.
+#define FW_SD_HZ        12500000
 #define FW_FLASH_HZ     25000000
 
 #endif

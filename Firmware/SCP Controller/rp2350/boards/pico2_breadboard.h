@@ -46,8 +46,11 @@
 #define FW_PIN_LED_SD   21
 #define FW_PIN_LED_ACT  22
 
-// The SPI clocks after start-up: SD's default-speed limit, and the same for the flash.
-#define FW_SD_HZ        25000000
+// The SPI clocks after start-up. The SD card's is half the board's: through the
+// Adafruit breakout's level shifter the card's replies come back too late for
+// 25 MHz (writes' data responses misread, 19 November 2026); 18.75 MHz passed,
+// and 12.5 MHz leaves a step to spare.
+#define FW_SD_HZ        12500000
 #define FW_FLASH_HZ     25000000
 
 #endif

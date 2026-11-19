@@ -19,6 +19,10 @@
 
 #define SPI FW_SD_SPI
 #define START_HZ    400000u     // the specification's limit until the card is started
+#define POWER_MS    10u         // a card just put in is powered only now: let its supply settle
+#define CMD0_MS     1000u       // and keep asking it to go idle this long: on the rig a card just
+                                // put in took up to about 300 ms to answer
+#define CMD0_GAP_MS 5u          // ... this far apart
 #define ACMD41_MS   1000u       // the specification's limit for a card to start
 #define TOKEN_MS    200u        // for a read's data token (the specification: 100 ms)
 #define WRITE_MS    1000u       // for a write's busy time (SDXC's limit: 500 ms)
@@ -33,7 +37,7 @@ static bool verbose;
 static int step;
 static unsigned tries;
 static bool v2;
-static uint32_t step_ms, deadline_ms, started_ms;
+static uint32_t step_ms, deadline_ms, started_ms, wake_deadline_ms;
 static bool last_raw;
 static uint32_t raw_since_ms;
 
@@ -142,6 +146,7 @@ static void begin_start(void)
     info.sectors = 0;
     step = STEP_POWER;
     started_ms = now_ms();
+    step_ms = started_ms + POWER_MS;
 }
 
 // The CSD or the CID: a command, then a 16-byte block. True if it came, CRC right.
@@ -209,22 +214,38 @@ static void start_step(void)
     uint8_t r;
     switch (step) {
     case STEP_POWER:
+        if (now_ms() < step_ms)
+            break;
         spi_set_baudrate(SPI, START_HZ);
-        gpio_put(FW_PIN_SD_CS, 1);
-        for (int i = 0; i < 10; i++)        // at least 74 clocks with CS high
-            xfer(0xFF);
         tries = 0;
+        info.restarts = 0;
+        wake_deadline_ms = now_ms() + CMD0_MS;
+        step_ms = 0;
         step = STEP_CMD0;
         break;
     case STEP_CMD0:
+        // A card just put in may take a while to wake: each try is CMD0 after
+        // at least 74 clocks with CS high, CMD0_GAP_MS apart, for up to CMD0_MS.
+        if (now_ms() < step_ms)
+            break;
+        gpio_put(FW_PIN_SD_CS, 1);
+        for (int i = 0; i < 10; i++)
+            xfer(0xFF);
         select();
         r = command(0, 0);
         deselect();
-        say("CMD0: R1 $%02X", r);
-        if (r == 0x01)
+        info.cmd0_tries = ++tries;
+        info.cmd0_last_r1 = r;
+        if (r == 0x01) {
+            say("CMD0: R1 $01 after %u tries, %lu ms after card detect settled", tries,
+                (unsigned long)(now_ms() - started_ms));
             step = STEP_CMD8;
-        else if (++tries >= 10)
+        } else if ((int32_t)(now_ms() - wake_deadline_ms) >= 0) {
+            say("CMD0: R1 $%02X after %u tries", r, tries);
             fail("CMD0 (no answer: is a card in?)");
+        } else {
+            step_ms = now_ms() + CMD0_GAP_MS;
+        }
         break;
     case STEP_CMD8: {
         select();
@@ -232,12 +253,22 @@ static void start_step(void)
         uint32_t echo = (r & 0x04) ? 0 : take32();
         deselect();
         say("CMD8: R1 $%02X, echo $%08lX", r, (unsigned long)echo);
-        if (r == 0x01 && (echo & 0xFFF) == 0x1AA)
+        info.cmd8_last_r1 = r;
+        if (r == 0x01 && (echo & 0xFFF) == 0x1AA) {
             v2 = true;                      // version 2 or later: SDHC/SDXC possible
-        else if (r & 0x04)
-            v2 = false;                     // illegal command: version 1, SDSC
-        else
+        } else if (r == 0x05) {
+            v2 = false;                     // idle, and an illegal command: version 1, SDSC
+        } else if ((int32_t)(now_ms() - wake_deadline_ms) < 0) {
+            // A card just put in can answer CMD0 before it's settled, and then
+            // fumble CMD8. Inside the wake window that's not a failure: start
+            // again from CMD0.
+            info.restarts++;
+            step_ms = now_ms() + CMD0_GAP_MS;
+            step = STEP_CMD0;
+            break;
+        } else {
             return fail("CMD8 (the voltage check)");
+        }
         tries = 0;
         deadline_ms = now_ms() + ACMD41_MS;
         step_ms = 0;
@@ -253,6 +284,7 @@ static void start_step(void)
         deselect();
         tries++;
         if (r == 0x00) {
+            info.acmd41_tries = tries;
             say("ACMD41: ready after %u tries", tries);
             step = STEP_FINISH;
         } else if (r & 0x04) {
@@ -372,10 +404,21 @@ static medium_result_t sd_write(medium_t *m, uint32_t sector, const uint8_t *buf
             deselect();
             if (r1 == 0 && r2 == 0)
                 return MEDIUM_OK;
-        } else if (r == 0 && (resp & 0x1F) == 0x0B) {
+            info.write_faults.status++;
+            info.write_faults.last_status = (uint16_t)(r1 << 8 | r2);
+        } else if (r != 0) {
+            info.write_faults.command++;
+            info.write_faults.last_r1 = r;
+        } else if ((resp & 0x1F) == 0x0B) {
             info.crc_retries++;             // the card saw a CRC error: send it again
             continue;
+        } else if ((resp & 0x1F) != 0x05) {
+            info.write_faults.response++;
+            info.write_faults.last_response = resp;
+        } else {
+            info.write_faults.busy++;
         }
+        info.write_faults.last_sector = sector;
         if (!sd_card_detect_raw())
             break;
     }

@@ -98,10 +98,10 @@ static void print_sd(void)
     if (s->state != SD_READY)
         return;
     const uint8_t *c = s->cid;
-    printf("    %s, %lu sectors (%lu MB), N = %lu; started in %lu ms; clock %lu Hz\r\n",
+    printf("    %s, %lu sectors (%lu MB), N = %lu; started in %lu ms (%u CMD0s, %u ACMD41s); clock %lu Hz\r\n",
            s->high_capacity ? "SDHC/SDXC" : "SDSC", (unsigned long)s->sectors,
            (unsigned long)(s->sectors / 2048), (unsigned long)media_disks(s->sectors),
-           (unsigned long)s->start_ms, (unsigned long)s->hz);
+           (unsigned long)s->start_ms, s->cmd0_tries, s->acmd41_tries, (unsigned long)s->hz);
     printf("    CID: maker $%02X, OEM %c%c, product %c%c%c%c%c rev %u.%u, serial %02X%02X%02X%02X, made %u/%u\r\n",
            c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8] >> 4, c[8] & 15, c[9], c[10], c[11], c[12],
            c[14] & 15, 2000 + ((c[13] & 15) << 4 | c[14] >> 4));
@@ -111,6 +111,11 @@ static void print_sd(void)
     printf("\r\n    OCR $%08lX; %lu reads, %lu writes, %lu CRC retries, %lu failed\r\n", (unsigned long)s->ocr,
            (unsigned long)s->reads, (unsigned long)s->writes, (unsigned long)s->crc_retries,
            (unsigned long)s->failures);
+    printf("    write tries gone wrong: %lu CMD24 refused (last R1 $%02X), %lu bad data response (last $%02X), "
+           "%lu busy too long, %lu CMD13 not clear (last $%04X); last at sector %lu\r\n",
+           (unsigned long)s->write_faults.command, s->write_faults.last_r1, (unsigned long)s->write_faults.response,
+           s->write_faults.last_response, (unsigned long)s->write_faults.busy, (unsigned long)s->write_faults.status,
+           s->write_faults.last_status, (unsigned long)s->write_faults.last_sector);
 }
 
 static void print_flash(void)
@@ -194,8 +199,9 @@ static void timed(times_t *t, uint32_t us, bool ok)
         t->over_852++;
 }
 
-static void print_times(const char *what, const times_t *t, uint32_t sectors)
+static void print_times(const char *what, const times_t *t)
 {
+    uint32_t sectors = t->count;
     double s = (double)t->total_us / 1e6;
     printf("  %s: %lu sectors in %.1f s (%.2f MB/s), %lu failed; longest %lu us, %lu over 426 ms, %lu over 852 ms\r\n",
            what, (unsigned long)t->count, s, s > 0 ? sectors * 512.0 / 1048576.0 / s : 0.0, (unsigned long)t->failed,
@@ -252,7 +258,7 @@ static void cmd_test(const char *which, int disks_asked)
         }
         progress("written", s + 1, sectors, &last);
     }
-    print_times("write", &wt, sectors);
+    print_times("write", &wt);
 
     // Read back, and compare.
     times_t rt = { 0 };
@@ -277,7 +283,7 @@ static void cmd_test(const char *which, int disks_asked)
         }
         progress("read", s + 1, sectors, &last);
     }
-    print_times("read", &rt, sectors);
+    print_times("read", &rt);
     printf("  checksum written %08lX, read %08lX; %lu sectors wrong\r\n", (unsigned long)sum_written,
            (unsigned long)sum_read, (unsigned long)wrong);
 
@@ -311,7 +317,7 @@ static void cmd_test(const char *which, int disks_asked)
             timed(&again, time_us_32() - t0, r == MEDIUM_OK);
         }
         unchanged = fdisk.stats.unchanged - before;
-        print_times("the same data again", &again, sectors);
+        print_times("the same data again", &again);
         printf("  ... of which skipped, unchanged: %lu\r\n", (unsigned long)unchanged);
     }
     gpio_put(FW_PIN_LED_ACT, 0);
@@ -373,10 +379,12 @@ static void cmd_watch(uint32_t seconds)
             state = (int)s->state;
             printf("  %6lu ms  SD: %s", (unsigned long)ms, state_name(s->state));
             if (s->state == SD_READY)
-                printf(", started in %lu ms, N = %lu", (unsigned long)s->start_ms,
-                       (unsigned long)media_disks(s->sectors));
+                printf(", started in %lu ms (%u CMD0s, %u restarts, %u ACMD41s), N = %lu", (unsigned long)s->start_ms,
+                       s->cmd0_tries, s->restarts, s->acmd41_tries, (unsigned long)media_disks(s->sectors));
             if (s->state == SD_FAILED)
-                printf(" at %s", s->failed_at);
+                printf(" at %s, after %lu ms (%u CMD0s, last answers: CMD0 $%02X, CMD8 $%02X; %u restarts)",
+                       s->failed_at, (unsigned long)s->start_ms, s->cmd0_tries, s->cmd0_last_r1, s->cmd8_last_r1,
+                       s->restarts);
             printf("\r\n");
         }
         if (m != chosen) {

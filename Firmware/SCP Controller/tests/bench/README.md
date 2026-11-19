@@ -82,7 +82,8 @@ board's own pins. The flash can't be: a Pico 2 doesn't bring out GPIO24 and 25. 
 
 The microSD breakout is Adafruit's "5V ready" one. Leave its 3v pin unconnected: it's the output of its own
 regulator. Its CD is the other way up from the board's: the socket's switch grounds it with no card in, so the rig
-reads a card as high, with the pad's pull-up (`FW_SD_CD_CARD_IN`). The flash breakout is a W25Q64JVSIQ; its pins
+reads a card as high, with the pad's pull-up (`FW_SD_CD_CARD_IN`). Its level shifter also delays the card's replies
+too much for 25 MHz, so the rig runs the card at 12.5 MHz (`FW_SD_HZ`). The flash breakout is a W25Q64JVSIQ; its pins
 are labelled D0 (the chip's DO) and D1 (its DI). The flash clock is on GP14, not the SPI1 clock on GP26, because the
 first rig's Pico 2 has a GP26 that can't drive low.
 
@@ -115,3 +116,11 @@ Firmware 0.1.0, measured on 19 November 2026.
 | Flash: longest write of a sector, erasing its 4 KB (16,384 writes) | 50.4 ms; the chip's longest erase 41.0 ms, longest page program 373 µs | Inside the BIOS's wait: 426 ms at 2 MHz |
 | Flash: a sector written into blank space, with no erase | 2.8 ms | |
 | Flash: a sector read | 217 µs (2.40 MB/s) | |
+| SD card: a SanDisk 16 GB SDHC (SU16G, 2010), started | 31,116,288 sectors from its CSD, as macOS counts them; N = 15,193 | |
+| SD card: all 524,288 sectors of disks 0–255 written, read back and compared, at 12.5 MHz | 0 wrong, checksums equal; no CRC retries, no write retried | None wrong |
+| SD card: longest write of a sector | 190 ms (2.0 ms on average) | Inside the BIOS's wait: 426 ms at 2 MHz |
+| SD card: longest read of a sector | 1.5 ms (0.76 ms on average) | |
+| SD card: the same test over disks 0–3, at each clock | 25 MHz: 518 of about 4,100 data responses misread, 17 writes failed. 18.75 MHz and 12.5 MHz: none wrong | |
+| SD card: at power-on | Started in 21–23 ms: 1 CMD0, 5–6 ACMD41s | Inside the 1.2 s the firmware waits |
+| SD card: put in while powered, 11 times | Started every time, in 244–649 ms; it took 10–91 CMD0s, 5 ms apart, to answer | Within the 1 s allowed |
+| Card detect | Each insertion and removal seen, 50 ms debounce; the green LED and the medium followed | |
