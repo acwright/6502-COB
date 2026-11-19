@@ -137,3 +137,12 @@
 	(constraint bridged_mask)
 	(condition "A.Type == 'Graphic' && (A.Layer == 'F.Mask' || A.Layer == 'B.Mask') && !A.memberOfFootprint('*')")
 	(severity ignore))
+
+# The RP2350's regulator copies Raspberry Pi's minimal design (R4-S1), whose VREG_LX pour keeps 0.15 mm from
+# the VIN and PGND pours and from C11's and C12's pads, which it passes between. Last, so it overrides the
+# rules above for VREG_LX only.
+(rule "RP2350 regulator: 0.15 mm around VREG_LX, as Raspberry Pi's layout"
+	(layer outer)
+	(condition "A.NetName == 'VREG_LX'")
+	(constraint clearance (min 0.15mm))
+)

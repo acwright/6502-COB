@@ -18,6 +18,11 @@
 // No default UART, I2C, SPI or LED: GPIO0 and GPIO1 are D0 and D1 on the 6502
 // bus, and must never be driven by anything but the bus program.
 
+// As pico2.h, and unused: on the RP2350 the SDK applies it only through an
+// embedded boot stage 2 (PICO_EMBED_XIP_SETUP), which this build leaves out.
+// The program flash is read once, by the bootrom's slow serial read: the
+// start-up code copies the program to RAM (copy_to_ram) before runtime_init
+// raises the clock to 150 MHz, and nothing reads the program flash after that.
 #define PICO_FLASH_SPI_CLKDIV 2
 // pico_cmake_set_default PICO_FLASH_SIZE_BYTES = (16 * 1024 * 1024)
 #ifndef PICO_FLASH_SIZE_BYTES
