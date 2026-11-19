@@ -347,6 +347,21 @@ static medium_result_t failed(void)
     return sd_card_detect_raw() ? MEDIUM_FAILED : MEDIUM_GONE;
 }
 
+// A read or write that failed every try. If a card is in, it may not be the card
+// that was started: one swapped while sd_poll() wasn't running (in a long job)
+// leaves card detect where it was. So the card is started again from scratch,
+// which reads its size again; a new start is a new generation, and the drive
+// ends any command that was using the old one.
+static medium_result_t gave_up(void)
+{
+    medium_result_t r = failed();
+    if (r == MEDIUM_FAILED && info.state == SD_READY) {
+        info.restarts_after_failure++;
+        begin_start();
+    }
+    return r;
+}
+
 static uint32_t address(uint32_t sector)
 {
     return info.high_capacity ? sector : sector * 512u;
@@ -370,7 +385,7 @@ static medium_result_t sd_read(medium_t *m, uint32_t sector, uint8_t *buf)
         else if (!sd_card_detect_raw())
             break;
     }
-    return failed();
+    return gave_up();
 }
 
 static medium_result_t sd_write(medium_t *m, uint32_t sector, const uint8_t *buf)
@@ -422,7 +437,7 @@ static medium_result_t sd_write(medium_t *m, uint32_t sector, const uint8_t *buf
         if (!sd_card_detect_raw())
             break;
     }
-    return failed();
+    return gave_up();
 }
 
 // --- Set-up -------------------------------------------------------------------------

@@ -4,11 +4,11 @@
 // the core is driven over USB.
 //
 //   SD breakout:    GPIO16 DO, GPIO17 CS, GPIO18 CLK, GPIO19 DI, GPIO20 CD; 5V from VBUS
-//   Flash breakout: GPIO28 DO, GPIO15 CS, GPIO14 CLK, GPIO27 DI; 3.3 V from 3V3(OUT)
+//   Flash breakout: GPIO28 DO, GPIO15 CS, GPIO26 CLK, GPIO27 DI; 3.3 V from 3V3(OUT)
 //
-// The flash clock is on GPIO14 (pin 19), another of SPI1's clock pins, because the
-// rig's Pico 2 has a damaged GPIO26: its pad drives high but not low (found on
-// 19 November 2026, with the pin bare). The media rig has no bus, so GPIO14 is free.
+// A Pico 2 with a damaged GPIO26 pad (one that drives high but not low, as the
+// first rig's did) can take the flash clock on GPIO14 instead, another of SPI1's
+// clock pins: the media rig has no bus. Run "pins" and "adc" on a new Pico 2 first.
 
 // pico_cmake_set PICO_PLATFORM=rp2350
 // pico_cmake_set_default PICO_FLASH_SIZE_BYTES = (4 * 1024 * 1024)
@@ -38,7 +38,7 @@
 #define FW_FLASH_SPI    spi1
 #define FW_PIN_FLASH_MISO 28
 #define FW_PIN_FLASH_CS   15
-#define FW_PIN_FLASH_SCK  14      // not 26: see above
+#define FW_PIN_FLASH_SCK  26
 #define FW_PIN_FLASH_MOSI 27
 
 #define FW_PIN_LED_SD   21

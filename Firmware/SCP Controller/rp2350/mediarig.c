@@ -108,9 +108,9 @@ static void print_sd(void)
     printf("    CSD:");
     for (int i = 0; i < 16; i++)
         printf(" %02X", s->csd[i]);
-    printf("\r\n    OCR $%08lX; %lu reads, %lu writes, %lu CRC retries, %lu failed\r\n", (unsigned long)s->ocr,
-           (unsigned long)s->reads, (unsigned long)s->writes, (unsigned long)s->crc_retries,
-           (unsigned long)s->failures);
+    printf("\r\n    OCR $%08lX; %lu reads, %lu writes, %lu CRC retries, %lu failed (the card started again after %lu)\r\n",
+           (unsigned long)s->ocr, (unsigned long)s->reads, (unsigned long)s->writes, (unsigned long)s->crc_retries,
+           (unsigned long)s->failures, (unsigned long)s->restarts_after_failure);
     printf("    write tries gone wrong: %lu CMD24 refused (last R1 $%02X), %lu bad data response (last $%02X), "
            "%lu busy too long, %lu CMD13 not clear (last $%04X); last at sector %lu\r\n",
            (unsigned long)s->write_faults.command, s->write_faults.last_r1, (unsigned long)s->write_faults.response,
@@ -511,6 +511,12 @@ static void cmd_adc(void)
     for (int i = 0; i < 4; i++) {
         gpio_init(flash_pins[i]);
         gpio_disable_pulls(flash_pins[i]);
+    }
+    // GPIO26-28 as plain I/O whatever the pin map has them as: a pin left in its
+    // reset state is isolated, and driving it does nothing.
+    for (unsigned pin = 26; pin <= 28; pin++) {
+        gpio_init(pin);
+        gpio_disable_pulls(pin);
     }
     static const char *how[] = { "undriven", "pull-up", "pull-down", "driven low", "driven high" };
     for (unsigned pin = 26; pin <= 28; pin++) {

@@ -74,7 +74,7 @@ board's own pins. The flash can't be: a Pico 2 doesn't bring out GPIO24 and 25. 
 | flash VCC | 3V3(OUT) | 36 | |
 | flash GND | GND | 38 | |
 | flash CS | GP15 | 20 | |
-| flash CLK | GP14 | 19 | |
+| flash CLK | GP26 | 31 | |
 | flash DI | GP27 | 32 | |
 | flash DO | GP28 | 34 | |
 | green LED, through 330 Ω to GND | GP21 | 27 | LED_SD |
@@ -84,14 +84,18 @@ The microSD breakout is Adafruit's "5V ready" one. Leave its 3v pin unconnected:
 regulator. Its CD is the other way up from the board's: the socket's switch grounds it with no card in, so the rig
 reads a card as high, with the pad's pull-up (`FW_SD_CD_CARD_IN`). Its level shifter also delays the card's replies
 too much for 25 MHz, so the rig runs the card at 12.5 MHz (`FW_SD_HZ`). The flash breakout is a W25Q64JVSIQ; its pins
-are labelled D0 (the chip's DO) and D1 (its DI). The flash clock is on GP14, not the SPI1 clock on GP26, because the
-first rig's Pico 2 has a GP26 that can't drive low.
+are labelled D0 (the chip's DO) and D1 (its DI). The first rig's Pico 2 had a GP26 that couldn't drive low; on such
+a module, put the flash clock on GP14 (pin 19), another of SPI1's clock pins, by changing `FW_PIN_FLASH_SCK`.
 
 ```sh
 cmake --preset pico2-media && cmake --build --preset pico2-media
 picotool load -f -x build/pico2-media/rp2350/*.uf2
 python3 tests/bench/rig.py pins info "test flash" "test sd"
 ```
+
+A Pico 2 that has run other firmware may hold a bootloader and a partition table of its own, and an image loaded
+over them doesn't start: it vanishes from USB. Clear it in BOOTSEL with `picotool erase`, then `picotool reboot -u`,
+and load again.
 
 Run `pins` first, on any Pico 2 not used on a rig before. It drives each pad both ways and reads it back, and reads
 each pin against the pad's pull-up and pull-down. A pad that can't drive is a fault in the Pico 2, and nothing on
@@ -124,3 +128,8 @@ Firmware 0.1.0, measured on 19 November 2026.
 | SD card: at power-on | Started in 21–23 ms: 1 CMD0, 5–6 ACMD41s | Inside the 1.2 s the firmware waits |
 | SD card: put in while powered, 11 times | Started every time, in 244–649 ms; it took 10–91 CMD0s, 5 ms apart, to answer | Within the 1 s allowed |
 | Card detect | Each insertion and removal seen, 50 ms debounce; the green LED and the medium followed | |
+| SD card: a Samsung EVO 64 GB SDXC (GC2QT, 2017), started | 125,042,688 sectors, as macOS counts them; N = 61,056 | |
+| SDXC: all 524,288 sectors of disks 0–255, at 12.5 MHz | 0 wrong, checksums equal; no CRC retries, no write retried | None wrong |
+| SDXC: longest write of a sector | 89 ms (1.9 ms on average) | Inside the BIOS's wait: 426 ms at 2 MHz |
+| SDXC: longest read of a sector | 8.5 ms (0.73 ms on average) | |
+| A card swapped mid-test, where card detect wasn't watched | The failed write started the card again; the new card came up with its own ID and size | The new card known |

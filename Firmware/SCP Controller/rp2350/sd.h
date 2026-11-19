@@ -41,6 +41,7 @@ typedef struct {
     uint32_t reads, writes;
     uint32_t crc_retries;   // blocks sent or read again after a CRC error
     uint32_t failures;      // reads and writes that failed after every try
+    uint32_t restarts_after_failure;   // ... after which the card was started again
     struct {                // each try of a write that went wrong, by the step it went wrong at
         uint32_t command;   // CMD24 refused: R1 not $00
         uint32_t response;  // the data response not "accepted" ($x5) nor "CRC error" ($xB)
