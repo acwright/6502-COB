@@ -12,6 +12,7 @@ add_custom_target(fw_source_hash
 add_executable(firmware
     main.c
     bus.c
+    controller.c
     exerciser.c
     flash.c
     loopback.c

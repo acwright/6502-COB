@@ -312,10 +312,14 @@ static void note_busy(const machine_controller_t *c)
     if (c->drive.longest_busy_us > rig_longest_busy) rig_longest_busy = c->drive.longest_busy_us;
 }
 
-static void rig_table(void)
+static void rig_table(bool has_sd)
 {
     double w1 = BIOS_WAIT_CYCLES / 1.0 / 1000.0, w2 = BIOS_WAIT_CYCLES / 2.0 / 1000.0;
-    printf("\n%s on the media rig: the real media's longest busy times, against the BIOS's wait\n", rom_name);
+    if (has_sd)
+        printf("\n%s on the media rig: the real media's longest busy times, against the BIOS's wait\n", rom_name);
+    else
+        printf("\n%s on the loopback rig: its RAM disk's busy times (1 ms a read, 5 ms a write), through the bus\n",
+               rom_name);
     printf("  %-26s %8s %8s %12s %12s\n", "medium", "reads", "writes", "longest ms", "1 / 2 MHz");
     printf("  %-26s %8u %8u %12.1f %5.0f / %.0f ms\n", "SD card: a read", rig_sd.reads, rig_sd.writes,
            rig_sd.longest_read_us / 1000.0, w1, w2);
@@ -473,7 +477,7 @@ int main(int argc, char **argv)
                 printf("  round %u: %.0f s, %d checks failed so far\n", rounds, difftime(time(NULL), start),
                        test_failures);
         } while (difftime(time(NULL), start) < run_for);
-        rig_table();
+        rig_table(has_sd);
         printf("  %u rounds in %.0f s%s", rounds, difftime(time(NULL), start), has_sd ? "\n" : "");
         if (!has_sd)
             printf("; the bus at %g MHz timing, %u cycles played late\n", bus_mhz, late);

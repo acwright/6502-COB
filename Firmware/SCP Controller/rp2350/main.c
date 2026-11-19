@@ -1,12 +1,16 @@
-// The controller's start-up. So far: the LEDs and the USB serial port's banner.
-// The bus pins are left as they come out of reset, undriven, so the board's
-// pull resistors answer every read with $80 (BSY).
+// The controller's start-up. Both LEDs light first thing, a lamp test that also
+// marks, on a pin, the moment the firmware began (the bench times the RP2350's
+// own start by it). Then the board's builds run the controller (controller.c),
+// and the rigs their test consoles. Until the bus program starts, the bus pins
+// are as reset leaves them, undriven, so the board's pull resistors answer every
+// read with $80 (BSY).
 #include <stdio.h>
 
 #include "hardware/gpio.h"
 #include "pico/binary_info.h"
 #include "pico/stdlib.h"
 
+#include "controller.h"
 #include "fw_info.h"
 #include "loopback.h"
 #include "mediarig.h"
@@ -46,11 +50,15 @@ static void banner(void)
 int main(void)
 {
     leds_init();
-    stdio_init_all();
-
-    // Lamp test: both LEDs for a quarter of a second.
     gpio_put(FW_PIN_LED_SD, 1);
     gpio_put(FW_PIN_LED_ACT, 1);
+
+#if FW_HAS_BUS && !FW_HAS_EXERCISER
+    controller_main(banner);                // ends the lamp test itself, without waiting on it
+#endif
+    stdio_init_all();
+
+    // The rigs' lamp test: both LEDs for a quarter of a second.
     sleep_ms(250);
     gpio_put(FW_PIN_LED_SD, 0);
     gpio_put(FW_PIN_LED_ACT, 0);

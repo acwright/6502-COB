@@ -140,3 +140,24 @@ Firmware 0.1.0, measured on 19 November 2026.
 | The same: the longest busy times seen | SD card: read 1.3 ms, write 21.1 ms. Flash: read 0.2 ms, write 39.5 ms | Inside 426 ms |
 | cffs both ways through `serve` | An image cffs made, put on the card, loads in the BIOS; what the BIOS saves on each medium lists and extracts with cffs | All |
 | Disk 0 read through the controller, and in a Mac card reader | The same 1 MB, byte for byte | The same |
+
+### The BIOS through the bus, and the start
+
+The loopback rig serves the same BIOS cases, each access a bus cycle through the PIO bus, on its RAM disk with
+1 ms reads and 5 ms writes (so the BIOS polls BSY through the bus):
+
+```sh
+build/host/tests/bios/test_bios tests/bios/roms/BIOS-2.1.0.bin --rig auto --bus-mhz 2 --for 3600
+```
+
+Its `starttime` command times another Pico 2's start: it holds that one's RUN low, lets go, and times until its
+LED_ACT goes high, which `main()` does first thing. Wire this rig's GP27 (pin 32) to the other's RUN (pin 30), the
+other's GP22 (pin 29) to this rig's GP28 (pin 34), and the two grounds together.
+
+| What | Measured | Needed |
+|---|---|---|
+| BIOS 1.7 and 2.1.0 through the bus, 1 MHz and 2 MHz timing | Every case passes, no cycle played late | All |
+| BIOS 2.1.0 through the bus at 2 MHz timing, for an hour | 2,172 rounds, 186,792 checks, 0 failed; 60,816 reads and 34,752 writes; no cycle late | None failed |
+| The RP2350's start: RUN released to `main()`, the board firmware (`pico2-breadboard`), 20 times | 54.2–54.8 ms, 54.5 ms on average | |
+| The board firmware: `main()` to answering, a card in the slot | 21 ms | |
+| Power-on at its longest: the start, then the 1.2 s wait for a card that never starts | About 1.25 s | Inside the BIOS's probe: 1.5 s at 2 MHz |

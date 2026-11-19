@@ -37,7 +37,8 @@ timeouts, which are counted in cycles, run out when they would on a real machine
 | Flash worst | about 0.21 µs a byte | | 3 ms | 400 ms |
 
 Power-on is 250 ms for the RP2350's start, plus the time an SD card in the slot takes to start, up to the
-firmware's 1.2 s wait.
+firmware's 1.2 s wait. The 250 ms is pessimistic on purpose: on the bench a Pico 2 took 54.5 ms from reset to the
+firmware's first instruction (`tests/bench/README.md`).
 
 ## The tests
 

@@ -309,7 +309,7 @@ See [Firmware/PS2 Keyboard Controller/README.md](./Firmware/PS2%20Keyboard%20Con
 
 Firmware for the RP2350A on the Storage Card Pro 1.1. The card is to answer on the bus as the Storage Card's CompactFlash card does, so the stock BIOS can use an SD card, or the card's built-in flash drive when no SD card is in.
 
-**Not finished.** It builds, and it doesn't answer on the bus yet. No Rev 1.1 card has been made. The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit, and its ASDA Controller is a copy of this firmware.
+**Not finished.** It's complete and tested on Pico 2 test rigs, on real SD cards and flash and through its bus, but it hasn't yet answered a real 6502. No Rev 1.1 card has been made. The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit, and its ASDA Controller is a copy of this firmware.
 
 See [Firmware/SCP Controller/README.md](./Firmware/SCP%20Controller/README.md) for building it.
 

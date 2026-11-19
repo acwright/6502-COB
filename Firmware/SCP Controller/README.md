@@ -4,11 +4,11 @@ Firmware for the RP2350A on the **Storage Card Pro 1.1**. The card answers on th
 CompactFlash card does, at `$8C00–$8C07` by default, so the stock BIOS's `LOAD`, `SAVE`, `DIR` and `FORMAT` work
 unchanged. The disks are on an SD card when one is in the slot, and on the card's built-in flash drive when not.
 
-> **Not finished.** The firmware is being written, and nothing here has run on a Storage Card Pro yet: no Rev 1.1
-> board has been made. So far the controller's logic is tested on the Mac, against the stock BIOS in an emulator, and
-> its bus is tested on a Pico 2 wired to time itself (`tests/bench/`, where the measured times are). The board's build
-> doesn't answer on the bus yet: it waits for the SD card and flash drivers. Don't fit it to a board expecting storage
-> to work.
+> **Not finished.** Nothing here has run on a Storage Card Pro yet: no Rev 1.1 board has been made. The controller's
+> logic is tested on the Mac, against the stock BIOS in an emulator. On Pico 2 test rigs its bus is timed, its SD
+> card and flash drivers run on real media, and the stock BIOS runs against it, both on real media and through its
+> bus (`tests/bench/`, where the measured times are). The board's build is complete, but it hasn't yet answered a
+> real 6502. Don't fit it to a board expecting storage to work.
 
 The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit. Its firmware, the
 **ASDA Controller**, is a copy of this one: the two are the same, file for file, except `product.h` (the board's name)

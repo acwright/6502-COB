@@ -10,6 +10,7 @@
 //   soak MHZ SECONDS         sectors written and read back in the BIOS's own loop timing
 //   spacing MHZ CYCLES       the same for 10 s, data reads CYCLES apart (the BIOS's are 15)
 //   serve MHZ                the Mac's BIOS harness, each access a bus cycle at MHZ (serve_protocol.h)
+//   starttime COUNT          another Pico 2's start, reset to main(), COUNT times (wiring at cmd_starttime)
 // and, for finding faults on the rig:
 //   wires                    each jumper wire, both ways
 //   pads                     each control pad: GPIO15-21 driven, GPIO8-14 against their pulls
@@ -516,6 +517,62 @@ static void cmd_raw(double mhz, uint32_t delay)
     printf("\r\n");
 }
 
+// --- starttime: another Pico 2's start, timed -----------------------------------------
+//
+// The RP2350's own start, from reset to the firmware's first instruction, which a
+// chip can't time for itself. This rig holds the other Pico 2's RUN low on GPIO27
+// (header pin 32 to its pin 30), lets go, and times until its LED_ACT (GPIO22,
+// its pin 29, to this one's GPIO28, pin 34) goes high: main() lights it first
+// thing. The two Picos share a ground. GPIO26 isn't used: the first rig's can't
+// drive it low.
+
+#define START_RUN_PIN   27
+#define START_SENSE_PIN 28
+
+static void cmd_starttime(int count)
+{
+    if (count < 1 || count > 100)
+        count = 10;
+    gpio_init(START_SENSE_PIN);
+    gpio_disable_pulls(START_SENSE_PIN);    // the other board's LED and 330 ohms pull it down while it's in reset
+    gpio_init(START_RUN_PIN);
+    gpio_disable_pulls(START_RUN_PIN);
+    uint32_t min = UINT32_MAX, max = 0;
+    uint64_t sum = 0;
+    int got = 0;
+    for (int i = 0; i < count; i++) {
+        gpio_put(START_RUN_PIN, 0);
+        gpio_set_dir(START_RUN_PIN, GPIO_OUT);
+        sleep_ms(20);
+        if (gpio_get(START_SENSE_PIN)) {
+            printf("  LED_ACT reads high with the other Pico held in reset: look at the wires\r\n");
+            gpio_set_dir(START_RUN_PIN, GPIO_IN);
+            break;
+        }
+        uint32_t t0 = time_us_32();
+        gpio_set_dir(START_RUN_PIN, GPIO_IN);   // let go: its own pull-up raises RUN
+        uint32_t dt;
+        while (!gpio_get(START_SENSE_PIN) && (dt = time_us_32() - t0) < 3000000u)
+            tight_loop_contents();
+        dt = time_us_32() - t0;
+        if (!gpio_get(START_SENSE_PIN)) {
+            printf("  start %d: no LED_ACT within 3 s\r\n", i + 1);
+            continue;
+        }
+        printf("  start %d: %lu us\r\n", i + 1, (unsigned long)dt);
+        min = dt < min ? dt : min;
+        max = dt > max ? dt : max;
+        sum += dt;
+        got++;
+        sleep_ms(1500);                     // let it come up the rest of the way
+        idle();
+    }
+    if (got)
+        printf("  %d starts: shortest %lu us, mean %lu us, longest %lu us\r\n", got, (unsigned long)min,
+               (unsigned long)(sum / (uint64_t)got), (unsigned long)max);
+    printf("RESULT %s\r\n", got == count ? "PASS" : "FAIL");
+}
+
 // --- serve: the Mac's BIOS harness, through the bus --------------------------------
 //
 // Each register access the Mac sends is played as a bus cycle through the
@@ -595,6 +652,8 @@ static void cmd_serve(double mhz)
     };
     serve_mhz = mhz;
     serve_late = 0;                         // counted from here, across power-ons
+    disk.read_us = 1000;                    // about an SD card's: the BIOS sees BSY, and polls it through the bus
+    disk.write_us = 5000;
     lb_power_on(false);
     serve_run(&ops);
 }
@@ -634,6 +693,8 @@ static void dispatch(char *line)
         cmd_peek(mhz);
     else if (!strcmp(argv[0], "raw"))
         cmd_raw(mhz, argc > 2 ? (uint32_t)atoi(argv[2]) : 10);
+    else if (!strcmp(argv[0], "starttime"))
+        cmd_starttime(argc > 1 ? atoi(argv[1]) : 10);
     else if (!strcmp(argv[0], "serve")) {
         cmd_serve(mhz);
         return;                             // no "END": serve answers in bytes
