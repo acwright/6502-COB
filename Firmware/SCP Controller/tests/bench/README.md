@@ -59,8 +59,8 @@ a status read that soon still sees BSY: that's the BSY row above.
 
 ## The media rig
 
-The `pico2-media` build tests the SD card and the flash chip on breakouts, with no bus. The SD card is on the
-board's own pins. The flash can't be: a Pico 2 doesn't bring out GPIO24 and 25. Pin numbers are the Pico 2's header.
+The `pico2-media` build tests the SD card and the flash chip on breakouts, with no bus. The breakouts are on the
+boards' own pins, since the boards carry a Pico 2 too. Pin numbers are the Pico 2's header.
 
 | Breakout pin | Pico 2 | Pin | Board signal |
 |---|---|---|---|

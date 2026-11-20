@@ -30,7 +30,7 @@
       "name": "board",
       "displayName": "Storage Card Pro 1.1 and ACE SD Adapter 1.1",
       "inherits": "rp2350",
-      "cacheVariables": { "FW_BOARD": "ac6502_sd" }
+      "cacheVariables": { "FW_BOARD": "ac6502_sd_pico2" }
     },
     {
       "name": "pico2-loopback",
@@ -46,7 +46,7 @@
     },
     {
       "name": "pico2-breadboard",
-      "displayName": "Pico 2: breadboard copy on the ACE",
+      "displayName": "Pico 2: the boards' firmware with the media rig's breakouts",
       "inherits": "rp2350",
       "cacheVariables": { "FW_BOARD": "pico2_breadboard" }
     }

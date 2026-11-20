@@ -1,38 +1,39 @@
 // The Storage Card Pro 1.1 and the ACE SD Adapter 1.1: one circuit, one pin map.
 //
-// An RP2350A with a W25Q128JVS (16 MB) program flash and Raspberry Pi's 12 MHz
-// crystal circuit, as on the Pico 2. The Pico SDK reads this file as its board
-// header (PICO_BOARD=ac6502_sd), so it holds preprocessor lines only.
+// A Raspberry Pi Pico 2 module on header pins, with the 6502 bus through a
+// 74LVC4245A and a 74LVC541, the SD card on its own 3.3 V regulator, and a W25Q
+// flash for the built-in drive. On the ACE SD Adapter the Pico is on the Bottom
+// board and the SD card and LEDs on the Top, joined by J7-J10; the pins are the
+// same. The Pico SDK reads this file as its board header
+// (PICO_BOARD=ac6502_sd_pico2), so it holds preprocessor lines only.
 //
-// Derived from the Pico SDK's boards/pico2.h:
-// Copyright (c) 2024 Raspberry Pi (Trading) Ltd.
-// SPDX-License-Identifier: BSD-3-Clause
+// It includes the SDK's own boards/pico2.h, so the SDK knows the module: its
+// 4 MB program flash, and the pins that stay on the module (GPIO23 the
+// regulator's power-save, GPIO24 VBUS sense, GPIO25 its LED, GPIO29 VSYS sense).
 
 // pico_cmake_set PICO_PLATFORM=rp2350
-
-#ifndef _BOARDS_AC6502_SD_H
-#define _BOARDS_AC6502_SD_H
-
-#define PICO_RP2350A 1
-
-// No default UART, I2C, SPI or LED: GPIO0 and GPIO1 are D0 and D1 on the 6502
-// bus, and must never be driven by anything but the bus program.
-
-// As pico2.h, and unused: on the RP2350 the SDK applies it only through an
-// embedded boot stage 2 (PICO_EMBED_XIP_SETUP), which this build leaves out.
-// The program flash is read once, by the bootrom's slow serial read: the
-// start-up code copies the program to RAM (copy_to_ram) before runtime_init
-// raises the clock to 150 MHz, and nothing reads the program flash after that.
-#define PICO_FLASH_SPI_CLKDIV 2
-// pico_cmake_set_default PICO_FLASH_SIZE_BYTES = (16 * 1024 * 1024)
-#ifndef PICO_FLASH_SIZE_BYTES
-#define PICO_FLASH_SIZE_BYTES (16 * 1024 * 1024)
-#endif
-
+// pico_cmake_set_default PICO_FLASH_SIZE_BYTES = (4 * 1024 * 1024)
 // pico_cmake_set_default PICO_RP2350_A2_SUPPORTED = 1
-#ifndef PICO_RP2350_A2_SUPPORTED
-#define PICO_RP2350_A2_SUPPORTED 1
-#endif
+
+#ifndef _BOARDS_AC6502_SD_PICO2_H
+#define _BOARDS_AC6502_SD_PICO2_H
+
+#include "boards/pico2.h"
+
+// No default UART, I2C or SPI: pico2.h puts the UART on GPIO0 and GPIO1, which
+// are D0 and D1 on the 6502 bus and must never be driven by anything but the
+// bus program, and its I2C and SPI on bus and SD card pins.
+#undef PICO_DEFAULT_UART
+#undef PICO_DEFAULT_UART_TX_PIN
+#undef PICO_DEFAULT_UART_RX_PIN
+#undef PICO_DEFAULT_I2C
+#undef PICO_DEFAULT_I2C_SDA_PIN
+#undef PICO_DEFAULT_I2C_SCL_PIN
+#undef PICO_DEFAULT_SPI
+#undef PICO_DEFAULT_SPI_SCK_PIN
+#undef PICO_DEFAULT_SPI_TX_PIN
+#undef PICO_DEFAULT_SPI_RX_PIN
+#undef PICO_DEFAULT_SPI_CSN_PIN
 
 #define FW_TARGET_NAME "Storage Card Pro 1.1 / ACE SD Adapter 1.1"
 
@@ -56,14 +57,15 @@
 #define FW_PIN_SD_CS    17      // DAT3
 #define FW_PIN_SD_SCK   18      // CLK
 #define FW_PIN_SD_MOSI  19      // CMD
-#define FW_PIN_SD_CD    20      // low with a card in; R4 pulls it up
+#define FW_PIN_SD_CD    20      // R4 pulls it up; the socket's switch grounds it with a card in
+#define FW_SD_CD_PULLUP 0
 #define FW_SD_CD_CARD_IN 0      // the level CD reads with a card in
 
 // The built-in drive, a W25Q flash, on SPI1.
 #define FW_HAS_FLASH    1
 #define FW_FLASH_SPI    spi1
-#define FW_PIN_FLASH_MISO 24    // DO
-#define FW_PIN_FLASH_CS   25
+#define FW_PIN_FLASH_MISO 28    // DO
+#define FW_PIN_FLASH_CS   15
 #define FW_PIN_FLASH_SCK  26
 #define FW_PIN_FLASH_MOSI 27    // DI
 

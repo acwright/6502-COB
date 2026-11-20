@@ -1,6 +1,6 @@
 # SCP Controller
 
-Firmware for the RP2350A on the **Storage Card Pro 1.1**. The card answers on the 6502 bus as the Storage Card's
+Firmware for the Raspberry Pi Pico 2 on the **Storage Card Pro 1.1**. The card answers on the 6502 bus as the Storage Card's
 CompactFlash card does, at `$8C00–$8C07` by default, so the stock BIOS's `LOAD`, `SAVE`, `DIR` and `FORMAT` work
 unchanged. The disks are on an SD card when one is in the slot, and on the card's built-in flash drive when not.
 
@@ -37,7 +37,7 @@ cmake --preset host && cmake --build --preset host && ctest --preset host
 | `host`, `host-asan` | The controller's core, its unit tests and the BIOS tests, on the Mac; `host-asan` adds AddressSanitizer and UBSan |
 | `pico2-loopback` | A Pico 2 that times its own bus: GPIO15–21 wired to GPIO8–14 |
 | `pico2-media` | A Pico 2 with an SD card breakout and a W25Q flash breakout, driven over USB |
-| `pico2-breadboard` | A Pico 2 on a breadboard copy of the board, on the ACE's `STORAGE` header |
+| `pico2-breadboard` | The boards' firmware on a Pico 2 with the media rig's breakouts, whose card detect is the other way up |
 
 The Pico 2 builds are for testing the firmware before a board exists. Each one's wiring is at the top of its header in
 `rp2350/boards/`.
@@ -55,7 +55,7 @@ The Pico 2 builds are for testing the firmware before a board exists. Each one's
 
 ## License
 
-MIT; see [LICENSE](LICENSE). The board's header, `rp2350/boards/ac6502_sd.h`, is derived from the Pico SDK's
-`pico2.h`, under the SDK's BSD-3-Clause licence, as it says. The tests carry two things from elsewhere, both MIT:
+MIT; see [LICENSE](LICENSE). The board headers in `rp2350/boards/` include the Pico SDK's `pico2.h`,
+which is under the SDK's BSD-3-Clause licence. The tests carry two things from elsewhere, both MIT:
 Troy Schrapel's vrEmu6502 in `tests/bios/vrEmu6502/`, with its licence, and the BIOS ROMs from 6502-BIOS in
 `tests/bios/roms/`.

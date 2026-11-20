@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.21)
 
 # One tree, two platforms. Pick a build with a preset (CMakePresets.json):
 #   host, host-asan     macOS: the controller's core and its unit tests
-#   board               the Storage Card Pro 1.1 and the ACE SD Adapter 1.1
+#   board               the Storage Card Pro 1.1 and the ACE SD Adapter 1.1 (a Pico 2 on each)
 #   pico2-loopback      a Pico 2 with seven jumper wires: the bus, timed by a bus exerciser
 #   pico2-media         a Pico 2 with an SD card breakout and a W25Q flash breakout
-#   pico2-breadboard    a Pico 2 on a breadboard copy of the board, on the ACE's STORAGE header
+#   pico2-breadboard    the boards' firmware on a Pico 2 with the media rig's breakouts
 set(FW_PLATFORM host CACHE STRING "host or rp2350")
 set_property(CACHE FW_PLATFORM PROPERTY STRINGS host rp2350)
-set(FW_BOARD ac6502_sd CACHE STRING "The rp2350 target: a header in rp2350/boards")
+set(FW_BOARD ac6502_sd_pico2 CACHE STRING "The rp2350 target: a header in rp2350/boards")
 
 if(FW_PLATFORM STREQUAL "rp2350")
     set(PICO_PLATFORM rp2350-arm-s)

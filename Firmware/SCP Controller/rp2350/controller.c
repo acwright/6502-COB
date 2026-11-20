@@ -1,4 +1,4 @@
-// The controller as the boards run it (the board build, and the breadboard copy):
+// The controller as the boards run it (the board build, and pico2-breadboard's):
 // the bus on PIO0 and core 1 (bus.c), and the worker on core 0: the SD card, the
 // built-in drive, the drive's jobs, power-on and the LEDs. USB is the diagnostic
 // port: a banner when a terminal connects, and a report on any key.
