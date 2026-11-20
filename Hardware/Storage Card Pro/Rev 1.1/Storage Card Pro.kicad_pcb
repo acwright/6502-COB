@@ -14915,17 +14915,6 @@
 		(uuid "12a2d93c-7d67-42bf-8953-5edbfb5e3686")
 	)
 	(gr_circle
-		(center 121.94 96.73)
-		(end 122.14 96.73)
-		(stroke
-			(width 0.4)
-			(type solid)
-		)
-		(fill no)
-		(layer "F.SilkS")
-		(uuid "2999b913-ca35-4dd2-ad8c-ebaa58c9bbec")
-	)
-	(gr_circle
 		(center 130.8 115.85)
 		(end 131 115.85)
 		(stroke
@@ -14968,6 +14957,17 @@
 		(fill no)
 		(layer "F.SilkS")
 		(uuid "107b0c98-54be-4be8-bddd-089d3f041bfd")
+	)
+	(gr_circle
+		(center 180.08 118.7)
+		(end 180.28 118.7)
+		(stroke
+			(width 0.4)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "136201bb-9653-46fb-9a21-c8c7660ac11f")
 	)
 	(gr_arc
 		(start 100.63 75.35)
