@@ -1,5 +1,6 @@
-// The firmware's version: major.minor.patch. 0.x while it is being written;
-// 1.0.0 is the first release for a made board.
+// The firmware's version: major.minor.patch. 1.0.0 is the first release, the
+// .uf2 tracked beside the sources for a board's builder to flash. A fix found
+// on a made board comes as a new version, in both copies.
 #pragma once
 
-#define FW_VERSION "0.1.0"
+#define FW_VERSION "1.0.0"

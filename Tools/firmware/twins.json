@@ -12,7 +12,7 @@
         "COB": "SCP Controller.uf2",
         "ACE": "ASDA Controller.uf2"
       },
-      "uf2_required": false
+      "uf2_required": true
     }
   ]
 }

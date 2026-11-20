@@ -141,7 +141,7 @@ that reason.
 
 **`Hardware/Storage Card/`** — CompactFlash storage interface supporting up to 128GB via IDE-compatible protocol.
 
-**`Hardware/Storage Card Pro/`** — SD card storage that the stock BIOS takes for the Storage Card's CompactFlash card, with no BIOS change, and a 16 MB built-in drive that answers when no card is in. An RP2350A does the work. *(Untested: Rev 1.1 is being drawn.)*
+**`Hardware/Storage Card Pro/`** — SD card storage that the stock BIOS takes for the Storage Card's CompactFlash card, with no BIOS change, and a 16 MB built-in drive that answers when no card is in. A Raspberry Pi Pico 2 module does the work, running the [SCP Controller](#scp-controller). *(Untested: Rev 1.1 is drawn, not yet routed or made.)*
 
 **`Hardware/LCD Card/`** — 16×2 character LCD display via 65C22 VIA in 4-bit or 8-bit mode.
 
@@ -217,7 +217,7 @@ Each revision carries one of three labels:
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
-| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made. |
+| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Not yet routed or made. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Proven design** | `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
@@ -273,7 +273,7 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 
 ## Firmware
 
-This repository contains firmware for the COB system's microcontrollers: [PlatformIO](https://platformio.org/)-based for the helpers' ATmega parts, and built with the [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk) for the Storage Card Pro's RP2350.
+This repository contains firmware for the COB system's microcontrollers: [PlatformIO](https://platformio.org/)-based for the helpers' ATmega parts, and built with the [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk) for the Storage Card Pro's Raspberry Pi Pico 2.
 
 ### KEH Controller
 `Firmware/KEH Controller/`
@@ -307,11 +307,11 @@ See [Firmware/PS2 Keyboard Controller/README.md](./Firmware/PS2%20Keyboard%20Con
 ### SCP Controller
 `Firmware/SCP Controller/`
 
-Firmware for the RP2350A on the Storage Card Pro 1.1. The card is to answer on the bus as the Storage Card's CompactFlash card does, so the stock BIOS can use an SD card, or the card's built-in flash drive when no SD card is in.
+Firmware for the Raspberry Pi Pico 2 on the Storage Card Pro 1.1, version 1.0.0. The card answers on the bus as the Storage Card's CompactFlash card does, so the stock BIOS can use an SD card, or the card's built-in flash drive when no SD card is in. `SCP Controller.uf2` in the folder is the build to flash: hold the Pico 2's BOOTSEL button, plug it into a computer, and copy the file onto the drive that appears.
 
-**Not finished.** It's complete and tested on Pico 2 test rigs, on real SD cards and flash and through its bus, but it hasn't yet answered a real 6502. No Rev 1.1 card has been made. The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit, and its ASDA Controller is a copy of this firmware.
+**Untested on a card.** It's tested on Pico 2 test rigs, on real SD cards and flash and through its bus, but it hasn't yet answered a real 6502: no Rev 1.1 card has been made. The ACE SD Adapter 1.1 in [6502-ACE](https://github.com/acwright/6502-ACE) has the same circuit, and its ASDA Controller is a copy of this firmware.
 
-See [Firmware/SCP Controller/README.md](./Firmware/SCP%20Controller/README.md) for building it.
+See [Firmware/SCP Controller/README.md](./Firmware/SCP%20Controller/README.md) for what it does, flashing it safely, its USB diagnostic port and building it.
 
 ## CAD
 `CAD/`
