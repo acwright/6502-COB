@@ -12026,7 +12026,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 140.97 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12059,7 +12059,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 140.97 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12070,7 +12070,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 140.97 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12092,7 +12092,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 140.97 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12834,7 +12834,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 156.21 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12867,7 +12867,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 156.21 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12878,7 +12878,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 156.21 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -12900,7 +12900,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 156.21 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17270,7 +17270,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 163.83 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17303,7 +17303,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 163.83 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17314,7 +17314,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 163.83 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17336,7 +17336,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 163.83 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17616,7 +17616,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 171.45 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17649,7 +17649,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 171.45 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17660,7 +17660,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 171.45 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -17682,7 +17682,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 171.45 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18185,7 +18185,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 186.69 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18218,7 +18218,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 186.69 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18229,7 +18229,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 186.69 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18251,7 +18251,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 186.69 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18921,7 +18921,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 179.07 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18954,7 +18954,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 179.07 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18965,7 +18965,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 179.07 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -18987,7 +18987,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 179.07 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19133,7 +19133,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 148.59 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19166,7 +19166,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 148.59 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19177,7 +19177,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 148.59 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19199,7 +19199,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 148.59 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19267,7 +19267,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19300,7 +19300,7 @@
 				)
 			)
 		)
-		(property "Digikey" "YAG3497CT-ND"
+		(property "Digikey" "311-4.70KCRCT-ND"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19311,7 +19311,7 @@
 				)
 			)
 		)
-		(property "Mouser" "603-AC0402FR-074K7L"
+		(property "Mouser" "603-RC0805FR-074K7L"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -19333,7 +19333,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25900"
+		(property "LCSC" "C17673"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
