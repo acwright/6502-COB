@@ -32,7 +32,7 @@ from labelpins import analyse
 KC = '/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
 sys.path.insert(0, os.path.dirname(H)); import common; from common import K, files, load
 K21 = {'ACE': '909629f', 'COB': 'f6838dff', 'DEV': '340cf97', 'KIM': '465d707', 'VCS': 'a12f5eb'}  # the connector redraw
-POWER = re.compile(r'VCC|GND|5V|\+5V|3V3|\+3V3|VDD|VSS')
+POWER = re.compile(r'(VCC|GND|5V|\+5V|3V3|\+3V3|VDD|VSS)(_SD|_TOP)?')   # _SD: a rail for one part; _TOP: a stacked board's own
 BRIDGED = {'Jumper:SolderJumper_2_Bridged': {'1': '2', '2': '1'}, 'Jumper:SolderJumper_3_Bridged12': {'1': '2', '2': '1'}}   # pins joined as the board ships
 SUPPLY = re.compile(r'VBAUX|VBAT|VBATT|VDD|VEE')   # supplies other than the rails: the drawing says
 
@@ -104,6 +104,8 @@ def keyboard(mcu=None, via=None, ports=(), keyboard=None, end='encoder', joystic
     if switches: r += [(switches, r'PA\d', 'drv'), (switches, r'PB\d', 'rcv')]
     return r
 
+PICO_SD = [('U2', r'D\d_3V3', 'bid'), ('U2', r'(RESB|RB|WB|CS|A\d)_3V3', 'rcv'),
+           ('U2', r'FLASH_(CS|CLK|DI)|SD_(DAT3|CLK|CMD)|LED_(SD|ACT)', 'drv'), ('U2', r'FLASH_DO|SD_(DAT0|CD)', 'rcv')]
 BOARDS = {
     ('ACE', 'ACE Board', '1.0'): dict(side='cpu', rules=[
         ('J21', 'RDY', 'drv'),                                   # STORAGE (CF Adapter): RDY reserved for a device
@@ -131,6 +133,9 @@ BOARDS = {
     ('COB', 'Backplane'): dict(side='cpu', rules=[]),
     ('COB', 'Backplane Pro'): dict(side='cpu', rules=[]),
     ('COB', 'Backplane Helper'): dict(side='cpu', rules=[]),
+    # The SD controllers: a Pico 2's pins go the way the firmware sets them (the boards' pin map, K33)
+    ('ACE', 'ACE SD Adapter', '1.1'): dict(side='card', rules=PICO_SD),
+    ('COB', 'Storage Card Pro', '1.1'): dict(side='card', rules=PICO_SD),
 }
 
 JUMPERS = {}
