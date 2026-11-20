@@ -134,7 +134,8 @@ BOARDS = {
     ('COB', 'Backplane Pro'): dict(side='cpu', rules=[]),
     ('COB', 'Backplane Helper'): dict(side='cpu', rules=[]),
     # The SD controllers: a Pico 2's pins go the way the firmware sets them (the boards' pin map, K33)
-    ('ACE', 'ACE SD Adapter', '1.1'): dict(side='card', rules=PICO_SD),
+    ('ACE', 'ACE SD Adapter Bottom', '1.1'): dict(side='card', rules=PICO_SD),
+    ('ACE', 'ACE SD Adapter Top', '1.1'): dict(side='card', rules=[]),   # the SD socket's board, stacked on the Bottom
     ('COB', 'Storage Card Pro', '1.1'): dict(side='card', rules=PICO_SD),
 }
 

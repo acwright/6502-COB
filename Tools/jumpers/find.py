@@ -4,7 +4,7 @@ import os,re,glob,subprocess,tempfile,collections,sys
 sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))));import common;from common import K,SCOPE,files,load,save
 KC='/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
 # pin headers that are connectors, not jumpers
-NOT_JUMPER=re.compile(r'^(VCC|AUDIO|POWER LED|RESET SW|RESET_SW|VDD|SID VDD|BANK ADDR|PANEL|ETHERNET|VBAT|ACT LED|SPEAKER|KEYBOARD|PADDLES|STORAGE|6502 Bus|Conn_01x20|IO|PORT A|PORT B|HVSYNC|GPIO|AUX|SPI|VERA Module|SERIAL|USB HOST)$')
+NOT_JUMPER=re.compile(r'^(VCC|AUDIO|POWER LED|RESET SW|RESET_SW|VDD|SID VDD|BANK ADDR|PANEL|ETHERNET|VBAT|ACT LED|SPEAKER|KEYBOARD|PADDLES|STORAGE|6502 Bus|Conn_01x20|IO|PORT A|PORT B|HVSYNC|GPIO|AUX|SPI|VERA Module|SERIAL|USB HOST|STACK SD|STACK POWER)$')
 NOT_JUMPER_REF={('COB','Prototype Card','J3')}   # the decoder's outputs, for wires
 def netlist(sch):
     o=tempfile.mktemp(suffix='.net');subprocess.run([KC,'sch','export','netlist','-o',o,sch],capture_output=True)
