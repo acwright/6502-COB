@@ -34,7 +34,8 @@ for (repo,b),L in sorted(revs.items()):
                 if pad==rp and net.lstrip('/')=='RESB': hidden.append(f'{ref} {v} reset pin')
         if name.startswith('C_Disc') and 'P2.50' not in name: fp['disc capacitor at 5 mm']+=1
         if name.startswith('CP_Radial') and 'D4.0mm_P1.50' not in name: fp[name]+=1
-        if name.startswith('DIP-') and 'Socket' not in name: fp['DIP without a socket']+=1
+        # A DIP plug (the RTC Adapter's J1) is the pins that go into a socket, not a chip that needs one
+        if name.startswith('DIP-') and 'Socket' not in name and 'Plug' not in name: fp['DIP without a socket']+=1
         if re.search('axial|Radial|DO-35|DO-41',name) and 0: pass
         if BADV.search(v) and i!='keyswitch-mx': val.append(f'{ref} {v}')
         if ref.startswith('R'):
