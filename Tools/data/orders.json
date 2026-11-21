@@ -349,7 +349,7 @@
   ],
   "COB|RTC Adapter|1.1": [
    "Untested",
-   "A new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made"
+   "A new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet made"
   ]
  },
  "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",

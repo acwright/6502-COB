@@ -233,7 +233,7 @@ Each revision carries one of three labels:
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
 | RAM Card | 1.1 | **Proven design** | The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window. |
-| RTC Adapter | 1.1 | **Untested** | A new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made. |
+| RTC Adapter | 1.1 | **Untested** | A new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet made. |
 | RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |

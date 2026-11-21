@@ -66,7 +66,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |
-| [RTC Adapter](#rtc-adapter) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made |
+| [RTC Adapter](#rtc-adapter) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet made |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -1252,7 +1252,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RTC Adapter Rev 1.1
 
-Drawn, not made yet. **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made.
+Drawn, not made yet. **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet made.
 
 Cart files: [digikey.csv](BOM/RTC%20Adapter/Rev%201.1/digikey.csv), [mouser.csv](BOM/RTC%20Adapter/Rev%201.1/mouser.csv)
 
