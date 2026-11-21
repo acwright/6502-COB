@@ -51,7 +51,7 @@ EXTRA_STRIP={('KIM','KIM Board','1.0'):16}
 # A note on one part's row in one revision, where the catalogue's note (shared by every revision) can't say it
 REF_NOTE={('ACE','ACE Board','1.1','U18'):'Or a DS1501YN+, which runs on Y2. See the build notes.',('COB','RTC Card','1.1','U1'):'Or a DS1501YN+, which runs on Y1. See the build notes.',
   ('ACE','ACE Board','1.1','Y2'):'Fit it with a DS1511Y too, which has no pins to meet it.',('COB','RTC Card','1.1','Y1'):'Fit it with a DS1511Y too, which has no pins to meet it.',
-  **{('ACE','ACE RAM Patch',v,j):'Pins, not a chip: the value names the ACE Board socket whose holes they are soldered into.' for v,j in (('1.0','J1'),('1.1','J1'),('1.1','J2'))}}
+  **{('ACE','ACE RAM Patch',v,j):'Pins, not a chip: the value names the ACE Board socket whose holes they are soldered into. They plug into no socket, so ordinary square header strip does as well: the tested patch was built with it. Try the pins in the holes first, as the build notes say.' for v,j in (('1.0','J1'),('1.1','J1'),('1.1','J2'))}}
 # The KIM Board Rev 1.1 is built as Rev 1.0 is
 for _d in(EXTRA,EXTRA_NOTE,EXTRA_STRIP): _d[('KIM','KIM Board','1.1')]=_d[('KIM','KIM Board','1.0')]
 # Shunts, from Tools/data/jumpers.json: one row per revision, for every header a builder fits a shunt on
