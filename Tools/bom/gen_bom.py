@@ -46,6 +46,8 @@ SKIP={('ACE','ACE Board','1.0'):{'U12','U13'}}
 EXTRA[('ACE','ACE Board','1.0')]=[('Panasonic EEA-GA1C100, 10 µF, on the underside across J19','P14482-ND','667-EEA-GA1C100',1,'Added',''),('Vishay BAT85S-TR, for the video card /INT','BAT85SCT-ND','78-BAT85S',1,'Added','')]
 EXTRA_NOTE={('ACE','ACE Board','1.0'):'U12 and U13 are not listed: fit the ACE RAM Patch Rev 1.1 in their sockets. See the build notes.',('KIM','KIM Board','1.0'):'J6 is one footprint, built from three strips of header. U13 also takes a 1×16 pin header, cut from the strip above.'}
 EXTRA_STRIP={('KIM','KIM Board','1.0'):16}
+# A note on one part's row in one revision, where the catalogue's note (shared by every revision) can't say it
+REF_NOTE={('ACE','ACE Board','1.1','U18'):'Or a DS1501YN+, which runs on Y2. See the build notes.',('COB','RTC Card','1.1','U1'):'Or a DS1501YN+, which runs on Y1. See the build notes.'}
 # The KIM Board Rev 1.1 is built as Rev 1.0 is
 for _d in(EXTRA,EXTRA_NOTE,EXTRA_STRIP): _d[('KIM','KIM Board','1.1')]=_d[('KIM','KIM Board','1.0')]
 # Shunts, from Tools/data/jumpers.json: one row per revision, for every header a builder fits a shunt on
@@ -216,6 +218,8 @@ def gen(repo,readme=False):
                 dk,mo=e.get('digikey'),e.get('mouser')
                 o.append(f"| {ranges(r['refs'])} | {len(r['refs'])} | {r['val'].replace('|','/')} | {name} | {L_dk(dk)} | {L_mo(mo)} | {other_cell(e)} |"+((' Yes |' if r['presold'] else ' |') if has else ''))
                 if e.get('note') and not st: notes.setdefault(e['note'],[]).extend(r['refs'])
+                for x in r['refs']:
+                    if (repo,b,rev,x) in REF_NOTE: notes.setdefault(REF_NOTE[(repo,b,rev,x)],[]).append(x)
             for (sid,txt),refs in socks.items():
                 e=C[sid];o.append(f"| {ranges(refs)} | {len(refs)} | Socket | {txt} | {L_dk(e.get('digikey'))} | {L_mo(e.get('mouser'))} | |"+(' |' if has else ''))
             for part,dk,mo,q,ref,ot in EXTRA.get((repo,b,rev),[]):

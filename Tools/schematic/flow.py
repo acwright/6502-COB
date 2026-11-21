@@ -57,10 +57,10 @@ PARTS = [
     (r'6502 Parts:65C816', r'.*', 'rcv'),
     (MEM, r'(D|DQ|I/O)\d', 'mem-data'),                       # bidirectional, or output where /WE is tied high
     (MEM, r'.*', 'rcv'),
-    (r'6502 Parts:DS1511Y', r'IRQB|RSTB|SQW|PWRB', 'drv'),
-    (r'6502 Parts:DS1511Y', r'VBAUX', 'fw'),                  # a supply: the drawing says
-    (r'6502 Parts:DS1511Y', r'D\d', 'bid'),
-    (r'6502 Parts:DS1511Y', r'.*', 'rcv'),
+    (r'6502 Parts:(DS1511Y|DS1501)', r'IRQB|RSTB|SQW|PWRB', 'drv'),
+    (r'6502 Parts:(DS1511Y|DS1501)', r'VBAUX', 'fw'),       # a supply: the drawing says
+    (r'6502 Parts:(DS1511Y|DS1501)', r'D\d', 'bid'),
+    (r'6502 Parts:(DS1511Y|DS1501)', r'.*', 'rcv'),
     # 65xx peripherals: by pin name, because older cached copies of their symbols type the data pins as outputs
     (r'6502 Parts:(65C22|ACIA 6551|PIA 6521)', r'D\d', 'bid'),
     (r'6502 Parts:(65C22|PIA 6521)', r'PA\d|PB\d|CA2|CB2', 'fw'),   # port pins: the firmware sets their direction

@@ -67,14 +67,14 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them |
+| [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested |
 | [Serial Card Pro](#serial-card-pro) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card Pro](#serial-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge |
 | [Serial Card](#serial-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Serial Card](#serial-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text and the bare card edge |
 | [Sound Card](#sound-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Sound Card](#sound-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE |
-| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made |
+| [Storage Card Pro](#storage-card-pro) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Not yet routed or made |
 | [Storage Card](#storage-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Storage Card](#storage-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [VERA Helper](#vera-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -216,7 +216,12 @@ How to build each board, where it needs more than its parts list.
 
 **RTC Card**
 
-**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. It also drops JP2 and JP3 and wires `PHI2` to U3 the way they ship, so leave a Rev 1.0's as shipped.
+**RTC:** U1 takes a DS1511Y+, the part the card has been tested with. Rev 1.1 also takes a DS1501YN+ there: the DS1511Y is a DS1501 with its crystal and a lithium cell built in, and Rev 1.1 has the crystal on the card (`Y1`). A Rev 1.0 has no crystal, so it takes only the DS1511Y. The DS1501 option is untested. With a DS1501:
+- **Keep the CR2032 fitted** (`BT1`). It is the DS1501's only backup, so taking it out loses the time and the NVRAM. A DS1511Y has its own cell as well.
+- **Clear its Crystal Select bit once,** from BASIC: `POKE 34831,PEEK(34831) AND 191`. A new DS1501 may start with the bit set, and then it runs slow on the 6 pF crystal. The bit is battery-backed, so it stays cleared. The BIOS doesn't clear it yet: [6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4).
+- **The DS1501YN+ is not for new designs** (NRND). Digi-Key lists it (2026-11-20); Mouser doesn't.
+
+**Building a Rev 1.0:** nothing to do. Rev 1.1 changes the card edge, which has no solder mask on its tab; a Rev 1.0's masked edge works in the slot. It also drops JP2 and JP3 and wires `PHI2` to U3 the way they ship, so leave a Rev 1.0's as shipped. Rev 1.1 adds `Y1`, the DS1501's crystal, which a Rev 1.0 has no pads for, so fit the DS1511Y.
 
 **Serial Card**
 
@@ -1238,7 +1243,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RTC Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them.
+Drawn, not made yet. **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested.
 
 Cart files: [digikey.csv](BOM/RTC%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RTC%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RTC%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RTC%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1251,8 +1256,9 @@ Cart files: [digikey.csv](BOM/RTC%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 | J3 | 1 | INT Select | Pin header 1×3, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
 | J4 | 1 | Conn_02x08_Odd_Even | Pin header 2×8, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | R1 | 1 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
-| U1 | 1 | DS1511Y | Maxim DS1511Y+ | [DS1511Y+-ND](https://www.digikey.com/en/products/filter?keywords=DS1511Y%2B-ND) | [700-DS1511Y](https://www.mouser.com/ProductDetail/700-DS1511Y) |  | |
+| U1 | 1 | DS1511Y / DS1501 | Maxim DS1511Y+ | [DS1511Y+-ND](https://www.digikey.com/en/products/filter?keywords=DS1511Y%2B-ND) | [700-DS1511Y](https://www.mouser.com/ProductDetail/700-DS1511Y) |  | |
 | U2, U3 | 2 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
+| Y1 | 1 | 32.768 kHz | Abracon LLC AB26T-32.768KHZ-6 | [535-AB26T-32.768KHZ-6CT-ND](https://www.digikey.com/en/products/filter?keywords=535-AB26T-32.768KHZ-6CT-ND) | [815-AB26T-32.768K-6](https://www.mouser.com/ProductDetail/815-AB26T-32.768K-6) |  | |
 | U1 | 1 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
 | J3, J4 | 2 | | Shunt, 2.54 mm | [S9337-ND](https://www.digikey.com/en/products/filter?keywords=S9337-ND) |  |  | |
 
@@ -1260,6 +1266,8 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 - **BT1:** Retainer for a CR2032 cell. BAT-HLD-001-THM, on the tested boards, is obsolete; this is its listed continuation. Digi-Key has none in stock today.
 - **D1:** A 1N914 also works.
+- **U1:** Or a DS1501YN+, which runs on Y1. See the build notes.
+- **Y1:** The DS1501's crystal. It must be 6 pF: a 12.5 pF crystal needs a BIOS change. Lay the can flat on its pad and solder it there. Fit it with a DS1511Y too, which has no pins to meet it.
 
 ### RTC Card Rev 1.0
 
@@ -1461,7 +1469,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### Storage Card Pro Rev 1.1
 
-Drawn, not made yet. **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Routed; not yet made.
+Drawn, not made yet. **Untested**: redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Not yet routed or made.
 
 Cart files: [digikey.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey.csv), [mouser.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Storage%20Card%20Pro/Rev%201.1/mouser-through-hole.csv)
 

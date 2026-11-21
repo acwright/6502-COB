@@ -299,9 +299,9 @@
   "refs": [
    "JP1"
   ],
-  "what": "Across D1, the diode in the DS1511Y's interrupt line.",
+  "what": "Across D1, the diode in the RTC's interrupt line.",
   "shipped": "Bridged.",
-  "do": "Leave it. The DS1511Y's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1.",
+  "do": "Leave it. The DS1511Y's interrupt output is open-drain, as is the DS1501's: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1.",
   "need": null,
   "shunts": 0
  },

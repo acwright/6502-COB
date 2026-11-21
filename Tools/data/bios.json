@@ -257,7 +257,7 @@
    "1.1"
   ],
   "category": "compatible",
-  "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM.",
+  "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. Rev 1.1 also takes a DS1501 at U1: clear its Crystal Select bit once ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); the build notes in [BOM.md](BOM.md#build-notes) have the `POKE`.",
   "source": "BIOS 1.x `Kernal.asm` `ProbeRTC`"
  },
  {

@@ -312,7 +312,7 @@
   ],
   "COB|RTC Card|1.1": [
    "Proven design",
-   "The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them"
+   "The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested"
   ],
   "COB|Serial Card Pro|1.1": [
    "Proven design",

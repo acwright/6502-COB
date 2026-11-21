@@ -110,7 +110,7 @@ This repository contains KiCad 7.0+ PCB designs for the backplanes, cards, and h
 
 **`Hardware/RAM Card/`** — 512KB banked RAM expansion organized as two 256KB banks with 256 × 1KB windows each. Rev 1.1 has the ACE Board's circuit, with a bank latch for each window; Rev 1.0 has one latch for both. Rev 1.0's J4, `BANK ADDR`, carries the bank latch's outputs: an untested experiment that nothing in the family uses, which the build notes in [BOM.md](BOM.md#ram-card) explain.
 
-**`Hardware/RTC Card/`** — Real-time clock via Dallas DS1511Y with battery backup and 256 bytes of battery-backed SRAM.
+**`Hardware/RTC Card/`** — Real-time clock via Dallas DS1511Y with battery backup and 256 bytes of battery-backed SRAM. Rev 1.1 also takes a DS1501, the same chip without the module's crystal and cell, with the crystal on the card; [BOM.md's build notes](BOM.md#build-notes) say what it needs.
 
 **`Hardware/GPIO Card/`** — General-purpose I/O via 65C22 VIA supporting keyboards, joysticks, timers, and custom devices.
 
@@ -212,7 +212,7 @@ Each revision carries one of three labels:
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
 | RAM Card | 1.1 | **Proven design** | The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window. |
-| RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. |
+| RTC Card | 1.1 | **Proven design** | The bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested. |
 | Serial Card | 1.1 | **Proven design** | Silkscreen text and the bare card edge. |
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE. |
@@ -258,7 +258,7 @@ Whether each board works with the stock BIOS, and what it takes if not. The stoc
 | Prototype Card | 1.0, 1.1 | **Nothing to support** | A blank card for a circuit of your own: no registers until you build one. | Schematic |
 | RAM Card | 1.0 | **Compatible** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), and BASIC's `BANK` sets the first window's bank. Rev 1.0's one latch gives both windows the same bank number, which matters only to a program that uses the second window itself; see its build note. | BIOS 1.x `Kernal.asm` `ProbeRAM` and BASIC's `BANK`; netlist, `Tests/check-schematics.mjs` |
 | RAM Card | 1.1 | **Compatible** | The BIOS finds both windows, IO 1 (`$8000`) and IO 2 (`$8400`), each with its own bank latch, as on the ACE Board 1.1. Not yet built: its label is in [Which revision to make](#which-revision-to-make). | BIOS 1.x `Kernal.asm` `ProbeRAM`; netlist, `Tests/check-schematics.mjs` |
-| RTC Card | 1.0, 1.1 | **Compatible** | Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. | BIOS 1.x `Kernal.asm` `ProbeRTC` |
+| RTC Card | 1.0, 1.1 | **Compatible** | Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. Rev 1.1 also takes a DS1501 at U1: clear its Crystal Select bit once ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); the build notes in [BOM.md](BOM.md#build-notes) have the `POKE`. | BIOS 1.x `Kernal.asm` `ProbeRTC` |
 | Serial Card | 1.0, 1.1 | **Compatible** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
 | Serial Card Pro | 1.0, 1.1 | **Compatible** | Its R6551AP answers in IO 5 (`$9000`), where the BIOS looks for the serial port. | BIOS 1.x `Kernal.asm` `ProbeSerial` |
 | Sound Card | 1.0, 1.1 | **Compatible** | Its ARMSID answers in IO 7 (`$9800`), where the BIOS looks for the SID. | BIOS 1.x `Kernal.asm` `ProbeSID` |
@@ -346,7 +346,7 @@ Five lines of the 6502 bus are shared by every board on it: `RESB`, `IRQB`, `NMI
 
 **Interrupt outputs.** Whatever drives `IRQB` or `NMIB` may only pull it low. Every board is drawn for the parts in its BOM and works as shipped, with no jumper to cut or bridge:
 
-- **A part whose interrupt output is open-drain** (the W65C22N, W65C21N, R6551AP, DS1511Y and TMS9918A) drives the line directly, or through a diode with a solder jumper across it that ships bridged. The diode is fitted either way. To use a part that drives its interrupt high as well as low instead, such as a W65C22S or a replacement of your own, cut the jumper: the diode then lets the part only pull the line low. A board with no diode in the line can't take such a part.
+- **A part whose interrupt output is open-drain** (the W65C22N, W65C21N, R6551AP, DS1511Y, DS1501 and TMS9918A) drives the line directly, or through a diode with a solder jumper across it that ships bridged. The diode is fitted either way. To use a part that drives its interrupt high as well as low instead, such as a W65C22S or a replacement of your own, cut the jumper: the diode then lets the part only pull the line low. A board with no diode in the line can't take such a part.
 - **A part that drives its interrupt high as well as low** (the pico9918, the VERA module, and a microcontroller such as the ATmega1284 or a Raspberry Pi Pico) reaches the line through a diode, a BAT85 or a 1N914, with its cathode toward the part. Where a solder jumper sits across that diode, it ships open. The diode is then the only path to the line, so fit it, and never bridge the jumper, because the part would then hold the line high against every other interrupt source.
 - **A microcontroller wired to the line directly,** as on the ACE Board, the Mega Helper and the Flash Helper, drives it open-drain in its firmware: it sets the pin low or leaves it as an input, and never drives it high.
 
@@ -448,7 +448,7 @@ Where a header needs a shunt, the board's BOM lists it.
 |---|---|---|---|---|---|
 | 1.0, 1.1 | J3 | Interrupt: one shunt sends the board's interrupt to `IRQB` or `NMIB`. | No shunt. | Fit the shunt on `IRQB`, which the BIOS expects. With no shunt the interrupt reaches neither. | For interrupts |
 | 1.0, 1.1 | J4 | I/O window: one shunt picks the 1 KB window the board answers in. | No shunt. | Fit the shunt beside `$8800`: IO 3, where the BIOS looks for the RTC Card. | To run |
-| 1.0, 1.1 | JP1 | Across D1, the diode in the DS1511Y's interrupt line. | Bridged. | Leave it. The DS1511Y's interrupt output is open-drain: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1. |  |
+| 1.0, 1.1 | JP1 | Across D1, the diode in the RTC's interrupt line. | Bridged. | Leave it. The DS1511Y's interrupt output is open-drain, as is the DS1501's: it only pulls the line low, so the board works as shipped and D1 isn't needed. To fit a part that drives its interrupt high as well as low, such as a replacement of your own, cut JP1 so the interrupt goes through D1. |  |
 | 1.0 | JP3, JP2 | JP3 feeds `PHI2` to an enable of U3, a 74HC138, so the board is selected only while `PHI2` is high. JP2 would tie that enable high instead. | JP3 bridged, JP2 open. | Leave them. With `PHI2` on the decoder's enable, the card's read and write strobes last only while `PHI2` is high, when the 6502's address and data are valid, as the chips need. Tied high, the strobes would run through the whole cycle and glitch while the address settles. Rev 1.1 has no jumpers here: `PHI2` goes straight to the enable. |  |
 
 **Serial Card**
