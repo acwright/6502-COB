@@ -119,6 +119,16 @@ joystick state to the 6502 as control bytes over the keyboard channel instead;
 that could not report a held button on the port it was reporting over, and was
 abandoned.
 
+A matrix sweep interrupted by a joystick read resumes from the row it stopped on
+when the encoder is enabled again. Earlier builds restarted the sweep on every
+re-enable, so a program that reads a joystick back to back never finished a
+sweep and the matrix keyboard sent nothing while it ran. The same change was
+tested on the ACE's AB Controller (2026-11-21); **it has not yet been tried on a
+COB.** That session also found, on the ACE, that a key typed while joystick 1
+holds a direction arrives with that line's bit cleared, since the stick grounds
+the PORT B line the encoder drives the key code onto. This firmware drives its
+ports the same way; whether a COB build shows it hasn't been checked.
+
 **Measured release latency: to be measured later.** This is the figure the
 BIOS's `KBDisable` settle wait is sized against. Cycle-counting the compiled
 firmware puts the worst-case code path at ~17 µs against a 100 µs budget, but
