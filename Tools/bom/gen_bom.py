@@ -36,10 +36,12 @@ def other_cell(e):
     return '; '.join(c)
 def part_name(e,fb=None):
     if e.get('mpn'):
-        m=e.get('mfr') or '';m={'Vishay General Semiconductor - Diodes Division':'Vishay','TE Connectivity AMP Connectors':'TE Connectivity','Panasonic Industry':'Panasonic','Sullins Connector Solutions':'Sullins','Amphenol ICC (FCI)':'Amphenol','Analog Devices Inc./Maxim Integrated':'Maxim','Alliance Memory, Inc.':'Alliance Memory','CTS-Frequency Controls':'CTS'}.get(m,m)
+        m=e.get('mfr') or '';m={'Vishay General Semiconductor - Diodes Division':'Vishay','TE Connectivity AMP Connectors':'TE Connectivity','Panasonic Industry':'Panasonic','Sullins Connector Solutions':'Sullins','Amphenol ICC (FCI)':'Amphenol','Analog Devices Inc./Maxim Integrated':'Maxim','Alliance Memory, Inc.':'Alliance Memory','CTS-Frequency Controls':'CTS','Mill-Max Manufacturing Corp.':'Mill-Max'}.get(m,m)
         return (m+' '+e['mpn']).strip()
     return (e.get('desc') or e['id']).split('|')[0]
 STRIP=re.compile(r'pinheader-([12])x(\d+)-2\.54-vertical')
+# Machined round pins for a DIP plug, cut from one strip: a footprint's pins are counted from its name (DIP-28 ...)
+MACHINED=re.compile(r'pinstrip-machined-1x(\d+)-2\.54');MPINS={}
 SOCK=re.compile(r'^DIP-(\d+)_W([\d.]+)mm_Socket');ZIF=re.compile(r'^DIP_Socket-(\d+)_')
 EXTRA={('KIM','KIM Board','1.0'):[('Female header 1×20, 2.54 mm','S7018-ND','',2,'J6',''),('Female header 1×10, 2.54 mm','S7008-ND','',1,'J6',''),('Shunt, 2.54 mm','S9337-ND','',2,'J1, J3',''),('Female header 1×16, 2.54 mm','S7014-ND','',1,'U13',''),('BusBoard BB830 breadboard','4526-BB830-ND','854-BB830',2,'The breadboards',''),('Clear two-piece keycap for Cherry MX switches','','',24,'SW1–SW24','https://www.amazon.com/dp/B0G2WJBLBC'),('5 V DC power supply, centre positive','','',1,'J7',''),('Straight-through DB-9 serial cable','','',1,'J2','')]}
 SKIP={('ACE','ACE Board','1.0'):{'U12','U13'}}
@@ -47,7 +49,9 @@ EXTRA[('ACE','ACE Board','1.0')]=[('Panasonic EEA-GA1C100, 10 µF, on the unders
 EXTRA_NOTE={('ACE','ACE Board','1.0'):'U12 and U13 are not listed: fit the ACE RAM Patch Rev 1.1 in their sockets. See the build notes.',('KIM','KIM Board','1.0'):'J6 is one footprint, built from three strips of header. U13 also takes a 1×16 pin header, cut from the strip above.'}
 EXTRA_STRIP={('KIM','KIM Board','1.0'):16}
 # A note on one part's row in one revision, where the catalogue's note (shared by every revision) can't say it
-REF_NOTE={('ACE','ACE Board','1.1','U18'):'Or a DS1501YN+, which runs on Y2. See the build notes.',('COB','RTC Card','1.1','U1'):'Or a DS1501YN+, which runs on Y1. See the build notes.'}
+REF_NOTE={('ACE','ACE Board','1.1','U18'):'Or a DS1501YN+, which runs on Y2. See the build notes.',('COB','RTC Card','1.1','U1'):'Or a DS1501YN+, which runs on Y1. See the build notes.',
+  ('ACE','ACE Board','1.1','Y2'):'Fit it with a DS1511Y too, which has no pins to meet it.',('COB','RTC Card','1.1','Y1'):'Fit it with a DS1511Y too, which has no pins to meet it.',
+  **{('ACE','ACE RAM Patch',v,j):'Pins, not a chip: the value names the ACE Board socket whose holes they are soldered into.' for v,j in (('1.0','J1'),('1.1','J1'),('1.1','J2'))}}
 # The KIM Board Rev 1.1 is built as Rev 1.0 is
 for _d in(EXTRA,EXTRA_NOTE,EXTRA_STRIP): _d[('KIM','KIM Board','1.1')]=_d[('KIM','KIM Board','1.0')]
 # Shunts, from Tools/data/jumpers.json: one row per revision, for every header a builder fits a shunt on
@@ -63,7 +67,7 @@ def _shunts():
         EXTRA[k]=[x for x in EXTRA.get(k,[]) if not x[0].startswith('Shunt')]+[('Shunt, 2.54 mm','S9337-ND','',n,', '.join(sorted(refs,key=nat)),'')]
 _shunts()
 def rev_rows(repo,board,rev,path):
-    t=open(path,encoding='utf-8',newline='').read();rows=collections.OrderedDict();socks=collections.defaultdict(list);dnp=[];pins=collections.Counter()
+    t=open(path,encoding='utf-8',newline='').read();rows=collections.OrderedDict();socks=collections.defaultdict(list);dnp=[];pins=collections.Counter();MPINS[(repo,board,rev)]=0
     for s,e in footprints(t):
         b=t[s:e];ref=fp_ref(b);i=A.get(f'{repo}|{board}|{rev}|{ref}')
         if not i: continue
@@ -78,6 +82,7 @@ def rev_rows(repo,board,rev,path):
         if skip: dnp.append((ref,'SKIP'));continue
         st=STRIP.fullmatch(i)
         if st: pins[st.group(1)]+=int(st.group(2))
+        if MACHINED.fullmatch(i): MPINS[(repo,board,rev)]+=int(re.match(r'DIP-(\d+)',name).group(1))
         val='Keyswitch' if i=='keyswitch-mx' else P.get('Value','')
         k=f'{repo}|{board}|{rev}|{ref}'
         if k in FIT and silk_value(b): val=f"10k (the silk says {P.get('Value','')})"
@@ -86,7 +91,7 @@ def rev_rows(repo,board,rev,path):
     R=sorted(rows.values(),key=lambda r:nat(sorted(r['refs'],key=nat)[0]))
     return R,socks,dnp,pins
 def cart_lines(repo,board,rev,R,socks,pins,sup,through):
-    key=sup;tot=collections.OrderedDict()
+    key=sup;tot=collections.OrderedDict();done=set()
     def add(n,mpn,q,ref):
         if not n: return
         x=tot.setdefault(n,[mpn,0,[]]);x[1]+=q;x[2].append(ref)
@@ -96,6 +101,10 @@ def cart_lines(repo,board,rev,R,socks,pins,sup,through):
         e=C[r['id']]
         if r['id'].startswith('BREADBOARD HEADERS'): continue
         if STRIP.fullmatch(r['id']): continue
+        mc=MACHINED.fullmatch(r['id'])
+        if mc:
+            if 'pin strip' not in done: add(e.get(key),e.get('mpn') or '',math.ceil(MPINS[(repo,board,rev)]/int(mc.group(1))),'pin strip, cut to size');done.add('pin strip')
+            continue
         add(e.get(key),e.get('mpn') or '',len(r['refs']),ranges(r['refs']))
     extra_pins=EXTRA_STRIP.get((repo,board,rev),0)
     for rows_,cols in pins.items():
@@ -215,6 +224,8 @@ def gen(repo,readme=False):
                 if r['id'].startswith('BREADBOARD HEADERS'): continue
                 st=STRIP.fullmatch(r['id']);name=part_name(e)
                 if st: name=f"Pin header {st.group(1)}×{int(st.group(2))}, 2.54 mm, cut from a strip"
+                ms=MACHINED.fullmatch(r['id'])
+                if ms: name=f"Machined pins, 2.54 mm, cut from a {int(ms.group(1))}-pin strip ({part_name(e)})"
                 dk,mo=e.get('digikey'),e.get('mouser')
                 o.append(f"| {ranges(r['refs'])} | {len(r['refs'])} | {r['val'].replace('|','/')} | {name} | {L_dk(dk)} | {L_mo(mo)} | {other_cell(e)} |"+((' Yes |' if r['presold'] else ' |') if has else ''))
                 if e.get('note') and not st: notes.setdefault(e['note'],[]).extend(r['refs'])
@@ -225,7 +236,7 @@ def gen(repo,readme=False):
             for part,dk,mo,q,ref,ot in EXTRA.get((repo,b,rev),[]):
                 o.append(f"| {ref} | {q} | | {part} | {L_dk(dk)} | {L_mo(mo)} | {L_ot(ot)} |"+(' |' if has else ''))
             o.append('')
-            if pins: o.append('Pin headers are cut from strips, and the cart files count whole strips.\n')
+            if pins or MPINS.get((repo,b,rev)): o.append('Pin headers are cut from strips, and the cart files count whole strips.\n')
             if (repo,b,rev) in EXTRA_NOTE: o.append(EXTRA_NOTE[(repo,b,rev)]+'\n')
             real=[x for x in dnp if x[1]!='SKIP']
             if real:

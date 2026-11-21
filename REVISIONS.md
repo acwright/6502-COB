@@ -63,6 +63,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Prototype Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | RAM Card | 1.0 | Made, matches order | **Tested** | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
 | RAM Card | 1.1 | Drawn | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |  |  |  | — | 100×57.62 | — | — | — |  |
+| RTC Adapter | 1.1 | Drawn | **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made |  |  |  | — | 18.64×37.02 | — | — | — | 26 unconnected |
 | RTC Card | 1.0 | Made, matches order | **Tested** | Y62 | 2025-10-06 | `0969243` | 4 | 100×57.62 | — | — | — |  |
 | RTC Card | 1.1 | Drawn | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested |  |  |  | — | 100×57.62 | — | — | — |  |
 | Serial Card | 1.0 | Made, matches order | **Tested** | Y67 | 2025-10-06 | `013b131` | 3 | 100×57.62 | — | — | — |  |
@@ -395,6 +396,13 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 **Rev 1.0**
 
 - Initial release, and the board on sale. Built and tested. `Hardware/RAM Card/Rev 1.0/` and `Production/RAM Card/Rev 1.0/` match the boards JLCPCB made (order Y69). The Gerbers and drill files in the production zip are byte-for-byte what JLCPCB received.
+
+### RTC Adapter
+
+**Rev 1.1** (drawn, not yet made)
+
+- New board (owner, 2026-11-19): a DS1501 real-time clock in SOIC and its 32.768 kHz crystal on a DIP-28 plug, in place of the DS1511Y in the socket of any RTC Card or ACE Board, Rev 1.0 included. The DS1511Y ($41.36 at Digi-Key, 2026-11-19) is a DS1501 with its crystal and a lithium cell in one module; the DS1501YZN+ is $23.19. `Y1` is a 6 pF crystal (Abracon AB26T), on U1's pins 2 and 3, with its can on a ground pad, under a keep-out for tracks and vias; U1's pins 21 and 25 go to ground on the adapter, and C1 decouples it. The plug's pins 2, 3, 21 and 25 connect to nothing, so the adapter's crystal is never in parallel with a 1.1 board's own. Its pins are two strips of machined round pins (Mill-Max 800-10-064-10-001000, cut to 14), which don't spread the socket's contacts. Its footprint, `6502 Parts:DIP-28 Plug`, is the DIP's with a courtyard round each row of pins only, so the parts fit between the rows. The outline, 18.64 × 37.02 mm, overlaps no part beside the socket on either board, either revision.
+- Drawn and placed (2026-11-20), for the owner to route. Not yet made.
 
 ### RTC Card
 

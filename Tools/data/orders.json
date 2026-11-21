@@ -169,6 +169,7 @@
   "COB|PS2 Helper|1.1",
   "COB|Prototype Card|1.1",
   "COB|RAM Card|1.1",
+  "COB|RTC Adapter|1.1",
   "COB|RTC Card|1.1",
   "COB|Serial Card Pro|1.1",
   "COB|Serial Card|1.1",
@@ -345,6 +346,10 @@
   "COB|Video Card|1.1": [
    "Proven design",
    "JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge"
+  ],
+  "COB|RTC Adapter|1.1": [
+   "Untested",
+   "A new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet routed or made"
   ]
  },
  "_replaced": "A made revision whose number a newer design took, by the owner's ruling (KICAD.md K39). Each entry keeps the made boards' JLCPCB order, its date, the commit they were made from, and the last commit that holds the made files; the revision itself is drawn, in 'drawn'. The tools treat it as drawn; register.py names the made boards in its notes.",

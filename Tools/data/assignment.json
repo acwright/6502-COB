@@ -1087,5 +1087,9 @@
  "COB|Keyboard Helper|1.1|SW12": "keyswitch-mx",
  "COB|Mega Helper|1.1|A1": "Arduino Mega2560 R3 Shield|Arduino Giga R1 WiFi Shield",
  "COB|Mega Helper|1.1|J1": "conn-bus",
- "COB|RTC Card|1.1|Y1": "32.768 kHz|Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1"
+ "COB|RTC Card|1.1|Y1": "32.768 kHz|Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1",
+ "COB|RTC Adapter|1.1|C1": "100nF|disc-p2.5",
+ "COB|RTC Adapter|1.1|J1": "pinstrip-machined-1x64-2.54",
+ "COB|RTC Adapter|1.1|U1": "DS1501|SOIC-28W_7.5x17.9mm_P1.27mm",
+ "COB|RTC Adapter|1.1|Y1": "32.768 kHz|Crystal_C26-LF_D2.1mm_L6.5mm_Horizontal_1EP_style1"
 }
