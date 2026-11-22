@@ -142,7 +142,7 @@ that reason.
 
 **`Hardware/Storage Card/`** — CompactFlash storage interface supporting up to 128GB via IDE-compatible protocol.
 
-**`Hardware/Storage Card Pro/`** — SD card storage that the stock BIOS takes for the Storage Card's CompactFlash card, with no BIOS change, and a 16 MB built-in drive that answers when no card is in. A Raspberry Pi Pico 2 module does the work, running the [SCP Controller](#scp-controller). *(Untested: Rev 1.1 is drawn, not yet routed or made.)*
+**`Hardware/Storage Card Pro/`** — SD card storage that the stock BIOS takes for the Storage Card's CompactFlash card, with no BIOS change, and a 16 MB built-in drive that answers when no card is in. A Raspberry Pi Pico 2 module does the work, running the [SCP Controller](#scp-controller). *(Untested: Rev 1.1 is drawn and routed, not yet made.)*
 
 **`Hardware/LCD Card/`** — 16×2 character LCD display via 65C22 VIA in 4-bit or 8-bit mode.
 
@@ -239,7 +239,7 @@ Each revision carries one of three labels:
 | Serial Card Pro | 1.1 | **Proven design** | The DB-9 moved to KiCad's standard footprint (the same connector), tracks rerouted, silkscreen, the bare card edge. |
 | Sound Card | 1.1 | **Proven design** | Silkscreen text, the bare card edge, and a second RCA jack on the same signal, as on the ACE. |
 | Storage Card | 1.1 | **Proven design** | The bare card edge only. |
-| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Not yet routed or made. |
+| Storage Card Pro | 1.1 | **Untested** | Redesigned: an SD card the stock BIOS takes for CompactFlash, with a built-in drive. Not yet made. |
 | VERA Helper | 1.1 | **Proven design** | Mounting holes, capacitor pitch, JP2 ships open, JP1 and JP3 removed and wired as Rev 1.0 ships them. |
 | VGA Card | 1.1 | **Proven design** | `A1` wired to the pico9918's `MODE1`, as on the tested ACE; JP1 open, so `/INT` passes only through D1, as the ACE's video card runs; `PHI2` wired to U3 as Rev 1.0 ships, with JP2 and JP3 gone. The pico9918 is turned around with its tracks rerouted, the notch and holes for its VGA adapter moved, and the card edge bare. |
 | Video Card | 1.1 | **Proven design** | JP7, a solder jumper, ships bridged (fine with a real TMS9918A's open-drain `/INT`), JP1–JP6 removed and wired as Rev 1.0 ships them, sockets, silkscreen, the bare card edge. |
