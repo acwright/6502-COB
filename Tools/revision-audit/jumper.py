@@ -60,7 +60,7 @@ def main():
 
     # Schematic: the symbol instance, then the definition it needs in lib_symbols.
     p = base + '.kicad_sch'; t = open(p, encoding='utf-8', newline='').read()
-    hits = [(s, e) for s, e in blocks(t, r'\n\t\(symbol\n\t\t\(lib_id "Jumper:SolderJumper_2_')
+    hits = [(s, e) for s, e in blocks(t, r'\n\t\(symbol\n\t\t(?:\(lib_name "[^"]*"\)\n\t\t)?\(lib_id "Jumper:SolderJumper_2_')
             if re.search(r'\(property "Reference" "' + re.escape(ref) + '"', t[s:e])]
     assert len(hits) == 1, (p, ref, len(hits))
     s, e = hits[0]; b = t[s:e]

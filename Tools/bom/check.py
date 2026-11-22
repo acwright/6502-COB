@@ -23,7 +23,7 @@ for f in files('Hardware/*/Rev */*.kicad_pcb'):
     SCH={}
     for sf in glob.glob(os.path.dirname(f)+'/*.kicad_sch'):
         st=open(sf,encoding='utf-8',newline='').read()
-        for m in re.finditer(r'\n\t\(symbol\n\t\t\(lib_id',st):
+        for m in re.finditer(r'\n\t\(symbol\n\t\t(?:\(lib_name "[^"]*"\)\n\t\t)?\(lib_id',st):
             x=st[m.start():block(st,m.start()+1)];P={q[0]:q[1] for q in props(x,'\t\t')};rr=re.findall(r'\(reference "([^"]+)"',x);ref=rr[0] if rr else P.get('Reference','')
             if ref.startswith('#'): continue
             SCH[ref]=P

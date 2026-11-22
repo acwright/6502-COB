@@ -117,7 +117,7 @@ def run(dry):
             if k in DNP_REF and not silk.get(ref): newval[ref]=DNP_REF[k]
         # schematics
         for sf in sch:
-            t=open(sf,encoding='utf-8',newline='').read();spans=[(m.start(),block(t,m.start()+1)) for m in re.finditer(r'\n\t\(symbol\n\t\t\(lib_id',t)];o=t
+            t=open(sf,encoding='utf-8',newline='').read();spans=[(m.start(),block(t,m.start()+1)) for m in re.finditer(r'\n\t\(symbol\n\t\t(?:\(lib_name "[^"]*"\)\n\t\t)?\(lib_id',t)];o=t
             for s,e in reversed(spans):
                 b=t[s:e];rr=re.findall(r'\(reference "([^"]+)"',b);P={n:v for n,v,_,_ in props(b,'\t\t')};ref=rr[0] if rr else P.get('Reference','')
                 if ref.startswith('#'): continue

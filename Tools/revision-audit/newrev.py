@@ -39,7 +39,7 @@ def set_values(t, head, done):
             assert n == 1; done[r.group(1)] += 1; out.append(t[last:s] + b2); last = e
     out.append(t[last:]); return ''.join(out)
 
-for ext, head in (('kicad_sch', r'\n\t\(symbol\n\t\t\(lib_id'), ('kicad_pcb', r'\n\t\(footprint "')):
+for ext, head in (('kicad_sch', r'\n\t\(symbol\n\t\t(?:\(lib_name "[^"]*"\)\n\t\t)?\(lib_id'), ('kicad_pcb', r'\n\t\(footprint "')):
     p = f'{dst}/{board}.{ext}'; t = open(p, encoding='utf-8', newline='').read()
     t, n = re.subn(r'(\(title_block\n(?:\t\t\(title [^\n]*\n)?)\t\t\(date "[^"]*"\)\n\t\t\(rev "' + re.escape(old) + '"\)',
                    lambda m: m.group(1) + f'\t\t(date "{DATE}")\n\t\t(rev "{new}")', t)

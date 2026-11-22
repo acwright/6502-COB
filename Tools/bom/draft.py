@@ -19,7 +19,7 @@ def parts():
     for repo in SCOPE:
         for f in sorted(glob.glob(f'{K}6502-{repo}/Hardware/*/Rev */*.kicad_sch')):
             t=open(f,errors='replace').read();seen=set();b=f.split('/')[-3];v=f.split('/')[-2][4:]
-            for m in re.finditer(r'\n\t\(symbol\n\t\t\(lib_id "([^"]+)"',t):
+            for m in re.finditer(r'\n\t\(symbol\n\t\t(?:\(lib_name "[^"]*"\)\n\t\t)?\(lib_id "([^"]+)"',t):
                 x=block(t,m.start()+1);P=dict(re.findall(r'\(property "([^"]+)" "((?:[^"\\]|\\.)*)"',x));rr=re.findall(r'\(reference "([^"]+)"',x);ref=rr[0] if rr else P.get('Reference','')
                 if ref.startswith('#') or ref in seen: continue
                 seen.add(ref);dnp=re.search(r'\(dnp yes\)',x) is not None
