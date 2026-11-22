@@ -12340,7 +12340,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "2648-SC1631CT-ND"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -12352,7 +12352,7 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "358-SC1631"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)

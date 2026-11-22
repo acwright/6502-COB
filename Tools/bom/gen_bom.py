@@ -47,7 +47,9 @@ EXTRA={('KIM','KIM Board','1.0'):[('Female header 1×20, 2.54 mm','S7018-ND','',
 SKIP={('ACE','ACE Board','1.0'):{'U12','U13'}}
 EXTRA[('ACE','ACE Board','1.0')]=[('Panasonic EEA-GA1C100, 10 µF, on the underside across J19','P14482-ND','667-EEA-GA1C100',1,'Added',''),('Vishay BAT85S-TR, for the video card /INT','BAT85SCT-ND','78-BAT85S',1,'Added','')]
 EXTRA_NOTE={('ACE','ACE Board','1.0'):'U12 and U13 are not listed: fit the ACE RAM Patch Rev 1.1 in their sockets. See the build notes.',('KIM','KIM Board','1.0'):'J6 is one footprint, built from three strips of header. U13 also takes a 1×16 pin header, cut from the strip above.'}
-EXTRA_STRIP={('KIM','KIM Board','1.0'):16}
+EXTRA_STRIP={('KIM','KIM Board','1.0'):16,
+  # the Pico 2's two 1×20 pin headers: U2 is one footprint, so its pins are added to the strip here
+  ('COB','Storage Card Pro','1.1'):40,('ACE','ACE SD Adapter Bottom','1.1'):40}
 # A note on one part's row in one revision, where the catalogue's note (shared by every revision) can't say it
 REF_NOTE={('ACE','ACE Board','1.1','U18'):'Or a DS1501YN+, which runs on Y2. See the build notes.',('COB','RTC Card','1.1','U1'):'Or a DS1501YN+, which runs on Y1. See the build notes.',
   ('ACE','ACE Board','1.1','Y2'):'Fit it with a DS1511Y too, which has no pins to meet it.',('COB','RTC Card','1.1','Y1'):'Fit it with a DS1511Y too, which has no pins to meet it.',
@@ -239,7 +241,7 @@ def gen(repo,readme=False):
             for part,dk,mo,q,ref,ot in EXTRA.get((repo,b,rev),[]):
                 o.append(f"| {ref} | {q} | | {part} | {L_dk(dk)} | {L_mo(mo)} | {L_ot(ot)} |"+(' |' if has else ''))
             o.append('')
-            if pins or MPINS.get((repo,b,rev)): o.append('Pin headers are cut from strips, and the cart files count whole strips.\n')
+            if pins or MPINS.get((repo,b,rev)) or EXTRA_STRIP.get((repo,b,rev)): o.append('Pin headers are cut from strips, and the cart files count whole strips.\n')
             if (repo,b,rev) in EXTRA_NOTE: o.append(EXTRA_NOTE[(repo,b,rev)]+'\n')
             real=[x for x in dnp if x[1]!='SKIP']
             if real:

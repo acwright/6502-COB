@@ -14599,7 +14599,7 @@
 				)
 			)
 		)
-		(property "Digikey" ""
+		(property "Digikey" "2648-SC1631CT-ND"
 			(at 251.46 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -14610,7 +14610,7 @@
 				)
 			)
 		)
-		(property "Mouser" ""
+		(property "Mouser" "358-SC1631"
 			(at 251.46 63.5 0)
 			(hide yes)
 			(show_name no)

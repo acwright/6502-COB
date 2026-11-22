@@ -1095,5 +1095,6 @@
  "COB|Keyboard Encoder Helper|1.1|R2": "10k|axial",
  "COB|Keyboard Encoder Helper|1.1|R3": "10k|axial",
  "COB|PS2 Helper|1.1|R10": "10k|axial",
- "COB|PS2 Helper|1.1|R11": "10k|axial"
+ "COB|PS2 Helper|1.1|R11": "10k|axial",
+ "COB|Storage Card Pro|1.1|U2": "Pico 2|RaspberryPi_Pico_Common_THT"
 }

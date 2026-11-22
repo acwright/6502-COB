@@ -3634,5 +3634,37 @@
   "note": "Machined round pins, which plug into a DIP socket without spreading its contacts. Cut a piece for each row of pins: a DIP-28 plug takes two of 14.",
   "review": null,
   "jameco": null
+ },
+ "Pico 2|RaspberryPi_Pico_Common_THT": {
+  "id": "Pico 2|RaspberryPi_Pico_Common_THT",
+  "desc": "Raspberry Pi Pico 2, on pin headers",
+  "uses": 2,
+  "mpn": "SC1631",
+  "mfr": "Raspberry Pi",
+  "digikey": "2648-SC1631CT-ND",
+  "digikey_stock": 18615,
+  "mouser": "358-SC1631",
+  "mouser_stock": 2729,
+  "lcsc": null,
+  "other": null,
+  "note": "Soldered to the board on two 1×20 pin headers, cut from the header strip, not by its castellations. JLCPCB doesn't fit it: solder it yourself.",
+  "review": null,
+  "jameco": null
+ },
+ "pinsocket-1x06-2.54-vertical": {
+  "id": "pinsocket-1x06-2.54-vertical",
+  "desc": "Pin socket 1×06, 2.54 mm, vertical",
+  "uses": 2,
+  "mpn": "PPTC061LFBN-RC",
+  "mfr": "Sullins Connector Solutions",
+  "digikey": "S7004-ND",
+  "digikey_stock": 56353,
+  "mouser": "200-SSW10601TS",
+  "mouser_stock": 8291,
+  "lcsc": null,
+  "other": null,
+  "note": "On Mouser: Samtec SSW-106-01-T-S, the same socket.",
+  "review": null,
+  "jameco": null
  }
 }
