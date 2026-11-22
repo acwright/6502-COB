@@ -20,6 +20,9 @@ for f in files('Hardware/*/Rev */*.kicad_pcb'):
                     if P.get(k,'').replace('\\"','"')!=v: E.append(f'{tag} {ref}: PCB {k}={P.get(k)!r}, catalogue {v!r}')
             else: E.append(f'{tag} {ref}: {i} not in catalogue')
             n['parts']+=1
+        elif ref and not ref.startswith(('#','REF')):
+            at=re.search(r'\n\t\t\(attr ([^)]*)\)',x);a=at.group(1).split() if at else []
+            if 'board_only' not in a and 'exclude_from_bom' not in a: E.append(f'{tag} {ref}: no part in assignment.json, so BOM.md and the carts leave it out')
     SCH={}
     for sf in glob.glob(os.path.dirname(f)+'/*.kicad_sch'):
         st=open(sf,encoding='utf-8',newline='').read()
