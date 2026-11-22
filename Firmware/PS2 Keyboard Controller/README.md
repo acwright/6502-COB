@@ -263,7 +263,7 @@ case 0x1C:      // A
 
 ### PS/2 Keyboard Not Responding
 - Check PS/2 CLK and DATA connections
-- Verify pull-up resistors on PS/2 lines (typically 10kΩ)
+- On a PS2 Helper Rev 1.1, check `R10` and `R11`, the 10kΩ pull-ups on the PS/2 lines (a Rev 1.0 has none, and relies on the ATmega's own)
 - Ensure PS/2 keyboard is receiving 5V power
 
 ### Keys Not Registering

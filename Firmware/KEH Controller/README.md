@@ -255,9 +255,10 @@ four directions sit on matrix columns 4 to 7:
 Its buttons are columns 0 to 3, and JOYSTICK A's lines are the rows, so the same
 goes for the keys in a row it holds.
 
-The PS/2 lines have no pull-up resistors on the board, only the ATmega's own, so
-a spike from elsewhere on the board can look like a clock edge. The receiver
-ignores an edge if the clock is high again by the time it runs (a real clock
+On the boards made so far, the PS/2 lines have no pull-up resistors, only the
+ATmega's own, so a spike from elsewhere on the board can look like a clock edge.
+Every board's Rev 1.1 adds a 10 kΩ pull-up on each line, which few spikes get
+past. The receiver checks either way: it ignores an edge if the clock is high again by the time it runs (a real clock
 pulse stays low for tens of microseconds), a start bit that isn't 0, and a byte
 whose stop bit isn't 1, so one false edge can't throw it out of step for the
 bytes after it.

@@ -48,7 +48,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Joystick Helper | 1.0 | Made, matches order | **Tested** | Y73 | 2025-11-16 | `4f73288` | 4 | 50×50 | 5.32–5.68 mm | yes | yes |  |
 | Joystick Helper | 1.1 | Drawn | **Proven design**: mounting holes moved to the standard, silkscreen |  |  |  | — | 50×50 | 6 mm | yes | yes |  |
 | Keyboard Encoder Helper | 1.0 | Made, matches order | **Tested** | Y72 | 2025-11-14 | `4470a4f` | 4 | 100×50 | 5.32–6.25 mm | yes | yes | to fit the COB plate, drill plate holes 9 and 21 out to 5 mm: see the README |
-| Keyboard Encoder Helper | 1.1 | Drawn | **Proven design**: mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
+| Keyboard Encoder Helper | 1.1 | Drawn | **Proven design**: mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Keyboard Helper | 1.0 | Made, matches order | **Tested** | Y70 | 2025-10-27 | `3b654ed` | 4 | 335×125 | 5 mm | — | yes |  |
 | Keyboard Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |  |  |  | — | 335×125 | 5 mm | — | — |  |
 | LCD Card | 1.0 | Made, matches order | **Tested** | Y27 | 2024-04-22 | `f77fc20` | 4 | 100×57.62 | — | — | — |  |
@@ -58,7 +58,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge, and a 74HCT00 at U5 |  |  |  | — | 100×57.62 | — | — | — |  |
 | PS2 Helper | 1.0 | Made, matches order | **Tested** | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
-| PS2 Helper | 1.1 | Drawn | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
+| PS2 Helper | 1.1 | Drawn | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Prototype Card | 1.0 | Made, matches order | **Tested** | Y22 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
 | Prototype Card | 1.1 | Drawn | **Proven design**: the bare card edge only |  |  |  | — | 100×57.62 | — | — | — |  |
 | RAM Card | 1.0 | Made, matches order | **Tested** | Y69 | 2025-10-28 | `9b9e95d` | 4 | 100×57.62 | — | — | — |  |
@@ -298,6 +298,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 
 - Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/` and `CAD/Tops/Keyboard Encoder Helper/`.
 - The silkscreen says `ATmega1284` at `U1`, the part the parts list orders (ATMEGA1284-PU). Rev 1.0's says `ATmega1284-P`.
+- Adds `R2` and `R3`, 10kΩ pull-ups from `PS2CLK` and `PS2DATA` to `VCC` beside the PS/2 socket, `J3` (2026-11-22). Rev 1.0's PS/2 lines rest on the ATmega's internal pull-ups alone (about 20–50 kΩ), so a spike coupled from elsewhere on the board can cross the input threshold as a false clock edge and corrupt a key. The KEH Controller firmware ignores such edges, and the resistors make the lines stiff enough that few spikes reach it. With the internal pull-up in parallel, each line sees about 7.5 kΩ, within a PS/2 host's usual range.
 - `C2` and `C3`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 
@@ -376,6 +377,7 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - Stands the resistors `R2`–`R9` upright and moves them, with the tracks around them rerouted, for a tidier layout. The parts, their values and the circuit are Rev 1.0's.
 - Moves the four mounting holes (`H1`–`H4`) to the family's standard position, 6 mm from each edge (see *Holes* above), so its plate holes, enclosure and top panel follow the same rule as the other boards'. The spacing goes from 88 × 39 mm to 88 × 38 mm. Each revision has its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/` and `CAD/Tops/PS2 Helper/`.
 - Drops the `R2-R9` silkscreen label, which the new layout has no place for; each resistor keeps its own reference.
+- Adds `R10` and `R11`, 10kΩ pull-ups from `PS2CLK` and `PS2DATA` to `VCC` beside the PS/2 socket, `J3` (2026-11-22). Rev 1.0's PS/2 lines rest on the ATmega's internal pull-ups alone (about 20–50 kΩ), so a spike coupled from elsewhere on the board can cross the input threshold as a false clock edge and corrupt a key. The resistors make the lines stiff enough that few spikes get through, as on every board with a PS/2 socket. With the internal pull-up in parallel, each line sees about 7.5 kΩ, within a PS/2 host's usual range.
 - `C4` and `C5`, the 16 MHz crystal's capacitors, stay 22 pF as on Rev 1.0, the value every made board was built and tested with (2026-11-11). Rev 1.1 was drawn with 20 pF from 2026-11-04 to 2026-11-11, and never made that way.
 - The holes were trued on 2026-11-12, before any Rev 1.1 was made. As first drawn, they sat 0.071 mm too near the top edge and 0.004 mm too near the right edge, and each moved by that much to sit exactly 6 mm from its two edges. No track or pad moved, and the ground pours are refilled around the holes' new places.
 

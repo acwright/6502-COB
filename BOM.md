@@ -51,7 +51,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Joystick Helper](#joystick-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Joystick Helper](#joystick-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes moved to the standard, silkscreen |
 | [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, silkscreen |
+| [Keyboard Encoder Helper](#keyboard-encoder-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |
 | [Keyboard Helper](#keyboard-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Keyboard Helper](#keyboard-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed and the logo moved; silkscreen only |
 | [LCD Card](#lcd-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -61,7 +61,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and a 74HCT00 at U5 |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen |
+| [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -175,7 +175,7 @@ How to build each board, where it needs more than its parts list.
 
 **Keyboard Encoder Helper**
 
-**Building a Rev 1.0:** fit the parts in Rev 1.0's parts list; the board needs nothing else. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/Rev 1.0/` and `CAD/Tops/Keyboard Encoder Helper/Rev 1.0/`. The COB's base plate is drilled for Rev 1.1, so a Rev 1.0 on it needs two plate holes drilled wider: see [CAD](README.md#cad). Rev 1.1's silkscreen says `ATmega1284` at U1, where a Rev 1.0's says `ATmega1284-P`: fit the ATmega1284 the parts list orders on either. C2 and C3 are 22 pF on both revisions.
+**Building a Rev 1.0:** fit the parts in Rev 1.0's parts list; the board needs nothing else. Rev 1.1 moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/Keyboard Encoder Helper/Rev 1.0/` and `CAD/Tops/Keyboard Encoder Helper/Rev 1.0/`. The COB's base plate is drilled for Rev 1.1, so a Rev 1.0 on it needs two plate holes drilled wider: see [CAD](README.md#cad). Rev 1.1's silkscreen says `ATmega1284` at U1, where a Rev 1.0's says `ATmega1284-P`: fit the ATmega1284 the parts list orders on either. C2 and C3 are 22 pF on both revisions. Rev 1.1 adds `R2` and `R3`, 10kΩ pull-ups from `PS2CLK` and `PS2DATA` to VCC; a Rev 1.0 needs nothing with the KEH Controller firmware from this repository, which ignores the false clock edges they guard against. To add them anyway, solder a 10kΩ on the underside across J3's pins 5 and 4 (`PS2CLK` to VCC) and another across pins 1 and 4 (`PS2DATA` to VCC), the same circuit; untried.
 
 **Keyboard Helper**
 
@@ -201,7 +201,7 @@ How to build each board, where it needs more than its parts list.
 
 **PS2 Helper**
 
-**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 stands R2–R9 upright in a tidier layout, with the same parts and values, and drops their `R2-R9` silkscreen label. It also moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/Rev 1.0/` and `CAD/Tops/PS2 Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. C4 and C5 are 22 pF on both revisions.
+**Building a Rev 1.0:** nothing to do on the board. Rev 1.1 stands R2–R9 upright in a tidier layout, with the same parts and values, and drops their `R2-R9` silkscreen label. It also moves the four mounting holes to the family's standard, 6 mm from each edge, so they are 88 × 38 mm apart where a Rev 1.0's are 88 × 39 mm. Mount a Rev 1.0 with its own enclosure and top panel, in `CAD/Enclosures/PS2 Helper/Rev 1.0/` and `CAD/Tops/PS2 Helper/Rev 1.0/`: Rev 1.1's don't fit its holes. C4 and C5 are 22 pF on both revisions. Rev 1.1 adds `R10` and `R11`, 10kΩ pull-ups from `PS2CLK` and `PS2DATA` to VCC, so few spikes reach the lines; a Rev 1.0, tested without them, needs nothing. To add them anyway, solder a 10kΩ on the underside across J3's pins 5 and 4 (`PS2CLK` to VCC) and another across pins 1 and 4 (`PS2DATA` to VCC), the same circuit; untried.
 
 **RAM Card**
 
@@ -899,7 +899,7 @@ Cart files: [digikey.csv](BOM/Joystick%20Helper/Rev%201.0/digikey.csv), [mouser.
 
 ### Keyboard Encoder Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: mounting holes, silkscreen.
+Drawn, not made yet. **Proven design**: mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines.
 
 Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/mouser.csv)
 
@@ -912,6 +912,7 @@ Cart files: [digikey.csv](BOM/Keyboard%20Encoder%20Helper/Rev%201.1/digikey.csv)
 | J3 | 1 | PS/2 KEYBOARD | Kycon, Inc. KMDGX-6S-BS | [2092-KMDGX-6S-BS-ND](https://www.digikey.com/en/products/filter?keywords=2092-KMDGX-6S-BS-ND) | [806-KMDGX-6S-BS](https://www.mouser.com/ProductDetail/806-KMDGX-6S-BS) |  |
 | J4 | 1 | KEYBOARD | Amphenol D25P33E4GX00LF | [609-1505-ND](https://www.digikey.com/en/products/filter?keywords=609-1505-ND) | [649-D25P33E4GX00LF](https://www.mouser.com/ProductDetail/649-D25P33E4GX00LF) |  |
 | R1 | 1 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
+| R2, R3 | 2 | 10k | YAGEO MFR-12FTF52-10K | [13-MFR-12FTF52-10KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-10KCT-ND) | [603-MFR-12FTF52-10K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-10K) |  |
 | U1 | 1 | ATmega1284 | Microchip Technology ATMEGA1284-PU | [ATMEGA1284-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA1284-PU-ND) | [556-ATMEGA1284-PU](https://www.mouser.com/ProductDetail/556-ATMEGA1284-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |
 | U1 | 1 | Socket | IC socket, 40-pin, 0.6 in | [3M5471-ND](https://www.digikey.com/en/products/filter?keywords=3M5471-ND) | [517-4840-6000-CP](https://www.mouser.com/ProductDetail/517-4840-6000-CP) | |
@@ -1112,7 +1113,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### PS2 Helper Rev 1.1
 
-Drawn, not made yet. **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen.
+Drawn, not made yet. **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines.
 
 Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](BOM/PS2%20Helper/Rev%201.1/mouser.csv)
 
@@ -1126,6 +1127,7 @@ Cart files: [digikey.csv](BOM/PS2%20Helper/Rev%201.1/digikey.csv), [mouser.csv](
 | J4 | 1 | JOYSTICK | Adam Tech BHR-12-VUA | [2057-BHR-12-VUA-ND](https://www.digikey.com/en/products/filter?keywords=2057-BHR-12-VUA-ND) | [737-BHR-12-VUA](https://www.mouser.com/ProductDetail/737-BHR-12-VUA) | 2057-BHR-12-VUA-ND |
 | R1 | 1 | 1K | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
 | R2–R9 | 8 | 1k | YAGEO MFR-12FTF52-1K | [13-MFR-12FTF52-1KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-1KCT-ND) | [603-MFR-12FTF52-1K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-1K) |  |
+| R10, R11 | 2 | 10k | YAGEO MFR-12FTF52-10K | [13-MFR-12FTF52-10KCT-ND](https://www.digikey.com/en/products/filter?keywords=13-MFR-12FTF52-10KCT-ND) | [603-MFR-12FTF52-10K](https://www.mouser.com/ProductDetail/603-MFR-12FTF52-10K) |  |
 | U1 | 1 | MT8808 | Microchip (was Mitel, Zarlink) MT8808AE1 |  |  | eBay |
 | U2 | 1 | ATmega328 | Microchip Technology ATMEGA328P-PU | [ATMEGA328P-PU-ND](https://www.digikey.com/en/products/filter?keywords=ATMEGA328P-PU-ND) | [556-ATMEGA328P-PU](https://www.mouser.com/ProductDetail/556-ATMEGA328P-PU) |  |
 | Y1 | 1 | 16 MHz | ECS Inc. ECS-160-20-4X | [X1103-ND](https://www.digikey.com/en/products/filter?keywords=X1103-ND) | [520-HCU1600-20X](https://www.mouser.com/ProductDetail/520-HCU1600-20X) |  |

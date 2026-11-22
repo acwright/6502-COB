@@ -281,7 +281,7 @@
   ],
   "COB|Keyboard Encoder Helper|1.1": [
    "Proven design",
-   "Mounting holes, silkscreen"
+   "Mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines"
   ],
   "COB|Keyboard Helper|1.1": [
    "Proven design",
@@ -301,7 +301,7 @@
   ],
   "COB|PS2 Helper|1.1": [
    "Proven design",
-   "Resistors moved and tracks rerouted, mounting holes, silkscreen"
+   "Resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines"
   ],
   "COB|Prototype Card|1.1": [
    "Proven design",
