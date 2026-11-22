@@ -51,6 +51,10 @@
 #define VIA_CA2 9
 #define PS2CLK  10
 #define PS2DATA 11
+
+// PS2CLK (D10) is PD2, read straight from the register in the clock
+// interrupt. If PS2CLK ever moves, this must move with it.
+#define PS2CLK_IS_HIGH() (PIND & _BV(PD2))
 #define VIA_CB1 12
 #define VIA_CB2 13
 
@@ -99,10 +103,11 @@ uint8_t matrixScanRow = 0;   // Next row to scan; an interrupted sweep resumes h
 //
 // What the firmware does need is to know which lines a stick is holding down.
 // A held signal pins its line low for as long as it is held, and every key
-// along that row or column then reads as pressed. These masks keep the sticks
-// out of the matrix scan.
-uint8_t joyRowMask = 0;   // PA lines JOYSTICK A is holding low -> unscannable rows
-uint8_t joyColMask = 0;   // PB lines JOYSTICK B is holding low -> unscannable columns
+// along that row or column then reads as pressed. The matrix sweep looks for
+// the sticks itself, just before each row (see scanMatrix()). These masks,
+// taken once a sweep, are what sendCode() checks a failed read-back against.
+uint8_t joyRowMask = 0;   // PA lines JOYSTICK A is holding low
+uint8_t joyColMask = 0;   // PB lines JOYSTICK B is holding low
 
 void onInterrupt();
 void enablePS2();
@@ -181,6 +186,18 @@ void sampleJoystickMasks();
 // every pass of loop(), so the port is not flickering between code and idle.
 #define RETRY_INTERVAL_US 1000UL
 
+// How long after letting go of a line it was driving low the firmware waits
+// before it starts a matrix sweep. A released line rises on its pull-up alone,
+// and one with a long cable on it (a joystick's) can take longer than a
+// sweep's 10 us settle; read too soon, it is a key that nobody pressed. At the
+// bench a code's release followed straight by a sweep typed phantom 1s, row
+// 0 being read first and column 1 rising slowest.
+#define RELEASE_SETTLE_US 500UL
+
+// How long a key waits when its read-back fails in a way a held stick does not
+// explain, before it is sent anyway. See sendCode().
+#define UNEXPLAINED_WAIT_US 50000UL
+
 // How long a code stays when the 6502 asks for the ports in the same instant
 // it was strobed. See sendCode().
 #define READ_GRACE_US 110
@@ -210,14 +227,19 @@ static const EncoderPort MATRIX_PORT = { &DDRB, &PORTB, &PINB, CB1_STROBE, HELD_
 HeldPort heldPort = HELD_NONE;
 unsigned long heldSince = 0;
 
-// A queued key the sticks are holding back, per encoder
+// micros() when the firmware last let go of a line it had been driving low
+unsigned long releasedAt = 0;
+
+// A queued key that is waiting, per encoder
 struct KeyWait {
   bool waiting;
-  unsigned long since;   // micros() at the last attempt
+  unsigned long since;       // micros() at the last attempt
+  bool unexplained;          // its read-back is failing in a way no stick explains
+  unsigned long unexplainedSince;
 };
 
-KeyWait ps2Wait = { false, 0 };
-KeyWait matrixWait = { false, 0 };
+KeyWait ps2Wait = { false, 0, false, 0 };
+KeyWait matrixWait = { false, 0, false, 0 };
 
 static inline bool attemptDue(const KeyWait &w) {
   return !w.waiting || (micros() - w.since >= RETRY_INTERVAL_US);
@@ -231,6 +253,13 @@ static inline void idlePort(const EncoderPort &p) {
   *p.port = 0xFF;
 }
 
+// Idle a port that was carrying a code, and note when, so the next sweep
+// waits for the released lines to rise (RELEASE_SETTLE_US)
+static inline void letGo(const EncoderPort &p) {
+  idlePort(p);
+  releasedAt = micros();
+}
+
 // A full queue keeps the keys it has and drops the new one: the oldest are the
 // ones typed first, and losing them would scramble what was typed.
 // CircularBuffer's own push() overwrites the oldest instead.
@@ -242,14 +271,77 @@ static inline void queueKey(CircularBuffer<uint8_t, BUFFER_SIZE> &queue, uint8_t
 
 enum SendResult : uint8_t { SEND_DONE, SEND_WAIT, SEND_ABANDONED };
 
+// The lines that held matrix keys will pull low when a code goes out on a
+// port. The 64 switches join each row line to each column line, with no
+// diodes, so a line the code drives low pulls every line across a held key on
+// it low too, and on through further held keys: Shift and ; held together (both
+// in row 5) join column 4 to column 0, and a code with column 0 low and column
+// 4 high reads back wrong for as long as both are down. Worked out from the
+// debounced key state, the same picture the sweep has.
+uint8_t matrixPull(bool portB, uint8_t code) {
+  uint8_t heldCols[8];
+  for (uint8_t row = 0; row < 8; row++) {
+    uint8_t cols = 0;
+    for (uint8_t col = 0; col < 8; col++) {
+      if (matrixKeyState[row][col] >= MATRIX_DEBOUNCE_COUNT) {
+        cols |= (uint8_t)(1 << col);
+      }
+    }
+    heldCols[row] = cols;
+  }
+
+  uint8_t lowRows = portB ? 0 : (uint8_t)~code;
+  uint8_t lowCols = portB ? (uint8_t)~code : 0;
+  bool changed = true;
+  while (changed) {
+    changed = false;
+    for (uint8_t row = 0; row < 8; row++) {
+      uint8_t rowBit = (uint8_t)(1 << row);
+      uint8_t cols = heldCols[row];
+      if (!cols) continue;
+      if ((lowRows & rowBit) && ((lowCols | cols) != lowCols)) {
+        lowCols |= cols;                 // A low row pulls its held keys' columns
+        changed = true;
+      }
+      if (!(lowRows & rowBit) && (lowCols & cols)) {
+        lowRows |= rowBit;               // A low column pulls its held keys' rows
+        changed = true;
+      }
+    }
+  }
+  return portB ? lowCols : lowRows;
+}
+
 // Put one key code on a port and strobe it.
 //   SEND_DONE       strobed; the caller takes the key off its queue
 //   SEND_WAIT       a held stick (or a bridged pair of keys) is pulling one of
 //                   the code's 1 bits low; nothing strobed, try again later
 //   SEND_ABANDONED  the 6502 asked for the ports first; nothing strobed
-SendResult sendCode(const EncoderPort &p, uint8_t code) {
+//
+// A read-back can fail for a reason a held stick (or held keys) do not explain: something
+// on the port that is not a switch to ground, such as a joystick with an
+// autofire circuit or a bad adapter, pulling or driving lines as the code goes
+// out. Waiting for that to clear could take forever, with every key behind it
+// stuck and the keyboard dead. So a key waits as long as a stick or held keys
+// explain the failure, and otherwise for UNEXPLAINED_WAIT_US, then goes out anyway, as the
+// firmware before the read-back sent every key. The 50 ms is five sweeps, long
+// enough for the stick masks to catch up with a stick pressed just now.
+SendResult sendCode(const EncoderPort &p, uint8_t code, KeyWait &wait) {
   if (releaseRequested()) {
     return SEND_ABANDONED;
+  }
+
+  // Decided before the read-back, to keep the interrupts-off stretch short.
+  // A 1 read as 0 is explained by a stick holding that line, or by held keys
+  // joining it to a line the code drives low.
+  // The key walk in matrixPull() takes tens of microseconds, so it is only
+  // done when it can matter: here when the key is due to go out anyway, and
+  // after a failed read-back below.
+  bool sendAnyway = wait.unexplained &&
+                    (micros() - wait.unexplainedSince >= UNEXPLAINED_WAIT_US);
+  uint8_t held = (p.id == HELD_A) ? joyRowMask : joyColMask;
+  if (sendAnyway) {
+    held |= matrixPull(p.id == HELD_B, code);
   }
 
   // Value before direction. While the port is an input, writing PORT only sets
@@ -266,13 +358,29 @@ SendResult sendCode(const EncoderPort &p, uint8_t code) {
   cli();
   if (releaseRequested()) {
     SREG = sreg;
-    idlePort(p);
+    letGo(p);
     return SEND_ABANDONED;
   }
-  if (*p.pin != code) {
-    SREG = sreg;
-    idlePort(p);
-    return SEND_WAIT;
+  uint8_t lines = *p.pin;
+  if (lines != code) {
+    // A stick or held keys only ever pull a 1 low, and only on lines in held
+    bool stickExplains = ((lines & ~code) == 0) && (((code & ~lines) & ~held) == 0);
+    if (stickExplains || !sendAnyway) {
+      SREG = sreg;
+      letGo(p);
+      if (!sendAnyway && !stickExplains) {
+        // Not yet checked against held keys: do that now, interrupts on
+        held |= matrixPull(p.id == HELD_B, code);
+        stickExplains = ((lines & ~code) == 0) && (((code & ~lines) & ~held) == 0);
+      }
+      if (stickExplains) {
+        wait.unexplained = false;
+      } else if (!wait.unexplained) {
+        wait.unexplained = true;
+        wait.unexplainedSince = micros();
+      }
+      return SEND_WAIT;
+    }
   }
   PORTD &= ~p.strobe;   // The VIA raises its flag on this edge
   SREG = sreg;
@@ -313,9 +421,9 @@ void serviceHold() {
 
 void endHold() {
   if (heldPort == HELD_A) {
-    idlePort(PS2_PORT);
+    letGo(PS2_PORT);
   } else if (heldPort == HELD_B) {
-    idlePort(MATRIX_PORT);
+    letGo(MATRIX_PORT);
   }
   heldPort = HELD_NONE;
 }
@@ -324,7 +432,7 @@ void endHold() {
 // asked for the ports, in which case the caller must service that at once.
 bool sendNext(const EncoderPort &p, CircularBuffer<uint8_t, BUFFER_SIZE> &queue,
               KeyWait &wait) {
-  switch (sendCode(p, queue.first())) {
+  switch (sendCode(p, queue.first(), wait)) {
     case SEND_DONE:
       // The PS/2 queue is filled from its clock interrupt, and shift() is not
       // safe against a push() landing half way through it
@@ -332,6 +440,7 @@ bool sendNext(const EncoderPort &p, CircularBuffer<uint8_t, BUFFER_SIZE> &queue,
         queue.shift();
       }
       wait.waiting = false;
+      wait.unexplained = false;
       return true;
     case SEND_WAIT:
       wait.waiting = true;
@@ -534,6 +643,11 @@ bool scanMatrix() {
   // arithmetic exact -- still one update per key per completed sweep, however
   // many pieces the sweep ended up in.
   if (matrixScanRow == 0) {
+    // A line just let go of may not have risen yet (RELEASE_SETTLE_US)
+    if (micros() - releasedAt < RELEASE_SETTLE_US) {
+      return true;
+    }
+
     // Throttle the *start* of a sweep to MATRIX_SCAN_INTERVAL
     unsigned long currentTime = millis();
     if (currentTime - matrixLastScan < MATRIX_SCAN_INTERVAL) {
@@ -562,10 +676,24 @@ bool scanMatrix() {
     // of Arduino pin calls can run long between two of them.
     if (releaseRequested()) { matrixScanRow = row; abandonScanPorts(); return false; }
 
+    // Look for the sticks just before reading the row, with no row driven: let
+    // every row go, give the lines LINE_RISE_US to settle, and read both ports.
+    // With nothing driven a key pulls nothing, so a line low now is a stick's
+    // -- held, or bouncing as it closes or opens. Checked once a sweep instead,
+    // a switch that bounced between the check and the row read a whole column
+    // of keys as pressed (the bench's "= T \ H" with up held).
+    DDRA = 0x00;
+    PORTA = 0xFF;
+    delayMicroseconds(LINE_RISE_US);
+
+    if (releaseRequested()) { matrixScanRow = row; abandonScanPorts(); return false; }
+
+    uint8_t idleRows = PINA;
+    uint8_t idleCols = PINB;
+
     // A row whose PA line JOYSTICK A is holding low reads as every key on that
-    // row being pressed. Skip those rows rather than believe them -- this is
-    // where the phantom keystrokes came from.
-    if (joyRowMask & rowBit) {
+    // row being pressed. Skip it rather than believe it.
+    if (!(idleRows & rowBit)) {
       continue;
     }
 
@@ -589,11 +717,12 @@ bool scanMatrix() {
     // Both it and the mask are shifted down a bit per iteration so the loop
     // stays constant-time -- see the note above the row loop.
     uint8_t cols = PINB;
-    uint8_t colBits = joyColMask;
+    uint8_t colBits = (uint8_t)~idleCols;
 
     for (uint8_t col = 0; col < 8; col++, cols >>= 1, colBits >>= 1) {
-      // A column JOYSTICK B is holding low reads as every key in it being
-      // pressed, exactly as a held row does. Skip those too.
+      // A column that was low with no row driven is a stick's (JOYSTICK B,
+      // or JOYSTICK A through a held key in its row): every key in it reads
+      // as pressed. Leave its keys as they were.
       if (colBits & 1) {
         continue;
       }
@@ -659,10 +788,10 @@ bool scanMatrix() {
 // register here, because with no row driven both sides of every key switch sit
 // at the same potential.
 //
-// This exists solely to keep the sticks out of the matrix scan; nothing is
-// reported to the 6502, which reads the sticks itself under KBDisable. It
-// costs ~10 us once per scan interval, in the idle state the ports are left in
-// anyway.
+// This exists so sendCode() can tell a held stick from anything else when a
+// read-back fails; nothing is reported to the 6502, which reads the sticks
+// itself under KBDisable. It costs ~10 us once per scan interval, in the idle
+// state the ports are left in anyway.
 //
 // Internal pullups rather than bare inputs, deliberately: only the ACE Board
 // carries the 1k port pullups itself. On COB they arrive with the Joystick or
@@ -731,6 +860,22 @@ uint8_t mapMatrixToAscii(uint8_t row, uint8_t col) {
   return baseKey;
 }
 
+// The PS/2 clock's falling edge. Each one is a bit: start, eight data bits
+// (least significant first), odd parity, stop.
+//
+// None of the boards this runs on (the ACE Board, the COB's Keyboard Encoder
+// Helper, the VCS Input Board) has pull-ups on the PS/2 lines, only the
+// ATmega's own, so the clock line is easily disturbed, and a spike coupled into it looks like a
+// falling edge. Counted as a bit, one false edge puts every bit after it one
+// place out, and the next bytes decode as other keys or fail parity: at the
+// bench about one key in five was lost or turned into a stray character. The
+// firmware's port lines no longer being driven high between sweeps is what
+// let the spikes through. So three checks, each cheap:
+//  - The clock must still be low. A real clock pulse stays low for tens of
+//    microseconds; a spike is over before this runs, so it is ignored.
+//  - A start bit is 0. An edge with the data line high is not a frame
+//    beginning, and the state machine stays where it is.
+//  - A stop bit is 1. A frame without one was out of step, and is dropped.
 void onInterrupt() {
   static uint8_t bitcount = 0;
   static uint8_t incoming;
@@ -738,6 +883,10 @@ void onInterrupt() {
   static uint32_t prev_ms = 0;
   uint32_t now_ms;
   uint8_t val;
+
+  if (PS2CLK_IS_HIGH()) {
+    return;                              // A spike, not a clock pulse
+  }
 
   val = digitalRead(PS2DATA);
   now_ms = millis();
@@ -751,6 +900,10 @@ void onInterrupt() {
 
   switch (bitcount) {
     case 1:  // Start bit
+      if (val) {                         // Not a start bit: wait for one
+        bitcount = 0;
+        break;
+      }
       incoming = 0;
       parity = 0;
       break;
@@ -772,7 +925,7 @@ void onInterrupt() {
         parity = 0xFD;                   // Mark invalid to discard byte
       break;
     case 11: // Stop bit
-      if (parity < 0xFD) {               // Good so save byte in buffer, otherwise discard
+      if (parity < 0xFD && val) {        // Good parity and a stop bit: save it, otherwise discard
         ps2ToAscii(incoming);            // Convert to ASCII if valid scancode (if full, oldest data lost)
       }
       bitcount = 0;

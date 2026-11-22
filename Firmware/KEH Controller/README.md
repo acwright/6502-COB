@@ -131,8 +131,9 @@ COB.**
 **Measured release latency: to be measured later.** This is the figure the
 BIOS's `KBDisable` settle wait is sized against. Cycle-counting the compiled
 firmware put the worst-case code path at ~17 µs against a 100 µs budget
-before key codes went out open-drain, which adds a 10 µs wait for the lines to
-rise to one path. That count excludes a PS/2 interrupt landing in the window
+before key codes went out open-drain. That adds a 10 µs wait for the lines to
+rise to one path, and up to about 40 µs more after a failed read-back, while the
+firmware works out which held keys explain it. That count excludes a PS/2 interrupt landing in the window
 and says nothing about how long the bus takes to charge through a pull-up, so
 the published number comes from a scope.
 
@@ -191,14 +192,26 @@ a code, both ports are inputs with their pull-ups on.
 A key code goes out open-drain. The firmware drives the code's 0 bits low,
 leaves its 1 bits to the pull-ups, and reads the port back. If the port reads
 as the code, the firmware pulses `CA1` (PS/2) or `CB1` (matrix) low, less than a
-microsecond after the read. If it doesn't, a held stick is pulling one of the
-code's 1 bits low, and nothing is sent: the key stays queued and is tried again
-every millisecond until the stick lets go. **A key typed with a stick held
-arrives late, never wrong.** Which keys wait depends on which line is held. With
-left held (bit 6) every letter waits; with right held (bit 7) nothing does, since
-no key code sets bit 7. Keys typed after a waiting key wait behind it, so they
-arrive in the order they were typed. Two keys held in one matrix row bridge
-their columns and read back wrong in the same way, so they wait in the same way.
+microsecond after the read.
+
+If it doesn't, the firmware works out whether a held stick or held keys account
+for it. A stick only ever pulls a 1 low, on a line it was last seen holding. Keys
+held together join their rows and columns through their switches: Shift and `;`,
+both in row 5, pull column 4 low whenever `:` drives column 0 low. If either
+explains the read-back, nothing is sent: the key stays queued and is tried again
+every millisecond until the stick or the keys let go. **A key typed with a stick
+held arrives late, never wrong.** Which keys wait depends on which line is held.
+With left held (bit 6) every letter waits; with right held (bit 7) nothing does,
+since no key code sets bit 7. Keys typed after a waiting key wait behind it, so
+they arrive in the order they were typed.
+
+If nothing on the keyboard explains the read-back, the key waits 50 ms, long
+enough for the firmware to see a stick that was pressed just then, and is then
+sent anyway, as earlier builds sent every key. That is for joysticks that aren't
+plain switches to ground. One with an autofire circuit, or an adapter, can pull
+the lines about whenever the firmware drives a code (a RetroRadionics Arcader
+with its left switch out does), and a key that waited for it would wait forever,
+with the keyboard dead. With such a stick plugged in, a key can arrive wrong.
 
 After the strobe the code stays on the port for 20 ms, unless the 6502 asks for
 the port first. The Kernal's interrupt handler reads it within about 90 µs, but
@@ -219,11 +232,37 @@ than about 130 µs after its request, even at 2 MHz.
 Each keyboard's queue holds 16 keys. When it's full, a new key is dropped and
 the keys already queued are kept.
 
-Keys in a matrix row or column that a stick holds low can't be scanned while
-it's held, because every key there would read as pressed, so the sweep skips
-them. A key pressed and released in that time isn't seen.
+The matrix sweep looks for the sticks just before it reads each row: it lets
+every row go, waits 10 µs, and reads both ports, then drives the row and reads
+the columns. A line that was low with no row driven is a stick's, held or
+bouncing as its switch opens or closes, and the keys on it are left as they were
+for that row. Checked once a sweep instead, a bouncing switch read a whole
+column of keys as pressed. A sweep also waits 500 µs after the firmware lets go
+of a line it was driving, so a line still rising isn't read as a key.
 
-**Not yet tried on a COB.**
+Keys in a matrix row or column that a stick holds low can't be scanned while
+it's held, because every key there reads as pressed. A key pressed and released
+in that time isn't seen; one still held when the stick lets go is. JOYSTICK B's
+four directions sit on matrix columns 4 to 7:
+
+| Held | Column | Keys that can't be seen |
+|---|---|---|
+| Up | 4 | `4` `=` `T` `\` `H` Shift `,` Fn |
+| Down | 5 | `5` Backspace `Y` Insert `J` `Z` `.` Left |
+| Left | 6 | `6` Esc `U` Caps Lock `K` `X` `/` Down |
+| Right | 7 | `7` Tab `I` `A` `L` `C` Up Right |
+
+Its buttons are columns 0 to 3, and JOYSTICK A's lines are the rows, so the same
+goes for the keys in a row it holds.
+
+The PS/2 lines have no pull-up resistors on the board, only the ATmega's own, so
+a spike from elsewhere on the board can look like a clock edge. The receiver
+ignores an edge if the clock is high again by the time it runs (a real clock
+pulse stays low for tens of microseconds), a start bit that isn't 0, and a byte
+whose stop bit isn't 1, so one false edge can't throw it out of step for the
+bytes after it.
+
+**Not yet tried on a COB.** The same code was tested on the ACE's AB Controller (2026-11-22).
 
 ### Joystick Reads
 When an enable signal goes HIGH the firmware releases that port so the joystick
