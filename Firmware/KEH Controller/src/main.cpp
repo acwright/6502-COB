@@ -1,6 +1,7 @@
 #define CIRCULAR_BUFFER_INT_SAFE
 
 #include <Arduino.h>
+#include <util/atomic.h>
 #include <CircularBuffer.hpp>
 
 // ============================================================================
@@ -87,12 +88,14 @@ uint8_t matrixScanRow = 0;   // Next row to scan; an interrupted sweep resumes h
 // untouched stick leaves its lines pulled high.
 //
 // Nothing about the sticks is sent to the 6502 from here. The 6502 reads them
-// itself: Kernal KBDisable takes both encoders offline, this ATmega goes
-// high-impedance, and the 6502 reads the raw ports with the sticks the only
-// things pulling on them. That is the same arrangement a C64 has, it needs no
-// wire protocol, and it is the only way both sticks can be read reliably --
-// anything this encoder drives onto a port is fighting the switches wired to
-// those same eight lines.
+// itself: Kernal KBDisable takes both encoders offline, this ATmega lets go of
+// the ports, and the 6502 reads the raw ports with the sticks the only things
+// pulling on them. That is the same arrangement a C64 has, it needs no wire
+// protocol, and it is the only way both sticks can be read reliably.
+//
+// The switches sit on the very lines the key codes go out on, with nothing in
+// series, so this encoder never drives a port line high: a held stick would
+// short it to ground. Key codes go out open-drain instead -- see VIA Port Access.
 //
 // What the firmware does need is to know which lines a stick is holding down.
 // A held signal pins its line low for as long as it is held, and every key
@@ -110,10 +113,8 @@ void ps2ToAscii(uint8_t scancode);
 bool scanMatrix();
 uint8_t mapMatrixToAscii(uint8_t row, uint8_t col);
 void serviceEncoderEnables();
-bool settleBetweenCharacters();
-bool matrixRowConflict();
-bool writePortA(uint8_t value);
-bool writePortB(uint8_t value);
+void serviceHold();
+void endHold();
 void sampleJoystickMasks();
 
 // ============================================================================
@@ -124,24 +125,222 @@ void sampleJoystickMasks();
 // 0-7. Nothing else on this board lives on either register, so the whole port
 // can be manipulated in a single instruction.
 //
-// That matters in two places. The encoder must let go of a port within 100 us
+// That matters in three places. The encoder must let go of a port within 100 us
 // of being asked, because that is how the 6502 reads the joysticks at all and
-// Kernal KBDisable waits exactly that long before reading. So the release path
+// Kernal KBDisable waits about that long before reading. So the release path
 // has to be effectively instantaneous, and the scan loop has to be able to
-// check for a release request without paying ~4 us per Arduino call.
-// Everything that is not on that path keeps using pinMode/digitalRead.
+// check for a release request without paying ~4 us per Arduino call. And the
+// read-back before a strobe (below) has to be a fraction of a microsecond from
+// the strobe itself. Everything that is not on those paths keeps using
+// pinMode/digitalRead.
 //
 // If the VIA_Px pin defines above ever change, these must change with them.
+//
+// Nothing on either port is ever driven high. The joystick switches ground
+// these same lines with nothing in series, so a line driven high under a held
+// stick is an ATmega output shorted to ground. Every line idles as an input
+// with its pull-up on. A key code goes out open-drain: its 0 bits are driven
+// low and its 1 bits are left to the pull-ups -- the ACE Board's 1k, or on a
+// COB or VCS the helper board's, with the ATmega's own ~20-50k always on too.
+//
+// That makes a held stick visible: a 1 bit it is holding low reads back as 0.
+// So the code is read back before the strobe, and if it does not match, nothing
+// is strobed and the key stays queued until the stick lets go. A key arrives
+// late, never wrong. Two keys held in one row bridge columns through their
+// switches and read back wrong the same way, so that needs no case of its own.
+//
+// After its strobe, a code stays on the port for CODE_HOLD_US, so a program
+// that polls the VIA's flag once a frame rather than taking the interrupt still
+// reads the code and not an idle port (the VIA is not set to latch its input).
+// Only one port holds a code at a time, and the matrix sweep waits for it: the
+// ports are wired to each other through the key switches, so anything driven
+// on one can show up on the other.
 
 // CA2 (PD1) and CB2 (PD5) are the 6502 asking for a port back, active high.
 #define CA2_RELEASE_REQUESTED() (PIND & _BV(PD1))
 #define CB2_RELEASE_REQUESTED() (PIND & _BV(PD5))
 
-// True when the 6502 has asked an encoder that is currently enabled -- and so
-// currently driving a port -- to release it.
+// CA1 (PD0) and CB1 (PD4) are the strobes. The VIA raises the flag on the
+// falling edge (Kernal InitKB sets both to negative edge).
+#define CA1_STROBE _BV(PD0)
+#define CB1_STROBE _BV(PD4)
+
+// How long a line left to its pull-up is given to rise before it is read. Sized
+// for the weak case -- a port with no external pull-up, charging the bus and a
+// joystick cable through the ATmega's own ~30k -- and it is a physical wait,
+// not an instruction count.
+#define LINE_RISE_US 10
+
+// How long a code stays on the port after its strobe. The Kernal's interrupt
+// handler reads it within ~90 us, but a program that polls the VIA's flag once a
+// frame (Wizards Lab does) reads it up to a frame later. 20 ms covers a frame at
+// 50 or 60 Hz, and still lets fifty keys a second through.
+#define CODE_HOLD_US 20000UL
+
+// A key the sticks are holding back is tried again this often, rather than on
+// every pass of loop(), so the port is not flickering between code and idle.
+#define RETRY_INTERVAL_US 1000UL
+
+// How long a code stays when the 6502 asks for the ports in the same instant
+// it was strobed. See sendCode().
+#define READ_GRACE_US 110
+
+// True when the 6502 has asked an encoder that is currently enabled to release
+// its port.
 static inline bool releaseRequested() {
   return (matrixEnabled && CB2_RELEASE_REQUESTED()) ||
          (ps2Enabled && CA2_RELEASE_REQUESTED());
+}
+
+// The two ports, as sendCode() needs them
+enum HeldPort : uint8_t { HELD_NONE, HELD_A, HELD_B };
+
+struct EncoderPort {
+  volatile uint8_t *ddr;
+  volatile uint8_t *port;
+  volatile uint8_t *pin;
+  uint8_t strobe;   // CA1_STROBE or CB1_STROBE, on PORTD
+  HeldPort id;
+};
+
+static const EncoderPort PS2_PORT    = { &DDRA, &PORTA, &PINA, CA1_STROBE, HELD_A };
+static const EncoderPort MATRIX_PORT = { &DDRB, &PORTB, &PINB, CB1_STROBE, HELD_B };
+
+// The port holding a code, if any, and since when (micros() at its strobe)
+HeldPort heldPort = HELD_NONE;
+unsigned long heldSince = 0;
+
+// A queued key the sticks are holding back, per encoder
+struct KeyWait {
+  bool waiting;
+  unsigned long since;   // micros() at the last attempt
+};
+
+KeyWait ps2Wait = { false, 0 };
+KeyWait matrixWait = { false, 0 };
+
+static inline bool attemptDue(const KeyWait &w) {
+  return !w.waiting || (micros() - w.since >= RETRY_INTERVAL_US);
+}
+
+// Every line an input with its pull-up on. DDR first: a line the code was
+// driving low goes high-impedance (its PORT bit is 0, so no pull-up yet) and
+// then the pull-up comes on. It never passes through driven high.
+static inline void idlePort(const EncoderPort &p) {
+  *p.ddr = 0x00;
+  *p.port = 0xFF;
+}
+
+// A full queue keeps the keys it has and drops the new one: the oldest are the
+// ones typed first, and losing them would scramble what was typed.
+// CircularBuffer's own push() overwrites the oldest instead.
+static inline void queueKey(CircularBuffer<uint8_t, BUFFER_SIZE> &queue, uint8_t key) {
+  if (!queue.isFull()) {
+    queue.push(key);
+  }
+}
+
+enum SendResult : uint8_t { SEND_DONE, SEND_WAIT, SEND_ABANDONED };
+
+// Put one key code on a port and strobe it.
+//   SEND_DONE       strobed; the caller takes the key off its queue
+//   SEND_WAIT       a held stick (or a bridged pair of keys) is pulling one of
+//                   the code's 1 bits low; nothing strobed, try again later
+//   SEND_ABANDONED  the 6502 asked for the ports first; nothing strobed
+SendResult sendCode(const EncoderPort &p, uint8_t code) {
+  if (releaseRequested()) {
+    return SEND_ABANDONED;
+  }
+
+  // Value before direction. While the port is an input, writing PORT only sets
+  // pull-ups: the 1 bits keep theirs and the 0 bits lose theirs. Then the 0
+  // bits become outputs, driving low. A 1 is never driven.
+  *p.port = code;
+  *p.ddr = (uint8_t)~code;
+
+  delayMicroseconds(LINE_RISE_US);
+
+  // Read back and strobe with nothing able to run in between, so a switch that
+  // closes after the read-back has well under a microsecond to do it in.
+  uint8_t sreg = SREG;
+  cli();
+  if (releaseRequested()) {
+    SREG = sreg;
+    idlePort(p);
+    return SEND_ABANDONED;
+  }
+  if (*p.pin != code) {
+    SREG = sreg;
+    idlePort(p);
+    return SEND_WAIT;
+  }
+  PORTD &= ~p.strobe;   // The VIA raises its flag on this edge
+  SREG = sreg;
+
+  heldPort = p.id;
+  heldSince = micros();
+  delayMicroseconds(5);
+  PORTD |= p.strobe;
+
+  // A request already here arrived in the same instant as the strobe: in the
+  // very 6502 instruction that raised CA2/CB2. With interrupts on, the 6502
+  // takes the CA1/CB1 interrupt straight after that instruction, and the
+  // Kernal's handler reads the port 77 (CB1) to 86 (CA1) cycles in -- before
+  // KBDisable's own wait has begun. Letting go now would hand the handler the
+  // released lines, $FF or a stick, as a keystroke. So the code stays until the
+  // handler has read it even at 1 MHz, then the port goes.
+  //
+  // That is up to ~110 us from the request rather than 100, but KBDisable reads
+  // no sooner than ~130 us after its request even at 2 MHz, and later still
+  // when the handler ran first. A request any later than this cannot follow a
+  // strobe with interrupts on -- the 6502 is in the handler -- so only a program
+  // that polls with interrupts off meets it, and it is answered at once.
+  if (releaseRequested()) {
+    while (micros() - heldSince < READ_GRACE_US) {
+    }
+    endHold();
+  }
+
+  return SEND_DONE;
+}
+
+// Let the held code go once it has been on the port for CODE_HOLD_US
+void serviceHold() {
+  if (heldPort != HELD_NONE && (micros() - heldSince >= CODE_HOLD_US)) {
+    endHold();
+  }
+}
+
+void endHold() {
+  if (heldPort == HELD_A) {
+    idlePort(PS2_PORT);
+  } else if (heldPort == HELD_B) {
+    idlePort(MATRIX_PORT);
+  }
+  heldPort = HELD_NONE;
+}
+
+// One attempt at the key at the head of a queue. Returns false if the 6502
+// asked for the ports, in which case the caller must service that at once.
+bool sendNext(const EncoderPort &p, CircularBuffer<uint8_t, BUFFER_SIZE> &queue,
+              KeyWait &wait) {
+  switch (sendCode(p, queue.first())) {
+    case SEND_DONE:
+      // The PS/2 queue is filled from its clock interrupt, and shift() is not
+      // safe against a push() landing half way through it
+      ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+        queue.shift();
+      }
+      wait.waiting = false;
+      return true;
+    case SEND_WAIT:
+      wait.waiting = true;
+      wait.since = micros();
+      return true;
+    case SEND_ABANDONED:
+    default:
+      return false;
+  }
 }
 
 // ============================================================================
@@ -178,13 +377,29 @@ void setup() {
 
   digitalWrite(VIA_CA1, HIGH);
   digitalWrite(VIA_CB1, HIGH);
-  
+
+  // Both ports idle as pulled-up inputs from the start, the state the rest of
+  // the firmware leaves them in. Out of reset they are bare inputs, which float
+  // on a COB or VCS with no helper fitted.
+  idlePort(PS2_PORT);
+  idlePort(MATRIX_PORT);
+
   attachInterrupt(digitalPinToInterrupt(PS2CLK), onInterrupt, FALLING);
+
 }
 
 void loop() {
-  // Bring both encoders into whatever state CA2/CB2 are asking for
+  // Bring both encoders into whatever state CA2/CB2 are asking for, and let a
+  // code go once it has been held long enough
   serviceEncoderEnables();
+  serviceHold();
+
+  // While a code is held, nothing else touches the ports: not the sweep, which
+  // would take them over, and not the other encoder, whose code would reach the
+  // held one through any key that is down.
+  if (heldPort != HELD_NONE) {
+    return;
+  }
 
   // Scan matrix keyboard if enabled. A scan that reports back false was
   // abandoned because the 6502 asked for a port, so service that immediately
@@ -194,28 +409,23 @@ void loop() {
     return;
   }
 
-  // Handle PS/2 keyboard output on Port A. The character is only consumed once
-  // it has actually been strobed, so one abandoned mid-write cannot be lost.
-  if (ps2Enabled && !ps2Buffer.isEmpty()) {
-    if (!writePortA(ps2Buffer.first())) {
+  // PS/2 keyboard output on Port A. A key is only taken off the queue once it
+  // has actually been strobed, so one the sticks hold back, or one abandoned
+  // because the 6502 asked for the ports, is never lost. One that is waiting
+  // does not hold up the other encoder.
+  if (ps2Enabled && !ps2Buffer.isEmpty() && attemptDue(ps2Wait)) {
+    if (!sendNext(PS2_PORT, ps2Buffer, ps2Wait)) {
       serviceEncoderEnables();
       return;
     }
-    ps2Buffer.shift();
-    if (!settleBetweenCharacters()) {
-      serviceEncoderEnables();
+    if (heldPort != HELD_NONE) {
       return;
     }
   }
 
-  // Handle matrix keyboard output on Port B
-  if (matrixEnabled && !matrixBuffer.isEmpty() && !matrixRowConflict()) {
-    if (!writePortB(matrixBuffer.first())) {
-      serviceEncoderEnables();
-      return;
-    }
-    matrixBuffer.shift();
-    if (!settleBetweenCharacters()) {
+  // Matrix keyboard output on Port B
+  if (matrixEnabled && !matrixBuffer.isEmpty() && attemptDue(matrixWait)) {
+    if (!sendNext(MATRIX_PORT, matrixBuffer, matrixWait)) {
       serviceEncoderEnables();
       return;
     }
@@ -244,144 +454,38 @@ void serviceEncoderEnables() {
   }
 }
 
-// The settle gap the 6502 needs between strobes. Spent in short slices with a
-// release check between each, rather than blocking for the whole 100 us, so a
-// request arriving just after a strobe is still answered on time. Returns false
-// if one arrived, in which case the caller must stop what it is doing.
-bool settleBetweenCharacters() {
-  for (uint8_t i = 0; i < 10; i++) {
-    if (releaseRequested()) {
-      return false;
-    }
-    delayMicroseconds(10);
-  }
-  return true;
-}
-
-// When two keys on the same row are held simultaneously, their switches bridge
-// Port B columns through the shared row wire.  This corrupts anything driven on
-// Port B because the ATmega's output drivers fight each other through that
-// path.  Output is deferred until no row has multiple pressed keys.
-bool matrixRowConflict() {
-  for (uint8_t row = 0; row < 8; row++) {
-    uint8_t count = 0;
-    for (uint8_t col = 0; col < 8; col++) {
-      if (matrixKeyState[row][col] >= MATRIX_DEBOUNCE_COUNT) {
-        if (++count >= 2) {
-          return true;
-        }
-      }
-    }
-  }
-  return false;
-}
-
-// Drive a byte onto Port A and strobe CA1. Matrix scanning parks the row lines
-// as inputs, so the direction has to be re-asserted on every write.
-//
-// Returns false if the 6502 asked for the port before the strobe went out, in
-// which case nothing was signalled and the caller must keep the byte queued.
-// This matters more than it looks: BASIC evaluating JOY() disables the encoders
-// every time, so a release landing in the middle of a character write is a
-// routine event rather than a rarity. Strobing a port that is about to be
-// released would leave the 6502's ISR reading joystick lines and buffering them
-// as a keystroke.
-bool writePortA(uint8_t value) {
-  // Nothing has been committed to the wire yet, so bail before touching the
-  // port at all if the 6502 has already asked for it
-  if (releaseRequested()) {
-    return false;
-  }
-
-  // Value before direction: while the port is still an input this only sets
-  // pullups, so the byte is never half-driven on its way out
-  PORTA = value;
-  DDRA = 0xFF;
-
-  if (releaseRequested()) {
-    return false;
-  }
-
-  digitalWrite(VIA_CA1, LOW); // Signal that data is ready
-  delayMicroseconds(5);
-  digitalWrite(VIA_CA1, HIGH);
-  return true;
-}
-
-// Drive a byte onto Port B and strobe CB1. Port A (the row lines) is parked
-// high-impedance first, so a single pressed key cannot short a driven column
-// back into a driven row through its switch. Returns false without strobing if
-// the 6502 asked for the port first -- see writePortA.
-bool writePortB(uint8_t value) {
-  if (releaseRequested()) {
-    return false;
-  }
-
-  // Park the row lines as pulled-up inputs first
-  DDRA = 0x00;
-  PORTA = 0xFF;
-
-  // Value before direction -- see writePortA
-  PORTB = value;
-  DDRB = 0xFF;
-
-  if (releaseRequested()) {
-    return false;
-  }
-
-  digitalWrite(VIA_CB1, LOW); // Signal that data is ready
-  delayMicroseconds(5);
-  digitalWrite(VIA_CB1, HIGH);
-  return true;
-}
-
 void enablePS2() {
+  // Nothing to set up: Port A idles as pulled-up inputs whether or not the
+  // encoder is enabled, and sendCode() takes it only for the length of a code
   ps2Enabled = true;
-
-  // Set Port A as output for PS/2 data. PORTA already reads 0xFF from the
-  // released state, so the lines idle high rather than briefly presenting
-  // whatever was last driven.
-  DDRA = 0xFF;
 }
 
 void disablePS2() {
   ps2Enabled = false;
 
   // Release Port A unconditionally: CA2 going high is the 6502 asking for the
-  // port, and it is not conditional on what the matrix is doing. scanMatrix()
-  // drives the row lines itself and parks them between passes, so there is
-  // nothing here worth preserving for it -- whereas the old `if (!matrixEnabled)`
-  // guard meant that with the matrix enabled this path never let go of Port A
-  // at all.
+  // port, and it is not conditional on what the matrix is doing. A code held
+  // there goes with it.
   //
-  // Parked with the internal pullups on, not bare, because this is exactly the
+  // Left with the internal pull-ups on, not bare, because this is exactly the
   // state the 6502 reads the joysticks in. Only the ACE Board carries the 1k
-  // port pullups itself; on COB and VCS they arrive with a helper board, so a
-  // port with nothing fitted would otherwise float and read as noise instead of
-  // as an untouched stick. ~30k is far too weak to fight a joystick switch, or
-  // a cartridge driving its own matrix rows.
+  // port pull-ups itself; on COB and VCS they arrive with a helper board, so a
+  // port with nothing fitted would otherwise float and read as noise instead
+  // of as an untouched stick. ~30k is far too weak to fight a joystick switch,
+  // or a cartridge driving its own matrix rows.
   //
   // Straight at the registers: this is the tail of the release path the 6502
   // waits on, and eight pinMode() calls would add ~36 us to it for no reason.
-  DDRA = 0x00;
-  PORTA = 0xFF;
+  if (heldPort == HELD_A) {
+    endHold();
+  }
+  idlePort(PS2_PORT);
 }
 
 void enableMatrix() {
+  // Nothing to set up here either: both ports idle as pulled-up inputs, and the
+  // sweep and sendCode() take them only while they need them.
   matrixEnabled = true;
-
-  // Port B carries column reading and data output; idle driving high
-  PORTB = 0xFF;
-  DDRB = 0xFF;
-
-  // Port A is left as pulled-up inputs rather than driven. scanMatrix() takes
-  // it a row at a time and writePortB() parks it, so nothing here needs it as
-  // an output -- and driving it would put either all rows high against a
-  // joystick holding one low, or all rows low against the columns.
-  if (!ps2Enabled) {
-    DDRA = 0x00;
-    PORTA = 0xFF;
-  }
 
   // matrixScanRow is deliberately left alone: a sweep abandoned when the 6502
   // took the ports resumes from the row it stopped on, as scanMatrix() intends.
@@ -393,17 +497,17 @@ void enableMatrix() {
 void disableMatrix() {
   matrixEnabled = false;
 
-  // Release Port B, parked with the internal pullups on so the 6502 reads an
-  // untouched stick as all-ones even on a board with no external pullups
-  // fitted, and straight at the registers so the release is immediate (see
-  // disablePS2 for both).
-  DDRB = 0x00;
-  PORTB = 0xFF;
+  // Release Port B, with a code held there, left with the internal pull-ups on
+  // so the 6502 reads an untouched stick as all-ones even on a board with no
+  // external pull-ups fitted (see disablePS2 for both)
+  if (heldPort == HELD_B) {
+    endHold();
+  }
+  idlePort(MATRIX_PORT);
 
-  // Release Port A too if PS/2 is not using it
+  // Release Port A too if PS/2 is not using it. The sweep drives its rows.
   if (!ps2Enabled) {
-    DDRA = 0x00;
-    PORTA = 0xFF;
+    idlePort(PS2_PORT);
   }
 }
 
@@ -411,21 +515,12 @@ void disableMatrix() {
 // Matrix Keyboard Scanning
 // ============================================================================
 
-// Put the ports back where the rest of the firmware expects them when a scan is
-// abandoned part way through. The row lines are only ever driven during a scan
-// so they are always safe to drop; the columns are only released if Port B is
-// what the 6502 actually asked for, otherwise they go back to idling high.
+// Put the ports back to idle when a scan is abandoned part way through. The
+// row lines are only ever driven during a scan, and the columns are only ever
+// read, so both are always safe to drop.
 static inline void abandonScanPorts() {
-  DDRA = 0x00;    // Rows -> input, pullups on
-  PORTA = 0xFF;
-
-  if (CB2_RELEASE_REQUESTED()) {
-    DDRB = 0x00;  // Columns -> input, pullups on; the 6502 wants Port B
-    PORTB = 0xFF;
-  } else {
-    PORTB = 0xFF; // Columns -> back to driving idle high
-    DDRB = 0xFF;
-  }
+  idlePort(PS2_PORT);      // Rows
+  idlePort(MATRIX_PORT);   // Columns
 }
 
 // Scan the keyboard matrix for key presses. Returns false if the sweep was
@@ -446,6 +541,10 @@ bool scanMatrix() {
     }
     matrixLastScan = currentTime;
   }
+
+  // Columns are inputs with their pull-ups for the whole sweep. They already
+  // idle that way; this only makes sure of it.
+  idlePort(MATRIX_PORT);
 
   // Phase 1: Scan all rows, update debounce state only.
   //
@@ -473,20 +572,16 @@ bool scanMatrix() {
     // Drive only the active row LOW; all others high-Z with their pullups off,
     // so no current leaks through pressed keys on inactive rows (ghosting).
     // PORT before DDR, always: enabling the driver first would briefly put the
-    // previous contents of PORTA onto lines a joystick may be holding low.
+    // previous contents of PORTA onto lines a joystick may be holding low. Low
+    // is the only level a row is ever driven to, so a stick holding that same
+    // line is harmless.
     PORTA = 0x00;
     DDRA = rowBit;
-
-    if (releaseRequested()) { matrixScanRow = row; abandonScanPorts(); return false; }
-
-    // Columns to inputs with pullups for reading
-    DDRB = 0x00;
-    PORTB = 0xFF;
 
     // Small delay to let signals stabilize. Sized for the weak case -- a port
     // with no external pullup fitted, charging the bus through the ~30k
     // internal one -- and it is a physical wait, not an instruction count.
-    delayMicroseconds(10);
+    delayMicroseconds(LINE_RISE_US);
 
     if (releaseRequested()) { matrixScanRow = row; abandonScanPorts(); return false; }
 
@@ -519,17 +614,12 @@ bool scanMatrix() {
 
     // This row's debounce update is complete, so resume from the next one
     if (releaseRequested()) { matrixScanRow = row + 1; abandonScanPorts(); return false; }
-
-    // Restore columns to driving idle high, ready for data transmission
-    PORTB = 0xFF;
-    DDRB = 0xFF;
   }
 
   matrixScanRow = 0;  // Sweep complete
 
   // Release all row lines after scanning, pullups on
-  DDRA = 0x00;
-  PORTA = 0xFF;
+  idlePort(PS2_PORT);
 
   // Phase 2: Update modifier states from current debounce results
   matrixShiftPressed = (matrixKeyState[5][4] >= MATRIX_DEBOUNCE_COUNT);
@@ -545,7 +635,7 @@ bool scanMatrix() {
       if (keyPressed && !keyWasPressed) {
         uint8_t ascii = mapMatrixToAscii(row, col);
         if (ascii != 0xFF && ascii != 0xFE) {  // 0xFF = no key, 0xFE = modifier
-          matrixBuffer.push(ascii);
+          queueKey(matrixBuffer, ascii);
         }
       }
       
@@ -571,30 +661,22 @@ bool scanMatrix() {
 //
 // This exists solely to keep the sticks out of the matrix scan; nothing is
 // reported to the 6502, which reads the sticks itself under KBDisable. It
-// piggybacks on a window the firmware already opens -- scanMatrix() puts Port B
-// into INPUT_PULLUP and back eight times a sweep already -- so it adds no new
-// class of port disturbance, and costs ~10 us once per scan interval.
+// costs ~10 us once per scan interval, in the idle state the ports are left in
+// anyway.
 //
 // Internal pullups rather than bare inputs, deliberately: only the ACE Board
 // carries the 1k port pullups itself. On COB they arrive with the Joystick or
 // Keyboard Helper and on VCS with a helper board on the port header, so a
 // legitimately assembled machine can have none fitted at all.
 void sampleJoystickMasks() {
-  DDRA = 0x00;   // JOYSTICK A / matrix rows    -> input, pullups on
-  PORTA = 0xFF;
-  DDRB = 0x00;   // JOYSTICK B / matrix columns -> input, pullups on
-  PORTB = 0xFF;
+  idlePort(PS2_PORT);      // JOYSTICK A / matrix rows
+  idlePort(MATRIX_PORT);   // JOYSTICK B / matrix columns
 
-  delayMicroseconds(10);
+  delayMicroseconds(LINE_RISE_US);
 
   // Switches close to ground, so a line reading low is one being held
   joyRowMask = ~PINA;
   joyColMask = ~PINB;
-
-  // Rows stay parked as pulled-up inputs; columns go back to driving idle high,
-  // which is the state the rest of the firmware expects between sweeps.
-  PORTB = 0xFF;
-  DDRB = 0xFF;
 }
 
 // Map matrix position to ASCII code based on modifiers
@@ -748,7 +830,7 @@ void ps2ToAscii(uint8_t scancode) {
   // Handle make codes (key presses)
   switch (scancode) {
     case 0x0D: // Tab
-      ps2Buffer.push(0x09);
+      queueKey(ps2Buffer, 0x09);
       return;
     case 0x12: // Left Shift
     case 0x59: // Right Shift
@@ -764,49 +846,49 @@ void ps2ToAscii(uint8_t scancode) {
       if (extendedCodeNext) {
         extendedCodeNext = false;
       }
-      ps2Buffer.push(0x0D);
+      queueKey(ps2Buffer, 0x0D);
       return;
     case 0x66: // Backspace
-      ps2Buffer.push(0x08);
+      queueKey(ps2Buffer, 0x08);
       return;
     case 0x6B: // Left Arrow (E0 6B)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x1C);
+        queueKey(ps2Buffer, 0x1C);
       }
       return;
     case 0x70: // Insert (E0 70)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x1A);
+        queueKey(ps2Buffer, 0x1A);
       }
       return;
     case 0x71: // Delete (E0 71)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x7F);
+        queueKey(ps2Buffer, 0x7F);
       }
       return;
     case 0x72: // Down Arrow (E0 72)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x1F);
+        queueKey(ps2Buffer, 0x1F);
       }
       return;
     case 0x74: // Right Arrow (E0 74)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x1D);
+        queueKey(ps2Buffer, 0x1D);
       }
       return;
     case 0x75: // Up Arrow (E0 75)
       if (extendedCodeNext) {
         extendedCodeNext = false;
-        ps2Buffer.push(0x1E);
+        queueKey(ps2Buffer, 0x1E);
       }
       return;
     case 0x76: // Escape
-      ps2Buffer.push(0x1B);
+      queueKey(ps2Buffer, 0x1B);
       return;
     // Ignored keys: F-keys, Alt, GUI, CapsLock, navigation, keypad
     case 0x01: case 0x03: case 0x04: case 0x05: case 0x06:
@@ -830,100 +912,100 @@ void ps2ToAscii(uint8_t scancode) {
   if (ctrlPressed) {
     switch (scancode) {
       case 0x1E: // 2 or @
-        ps2Buffer.push(0x00); // NULL
+        queueKey(ps2Buffer, 0x00); // NULL
         return;
       case 0x1C: // A
-        ps2Buffer.push(0x01); // SOH
+        queueKey(ps2Buffer, 0x01); // SOH
         return;
       case 0x32: // B
-        ps2Buffer.push(0x02); // STX
+        queueKey(ps2Buffer, 0x02); // STX
         return;
       case 0x21: // C
-        ps2Buffer.push(0x03); // ETX
+        queueKey(ps2Buffer, 0x03); // ETX
         return;
       case 0x23: // D
-        ps2Buffer.push(0x04); // EOT
+        queueKey(ps2Buffer, 0x04); // EOT
         return;
       case 0x24: // E
-        ps2Buffer.push(0x05); // ENQ
+        queueKey(ps2Buffer, 0x05); // ENQ
         return;
       case 0x2B: // F
-        ps2Buffer.push(0x06); // ACK
+        queueKey(ps2Buffer, 0x06); // ACK
         return;
       case 0x34: // G
-        ps2Buffer.push(0x07); // BEL
+        queueKey(ps2Buffer, 0x07); // BEL
         return;
       case 0x33: // H
-        ps2Buffer.push(0x08); // BS
+        queueKey(ps2Buffer, 0x08); // BS
         return;
       case 0x43: // I
-        ps2Buffer.push(0x09); // HT
+        queueKey(ps2Buffer, 0x09); // HT
         return;
       case 0x3B: // J
-        ps2Buffer.push(0x0A); // LF
+        queueKey(ps2Buffer, 0x0A); // LF
         return;
       case 0x42: // K
-        ps2Buffer.push(0x0B); // VT
+        queueKey(ps2Buffer, 0x0B); // VT
         return;
       case 0x4B: // L
-        ps2Buffer.push(0x0C); // FF
+        queueKey(ps2Buffer, 0x0C); // FF
         return;
       case 0x3A: // M
-        ps2Buffer.push(0x0D); // CR
+        queueKey(ps2Buffer, 0x0D); // CR
         return;
       case 0x31: // N
-        ps2Buffer.push(0x0E); // SO
+        queueKey(ps2Buffer, 0x0E); // SO
         return;
       case 0x44: // O
-        ps2Buffer.push(0x0F); // SI
+        queueKey(ps2Buffer, 0x0F); // SI
         return;
       case 0x4D: // P
-        ps2Buffer.push(0x10); // DLE
+        queueKey(ps2Buffer, 0x10); // DLE
         return;
       case 0x15: // Q
-        ps2Buffer.push(0x11); // DC1
+        queueKey(ps2Buffer, 0x11); // DC1
         return;
       case 0x2D: // R
-        ps2Buffer.push(0x12); // DC2
+        queueKey(ps2Buffer, 0x12); // DC2
         return;
       case 0x1B: // S
-        ps2Buffer.push(0x13); // DC3
+        queueKey(ps2Buffer, 0x13); // DC3
         return;
       case 0x2C: // T
-        ps2Buffer.push(0x14); // DC4
+        queueKey(ps2Buffer, 0x14); // DC4
         return;
       case 0x3C: // U
-        ps2Buffer.push(0x15); // NAK
+        queueKey(ps2Buffer, 0x15); // NAK
         return;
       case 0x2A: // V
-        ps2Buffer.push(0x16); // SYN
+        queueKey(ps2Buffer, 0x16); // SYN
         return;
       case 0x1D: // W
-        ps2Buffer.push(0x17); // ETB
+        queueKey(ps2Buffer, 0x17); // ETB
         return;
       case 0x22: // X
-        ps2Buffer.push(0x18); // CAN
+        queueKey(ps2Buffer, 0x18); // CAN
         return;
       case 0x35: // Y
-        ps2Buffer.push(0x19); // EM
+        queueKey(ps2Buffer, 0x19); // EM
         return;
       case 0x1A: // Z
-        ps2Buffer.push(0x1A); // SUB
+        queueKey(ps2Buffer, 0x1A); // SUB
         return;
       case 0x54: // [
-        ps2Buffer.push(0x1B); // ESC
+        queueKey(ps2Buffer, 0x1B); // ESC
         return;
       case 0x5D: // "\"
-        ps2Buffer.push(0x1C); // FS (LEFT)
+        queueKey(ps2Buffer, 0x1C); // FS (LEFT)
         return;
       case 0x5B: // ]
-        ps2Buffer.push(0x1D); // GS (RIGHT)
+        queueKey(ps2Buffer, 0x1D); // GS (RIGHT)
         return;
       case 0x36: // 6 or ^
-        ps2Buffer.push(0x1E); // RS (UP)
+        queueKey(ps2Buffer, 0x1E); // RS (UP)
         return;
       case 0x4E: // - or _
-        ps2Buffer.push(0x1F); // US (DOWN)
+        queueKey(ps2Buffer, 0x1F); // US (DOWN)
         return;
     }
     return;
@@ -975,6 +1057,6 @@ void ps2ToAscii(uint8_t scancode) {
   }
   
   if (result != 0) {
-    ps2Buffer.push(result);
+    queueKey(ps2Buffer, result);
   }
 }

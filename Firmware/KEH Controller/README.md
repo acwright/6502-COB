@@ -14,6 +14,7 @@ The KEH (Keyboard Encoder Helper) Controller is firmware for the ATmega1284 micr
 - **Debounced Matrix Scanning**: Hardware debouncing for reliable matrix keyboard operation
 - **Enable/Disable Control**: Independent enable signals for PS/2 and matrix inputs
 - **Shared Joystick Ports**: Releases PORT A / PORT B when disabled so the 6502 can read the two Atari 2600-compatible joysticks that share those ports
+- **Open-Drain Key Codes**: Never drives a port line high, so a held joystick can't short an output or change a key; a key it would change waits until the stick is released
 
 ## Hardware Connections
 
@@ -104,7 +105,8 @@ The ports are **active low** — every line is pulled high and grounded by the
 stick's switch — so a held button reads `0` and an untouched stick reads `$FF`.
 
 This is the firmware's obligation in the joystick path: when `CA2` or `CB2`
-goes high, it releases the corresponding port within 100 µs so the 6502 can
+goes high, it releases the corresponding port within 100 µs (with one
+exception, in [Sending a key code](#sending-a-key-code)) so the 6502 can
 read the stick directly — the same arrangement a C64 has with a CIA port.
 `disablePS2()` releases PORT A and `disableMatrix()` releases PORT B, both by
 returning the pins to `INPUT_PULLUP` rather than bare `INPUT`. That matters
@@ -124,17 +126,15 @@ when the encoder is enabled again. Earlier builds restarted the sweep on every
 re-enable, so a program that reads a joystick back to back never finished a
 sweep and the matrix keyboard sent nothing while it ran. The same change was
 tested on the ACE's AB Controller (2026-11-21); **it has not yet been tried on a
-COB.** That session also found, on the ACE, that a key typed while joystick 1
-holds a direction arrives with that line's bit cleared, since the stick grounds
-the PORT B line the encoder drives the key code onto. This firmware drives its
-ports the same way; whether a COB build shows it hasn't been checked.
+COB.**
 
 **Measured release latency: to be measured later.** This is the figure the
 BIOS's `KBDisable` settle wait is sized against. Cycle-counting the compiled
-firmware puts the worst-case code path at ~17 µs against a 100 µs budget, but
-that excludes a PS/2 interrupt landing in the window and says nothing about how
-long the bus takes to charge through a pull-up, so the published number comes
-from a scope.
+firmware put the worst-case code path at ~17 µs against a 100 µs budget
+before key codes went out open-drain, which adds a 10 µs wait for the lines to
+rise to one path. That count excludes a PS/2 interrupt landing in the window
+and says nothing about how long the bus takes to charge through a pull-up, so
+the published number comes from a scope.
 
 ## Keyboard Matrix Layout
 
@@ -181,6 +181,49 @@ When VIA_CB2 (Pin 13) is pulled LOW:
 
 ### Dual Mode
 Both keyboards can operate simultaneously if both enable signals are active.
+
+### Sending a key code
+The joysticks' switches ground the same PORT A and PORT B lines the key codes
+go out on, with nothing in series. So the firmware never drives a port line
+high: a held stick would short that output to ground. Whenever it isn't sending
+a code, both ports are inputs with their pull-ups on.
+
+A key code goes out open-drain. The firmware drives the code's 0 bits low,
+leaves its 1 bits to the pull-ups, and reads the port back. If the port reads
+as the code, the firmware pulses `CA1` (PS/2) or `CB1` (matrix) low, less than a
+microsecond after the read. If it doesn't, a held stick is pulling one of the
+code's 1 bits low, and nothing is sent: the key stays queued and is tried again
+every millisecond until the stick lets go. **A key typed with a stick held
+arrives late, never wrong.** Which keys wait depends on which line is held. With
+left held (bit 6) every letter waits; with right held (bit 7) nothing does, since
+no key code sets bit 7. Keys typed after a waiting key wait behind it, so they
+arrive in the order they were typed. Two keys held in one matrix row bridge
+their columns and read back wrong in the same way, so they wait in the same way.
+
+After the strobe the code stays on the port for 20 ms, unless the 6502 asks for
+the port first. The Kernal's interrupt handler reads it within about 90 µs, but
+a program that polls the VIA's interrupt flag once a frame reads it up to a
+frame later, and the VIA isn't set to latch its input. Only one port holds a
+code at a time, and the matrix sweep waits until it's released, so each key
+takes at least 20 ms: about fifty keys a second.
+
+There's one exception to the 100 µs release. When `KBDisable` raises `CA2` and
+`CB2` in the same instant as a strobe, the 6502 takes the keyboard interrupt
+straight after, and the Kernal's handler reads the port 77 (matrix) to 86
+(PS/2) cycles later, before `KBDisable` has begun its wait. The firmware keeps
+the code on the port for 110 µs from the strobe, so the handler reads the key.
+Earlier builds let go at once, which would hand the handler the released lines,
+`$FF` or a stick's state, as a keystroke. `KBDisable` reads the port no sooner
+than about 130 µs after its request, even at 2 MHz.
+
+Each keyboard's queue holds 16 keys. When it's full, a new key is dropped and
+the keys already queued are kept.
+
+Keys in a matrix row or column that a stick holds low can't be scanned while
+it's held, because every key there would read as pressed, so the sweep skips
+them. A key pressed and released in that time isn't seen.
+
+**Not yet tried on a COB.**
 
 ### Joystick Reads
 When an enable signal goes HIGH the firmware releases that port so the joystick
