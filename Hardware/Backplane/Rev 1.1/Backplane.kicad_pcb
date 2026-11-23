@@ -3368,7 +3368,7 @@
 			(uuid "87daa5c7-2343-469b-9e88-51fa231e85b8")
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.5 1.5)
 					(thickness 0.3)
 				)
 			)
@@ -3380,38 +3380,34 @@
 			(uuid "71e8ac56-e87b-4c2b-93e6-1bcdc1750e8d")
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.5 1.5)
 					(thickness 0.3)
 				)
 			)
 		)
 		(property "Datasheet" ""
 			(at 0 0 180)
-			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "026c771d-d367-4e20-9c45-06f86319a4f3")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
 		(property "Description" ""
 			(at 0 0 180)
-			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "38419771-856a-423c-b794-02ce2da917ba")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
-		(attr through_hole board_only exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts

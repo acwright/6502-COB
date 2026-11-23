@@ -2310,7 +2310,7 @@
 			(uuid "ca562c5f-a34e-4b65-b7f6-93d90b34d205")
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.5 1.5)
 					(thickness 0.3)
 				)
 			)
@@ -2322,38 +2322,34 @@
 			(uuid "349bcc43-af82-4e49-a426-ab6d8c468e1f")
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.5 1.5)
 					(thickness 0.3)
 				)
 			)
 		)
 		(property "Datasheet" ""
 			(at 0 0 90)
-			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "fe977191-ed88-4133-9064-f1818e6d8f71")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
 		(property "Description" ""
 			(at 0 0 90)
-			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2137fbd1-214b-493a-a676-cd02fbaac3e5")
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
-		(attr through_hole board_only)
+		(attr board_only exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
 			(pts
