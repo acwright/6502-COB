@@ -8,7 +8,7 @@ built-in flash drive when not.
 Version 1.0.0. `SCP Controller.uf2`, in this folder, is the build to flash.
 
 > **Untested on a card.** No Storage Card Pro 1.1 has been made yet, so this firmware hasn't answered a real 6502.
-> The controller's logic is tested on the Mac, against the stock BIOS 1.7 and 2.1.0 in an emulator. On Pico 2 test
+> The controller's logic is tested on the Mac, against the stock BIOS 1.8 and 2.2.0 in an emulator. On Pico 2 test
 > rigs its bus is timed, its SD card and flash drivers run on real media, and the stock BIOS runs against it, both
 > on real media and through its bus (`tests/bench/`, where the measured times are).
 
@@ -169,7 +169,7 @@ The build stamps the version and a hash of the sources into the `.uf2`. After ch
 | `rp2350/` | The RP2350 side: the bus program, the SD card and flash drivers, start-up, and the header for each build's pins in `boards/` |
 | `tests/unit/` | The unit tests |
 | `tests/bench/` | The Pico 2 test rigs: the wiring, the measured times, and `rig.py`, which drives the rig builds' test consoles |
-| `tests/bios/` | The stock BIOS 1.7 and 2.1.0 running against the core in a 65C02 emulator, with `cffs` checking the disk format; see its README |
+| `tests/bios/` | The stock BIOS 1.8 and 2.2.0 running against the core in a 65C02 emulator, with `cffs` checking the disk format; see its README |
 | `cmake/` | The SDK's fetch, and the source hash the build stamps into the firmware |
 
 ## License

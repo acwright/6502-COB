@@ -44,15 +44,15 @@ firmware's first instruction (`tests/bench/README.md`).
 
 - `test_bios` runs every case on one ROM, at 1 MHz and 2 MHz, and ends with the table of busy times against the
   BIOS's wait. That wait is 65,536 polls of 13 cycles: 852 ms at 1 MHz and 426 ms at 2 MHz. CTest runs it on
-  both ROMs (`bios_1.7`, `bios_2.1.0`).
+  both ROMs (`bios_1.8`, `bios_2.2.0`).
 - `cffs_interop.py` checks the disk format against [cffs](https://github.com/acwright/cffs), whose images are the
   format's reference. An image cffs writes is read through the BIOS, and files the BIOS saves, on the SD card and
   on the built-in drive, list and extract with cffs. CTest runs it when `cffs` and Python 3 are on the PATH
-  (`cffs_1.7`, `cffs_2.1.0`).
+  (`cffs_1.8`, `cffs_2.2.0`).
 - `bios_cli` runs the machine from the command line, for trying things by hand:
 
   ```sh
-  build/host/tests/bios/bios_cli tests/bios/roms/BIOS-2.1.0.bin '10 PRINT "HI"' 'SAVE "HI"' 'DIR'
+  build/host/tests/bios/bios_cli tests/bios/roms/BIOS-2.2.0.bin '10 PRINT "HI"' 'SAVE "HI"' 'DIR'
   ```
 
 ## On a rig: the real media, the real bus
@@ -67,8 +67,8 @@ sector in one round trip, so a run of both ROMs takes seconds.
   timing run there, and end with the real media's longest busy times:
 
   ```sh
-  build/host/tests/bios/test_bios tests/bios/roms/BIOS-2.1.0.bin --rig auto
-  python3 tests/bios/cffs_interop.py --cli build/host/tests/bios/bios_cli --rom tests/bios/roms/BIOS-2.1.0.bin --rig auto
+  build/host/tests/bios/test_bios tests/bios/roms/BIOS-2.2.0.bin --rig auto
+  python3 tests/bios/cffs_interop.py --cli build/host/tests/bios/bios_cli --rom tests/bios/roms/BIOS-2.2.0.bin --rig auto
   ```
 
   `bios_cli` takes `--rig`, `--no-card`, `--put FILE` (an image onto the medium, through the controller) and
@@ -90,8 +90,8 @@ was rebuilt from its tag with `make` and matched the binary tracked there byte f
 
 | File | For | Tag | Commit | SHA-256 |
 |---|---|---|---|---|
-| `roms/BIOS-1.7.bin` | the COB (Storage Card Pro) | `v1.7` | `387d29d` | `49be5865bde74220f37ad10bd773619b17f052b37c89f79c1a3564b7da51d799` |
-| `roms/BIOS-2.1.0.bin` | the ACE (ACE SD Adapter) | `v2.1.0` | `6f9e137` | `991ba3c258caec56824ef46ed9dbae5224d824f292cc6a41de9c9e4bf79e8543` |
+| `roms/BIOS-1.8.bin` | the COB (Storage Card Pro) | `v1.8` | `932021a` | `0343d53e8f073cd515e67fbfd344641d1a5a35d5f903bbdd69564e97d4a3aa51` |
+| `roms/BIOS-2.2.0.bin` | the ACE (ACE SD Adapter) | `v2.2.0` | `1603ed1` | `ff71d4182e9810932205645383e831dc50f5c2f84edeec5512dc42f351b62181` |
 
 To take a new BIOS, copy its `BIOS.bin` here under its version and add it to the `foreach` in `CMakeLists.txt`.
 

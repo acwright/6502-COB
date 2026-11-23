@@ -13,10 +13,10 @@ target_link_libraries(bios_machine PUBLIC fw_core vrEmu6502 PRIVATE fw_warnings)
 add_executable(bios_cli bios_cli.c)
 target_link_libraries(bios_cli PRIVATE bios_machine fw_warnings)
 
-# Every case on each ROM: BIOS 1.7 (the COB's) and BIOS 2.1.0 (the ACE's).
+# Every case on each ROM: BIOS 1.8 (the COB's) and BIOS 2.2.0 (the ACE's).
 add_executable(test_bios test_bios.c)
 target_link_libraries(test_bios PRIVATE bios_machine fw_warnings)
-foreach(version 1.7 2.1.0)
+foreach(version 1.8 2.2.0)
     add_test(NAME bios_${version} COMMAND test_bios ${CMAKE_CURRENT_LIST_DIR}/roms/BIOS-${version}.bin)
 endforeach()
 
@@ -24,7 +24,7 @@ endforeach()
 find_program(FW_CFFS cffs)
 find_package(Python3 COMPONENTS Interpreter)
 if(FW_CFFS AND Python3_FOUND)
-    foreach(version 1.7 2.1.0)
+    foreach(version 1.8 2.2.0)
         add_test(NAME cffs_${version}
                  COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_LIST_DIR}/cffs_interop.py
                          --cli $<TARGET_FILE:bios_cli> --rom ${CMAKE_CURRENT_LIST_DIR}/roms/BIOS-${version}.bin)

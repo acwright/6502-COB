@@ -45,7 +45,7 @@ static machine_t *boot(machine_config_t cfg, double mhz)
     if (!cfg.boot_us)
         cfg.boot_us = 250000;
     machine_t *m = machine_new(&cfg, NULL);
-    // BIOS 1.7 waits about 5 s at its ENTER=BASIC/ESC=MONITOR menu before going on.
+    // BIOS 1.x waits about 5 s at its ENTER=BASIC/ESC=MONITOR menu before going on.
     if (!machine_wait(m, 0, "\r\nOK\r\n", 10)) {
         fprintf(stderr, "%s at %g MHz: no prompt after boot:\n%s\n", rom_name, mhz, m->out);
         machine_free(m);
