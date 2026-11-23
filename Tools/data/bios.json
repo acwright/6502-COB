@@ -255,9 +255,9 @@
   "revs": [
    "1.1"
   ],
-  "category": "after a step",
-  "reason": "Its DS1501 is the chip inside the DS1511Y, so the BIOS finds the clock and its battery-backed RAM in the host board's socket, at IO 3 (`$8800`). The step: clear the DS1501's Crystal Select bit once ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); the build notes in [BOM.md](BOM.md#build-notes) have the `POKE`. Not yet built: its label is in [Which revision to make](#which-revision-to-make).",
-  "source": "DS1501/DS1511 datasheet; BIOS 1.x `Kernal.asm` `ProbeRTC`"
+  "category": "compatible",
+  "reason": "Its DS1501 is the chip inside the DS1511Y, so the BIOS finds the clock and its battery-backed RAM in the host board's socket, at IO 3 (`$8800`). Use BIOS 1.8 or 2.2.0 or later, which clear the DS1501's Crystal Select bit at every boot ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); an older BIOS leaves it as the chip powered up, and set it runs the clock slow. Not yet built: its label is in [Which revision to make](#which-revision-to-make).",
+  "source": "DS1501/DS1511 datasheet; BIOS 1.x and 2.x `Kernal.asm` `ProbeRTC`"
  },
  {
   "repo": "COB",
@@ -267,7 +267,7 @@
    "1.1"
   ],
   "category": "compatible",
-  "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. Any revision also takes the RTC Adapter, and Rev 1.1 a DS1501 at U1: with either, clear its Crystal Select bit once ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); the build notes in [BOM.md](BOM.md#build-notes) have the `POKE`.",
+  "reason": "Its DS1511Y answers in IO 3 (`$8800`), where the BIOS looks for the clock and its battery-backed RAM. Any revision also takes the RTC Adapter, and Rev 1.1 a DS1501 at U1: either needs BIOS 1.8 or 2.2.0 or later, which clears the DS1501's Crystal Select bit ([6502-BIOS #4](https://github.com/acwright/6502-BIOS/issues/4)); see the build notes in [BOM.md](BOM.md#build-notes).",
   "source": "BIOS 1.x `Kernal.asm` `ProbeRTC`"
  },
  {
