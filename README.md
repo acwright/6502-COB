@@ -229,7 +229,7 @@ Each revision carries one of three labels:
 | Keyboard Helper | 1.1 | **Proven design** | JLCPCB's marker removed and the logo moved; silkscreen only. |
 | LCD Card | 1.1 | **Proven design** | The bare card edge only. |
 | Mega Helper | 1.1 | **Proven design** | JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only. |
-| Memory Card | 1.1 | **Proven design** | The bare card edge, and a 74HCT00 at U5. |
+| Memory Card | 1.1 | **Proven design** | The bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE. |
 | PS2 Helper | 1.1 | **Proven design** | Resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines. |
 | Prototype Card | 1.1 | **Proven design** | The bare card edge only. |
 | RAM Card | 1.1 | **Proven design** | The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window. |

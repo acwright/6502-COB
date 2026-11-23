@@ -56,7 +56,7 @@ Every revision of every board in this repository, and what is known about each. 
 | Mega Helper | 1.0 | Made, matches order | **Tested** | Y81 | 2026-01-10 | `affcc47` | 3 | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Mega Helper | 1.1 | Drawn | **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only |  |  |  | — | in footprint | — | — | — | symbol has pins the footprint lacks: Arduino header pins |
 | Memory Card | 1.0 | Made, matches order | **Tested** | Y20 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
-| Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge, and a 74HCT00 at U5 |  |  |  | — | 100×57.62 | — | — | — |  |
+| Memory Card | 1.1 | Drawn | **Proven design**: the bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE |  |  |  | — | 100×57.62 | — | — | — | 2 unconnected; zip differs from PCB: gtl 2 |
 | PS2 Helper | 1.0 | Made, matches order | **Tested** | Y61 | 2025-10-06 | `0969243` | 4 | 100×50 | 5.32–6.25 mm | yes | yes |  |
 | PS2 Helper | 1.1 | Drawn | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |  |  |  | — | 100×50 | 6 mm | yes | yes |  |
 | Prototype Card | 1.0 | Made, matches order | **Tested** | Y22 | 2024-04-03 | `da975a6` | 4 | 100×57.62 | — | — | — |  |
@@ -352,7 +352,8 @@ The backplane carries no decoupling capacitors, as on the other backplanes: ever
 - The card edge is bare: no solder mask on the tab, front or back, from where its fillets end, so the fingers seat better in the slot and make better contact. Rev 1.0 has mask between the fingers. The fingers carry no solder paste, so no stencil prints paste onto them. The outline is redrawn to the one card shape every card shares, placed by the fingers: it moved 0.04 mm from Rev 1.0's, and no track, pad or hole moved. The ground pours are refilled to suit.
 - The silkscreen's revision reads Rev 1.1.
 - U5, the 74HC00 that makes the RAM's and ROM's `RB` and `WB` from `PHI2` and `RWB`, is a 74HCT00 (SN74HCT00DR, LCSC C6764, 2026-11-11). Its TTL input threshold ends `RB` and `WB` a few nanoseconds later after `PHI2` falls. An Alliance AS6C62256 with a fast-releasing 74HC00 lot in this gate misread at 2 MHz; a 74HCT00 there cured it in the ACE, writes included. Rev 1.0 keeps its 74HC00. Same footprint, so no track moved.
-- Nothing else changed: the circuit, tracks and pads are Rev 1.0's.
+- U3's `/OE` (pin 22), the RAM's output enable, comes from inverted `RWB` in place of `RB`, as on the ACE Board 1.1 (owner, 2026-11-23): U5 pin 8, the inverter that already fed `WB`'s gate, now also drives the net `RAEB`. On `RB`, the NAND of `RWB` and `PHI2`, the Alliance AS6C62256 lets go of the data bus as soon as `PHI2` falls, before the W65C02S's 10 ns hold time is up, so under load the CPU can read a 0 bit as 1. On inverted `RWB` the RAM holds its byte to the end of every read. `/WE` stays on `WB` and `/CE` on `A15`. A COB with a Memory Card 1.0 showed the fault on the bench at about 5 V. The fix was tested on an ACE Board Rev 1.0, the same RAM and gate: there it read clean at every supply from 4.5 to 5.24 V at the board, at 1 MHz and 2 MHz, and lost no write in 20 million. The 74HCT00 at U5 stays, as a second safety measure. While the RAM drives the bus with `PHI2` low, nothing else on the card can: the ROM's `/OE` is on `RB`. `TP4` (`READ`) stays on `RB`.
+- Apart from the RAM's output enable, the circuit, tracks and pads are Rev 1.0's.
 
 **Rev 1.0**
 

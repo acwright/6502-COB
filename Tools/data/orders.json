@@ -297,7 +297,7 @@
   ],
   "COB|Memory Card|1.1": [
    "Proven design",
-   "The bare card edge, and a 74HCT00 at U5"
+   "The bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE"
   ],
   "COB|PS2 Helper|1.1": [
    "Proven design",

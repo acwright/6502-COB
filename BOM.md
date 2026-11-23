@@ -59,7 +59,7 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Mega Helper](#mega-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and a 74HCT00 at U5 |
+| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
@@ -96,7 +96,6 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | Breadboard Helper | 1.0 | J1 | Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins. |
 | CPU Card | 1.0 | R1–R6 | Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes. |
 | Memory Card | 1.0 | U3 | Under a heavy load, such as the 1 MB Flash Cart, or at 2 MHz, this AS6C62256 can return a wrong byte from RAM: it lets go of the data bus too early at the end of a read, and the CPU can read a 0 bit as 1. Programs then crash or misbehave. The supply voltage decides how often. In tests, a board with 5.0 V at the RAM read clean, and one with 5.1 V or more failed, so measure the voltage at the board if you see this. A Hitachi HM62256LP-70, no longer made, does not have the problem. |
-| Memory Card | 1.1 | U3 | Under a heavy load, such as the 1 MB Flash Cart, or at 2 MHz, this AS6C62256 can return a wrong byte from RAM: it lets go of the data bus too early at the end of a read, and the CPU can read a 0 bit as 1. Programs then crash or misbehave. The supply voltage decides how often. In tests, a board with 5.0 V at the RAM read clean, and one with 5.1 V or more failed, so measure the voltage at the board if you see this. A Hitachi HM62256LP-70, no longer made, does not have the problem. |
 | PS2 Helper | 1.0 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | PS2 Helper | 1.1 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | RTC Card | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
@@ -1071,7 +1070,7 @@ Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### Memory Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge, and a 74HCT00 at U5.
+Drawn, not made yet. **Proven design**: the bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE.
 
 Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Memory%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Memory%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Memory%20Card/Rev%201.1/mouser-through-hole.csv)
 
