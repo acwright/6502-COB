@@ -599,8 +599,8 @@ void enableMatrix() {
   // matrixScanRow is deliberately left alone: a sweep abandoned when the 6502
   // took the ports resumes from the row it stopped on, as scanMatrix() intends.
   // Resetting it here undid that resume on every re-enable, so a program that
-  // reads a joystick back to back left windows a full sweep never fits in, and
-  // no key was ever sent (found on the ACE's AB Controller, which shares this code).
+  // reads a joystick back to back left ~90 us windows a full sweep never fits
+  // in, and no key was ever sent (found on the ACE's AB Controller, 2026-11-21).
 }
 
 void disableMatrix() {
