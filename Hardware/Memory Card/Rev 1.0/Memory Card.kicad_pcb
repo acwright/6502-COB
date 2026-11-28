@@ -5229,7 +5229,7 @@
 				)
 			)
 		)
-		(property "Value" "AS6C62256"
+		(property "Value" "HM62256LP-70"
 			(at 7.62 35.35 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -5267,7 +5267,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1450-1033-ND"
+		(property "Digikey" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5280,7 +5280,7 @@
 				)
 			)
 		)
-		(property "Mouser" "913-AS6C62256-55PCN"
+		(property "Mouser" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5293,7 +5293,7 @@
 				)
 			)
 		)
-		(property "Jameco" ""
+		(property "Jameco" "82472"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

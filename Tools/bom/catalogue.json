@@ -930,7 +930,7 @@
  "74HC00|DIP-14_W7.62mm": {
   "id": "74HC00|DIP-14_W7.62mm",
   "desc": "74HC00, DIP-14_W7.62mm",
-  "uses": 16,
+  "uses": 18,
   "mpn": "SN74HC00N",
   "mfr": "Texas Instruments",
   "digikey": "296-1563-5-ND",
@@ -946,7 +946,7 @@
  "74HC00|SOIC-14_3.9x8.7mm_P1.27mm": {
   "id": "74HC00|SOIC-14_3.9x8.7mm_P1.27mm",
   "desc": "74HC00, SOIC-14_3.9x8.7mm_P1.27mm",
-  "uses": 13,
+  "uses": 16,
   "mpn": "74HC00D,653",
   "mfr": "Nexperia USA Inc.",
   "digikey": "1727-2773-1-ND",
@@ -959,26 +959,10 @@
   "review": null,
   "jameco": null
  },
- "74HCT00|DIP-14_W7.62mm": {
-  "id": "74HCT00|DIP-14_W7.62mm",
-  "desc": "74HCT00, DIP-14_W7.62mm",
-  "uses": 1,
-  "mpn": "SN74HCT00N",
-  "mfr": "Texas Instruments",
-  "digikey": "296-1603-5-ND",
-  "digikey_stock": 77461,
-  "mouser": "595-SN74HCT00N",
-  "mouser_stock": 2332,
-  "lcsc": null,
-  "other": null,
-  "note": "The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls. The part tested in the ACE's U14.",
-  "review": null,
-  "jameco": null
- },
  "74HCT00|SOIC-14_3.9x8.7mm_P1.27mm": {
   "id": "74HCT00|SOIC-14_3.9x8.7mm_P1.27mm",
   "desc": "74HCT00, SOIC-14_3.9x8.7mm_P1.27mm",
-  "uses": 2,
+  "uses": 1,
   "mpn": "SN74HCT00DR",
   "mfr": "Texas Instruments",
   "digikey": "296-14860-1-ND",
@@ -987,7 +971,7 @@
   "mouser_stock": 736,
   "lcsc": "C6764",
   "other": null,
-  "note": "The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.",
+  "note": "The RB/WB gate: its TTL input thresholds end RB and WB a few ns later after PHI2 falls than a 74HC00's.",
   "review": null,
   "jameco": null
  },
@@ -1426,7 +1410,7 @@
  "AS6C62256|DIP-28_W15.24mm": {
   "id": "AS6C62256|DIP-28_W15.24mm",
   "desc": "AS6C62256, DIP-28_W15.24mm",
-  "uses": 8,
+  "uses": 2,
   "mpn": "AS6C62256-55PCN",
   "mfr": "Alliance Memory, Inc.",
   "digikey": "1450-1033-ND",
@@ -1438,6 +1422,22 @@
   "note": null,
   "review": null,
   "jameco": null
+ },
+ "HM62256LP-70|DIP-28_W15.24mm": {
+  "id": "HM62256LP-70|DIP-28_W15.24mm",
+  "desc": "HM62256LP-70, DIP-28_W15.24mm",
+  "uses": 8,
+  "mpn": "HM62256LP-70",
+  "mfr": "Hitachi",
+  "digikey": null,
+  "digikey_stock": null,
+  "mouser": null,
+  "mouser_stock": null,
+  "lcsc": null,
+  "other": null,
+  "note": "Hitachi HM62256LP-70, out of production: buy it from Jameco. The parts lists order it from 2026-11-28, in place of the Alliance AS6C62256 they ordered before. The Alliance has misread on the family's machines, now and then returning a byte with one bit wrong, so that programs crash or misbehave; the Hitachi hasn't, in testing on the ACE and the KIM.",
+  "review": null,
+  "jameco": "82472"
  },
  "AT27C256|DIP-28_W15.24mm": {
   "id": "AT27C256|DIP-28_W15.24mm",

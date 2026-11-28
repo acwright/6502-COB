@@ -8827,7 +8827,7 @@
 				)
 			)
 		)
-		(property "Value" "74HCT00"
+		(property "Value" "74HC00"
 			(at 0 5.28 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8875,7 +8875,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C6764"
+		(property "LCSC" "C5586"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8888,7 +8888,7 @@
 				)
 			)
 		)
-		(property "Digikey" "296-14860-1-ND"
+		(property "Digikey" "1727-2773-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8901,7 +8901,7 @@
 				)
 			)
 		)
-		(property "Mouser" "595-SN74HCT00DR"
+		(property "Mouser" "771-74HC00D-T"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

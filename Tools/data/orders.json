@@ -297,7 +297,7 @@
   ],
   "COB|Memory Card|1.1": [
    "Proven design",
-   "The bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE"
+   "The bare card edge only"
   ],
   "COB|PS2 Helper|1.1": [
    "Proven design",
@@ -309,7 +309,7 @@
   ],
   "COB|RAM Card|1.1": [
    "Proven design",
-   "The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window"
+   "The ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window and a diode chip select (BAT54s in the BAT85s' place). The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window"
   ],
   "COB|RTC Card|1.1": [
    "Proven design",

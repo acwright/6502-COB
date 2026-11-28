@@ -151,7 +151,7 @@ const Y138 = [15, 14, 13, 12, 11, 10, 9, 7]
 function compile(board) {
   const gates = []
   for (const [ref, value] of board.comps) {
-    const g = GATES[value === '74HCT00' ? '74HC00' : value]
+    const g = GATES[value]
     if (g) {
       for (const [ins, out] of g.units) {
         const o = board.net(ref, out)

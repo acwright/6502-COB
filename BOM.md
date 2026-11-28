@@ -59,13 +59,13 @@ Look on the board: the silk prints the revision next to the copyright line. [REV
 | [Mega Helper](#mega-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Mega Helper](#mega-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: JLCPCB's marker removed, J1's reference resized and the logo moved; silkscreen only |
 | [Memory Card](#memory-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE |
+| [Memory Card](#memory-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [PS2 Helper](#ps2-helper) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [PS2 Helper](#ps2-helper) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: resistors moved and tracks rerouted, mounting holes, silkscreen, and 10k pull-ups on the PS/2 lines, a textbook circuit not yet tried on these lines |
 | [Prototype Card](#prototype-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [Prototype Card](#prototype-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge only |
 | [RAM Card](#ram-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
-| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |
+| [RAM Card](#ram-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window and a diode chip select (BAT54s in the BAT85s' place). The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window |
 | [RTC Adapter](#rtc-adapter) | 1.1 | Rev 1.1 | Drawn, not made yet | **Untested**: a new board: a DS1501 in SOIC and its crystal on a DIP-28 plug, for the DS1511Y's socket on any RTC Card or ACE Board. Not yet made |
 | [RTC Card](#rtc-card) | 1.0 | Rev 1.0 | Made, tested | **Tested** |
 | [RTC Card](#rtc-card) | 1.1 | Rev 1.1 | Drawn, not made yet | **Proven design**: the bare card edge, and JP2 and JP3 removed, wired as Rev 1.0 ships them. The DS1501 option at U1, with its crystal `Y1`, is untested |
@@ -95,7 +95,7 @@ These change what you buy or fit. The boards themselves stay as they were made.
 | Backplane Pro | 1.0 | R3 | Do not fit this. If your board came with it soldered, remove it. See the build notes. |
 | Breadboard Helper | 1.0 | J1 | Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins. |
 | CPU Card | 1.0 | R1–R6 | Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes. |
-| Memory Card | 1.0 | U3 | Under a heavy load, such as the 1 MB Flash Cart, or at 2 MHz, this AS6C62256 can return a wrong byte from RAM: it lets go of the data bus too early at the end of a read, and the CPU can read a 0 bit as 1. Programs then crash or misbehave. The supply voltage decides how often. In tests, a board with 5.0 V at the RAM read clean, and one with 5.1 V or more failed, so measure the voltage at the board if you see this. A Hitachi HM62256LP-70, no longer made, does not have the problem. |
+| Memory Card | 1.0 | U3 | Fit the Hitachi HM62256LP-70 listed here, from Jameco. The Alliance AS6C62256 that this parts list ordered until 2026-11-28 has misread on the family's machines, now and then returning a byte with one bit wrong, so that programs crash or misbehave; the Hitachi hasn't, in testing on the ACE and the KIM. |
 | PS2 Helper | 1.0 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | PS2 Helper | 1.1 | U1 | The MT8808 is out of production, and eBay is the likely source. The Keyboard Encoder Helper is the recommended way to handle a keyboard instead. |
 | RTC Card | 1.0 | BT1 | `BAT-HLD-001-THM`, on the tested boards, is obsolete. `BAT-HLD-001-THM-TR` is its listed continuation, with no stock today and no board built with it yet. |
@@ -194,7 +194,7 @@ How to build each board, where it needs more than its parts list.
 
 **Memory Card**
 
-**Building a Rev 1.0:** nothing to do at 1 MHz, the AC6502's standard clock. Rev 1.1 makes U5, the gate that makes the RAM's and ROM's `RB` and `WB`, a 74HCT00 in place of the 74HC00, because a 74HC00 lot there let an Alliance AS6C62256 misread at 2 MHz on the ACE. A Rev 1.0 is built with the 74HC00 in its parts list, the part it was tested with. A builder who runs the COB faster, at their own risk, can fit a 74HCT00 (SN74HCT00DR) at U5 instead: it is the same footprint, and harmless at 1 MHz. Rev 1.1's other changes need nothing on a built board: its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot, and its silkscreen.
+**Building a Rev 1.0:** nothing to do beyond the parts list, whose RAM at U3 is the Hitachi HM62256LP-70, from Jameco (see [Known issues](#known-issues)). Rev 1.1's changes need nothing on a built board: its card edge has no solder mask on the tab, where a Rev 1.0's masked edge works in the slot, and its silkscreen.
 
 **Prototype Card**
 
@@ -1070,7 +1070,7 @@ Cart files: [digikey.csv](BOM/Mega%20Helper/Rev%201.0/digikey.csv), [mouser.csv]
 
 ### Memory Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the bare card edge, a 74HCT00 at U5, and the RAM's output enable from inverted `RWB`, tested on an ACE.
+Drawn, not made yet. **Proven design**: the bare card edge only.
 
 Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/Memory%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/Memory%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/Memory%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1080,15 +1080,14 @@ Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.1/digikey.csv), [mouser.csv]
 | J2 | 1 | Conn_02x02_Odd_Even | Pin header 2×2, 2.54 mm, cut from a strip | [S2011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S2011EC-40-ND) | [649-67996-140HLF](https://www.mouser.com/ProductDetail/649-67996-140HLF) |  | |
 | J3 | 1 | Conn_02x01 | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
 | R1, R2 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
-| U1, U2 | 2 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
-| U3 | 1 | AS6C62256 | Alliance Memory AS6C62256-55PCN | [1450-1033-ND](https://www.digikey.com/en/products/filter?keywords=1450-1033-ND) | [913-AS6C62256-55PCN](https://www.mouser.com/ProductDetail/913-AS6C62256-55PCN) |  | |
+| U1, U2, U5 | 3 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U3 | 1 | HM62256LP-70 | Hitachi HM62256LP-70 |  |  | [Jameco 82472](https://www.jameco.com/z/HM62256LP-70-HITACHI-IC-62256LP-70-Low-Power-CMOS-SRAM-256K-Bit-32Kx8-70ns_82472.html) | |
 | U4 | 1 | AT28C256 | Microchip Technology AT28C256-15PU | [AT28C256-15PU-ND](https://www.digikey.com/en/products/filter?keywords=AT28C256-15PU-ND) | [556-AT28C25615PU](https://www.mouser.com/ProductDetail/556-AT28C25615PU) |  | |
-| U5 | 1 | 74HCT00 | Texas Instruments SN74HCT00DR | [296-14860-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14860-1-ND) | [595-SN74HCT00DR](https://www.mouser.com/ProductDetail/595-SN74HCT00DR) | LCSC [C6764](https://www.lcsc.com/search?q=C6764) | Yes |
 | U3, U4 | 2 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
 
-- **U5:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
+- **U3:** Hitachi HM62256LP-70, out of production: buy it from Jameco. The parts lists order it from 2026-11-28, in place of the Alliance AS6C62256 they ordered before. The Alliance has misread on the family's machines, now and then returning a byte with one bit wrong, so that programs crash or misbehave; the Hitachi hasn't, in testing on the ACE and the KIM.
 
 ### Memory Card Rev 1.0
 
@@ -1103,11 +1102,13 @@ Cart files: [digikey.csv](BOM/Memory%20Card/Rev%201.0/digikey.csv), [mouser.csv]
 | J3 | 1 | Conn_02x01 | Pin header 1×2, 2.54 mm, cut from a strip | [S1011EC-40-ND](https://www.digikey.com/en/products/filter?keywords=S1011EC-40-ND) | [200-TSW14007TS](https://www.mouser.com/ProductDetail/200-TSW14007TS) |  | |
 | R1, R2 | 2 | 1k | YAGEO RC0805FR-071KL | [311-1.00KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-1.00KCRCT-ND) | [603-RC0805FR-071KL](https://www.mouser.com/ProductDetail/603-RC0805FR-071KL) | LCSC [C17513](https://www.lcsc.com/search?q=C17513) | Yes |
 | U1, U2, U5 | 3 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
-| U3 | 1 | AS6C62256 | Alliance Memory AS6C62256-55PCN | [1450-1033-ND](https://www.digikey.com/en/products/filter?keywords=1450-1033-ND) | [913-AS6C62256-55PCN](https://www.mouser.com/ProductDetail/913-AS6C62256-55PCN) |  | |
+| U3 | 1 | HM62256LP-70 | Hitachi HM62256LP-70 |  |  | [Jameco 82472](https://www.jameco.com/z/HM62256LP-70-HITACHI-IC-62256LP-70-Low-Power-CMOS-SRAM-256K-Bit-32Kx8-70ns_82472.html) | |
 | U4 | 1 | AT28C256 | Microchip Technology AT28C256-15PU | [AT28C256-15PU-ND](https://www.digikey.com/en/products/filter?keywords=AT28C256-15PU-ND) | [556-AT28C25615PU](https://www.mouser.com/ProductDetail/556-AT28C25615PU) |  | |
 | U3, U4 | 2 | Socket | IC socket, 28-pin, 0.6 in | [3M5481-ND](https://www.digikey.com/en/products/filter?keywords=3M5481-ND) | [517-4828-6004-CP](https://www.mouser.com/ProductDetail/517-4828-6004-CP) | | |
 
 Pin headers are cut from strips, and the cart files count whole strips.
+
+- **U3:** Hitachi HM62256LP-70, out of production: buy it from Jameco. The parts lists order it from 2026-11-28, in place of the Alliance AS6C62256 they ordered before. The Alliance has misread on the family's machines, now and then returning a byte with one bit wrong, so that programs crash or misbehave; the Hitachi hasn't, in testing on the ACE and the KIM.
 
 
 ## PS2 Helper
@@ -1201,7 +1202,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 
 ### RAM Card Rev 1.1
 
-Drawn, not made yet. **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window, a diode chip select (BAT54s in the BAT85s' place) and a 74HCT00 for `RB` and `WB`. The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window.
+Drawn, not made yet. **Proven design**: the ACE's banked-RAM circuit, tested as the ACE RAM Patch 1.1: a bank latch for each window and a diode chip select (BAT54s in the BAT85s' place). The window decode is Rev 1.0's, and the `LATCH EN` and `BANK ADDR` headers are gone. Tracks rerouted, with the decode check passing in every window.
 
 Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BOM/RAM%20Card/Rev%201.1/mouser.csv), [digikey-through-hole.csv](BOM/RAM%20Card/Rev%201.1/digikey-through-hole.csv), [mouser-through-hole.csv](BOM/RAM%20Card/Rev%201.1/mouser-through-hole.csv)
 
@@ -1213,9 +1214,8 @@ Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 | R3 | 1 | 10k | YAGEO RC0805FR-0710KL | [311-10.0KCRCT-ND](https://www.digikey.com/en/products/filter?keywords=311-10.0KCRCT-ND) | [603-RC0805FR-0710KL](https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL) | LCSC [C17414](https://www.lcsc.com/search?q=C17414) | Yes |
 | U1 | 1 | AS6C4008 | Alliance Memory AS6C4008-55PCN | [1450-1027-ND](https://www.digikey.com/en/products/filter?keywords=1450-1027-ND) | [913-AS6C4008-55PCN](https://www.mouser.com/ProductDetail/913-AS6C4008-55PCN) |  | |
 | U2, U9 | 2 | 74HC573 | Nexperia USA Inc. 74HC573D,653 | [1727-2818-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2818-1-ND) | [771-74HC573D-T](https://www.mouser.com/ProductDetail/771-74HC573D-T) | LCSC [C5608](https://www.lcsc.com/search?q=C5608) | Yes |
-| U3 | 1 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
+| U3, U6 | 2 | 74HC00 | Nexperia USA Inc. 74HC00D,653 | [1727-2773-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2773-1-ND) | [771-74HC00D-T](https://www.mouser.com/ProductDetail/771-74HC00D-T) | LCSC [C5586](https://www.lcsc.com/search?q=C5586) | Yes |
 | U5 | 1 | 74HC30 | Nexperia USA Inc. 74HC30D,653 | [1727-3066-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-3066-1-ND) | [771-74HC30D-T](https://www.mouser.com/ProductDetail/771-74HC30D-T) | LCSC [C19818870](https://www.lcsc.com/search?q=C19818870) | Yes |
-| U6 | 1 | 74HCT00 | Texas Instruments SN74HCT00DR | [296-14860-1-ND](https://www.digikey.com/en/products/filter?keywords=296-14860-1-ND) | [595-SN74HCT00DR](https://www.mouser.com/ProductDetail/595-SN74HCT00DR) | LCSC [C6764](https://www.lcsc.com/search?q=C6764) | Yes |
 | U7 | 1 | 74HC138 | Nexperia USA Inc. 74HC138D,653 | [1727-2781-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2781-1-ND) | [771-74HC138D-T](https://www.mouser.com/ProductDetail/771-74HC138D-T) | LCSC [C5602](https://www.lcsc.com/search?q=C5602) | Yes |
 | U8 | 1 | 74HC02 | Nexperia USA Inc. 74HC02D,653 | [1727-2774-1-ND](https://www.digikey.com/en/products/filter?keywords=1727-2774-1-ND) | [771-74HC02D-T](https://www.mouser.com/ProductDetail/771-74HC02D-T) | LCSC [C5588](https://www.lcsc.com/search?q=C5588) | Yes |
 | U1 | 1 | Socket | IC socket, 32-pin, 0.6 in | [3M5470-ND](https://www.digikey.com/en/products/filter?keywords=3M5470-ND) | [517-4832-6000-CP](https://www.mouser.com/ProductDetail/517-4832-6000-CP) | | |
@@ -1224,7 +1224,6 @@ Cart files: [digikey.csv](BOM/RAM%20Card/Rev%201.1/digikey.csv), [mouser.csv](BO
 Pin headers are cut from strips, and the cart files count whole strips.
 
 - **D1, D2:** The RAM Card 1.1's chip-select diodes, in the ACE's BAT85 place: a small-signal Schottky of about 10 pF, as the BAT85 is. A power Schottky's larger capacitance would slow the chip select's release.
-- **U6:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
 
 ### RAM Card Rev 1.0
 
@@ -1539,7 +1538,7 @@ Pin headers are cut from strips, and the cart files count whole strips.
 - **U2:** Soldered to the board on two 1×20 pin headers, cut from the header strip, not by its castellations. JLCPCB doesn't fit it: solder it yourself.
 - **U3:** The built-in drive (16 MB). Digi-Key and Mouser have none in stock today (36-week lead); LCSC does. Any 16-pin 300 mil W25Q with a /RESET pin fits the same footprint, up to the 128 MB W25Q01JVSFIQ (Digi-Key 256-W25Q01JVSFIQ-ND, Mouser 454-W25Q01JVSFIQ, stocked at both); the firmware fits the disks to the size it finds and mirrors the rest.
 - **U6:** LCSC C113281 is TI's SN74LVC541APWR, the same part. Digi-Key has none of either in stock today; Mouser has.
-- **U8:** The RAM's RB/WB gate (2026-11-11): its TTL thresholds end RB and WB a few ns later after PHI2 falls.
+- **U8:** The RB/WB gate: its TTL input thresholds end RB and WB a few ns later after PHI2 falls than a 74HC00's.
 
 
 ## Storage Card

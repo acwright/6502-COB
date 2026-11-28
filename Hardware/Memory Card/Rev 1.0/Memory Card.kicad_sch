@@ -8195,7 +8195,7 @@
 				)
 			)
 		)
-		(property "Value" "AS6C62256"
+		(property "Value" "HM62256LP-70"
 			(at 129.54 39.878 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8238,7 +8238,7 @@
 				)
 			)
 		)
-		(property "Digikey" "1450-1033-ND"
+		(property "Digikey" ""
 			(at 118.11 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -8249,7 +8249,7 @@
 				)
 			)
 		)
-		(property "Mouser" "913-AS6C62256-55PCN"
+		(property "Mouser" ""
 			(at 118.11 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -8260,7 +8260,7 @@
 				)
 			)
 		)
-		(property "Jameco" ""
+		(property "Jameco" "82472"
 			(at 118.11 44.45 0)
 			(hide yes)
 			(show_name no)

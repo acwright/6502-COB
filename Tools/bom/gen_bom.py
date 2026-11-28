@@ -7,7 +7,7 @@ from apply import footprints,props,fp_ref,silk_value,FIT,DNP_REF,H,K,C,O,status
 from common import load,SCOPE
 A=load('assignment.json');AUD={(r['repo'],r['board'],r['rev']):r for r in load('audit.json')}
 TEST=O.get('tested',{});REP=json.load(open(H+'/known-values.json')) if os.path.exists(H+'/known-values.json') else []
-JAM={'43318':'https://www.jameco.com/z/R6551AP-Rockwell-IC-6551-Asynchronous-Communication-Interface-Adapter-DIP-28-pin_43318.html','44564':'https://www.jameco.com/z/74C922-Major-Brands-IC-74C922-16-20-Key-Encoder-DIP-18-pin_44564.html'}
+JAM={'43318':'https://www.jameco.com/z/R6551AP-Rockwell-IC-6551-Asynchronous-Communication-Interface-Adapter-DIP-28-pin_43318.html','44564':'https://www.jameco.com/z/74C922-Major-Brands-IC-74C922-16-20-Key-Encoder-DIP-18-pin_44564.html','82472':'https://www.jameco.com/z/HM62256LP-70-HITACHI-IC-62256LP-70-Low-Power-CMOS-SRAM-256K-Bit-32Kx8-70ns_82472.html'}
 def nat(s): return [int(x) if x.isdigit() else x for x in re.split(r'(\d+)',s)]
 def ranges(R):
     R=sorted(set(R),key=nat);out=[];i=0
@@ -156,13 +156,12 @@ def known(repo):
             if k in FIT: bad['Fit 10k, not 1k. If your board came with 1k soldered here, replace it. See the build notes.' if 'smd' in (re.search(r'\n\t\t\(attr ([^)]*)\)',b) or [0,''])[1] else 'Fit 10k, not the 1k in the original files. See the build notes.'].append(ref)
             if (repo,board,rev,ref) in(('ACE','ACE Board','1.0','J5'),('COB','Sound Card','1.0','J2'),('VCS','Output Board','1.0','J1')): bad['`VDD` is the supply for a real SID at pin 28: 12 V for a 6581, 9 V for an 8580. The standard build does not provide it, and it has never been tested. Leave it unconnected with an ARMSID.'].append(ref)
             if (repo,board,rev,ref)==('KIM','Keypad Card','1.0','U3'): bad['The silk says 65C21; fit the W65C21N listed here.'].append(ref)
-            # The fast AS6C62256 with its /OE on RB, the RB/WB gate's output, lets go of the data bus as PHI2 falls,
-            # before the CPU's hold time is up. Found on the owner's ACE Rev 1.0 on 2026-11-21 and measured on 2026-11-23:
-            # clean at 5.00 V at the board, failing at 5.12 V, on the ACE and on a COB with a Memory Card 1.0. The same
-            # RAM and gate are on these four boards. Each board's Rev 1.1 takes /OE from the inverted RWB instead
-            # (drawn 2026-11-23), so only the made Rev 1.0s keep the row. The ACE Board 1.0 (change 10) and the KIM
-            # Board 1.0 have a build-note fix; the VCS Main Board and the COB Memory Card get none (owner, 2026-11-23).
-            if (repo,board,ref) in(('ACE','ACE Board','U7'),('KIM','KIM Board','U2'),('VCS','Main Board','U2'),('COB','Memory Card','U3')) and rev=='1.0': bad['Under a heavy load, such as the 1 MB Flash Cart, or at 2 MHz, this AS6C62256 can return a wrong byte from RAM: it lets go of the data bus too early at the end of a read, and the CPU can read a 0 bit as 1. Programs then crash or misbehave. The supply voltage decides how often. In tests, a board with 5.0 V at the RAM read clean, and one with 5.1 V or more failed, so measure the voltage at the board if you see this. A Hitachi HM62256LP-70, no longer made, does not have the problem.'+(' On a Rev 1.0 it can be fixed with two cuts and two wires: change 10 in the build notes.' if (board,rev)==('ACE Board','1.0') else ' On a Rev 1.0 it can be fixed with two cuts and two wires: see the build notes.' if (board,rev)==('KIM Board','1.0') else '')].append(ref)
+            # The main 32 KB RAM is the Hitachi HM62256LP-70 (owner, 2026-11-28), on a 74HC00 gate with its /OE on RB, on
+            # the ACE Board, KIM Board, VCS Main Board and COB Memory Card, every revision; the Video Card's video RAM keeps
+            # its AS6C62256. The Alliance AS6C62256 the lists ordered before misread on the owner's ACE, KIM and COB, and the
+            # Hitachi never did in the owner's testing. A design choice, not a finding about the fault, whose cause isn't
+            # known, so the row names no cause. A made board whose silk prints the old value is told which chip to fit.
+            if i=='HM62256LP-70|DIP-28_W15.24mm' and status(repo,board,rev)!='drawn': bad[('The silk says AS6C62256; fit the Hitachi HM62256LP-70 listed here, from Jameco. ' if sv and P.get('Value')=='AS6C62256' else 'Fit the Hitachi HM62256LP-70 listed here, from Jameco. ')+'The Alliance AS6C62256 that this parts list ordered until 2026-11-28 has misread on the family\'s machines, now and then returning a byte with one bit wrong, so that programs crash or misbehave; the Hitachi hasn\'t, in testing on the ACE and the KIM.'].append(ref)
             if (repo,board,rev,ref)==('VCS','Input Board','1.0','U2'): bad['The silk says ATmega1284-P; fit the ATmega1284 listed here.'].append(ref)
             if k in DNP_REF: bad['Do not fit this. If your board came with it soldered, remove it. See the build notes.'].append(ref)
             if (repo,board,rev,ref) in(('COB','Backplane Pro','1.0','J10'),('VCS','Main Board','1.0','J10'),('COB','Breadboard Helper','1.0','J1')): bad['Fit a box header for a ribbon cable. The silk shows a plain header, but the holes are the same. Pin 1 is the square pad, and the notch faces the even-numbered pins.'].append(ref)
